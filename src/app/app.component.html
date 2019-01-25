@@ -1,12 +1,10 @@
 <div>
-  <div style="background-color: rgb(100, 122, 151);">
-  <h1  style="text-align:center; margin: 30px; color: white">
+  <h1  style="text-align:center; margin: 30px;">
     Welcome to {{ title }}!
   </h1>
-</div>
   <div class="ui grid container">
-    <div class="four wide column">
-      <div class="ui vertical menu">
+    <div class="two wide column" >
+      <div class="ui fixed horizontal menu" style="margin-top: 30px;">
         <a class="item" routerLink="/home">
           Home
         </a>
@@ -19,9 +17,12 @@
         <a class="item" routerLink="/typescript">
           TypeScript
         </a>
+        <a class="item" routerLink="/project-overview">
+          Project
+        </a>
       </div>
     </div>
-    <div class="twelve wide column">
+    <div class="fourteen wide column">
       <router-outlet></router-outlet>
     </div>
   </div>

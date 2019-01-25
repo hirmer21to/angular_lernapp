@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { EnvironmentComponent } from './environment/environment.component';
 import { FirstAppComponent } from './first-app/first-app.component';
 import { TypescriptComponent } from './typescript/typescript.component';
+import { ProjectOverviewComponent } from './project-overview/project-overview.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { TypescriptComponent } from './typescript/typescript.component';
     HomeComponent,
     EnvironmentComponent,
     FirstAppComponent,
-    TypescriptComponent
+    TypescriptComponent,
+    ProjectOverviewComponent
   ],
   imports: [
     BrowserModule,

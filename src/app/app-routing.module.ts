@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { EnvironmentComponent } from './environment/environment.component';
 import { FirstAppComponent } from './first-app/first-app.component';
 import { TypescriptComponent } from './typescript/typescript.component';
+import { ProjectOverviewComponent } from './project-overview/project-overview.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -11,7 +12,7 @@ const routes: Routes = [
   { path: 'environment', component: EnvironmentComponent },
   { path: 'first-app', component: FirstAppComponent },
   { path: 'typescript', component: TypescriptComponent },
-
+  { path: 'project-overview', component: ProjectOverviewComponent },
 
 ];
 
