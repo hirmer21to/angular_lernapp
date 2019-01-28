@@ -1,0 +1,73 @@
+<h2>App</h2>
+
+<h4>Initial Application</h4>
+<div *ngIf="theorySmall">
+</div>
+<div *ngIf="theoryLarge">
+</div>
+<div *ngIf="praxis">
+  <p>Open your cmd and type:</p>
+  <p class="ui message black"> <code>ng new where-to-go -is</code></p>
+  <p>The <code>-is</code> defines that the project has an inline-style. If you don't do this, we would have an extra
+    CSS-file for every single component. For this project, we don't want this.</p>
+  <p>Next open your Visual Studio Code and open project from file (STRG + K &nbsp;&nbsp; STRG+O). And then run the
+    initial application. You can open a terminal directly in Visual Studio Code with STRG+ö.</p>
+  <p class="ui message black"> <code>ng serve --open</code></p>
+  <p>When the brower is open you will see the inital app of Angular:</p>
+  <img class="ui image big centered" src="assets/img/Angular-Initial-App.png">
+</div>
+
+<h4>Git</h4>
+<p>Before we make changes, we want to manage our project with Git. As you already know, Visual Studio Code comes with
+  a Git integration. So my recommendation is to install Sourcetree, open a new tab and add the project folder and
+  manage Git from Sourcetree. Of cause, you can also use Git Gui or Visual Studio Code. </p>
+
+
+
+<h4>Make some changes</h4>
+<div *ngIf="theorySmall">
+</div>
+<div *ngIf="theoryLarge">
+</div>
+<div *ngIf="praxis">
+  <p>Open <b>app.component.ts</b> and change the title of the app.</p>
+  <p class="ui message black"> <code>export class AppComponent &#123; 
+    <br/>&nbsp;&nbsp; title = 'Where To Go'; <br/>
+      &#125;</code>
+  </p>
+  <p>In the <b>app.component.html</b> is a binding to "title". This binding brings the new title into the application.</p>
+  <p class="ui message black"><code>Welcome to &#123; &#123; title &#125; &#125;!</code></p>
+  <img class="ui image medium centered" src="assets/img/Angular-Changed-Title.png">
+</div>
+
+<h4>Import UI-Framework</h4>
+<p>As this is a web application showing you how to build an Angular app, there is no need to do CSS styling. Probably
+  you already know how to style with CSS and the focus here should be Angular, that's why we are going to use the
+  Semantic UI CSS-Framework for a nice look and feel.</p>
+<p>
+  With the plus button you can add another terminal to type in new commands while running the application.
+</p>
+<p><img class="ui image large centered" src="assets/img/Second-Terminal.png"></p>
+<p>You can install the UI-Framework with the command:</p>
+<p class="ui message black"><code>npm i --save semantic-ui-css</code></p>
+<p>Add to the file <b>angular.json</b>:</p>
+<p class="ui message black"><code>"styles": [<br/>
+&nbsp; <b>"../Where-To-Go/node_modules/semantic-ui-css/semantic.css",</b><br/>
+&nbsp; "src/styles.css"<br/>
+],</code></p>
+
+<p>Now you can test the new style. Adjust the <b>app.component.html</b> like this and see if it looks different:</p>
+<p class="ui message black"><code>
+    &lt;div style="text-align:center" &gt; <br/>
+    &nbsp; &lt;h1 class="ui header" style="margin: 30px"&gt; <br/>
+    &nbsp;&nbsp;&nbsp; Welcome to &#123; &#123; title &#125; &#125;! <br/>
+    &nbsp; &lt;/h1&gt;  <br/>
+          &lt;/div&gt;<br/>
+          &lt;router-outlet&gt; &lt;/router-outlet&gt;
+</code></p>
+<p class="ui info message">If you have any problems with installing the semantic ui css, here are some tips that may help. If you get on the console the
+  message <code>found 1 high severity vulnerability </code> just run <code>npm audit fix</code>. Next you can try a
+  restart of Visual Studio Code. If this is also not working. You can download it by yourself <a href="https://github.com/Semantic-Org/Semantic-UI-CSS">(Semantic
+    UI CSS Download)</a> and paste it in your project folder.</p>
+
+<iframe style="margin-top:20px; width:100%;"></iframe>
