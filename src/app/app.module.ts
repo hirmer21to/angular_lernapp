@@ -8,6 +8,7 @@ import { EnvironmentComponent } from './environment/environment.component';
 import { FirstAppComponent } from './first-app/first-app.component';
 import { TypescriptComponent } from './typescript/typescript.component';
 import { ProjectOverviewComponent } from './project-overview/project-overview.component';
+import { AppAndComponentsComponent } from './app-and-components/app-and-components.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ProjectOverviewComponent } from './project-overview/project-overview.co
     EnvironmentComponent,
     FirstAppComponent,
     TypescriptComponent,
-    ProjectOverviewComponent
+    ProjectOverviewComponent,
+    AppAndComponentsComponent
   ],
   imports: [
     BrowserModule,
