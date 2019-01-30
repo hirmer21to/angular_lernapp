@@ -3,17 +3,52 @@
 <h4>Generate new Component</h4>
 
 <div *ngIf="praxis">
-  <p>Open your command line in Visual Studio Code and generate your "Home" Component, it's going to be the page you see
+  <p>Open your command line in Visual Studio Code and generate (short form <code>g</code>) your "where-to-go"
+    Component, it's going to be the page you see
     first when you start the app.</p>
   <p class="ui message black"> <code>ng g component where-to-go</code></p>
 </div>
 <div *ngIf="theorySmall" style="margin-top: 20px;">
   <p>Result:</p>
-  <p><img class="ui image centered" style="height: 75px" src="assets/img/Create-Three-Files.png"></p>
-  <p>The CLI creates three files in one folder for you. It's the skeleton for your component.
+  <p><img class="ui image centered" style="height: 65px" src="assets/img/Create-Three-Files.png"></p>
+  <p>The app.module.ts automatically imported your new component. The CLI creates three files in one folder for you.
+    It's the skeleton for your component. The HTML file is nearly
+    empty and ready for your code. You can ignore the spec.ts file it defines a unit test for the WhereToGoComponent.
+    The .ts file is for your TypeScript code and defines the components logic.
   </p>
 </div>
-<div *ngIf="theoryLarge">
+<div *ngIf="theoryLarge" style="margin-top: 20px;">
+  <p><img class="ui image medium centered" src="assets/img/Skeleton-Component.png"></p>
+  <p>There are some interesting things about the skeleton of the component.ts files. <code>@Component</code> is a
+    decorator function which specifies the Angular metadata for the component. The CLI generates three metadata
+    properties:</p>
+  <ul>
+    <li><code>selector</code>: the CSS-element-selector of the component </li>
+    <li><code>templateURL</code>: the location of the components' template file</li>
+    <li><code>styles</code>: the location of the private CSS style of the component (here empty, because we decided to
+      import the semantic-ui for a overall style and therefor generated the project without a css for every component)</li>
+  </ul>
+  <p>The <code>selector</code> 'app-where-to-go' matches with the name of the HTML element. This name identifies the
+    component within the template of the parent-component.</p>
+  <p><code>ngOnInit</code> is a lifecycle hook function. Angular calls this function shortly after creating the
+    component. It is the right function to place initialisation logic.</p>
+  <p>The component always class needs to be exported, to reuse it anywhere else. E.g. in the AppModule.</p>
+</div>
+<div *ngIf="praxis" style="margin-top: 20px;">
+  <h4>Reuse Component</h4>
+  <p>We can now use the <code>selector</code></p>
+  <p class="ui message black"><code>&lt;app-where-to-go&gt;&lt;/app-where-to-go&gt;</code></p>
+  <p>and insert it into the <b>app.component.html</b>. Now the app shows the component at this location, just like it
+    would do with every other HTML tag.</p>
+    <h4>Create and show Property</h4>
+  <p>Now we will use data-binding to show a temporary text message on the "Home" page until we are ready to show the
+    information about the next lecture we have to go to. Put this property into <b>where-to-go.component.ts</b>:</p>
+  <p class="ui message black"><code>  tempText: String = "Here will appear your information soon!";
+      </code></p>
+  <p>and replace the auto generated code in the <b>where-to-go.component.html</b> with this code:</p>
+  <p class="ui message black"><code> &#123; &#123; tempText &#125; &#125; </code></p>
+  <p>This kind of data-binding is called interpolation and you just displayed the value of the property "tempText" via your
+    HTML code.</p>
 </div>
 
 <iframe style="margin-top:20px; width:100%; height: 500px" src="https://stackblitz.com/edit/where-to-go-step-2?embed=1&file=src/app/app.component.ts&hideNavigation=1"></iframe>
