@@ -72,7 +72,7 @@
   <p>If not, you can force it by placing the curser behind the underlined word and press STRG + space bar, or do it on
     your own like this:</p>
   <p class="ui message black"><code>import &#123; Time &#125; from "@angular/common";</code></p>
-<h4>Generate Item Component</h4>
+  <h4>Generate Item Component</h4>
   <p>We want to show a complete lecture now so we generate the component lecture-item.</p>
   <p class="ui message black"><code>ng g component lecture-item</code></p>
   <p>We create a lecture the <b>lecture-item.component.ts</b> first and define all the properties the constructor
@@ -88,7 +88,8 @@
         &nbsp; department: 'Lehrstuhl für Medieninformatik'<br/>
       &#125;
   </code></p>
-  <p>And in the <b>lecture-item.component.html</b> we can define what of this item and how we want to display it.</p>
+  <p>And in the <b>lecture-item.component.html</b> we can define what of this item and how we want to display it. We
+    use the interpolation to display the properties of the component-class in this HTML-template.</p>
   <p class="ui message black"><code>
       &lt;div style="padding: 50px;"&gt; <br/>
       &nbsp; &lt;div class="ui middle aligned divided list"&gt; <br/>
@@ -115,9 +116,9 @@
     Additionally it is possible to create your own pipes. In this case we are fine with the build-in pipes.</p>
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
-<p>We want to try the UppercasePipe, which formats our string in capital letters:</p>
+  <p>We want to try the UppercasePipe, which formats our string in capital letters:</p>
 
-<p class="ui message black"><code>&lt;div class="header"&gt;What? &#123; &#123;lecture.name | uppercase&#125; &#125; &lt;/div&gt;</code></p>
+  <p class="ui message black"><code>&lt;div class="header"&gt;What? &#123; &#123;lecture.name | uppercase&#125; &#125; &lt;/div&gt;</code></p>
 </div>
 
 <iframe style="margin-top:20px; width:100%; height: 500px" src="https://stackblitz.com/edit/where-to-go-step-2?embed=1&file=src/app/app.component.ts&hideNavigation=1"></iframe>

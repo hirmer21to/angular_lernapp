@@ -1,0 +1,104 @@
+<h2>Components, FormModules and Directives</h2>
+<h4>Mock Data</h4>
+<div *ngIf="praxis">
+    <p>Later we will have more than one lecture and therefor we are going to need a list to display all of them.
+        Because we don't get our data from a server we will create some mock-data and pretend they are from a server.</p>
+    <p class="ui message black"><code>ng g class shared/mock-lectures</code></p>
+    <p>In this class we define the constant LECTURES as an Array of lectures and export it. The content is the same
+        like the property lecture from the lecture-item.component.ts, so you can copy the first from there and paste
+        them a few times for different lectures.</p>
+    <p class="ui message black"><code>export const LECTURES: Lecture[] = [<br/>
+           &nbsp; &#123; <br/>
+           &nbsp;&nbsp; id: 1,<br/>
+           &nbsp;&nbsp; name: 'Webtechnologien',<br/>
+           &nbsp;&nbsp; room: '075',<br/>
+           &nbsp;&nbsp; day: 'Monday',<br/>
+           &nbsp;&nbsp; time: &#123; hours: 10, minutes: 15 &#125;,<br/>
+           &nbsp;&nbsp; building: 'WE5',<br/>
+           &nbsp;&nbsp; floor: '02',<br/>
+           &nbsp;&nbsp; department: 'Lehrstuhl für Medieninformatik'<br/>
+           &nbsp; &#125;,<br/>
+           &nbsp; &#123; <br/>
+           &nbsp;&nbsp; id: 2, <br/>
+           ... and so on <br/>
+           &nbsp; &#125;<br/>
+           ]
+            </code>
+    </p>
+    <p>After that, you can delete the property lecture from the <b>lecture-item.component.ts</b> and replace it with
+        the constant.</p>
+    <p class="ui message black"><code>lectures = LECTURES;</code></p>
+
+    <h4>Display a List</h4>
+    <p>
+        Now we generate our shell for the lecture items. The timetable is going to be a list with all the lectures we
+        have.
+    </p>
+    <p class="ui message black"><code>ng g component timetable</code></p>
+    <p>We display this component in the <b>app.component.ts</b> and replace the lecture-item with this code:</p>
+    <p class="ui message black"><code>&lt;app-timetable&gt;&lt;/app-timetable&gt;</code></p>
+    <p>In the <b>timetable.component.html</b> we display now the list of lecture-items with a header beyond:</p>
+    <p class="ui message black"><code>
+            &lt;div style="margin-top: 15px"&gt;&lt;/div&gt;<br/>
+            &lt;h2 class="ui header"&gt;Timetable:&lt;/h2&gt;<br/>
+            &lt;app-lecture-item&gt;&lt;/app-lecture-item&gt;
+    </code></p>
+    <p>In the <b>lecture-item.component.html</b> we can make some changes now to actually show a list of lecture-items.
+        In the div with class="item" we insert a
+        for-loop.</p>
+    <p class="ui message black"><code>&lt;div *ngFor="let lecture of lectures" class="item"&gt;&lt;/div&gt;</code></p>
+
+
+</div>
+<div *ngIf="theorySmall" style="margin-top: 20px;">
+    <h4>Directives</h4>
+    <p>These constructs are called "Directives". With this you can make loops in the HTML similar to loops in the logic
+        code (TypeScript, Java,...), like you may know. </p>
+    <p>In this code example every time I iterate over my list of lectures I take one single lecture out of all
+        lectures and for this lecture is display the name, the location, the day and time and so on. And with this
+        for-loop I repeat this for all the lectures I have.</p>
+    <p>Another directive we already used before is <code>*ngIf</code>. Because we made department a optional property,
+        someone may not set a value for this property. So we want to ask if this property has a value and just display
+        the corresponding div if it has.</p>
+    <p class="ui info message">
+        And never forget the <code>*</code>:<br />
+        <code>*ngFor="let lecture of lectures" <br />
+        *ngIf="lecture.department"</code>
+    </p>
+</div>
+<div *ngIf="praxis" style="margin-top: 20px;">
+    <h4>Details View</h4>
+    <p>Later we want to be able to make changes within a lecture item so we want select one lecture and get its details
+        view via click. So first we need a variable for the selected lecture in the <b>lecture-item.component.ts</b>
+        and second we need a function, we call it <code>onSelect()</code>, which assigns the clicked lecture from the
+        template to the <code>selectedLecture</code> of the component.</p>
+    <p class="ui message black"><code>
+                selectedLecture: Lecture; <br/>
+                onSelect(lecture: Lecture): void &#123;<br/>
+                &nbsp;  this.selectedLecture = lecture;<br/>
+                &#125;
+        </code></p>
+    <p>We add a click-event-binding to the <b>lecture-item.component.html</b> and change the whole <code>div</code>
+        bock to an active element.</p>
+    <p class="ui message black"><code>&lt;a *ngFor="let lecture of lectures" (click)="onSelect(lecture)" class="item"&gt;
+            </code></p>
+    <p>We want to display the clicked lecture beneath the list of all lectures. Therefor we need to add some code for
+        the selected lecture, but just if there is a lecture selected. To make this sure, we have the <code>*ngIf</code>
+        directive.</p>
+    <p>In the <b>lecture-item.component</b> we need to insert the following code snippet:</p>
+    <p class="ui message black"><code>
+                &lt;div class="ui middle aligned divided list"&gt; <br/>
+                &nbsp; &lt;div *ngIf="selectedLecture" style="padding: 50px;"&gt; <br/>
+                &nbsp;&nbsp; &lt;h4&gt; &#123; &#123;selectedLecture.name&#125; &#125; Details &lt;/div&gt; <br/>
+                &nbsp;&nbsp; &lt;div class="description"&gt;Where? &#123; &#123;selectedLecture.building&#125; &#125;/&#123; <br/>
+                &nbsp;&nbsp; &#123;selectedLecture.floor&#125; &#125;.&#123; &#123;selectedLecture.room&#125; &#125; &lt;/div&gt; <br/> 
+                &nbsp;&nbsp; &lt;div class="description"&gt;When? &#123; &#123;selectedLecture.day&#125; &#125;, <br/> 
+                &nbsp;&nbsp; &#123; &#123;selectedLecture.time.hours&#125; &#125;:&#123; &#123;selectedLecture.time.minutes&#125; &#125; &lt;/div&gt; <br/>
+                &nbsp;&nbsp; &lt;div *ngIf="selectedLecture.department" class="description">Department: <br/> 
+                &nbsp;&nbsp; &#123; &#123;selectedLecture.department&#125; &#125; &lt;/div&gt; <br/>
+                &nbsp; &lt;/div&gt; <br/>
+                &lt;/div&gt; <br/>
+            </code></p>
+    <p>Now we asked, is there a <code>selectedLecture</code>, okay then display the <code>selectedLecture.name selectedLecture.building</code>
+        and all the other information.</p>
+</div>
