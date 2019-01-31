@@ -7,6 +7,7 @@ import { TypescriptComponent } from './typescript/typescript.component';
 import { ProjectOverviewComponent } from './project-overview/project-overview.component';
 import { ApplicationComponent } from './application/application.component';
 import { ComponentsComponent } from './components/components.component';
+import { ComponentsFormmodulesDirectivesComponent } from './components-formmodules-directives/components-formmodules-directives.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'typescript', component: TypescriptComponent },
   { path: 'project-overview', component: ProjectOverviewComponent },
   { path: 'application', component: ApplicationComponent},
-  { path: 'components', component: ComponentsComponent}
+  { path: 'components', component: ComponentsComponent},
+  { path: 'app-components-formmodules-directives', component: ComponentsFormmodulesDirectivesComponent}
 
 
 ];

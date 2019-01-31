@@ -10,6 +10,7 @@ import { TypescriptComponent } from './typescript/typescript.component';
 import { ProjectOverviewComponent } from './project-overview/project-overview.component';
 import { ApplicationComponent } from './application/application.component';
 import { ComponentsComponent } from './components/components.component';
+import { ComponentsFormmodulesDirectivesComponent } from './components-formmodules-directives/components-formmodules-directives.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ComponentsComponent } from './components/components.component';
     TypescriptComponent,
     ProjectOverviewComponent,
     ApplicationComponent,
-    ComponentsComponent
+    ComponentsComponent,
+    ComponentsFormmodulesDirectivesComponent
   ],
   imports: [
     BrowserModule,
