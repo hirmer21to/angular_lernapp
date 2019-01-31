@@ -1,10 +1,11 @@
 <div>
-  <h1 class="ui  header" style="text-align:center; margin: 30px;">
+  <h1 class="ui  header" style="text-align:center; margin: 30px; ">
     Welcome to {{ title }}!
   </h1>
-  <div class="ui grid container">
-    <div class="two wide column">
-      <div class="ui vertical left menu" style="margin-top: 30px;">
+  <div class="ui grid container" style="min-width: 90%">
+    <div class="four wide column">
+      <div></div>
+      <div class="ui vertical menu" style="max-width:100%;">
         <a class="item" routerLink="/home">
           Home
         </a>
@@ -26,7 +27,7 @@
           Components</a>
       </div>
     </div>
-    <div class="fourteen wide column">
+    <div class="twelve wide column">
       <router-outlet></router-outlet>
     </div>
   </div>

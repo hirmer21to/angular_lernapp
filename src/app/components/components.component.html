@@ -40,15 +40,84 @@
   <p class="ui message black"><code>&lt;app-where-to-go&gt;&lt;/app-where-to-go&gt;</code></p>
   <p>and insert it into the <b>app.component.html</b>. Now the app shows the component at this location, just like it
     would do with every other HTML tag.</p>
-    <h4>Create and show Property</h4>
+  <h4>Create and show Property</h4>
   <p>Now we will use data-binding to show a temporary text message on the "Home" page until we are ready to show the
     information about the next lecture we have to go to. Put this property into <b>where-to-go.component.ts</b>:</p>
-  <p class="ui message black"><code>  tempText: String = "Here will appear your information soon!";
+  <p class="ui message black"><code>  tempText: string = "Here will appear your information soon!";
       </code></p>
   <p>and replace the auto generated code in the <b>where-to-go.component.html</b> with this code:</p>
   <p class="ui message black"><code> &#123; &#123; tempText &#125; &#125; </code></p>
-  <p>This kind of data-binding is called interpolation and you just displayed the value of the property "tempText" via your
+  <p>This kind of data-binding is called interpolation and you just displayed the value of the property "tempText" via
+    your
     HTML code.</p>
+  <h4>Create Class</h4>
+  <p>For our project we are going to need a class to define a lecture. With this code you can generate a TypeScript
+    class in a new folder named "shared":</p>
+  <p class="ui message black"><code>ng g class shared/lecture</code></p>
+  <p>In this new class we define the constructor for lecture.</p>
+  <p class="ui message black"><code>
+      constructor( <br/>
+        &nbsp; public name: string,<br/>
+        &nbsp; public room: string,<br/>
+        &nbsp; public day: string,<br/>
+        &nbsp; public time: Time,<br/>
+        &nbsp; public building: string,<br/>
+        &nbsp; public floor: string,<br/>
+        &nbsp; public department?: string<br/>
+    )&#123; &#125;
+  </code></p>
+  <p>The property department is optional in this constructor and therefor marked with a <code>?</code>. Angular has its
+    own type for Time. Usually Visual Studio Code should ask you right away if you want to import it.</p>
+  <p><img class="ui image large centered" src="assets/img/Import-Time.png"></p>
+  <p>If not, you can force it by placing the curser behind the underlined word and press STRG + space bar, or do it on
+    your own like this:</p>
+  <p class="ui message black"><code>import &#123; Time &#125; from "@angular/common";</code></p>
+<h4>Generate Item Component</h4>
+  <p>We want to show a complete lecture now so we generate the component lecture-item.</p>
+  <p class="ui message black"><code>ng g component lecture-item</code></p>
+  <p>We create a lecture the <b>lecture-item.component.ts</b> first and define all the properties the constructor
+    requires.</p>
+  <p class="ui message black"><code>
+      lecture: Lecture = &#123; <br/>
+        &nbsp; name: 'Webtechnologien',<br/>
+        &nbsp; room: '075',<br/>
+        &nbsp; day: 'Monday',<br/>
+        &nbsp; time: &#123; hours: 10, minutes: 15 &#125;,<br/>
+        &nbsp; building: 'WE5',<br/>
+        &nbsp; floor: '02',<br/>
+        &nbsp; department: 'Lehrstuhl für Medieninformatik'<br/>
+      &#125;
+  </code></p>
+  <p>And in the <b>lecture-item.component.html</b> we can define what of this item and how we want to display it.</p>
+  <p class="ui message black"><code>
+      &lt;div style="padding: 50px;"&gt; <br/>
+      &nbsp; &lt;div class="ui middle aligned divided list"&gt; <br/>
+      &nbsp;&nbsp; &lt;div class="item"&gt; <br/>
+      &nbsp;&nbsp;&nbsp; &lt;div class="content"&gt; <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp; &lt;h2 style="padding-bottom: 20px" class="header ui"&gt; Lecture Details:  &lt;/h2&gt; <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="header"&gt;What? &#123; &#123;lecture.name&#125; &#125; &lt;/div&gt; <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="description"&gt;Where? &#123; &#123;lecture.building&#125; &#125;/&#123; &#123;lecture.floor&#125; &#125;.&#123; &#123;lecture.room&#125; &#125; &lt;/div&gt; <br/> 
+      &nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="description"&gt;When? &#123; &#123;lecture.day&#125; &#125;, <br/> 
+      &nbsp;&nbsp;&nbsp;&nbsp; &#123; &#123;lecture.time.hours&#125; &#125;:&#123; &#123;lecture.time.minutes&#125; &#125; &lt;/div&gt; <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp; &lt;div *ngIf="lecture.department" class="description">Department: &#123; &#123;lecture.department&#125; &#125; &lt;/div&gt; <br/>
+      &nbsp;&nbsp;&nbsp; &lt;/div&gt; <br/>
+      &nbsp;&nbsp; &lt;/div&gt; <br/>
+      &nbsp; &lt;/div&gt; <br/>
+      &lt;/div&gt; <br/>
+  </code></p>
+  <p>To show it beneath the title and the where-to-go component we insert</p>
+  <p class="ui message black"><code>&lt;app-lecture-item&gt;&lt;/app-lecture-item&gt;</code></p>
+  <p>into the <b>app.component.html</b>.</p>
+</div>
+<h4>Pipes</h4>
+<div *ngIf="theoryLarge" style="margin-top: 20px;">
+  <p>Angular comes along with many build-in pipes. With pipes you can format strings, numbers and other displayed data.
+    Additionally it is possible to create your own pipes. In this case we are fine with the build-in pipes.</p>
+</div>
+<div *ngIf="praxis" style="margin-top: 20px;">
+<p>We want to try the UppercasePipe, which formats our string in capital letters:</p>
+
+<p class="ui message black"><code>&lt;div class="header"&gt;What? &#123; &#123;lecture.name | uppercase&#125; &#125; &lt;/div&gt;</code></p>
 </div>
 
 <iframe style="margin-top:20px; width:100%; height: 500px" src="https://stackblitz.com/edit/where-to-go-step-2?embed=1&file=src/app/app.component.ts&hideNavigation=1"></iframe>
