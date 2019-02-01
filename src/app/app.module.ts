@@ -11,6 +11,7 @@ import { ProjectOverviewComponent } from './project-overview/project-overview.co
 import { ApplicationComponent } from './application/application.component';
 import { ComponentsComponent } from './components/components.component';
 import { ComponentsFormmodulesDirectivesComponent } from './components-formmodules-directives/components-formmodules-directives.component';
+import { ReusableComponentsComponent } from './reusable-components/reusable-components.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ComponentsFormmodulesDirectivesComponent } from './components-formmodul
     ProjectOverviewComponent,
     ApplicationComponent,
     ComponentsComponent,
-    ComponentsFormmodulesDirectivesComponent
+    ComponentsFormmodulesDirectivesComponent,
+    ReusableComponentsComponent
   ],
   imports: [
     BrowserModule,
