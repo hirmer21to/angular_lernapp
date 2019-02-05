@@ -37,7 +37,7 @@
 </div>
 <h4>Inject the service</h4>
 <div *ngIf="praxis" style="margin-top: 20px;">
-  <p>We are going to add a parameter of type <code>LectureService</code> to the constructor of the <b>lecture-item.component.ts</b>:</p>
+  <p>We are going to add a parameter of type <code>LectureService</code> to the constructor of the <b>timetable.component.ts</b>:</p>
   <p class="ui message black"><code>
         constructor(private lectureService: LectureService) &#123; &#125;
   </code></p>
@@ -49,7 +49,7 @@
     ensures that exactly one object exists in a class.</p>
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
-  <p>Now replace the <code>lecture</code> propterty in <b>lecture-item.component.ts</b> and import the <code>LectureService</code>
+  <p>Now replace the <code>lecture</code> propterty in <b>timetable.component.ts</b> and import the <code>LectureService</code>
     if it wasn't imported automatically by adding the parameter in the constructor before.</p>
   <p class="ui message black"><code>
       import &#123; LectureService &#125; from '../shared/lecture.service';
@@ -89,7 +89,7 @@
       &nbsp;   return of (LECTURES);<br/>
           &#125;       </code>
   </p>
-  <p>We also need to replace the method in <b>lecture-item.component.ts</b> now.</p>
+  <p>We also need to replace the method in <b>timetable.component.ts</b> now.</p>
   <p class="ui message black"><code>
         getLectures(): void &#123;<br/>
         &nbsp; this.lectureService.getLectures()<br/>
@@ -105,3 +105,4 @@
     <code>subscribe()</code> passes the emitted array to the callback, which sets the component's lecture property.
   </p>
 </div>
+<iframe style="margin-top:20px; width:100%; height: 500px" src="https://stackblitz.com/edit/where-to-go-step-5?embed=1&file=src/app/timetable/timetable.component.ts&hideNavigation=1"></iframe>
