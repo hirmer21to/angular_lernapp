@@ -12,6 +12,7 @@ import { ApplicationComponent } from './application/application.component';
 import { ComponentsComponent } from './components/components.component';
 import { ComponentsFormmodulesDirectivesComponent } from './components-formmodules-directives/components-formmodules-directives.component';
 import { ReusableComponentsComponent } from './reusable-components/reusable-components.component';
+import { ServicesComponent } from './services/services.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ReusableComponentsComponent } from './reusable-components/reusable-comp
     ApplicationComponent,
     ComponentsComponent,
     ComponentsFormmodulesDirectivesComponent,
-    ReusableComponentsComponent
+    ReusableComponentsComponent,
+    ServicesComponent
   ],
   imports: [
     BrowserModule,
