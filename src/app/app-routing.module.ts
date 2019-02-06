@@ -10,6 +10,7 @@ import { ComponentsComponent } from './components/components.component';
 import { ComponentsFormmodulesDirectivesComponent } from './components-formmodules-directives/components-formmodules-directives.component';
 import { ReusableComponentsComponent } from './reusable-components/reusable-components.component';
 import { ServicesComponent } from './services/services.component';
+import { RoutingComponent } from './routing/routing.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -22,9 +23,8 @@ const routes: Routes = [
   { path: 'components', component: ComponentsComponent},
   { path: 'components-formmodules-directives', component: ComponentsFormmodulesDirectivesComponent},
   { path: 'reusable-components', component: ReusableComponentsComponent},
-  { path: 'services', component: ServicesComponent}
-
-
+  { path: 'services', component: ServicesComponent},
+  { path: 'routing', component: RoutingComponent},
 ];
 
 @NgModule({

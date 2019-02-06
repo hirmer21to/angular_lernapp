@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EnvironmentComponent implements OnInit {
 
-  constructor() { }
+/*   public checked: Boolean;
+ */  constructor() { }
 
   ngOnInit() {
   }

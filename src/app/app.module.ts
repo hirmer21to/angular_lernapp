@@ -13,6 +13,9 @@ import { ComponentsComponent } from './components/components.component';
 import { ComponentsFormmodulesDirectivesComponent } from './components-formmodules-directives/components-formmodules-directives.component';
 import { ReusableComponentsComponent } from './reusable-components/reusable-components.component';
 import { ServicesComponent } from './services/services.component';
+import { RoutingComponent } from './routing/routing.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -26,11 +29,13 @@ import { ServicesComponent } from './services/services.component';
     ComponentsComponent,
     ComponentsFormmodulesDirectivesComponent,
     ReusableComponentsComponent,
-    ServicesComponent
+    ServicesComponent,
+    RoutingComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

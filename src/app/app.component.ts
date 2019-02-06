@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { EnvironmentComponent } from './environment/environment.component';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class AppComponent {
+
   title = 'Master-Project';
+
 }
