@@ -1,48 +1,54 @@
 <div>
   <h1 class="ui  header" style="text-align:center; margin: 30px; ">
-    Welcome to {{ title }}!
+    {{ title }}
   </h1>
   <div class="ui grid container" style="min-width: 90%">
     <div class="four wide column">
-      <div></div>
       <div class="ui vertical menu" style="max-width:100%;">
         <a class="item" routerLink="/home">
           Home
         </a>
-        <a class="item" routerLink="/environment" routerLinkActive="active">
-          Environment
-        </a>
-        <a class="item" routerLink="/first-app" routerLinkActive="active">
-          First Angular-App
-        </a>
-        <a class="item" routerLink="/typescript" routerLinkActive="active">
-          TypeScript
-        </a>
-        <a class="item" routerLink="/project-overview" routerLinkActive="active">
-          Project
-        </a>
-        <a class="item" routerLink="/application" routerLinkActive="active">
-          App</a>
-        <a class="item" routerLink="/components" routerLinkActive="active">
-          Components</a>
-        <a class="item" routerLink="/components-formmodules-directives" routerLinkActive="active">
-          Components, FormModules, Directives
-        </a>
-        <a class="item" routerLink="/reusable-components" routerLinkActive="active">
-          Reuseable Components
-        </a>
-        <a class="item" routerLink="/services" routerLinkActive="active">
-          Services
-        </a>
-        <a class="item" routerLink="/routing" routerLinkActive="active">
-          Routing
-        </a>
-        <a class="item" routerLink="/http" routerLinkActive="active">
-          HTTP
-        </a>
-        <a class="item" routerLink="/finish-app" routerLinkActive="active">
-          Finish the App
-        </a>
+        <div class="item">
+          <h4>General</h4>
+          <a class="item" routerLink="/environment" routerLinkActive="active">
+            Environment
+          </a>
+          <a class="item" routerLink="/first-app" routerLinkActive="active">
+            First Angular-App
+          </a>
+          <a class="item" routerLink="/typescript" routerLinkActive="active">
+            TypeScript
+          </a>
+        </div>
+        <div class="item">
+          <h4>Project</h4>
+          <a class="item" routerLink="/project-overview" routerLinkActive="active">
+            Introduction
+          </a>
+          <a class="item" routerLink="/application" routerLinkActive="active">
+            App</a>
+          <a class="item" routerLink="/components" routerLinkActive="active">
+            Components</a>
+          <a class="item" routerLink="/components-formmodules-directives" routerLinkActive="active">
+            Components, FormModules, Directives
+          </a>
+          <a class="item" routerLink="/reusable-components" routerLinkActive="active">
+            Reuseable Components
+          </a>
+          <a class="item" routerLink="/services" routerLinkActive="active">
+            Services
+          </a>
+          <a class="item" routerLink="/routing" routerLinkActive="active">
+            Routing
+          </a>
+          <a class="item" routerLink="/http" routerLinkActive="active">
+            HTTP
+          </a>
+          <a class="item" routerLink="/finish-app" routerLinkActive="active">
+            Finish the App
+          </a>
+        </div>
+
       </div>
     </div>
     <div class="twelve wide column">

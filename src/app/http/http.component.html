@@ -331,12 +331,12 @@
   <p>Since we provided the functions, we can add them to new buttons now. We just need to keep them in a <code>div</code>
     to check if the <code>lectures</code> already have data, otherwise we will have a timing problem at this point.</p>
   <p class="ui message black"><code>
-    &lt;div *ngIf="lectures&gt;<br/>
+    &lt;div *ngIf="lectures"&gt;<br/>
     &nbsp;&lt;button class="ui primary button" routerLink="/lecture-add">Add Lecture&lt;/button&gt;<br/>
     &nbsp;&lt;button class="ui button" (click)="deleteAll()" *ngIf="lectures.length&gt;0"&gt;Delete All&lt;/button&gt;<br/>
     &nbsp;&lt;div *ngIf="lectures.length&gt;0" style="padding: 15px;"&gt;<br/>
     &nbsp;&nbsp; &lt;div class="ui middle aligned divided list"&gt;<br/>
-    &nbsp;&nbsp; &nbsp; &lt;div *ngFor="let e of lectures" class="item"&gt;<br/>
+    &nbsp;&nbsp; &nbsp; &lt;div *ngFor="let l of lectures" class="item"&gt;<br/>
     &nbsp;&nbsp; &nbsp; &nbsp; &lt;a class="app-lecture-item item" [lecture]="l" routerLink="/lecture-details/&#123; &#123;l.id&#125; &#125;" <br/>
     &nbsp;&nbsp; &nbsp; &nbsp; style="margin: 10px; padding:10px">&lt;/a><br/>
     &nbsp;&nbsp; &nbsp; &nbsp; &lt;button (click)="delete(l)" class="ui button"&gt;Delete&lt;/button&gt;<br/>
