@@ -1,0 +1,101 @@
+<h2>Finish the Application</h2>
+
+<h4>Start page</h4>
+<div *ngIf="praxis" style="margin-top: 20px;">
+  <p>There is still one page empty: the start page. One this page we want to see our next lecture and only the next one
+    of the day. So first we need to prepare the <b>where-to-go.component.html</b>. We are going to need the <code>LectureService</code>
+    injected in the <code>constructor</code> again.</p>
+  <p class="ui message black"><code>constructor(private lectureService: LectureService) &#123; &#125;</code></p>
+  <p>Then we need the <code>Date</code> of today. This <code>Date</code> will tell us all we need to know: the day of
+    the week and the time, because we want to compare the day and time of today with the day and time of the lectures
+    in the timetable to find the very next lecture to display. We need an array of <code>Lecture[]</code>, a <code>Lecture</code>>
+    variable to save
+    the next lecture with, a <code>Boolean</code>> that will save if there still is a lecture today and a <code>Lecture</code>>
+    object with initialized start
+    values and to save every time the lecture that is closer to the time right now.</p>
+  <p class="ui message black"><code>
+    lecture: Lecture[]; <br/>
+    nextLecture: Lecture; <br/>
+    localTime: Date = new Date(); <br/>
+    isThereANextLecture: Boolean = false; <br/>
+    tempLecture: Lecture = &#123; <br/>
+    &nbsp; id: 99, <br/>
+    &nbsp; name: 'Dummy', <br/>
+    &nbsp; room: '0', <br/>
+    &nbsp; day: this.getWeekday(), <br/>
+    &nbsp; time: &#123; hours: 20, minutes: 15 &#125;, <br/>
+    &nbsp; building: Buildings.weberei5, <br/>
+    &nbsp; floor: '0' <br/>
+    &#125;; <br/>
+        </code></p>
+  <p>We will also have the <code>getLectures()</code> method that we call in <code>ngOnInit()</code>.</p>
+  <p class="ui message black"><code>
+      ngOnInit() &#123; <br/>
+      &nbsp; this.getLectures();<br/>
+        &#125;<br/><br/>
+    
+      getLectures(): void &#123; <br/>
+      &nbsp; this.lectureService.getLectures()<br/>
+      &nbsp;  &nbsp; .subscribe(lectures => &#123; this.lectures = lectures; this.getNextLecture() &#125;);<br/>
+          &#125;
+  </code></p>
+  <p>With the method <code>getDay()</code> we will get the weekday of today as a number. 0 is sunday, 1 is monday and
+    so on. But we need them as strings. We pick from an array of strings the string whose index that is the same
+    number like today's number.</p>
+  <p class="ui message black"><code>  getWeekday(): string &#123; <br/>
+      &nbsp; var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];<br/>
+      &nbsp; return days[this.localTime.getDay()];<br/>
+        &#125;  </code></p>
+  <p>Now it is time for the function that will return the correct next lecture for us.</p>
+  <p class="ui message black"><code>
+      getNextLecture(): void &#123;<br/>
+      &nbsp; let tempArray: Array&lt;Lecture&gt; = [];<br/>
+          &nbsp; for (let lecture of this.lectures) &#123;<br/>
+          &nbsp;  &nbsp; if (lecture.day === this.getWeekday()) &#123;<br/>
+          &nbsp;  &nbsp;  &nbsp; if (lecture.time.hours &gt;= this.localTime.getHours()) &#123;<br/>
+          &nbsp;  &nbsp;  &nbsp;  &nbsp; tempArray.push(lecture);<br/>
+          &nbsp;  &nbsp;  &nbsp; &#125;<br/>
+          &nbsp;  &nbsp;  &#125;<br/>
+          &nbsp;  &nbsp;  for (let t of tempArray) &#123;<br/>
+          &nbsp;  &nbsp;  &nbsp;  if (t.time.hours &lt; this.tempLecture.time.hours) &#123;<br/>
+          &nbsp;  &nbsp;  &nbsp;  &nbsp;  this.tempLecture = t;<br/>
+          &nbsp;  &nbsp;  &nbsp;  &nbsp;  this.isThereANextLecture = true;<br/>
+          &nbsp;  &nbsp;  &nbsp;  &#125;<br/>
+          &nbsp;  &nbsp; &#125;<br/>
+          &nbsp;  &nbsp; if (this.isThereANextLecture) &#123;<br/>
+          &nbsp;  &nbsp;  &nbsp;  this.nextLecture = this.tempLecture;<br/>
+          &nbsp;  &nbsp;  &#125;<br/>
+          &nbsp;  &#125;<br/>
+        &#125;
+ </code></p>
+  <p>There is an empty array, we go through all lectures in the lecture array and if the day is today we check if the
+    hour is greater than or equal with the hour right now, than we put this lecture in the prepared array. In the
+    second step the function compares all lectures in the <code>tempArray</code> with each other and saves the smallest
+    one, which means the one that is closest to the time right now and sets the boolean <code>true</code>. We could do
+    the same thing with the minutes, but you can't be at two lectures at the same time, so this is fine now.</p>
+  <p>The last step is to display it via the HTML code. If we have a <code>nextLecture</code> when we want to see the
+    <code>nextLecture</code>s' building, floor, room, day,time and name. If there is no <code>nextLecture</code>, we
+    want to display the text "No events today!"</p>
+
+  <p class="ui message black"><code>&lt;div style="margin: 30px;"&gt;<br/>
+    &nbsp;  &lt;div *ngIf="nextLecture" class="ui info message" style="width: 50%; margin-left: 25%"&gt;<br/>
+    &nbsp;  &nbsp;  &lt;div class="header"&gt;<br/>
+    &nbsp;  &nbsp;  &nbsp;  You need to be in<br/>
+    &nbsp;  &nbsp;  &lt;/div&gt;<br/>
+    &nbsp;  &nbsp;  &lt;div class="header"&gt;<br/>
+    &nbsp;  &nbsp;  &nbsp;   &#123; &#123;nextLecture.building&#125; &#125;/&#123; &#123;nextLecture.floor&#125; &#125;.&#123; &#123;nextLecture.room&#125; &#125;<br/>
+    &nbsp;  &nbsp;  &lt;/div&gt;<br/>
+    &nbsp;  &nbsp;  &lt;div style="text-align: center; list-style-type: none;" class="list"&gt;<br/>
+    &nbsp;  &nbsp;  &nbsp;  &lt;p&gt;At &#123; &#123;nextLecture.day&#125; &#125;, &#123; &#123;nextLecture.time.hours&#125; &#125;:&#123; &#123;nextLecture.time.minutes&#125; &#125;&lt;/p&gt;<br/>
+    &nbsp;  &nbsp;  &nbsp;  &lt;p&gt;For &#123; &#123;nextLecture.name&#125; &#125;&lt;/p&gt;<br/>
+    &nbsp;  &nbsp;  &lt;/div&gt;<br/>
+    &nbsp;  &lt;/div&gt;<br/>
+    &nbsp;  &lt;div *ngIf="!nextLecture" class="ui info message" style="width: 50%; margin-left: 25%"&gt;<br/>
+    &nbsp;  &nbsp;   No events today!<br/>
+    &nbsp;  &lt;/div&gt;<br/>
+    &lt;/div&gt;
+  </code></p>
+
+  <h4>Congratulations! This is your result:</h4>
+  <iframe style="margin-top:20px; width:100%; height: 500px" src="https://stackblitz.com/edit/where-to-go-step-8?embed=1&file=src/app/where-to-go/where-to-go.component.ts&hideNavigation=1"></iframe>
+</div>

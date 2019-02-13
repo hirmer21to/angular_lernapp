@@ -11,6 +11,8 @@ import { ComponentsFormmodulesDirectivesComponent } from './components-formmodul
 import { ReusableComponentsComponent } from './reusable-components/reusable-components.component';
 import { ServicesComponent } from './services/services.component';
 import { RoutingComponent } from './routing/routing.component';
+import { HttpComponent } from './http/http.component';
+import { FinishAppComponent } from './finish-app/finish-app.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -25,6 +27,8 @@ const routes: Routes = [
   { path: 'reusable-components', component: ReusableComponentsComponent},
   { path: 'services', component: ServicesComponent},
   { path: 'routing', component: RoutingComponent},
+  { path: 'http', component: HttpComponent},
+  { path: 'finish-app', component: FinishAppComponent}
 ];
 
 @NgModule({

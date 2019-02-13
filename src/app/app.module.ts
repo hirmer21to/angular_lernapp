@@ -15,6 +15,8 @@ import { ReusableComponentsComponent } from './reusable-components/reusable-comp
 import { ServicesComponent } from './services/services.component';
 import { RoutingComponent } from './routing/routing.component';
 import { FormsModule } from '@angular/forms';
+import { HttpComponent } from './http/http.component';
+import { FinishAppComponent } from './finish-app/finish-app.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { FormsModule } from '@angular/forms';
     ComponentsFormmodulesDirectivesComponent,
     ReusableComponentsComponent,
     ServicesComponent,
-    RoutingComponent
+    RoutingComponent,
+    HttpComponent,
+    FinishAppComponent
   ],
   imports: [
     BrowserModule,

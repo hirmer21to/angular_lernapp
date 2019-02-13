@@ -9,5 +9,4 @@ import { EnvironmentComponent } from './environment/environment.component';
 export class AppComponent {
 
   title = 'Master-Project';
-
 }

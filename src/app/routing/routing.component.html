@@ -60,7 +60,7 @@
   <h4>Details in own View</h4>
   <p>The lecture details should not be in an own view now, not beneath the timetable. Delete <code>&lt;app-lecture-details [lecture]="selectedLecture"&gt;&lt;/app-lecture-details&gt;</code>
     from the <b>timetable.component.html</b>. We need an own route for them in the <b>app-routing.module.ts</b>:</p>
-  <p class="ui message black"><code> &#123; path: 'event-detail/:id', component: LectureDetailsComponent &#125;</code></p>
+  <p class="ui message black"><code> &#123; path: 'lecture-details/:id', component: LectureDetailsComponent &#125;</code></p>
   <p>And in the <b>timetable.component.html</b> where we iterate with a for-loop through the lectures we insert the
     routerlink for the lecture details with the ID of the clicked one:</p>
   <p class="ui message black"><code> &lt;a class="app-lecture-item item" [lecture]="l" routerLink="/lecture-details/&#123; &#123; l.id &#125; &#125;" style="margin: 10px; padding:10px"&gt; &lt;/a&gt;
