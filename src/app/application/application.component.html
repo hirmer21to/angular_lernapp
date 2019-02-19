@@ -3,8 +3,7 @@
 <h4>Initial Application</h4>
 <div *ngIf="theorySmall">
 </div>
-<div *ngIf="theoryLarge">
-</div>
+
 <div *ngIf="praxis">
   <p>Open your cmd and type:</p>
   <p class="ui message black"> <code>ng new where-to-go -is</code></p>
@@ -15,6 +14,61 @@
   <p class="ui message black"> <code>ng serve --open</code></p>
   <p>When the brower is open you will see the inital app of Angular:</p>
   <img class="ui image big centered" src="assets/img/Angular-Initial-App.png">
+</div>
+
+<div *ngIf="theoryLarge" class="ui message">
+  <h4>Structure of the project</h4>
+  <p>The CLI created a project for us. These are the workspace files:</p>
+  <p><code>
+    Where-To-Go <br/>
+    |- e2e:</code> file for end-to-end tests<br /> <code>
+    |&nbsp;&nbsp; |-- ... <br/>
+    |- node_modules:</code> installed npm-packages<br /><code>
+    |&nbsp;&nbsp; |-- ... <br/>
+    |- src:</code> code of our application<br /><code>
+    |&nbsp;&nbsp; |-- ... <br/>
+    |- .editorconfig:</code> configuration for the code editor<br /> <code>
+    |- .gitignore:</code> files and folders ignored by Git<br /><code>
+    |- angular.json:</code> configuration file of the angular CLI<br /><code>
+    |- package-lock.json:</code> contains information about installed packages<br /><code>
+    |- package.json:</code> npm-packages configuration and information<br /><code>
+    |- README.md:</code> documents help<br /><code>
+    |- tsconfig.json:</code> configuration file for TypeScript<br /><code>
+    |- tslint.json:</code> TSLint configuration file<br /><code>
+  </code></p>
+  <p>In the src folder is our project code. These are the src files:</p>
+  <p><code>
+      src <br/>
+      |- app:</code> contains modules and components<br /> <code>
+      |&nbsp;&nbsp; |-- ... <br/>
+      |- assets:</code> folder for images and files<br /><code>
+      |&nbsp;&nbsp; |-- ... <br/>
+      |- environments:</code> configuration for environment<br /><code>
+      |&nbsp;&nbsp; |-- ... <br/>
+      |- browserlist:</code> configuration for the code editor<br /> <code>
+      |- favicon.ico:</code> icon used in the browser bookmark bar<br /><code>
+      |- index.html:</code> main HTML page<br /><code>
+      |- main.ts:</code> compiles the application<br /><code>
+      |- polyfills.ts:</code> polyfill scripts<br /><code>
+      |- styles.css:</code> stylesheet for the project<br /><code>
+      |- test.ts:</code> entry point for unit tests<br /><code>
+      |- tsconfig.app.json:</code> inherits from the workspace-wide tsconfig.json file<br /><code>
+      |- tsconfig.spec.json:</code> inherits from the workspace-wide tsconfig.json file<br /><code>
+      |- tslint.json:</code> inherits from the workspace-wide tslint.json file<br /><code>
+    </code></p>
+  <p>In the app folder is the logic and data of our application. It always contains the follwing files:</p>
+  <p><code>
+        src <br/>
+        |- app-routing.module:</code> provided for the router (navigation)<br /> <code>
+        |- app.component.html:</code> HTML template, shell of the application and called in the index.html with
+    <code>app-root</code><br /><code>
+        |- app.component.spec.ts:</code> defines unit test for the root <code>AppComponent</code><br /><code>
+        |- app.component.ts:</code> defines logic for the <code>AppComponent</code><br /> <code>
+        |- app.module.ts:</code> all used modules are declared here <br /><code>
+      </code></p>
+</div>
+<div *ngIf="theoryLarge" style="margin-top: 20px;">
+  <h4>Angular App as a Tree Structure</h4>
 </div>
 
 <h4>Git</h4>
@@ -35,7 +89,8 @@
     <br/>&nbsp;&nbsp; title = 'Where To Go'; <br/>
       &#125;</code>
   </p>
-  <p>In the <b>app.component.html</b> is a binding to "title". This binding brings the new title into the application.</p>
+  <p>In the <b>app.component.html</b> is a binding to "title". This binding brings the new title into the application.
+  </p>
   <p class="ui message black"><code>Welcome to &#123; &#123; title &#125; &#125;!</code></p>
   <img class="ui image medium centered" src="assets/img/Angular-Changed-Title.png">
 </div>
@@ -65,9 +120,14 @@
           &lt;/div&gt;<br/>
           &lt;router-outlet&gt; &lt;/router-outlet&gt;
 </code></p>
-<p class="ui info message">If you have any problems with installing the semantic ui css, here are some tips that may help. If you get on the console the
+<p class="ui info message">If you have any problems with installing the semantic ui css, here are some tips that may
+  help. If you get on the console the
   message <code>found 1 high severity vulnerability </code> just run <code>npm audit fix</code>. Next you can try a
-  restart of Visual Studio Code. If this is also not working. You can download it by yourself <a href="https://github.com/Semantic-Org/Semantic-UI-CSS">(Semantic
+  restart of Visual Studio Code. If this is also not working. You can download it by yourself <a
+    href="https://github.com/Semantic-Org/Semantic-UI-CSS">(Semantic
     UI CSS Download)</a> and paste it in your project folder.</p>
+<h4>Visualization of the Construction:</h4>
+<p><img class="ui image large centered" src="assets/img/App-Building-1.png"></p>
 
-<iframe style="margin-top:20px; width:100%; height: 500px" src="https://stackblitz.com/edit/where-to-go-step-1?embed=1&file=src/app/app.component.html&hideNavigation=1"></iframe>
+<iframe style="margin-top:20px; width:100%; height: 500px"
+  src="https://stackblitz.com/edit/where-to-go-step-1?embed=1&file=src/app/app.component.html&hideNavigation=1"></iframe>
