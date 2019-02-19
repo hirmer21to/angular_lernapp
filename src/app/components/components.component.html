@@ -1,7 +1,16 @@
 <h2>Components</h2>
-
+<div *ngIf="theoryLarge" style="margin-bottom: 20px;" class="ui message">
+  <h4>What are Components?</h4>
+  <p>A component controls a part of the screen. In the HTML you define the structure of a component and the CSS styles
+    this structure, togehter it's the view of the component. The TypeScript file is the logic part of the component. An
+    Angular application is basically an application with a tree structure. It has a root, that is the
+    <code>AppComponent</code> and it's also the entry point of the application. However, there is no difference to
+    the other components in concept or syntax. Only difference is that the Angular framework knows that this component
+    is the entry point of the application. If you have the root component you can put other components inside. You can
+    interlace the components more and more. This is the most important architecture concept of Angular.</p>
+  <p><img class="ui image big centered" src="assets/img/Components-1.png"></p>
+</div>
 <h4>Generate new Component</h4>
-
 <div *ngIf="praxis">
   <p>Open your command line in Visual Studio Code and generate (short form <code>g</code>) your "where-to-go"
     Component, it's going to be the page you see
@@ -26,7 +35,8 @@
     <li><code>selector</code>: the CSS-element-selector of the component </li>
     <li><code>templateURL</code>: the location of the components' template file</li>
     <li><code>styles</code>: the location of the private CSS style of the component (here empty, because we decided to
-      import the semantic-ui for a overall style and therefor generated the project without a css for every component)</li>
+      import the semantic-ui for a overall style and therefor generated the project without a css for every component)
+    </li>
   </ul>
   <p>The <code>selector</code> 'app-where-to-go' matches with the name of the HTML element. This name identifies the
     component within the template of the parent-component.</p>
@@ -40,6 +50,40 @@
   <p class="ui message black"><code>&lt;app-where-to-go&gt;&lt;/app-where-to-go&gt;</code></p>
   <p>and insert it into the <b>app.component.html</b>. Now the app shows the component at this location, just like it
     would do with every other HTML tag.</p>
+  <div *ngIf="theoryLarge" style="margin-top: 20px;" class="ui message">
+    <h4>Communication between Logic and View</h4>
+    <p>As we already learned every component consists of two parts, logic (means component.ts) and view (means
+      component.html). To ensure a communication between these two we can use different types of bindings.</p>
+    <ol>
+      <li>Property Binding: <br />they allow you to set the value of a DOM property based on an expression.
+        You assign them with square brackets.<br />
+        <code>&lt;element [propterty]="expression"&gt;...&lt;/element&gt;</code>
+      </li>
+      <li>Interpolation: <br />
+        helps to display properties of the component or calculated values as strings in the HTML view.<br />
+        <code>&lt;div&gt;&#123; &#123; component-property &#125; &#125;&lt;/div&gt;</code>
+      </li>
+      <li>Event Binding: <br />
+        this is kind of the opposite of property binding. It is possible to react to the occurrence of DOM events, in
+        order to change the application model, for example.<br />
+        <code>&lt;element (eventname)="action"&gt;...&lt;/element&gt;</code>
+
+      </li>
+      <li>Two-Way Binding: <br />
+        use this if you want to bind a input component directly to a value of your component class.<br />
+        <code>&lt;input [(ngModel)]="text"&gt;...&lt;/input&gt;</code><br />
+        It is a combination of two bindings and you could write the expanded form too.<br />
+        <code>&lt;input [ngModel]="text" (ngModelChange)="setOtherText($event)"&gt;...&lt;/input&gt;</code>
+      </li>
+      <li>Local Template-Variables: <br />
+        you can create a local variable. With this you have now access to the whole DOM-API of the input field.<br />
+        <code>&lt;element #myElement&gt;...&lt;/element&gt;<br/>
+        </code>
+      </li>
+    </ol>
+    <br /><a href="https://stackblitz.com/edit/practice-part-1?embed=1&file=src/app/app.component.ts&hideNavigation=1"
+      target="_blank">Click here and try it!</a>
+  </div>
   <h4>Create and show Property</h4>
   <p>Now we will use data-binding to show a temporary text message on the "Home" page until we are ready to show the
     information about the next lecture we have to go to. Put this property into <b>where-to-go.component.ts</b>:</p>
@@ -50,9 +94,11 @@
   <p>This kind of data-binding is called interpolation and you just displayed the value of the property "tempText" via
     your
     HTML code.</p>
-    <p class="ui info message">Interpolation: Shows data in the template. Syntax: <br/>
-      <code>&#123; &#123; &nbsp; &#125; &#125;</code>
-    </p>
+  <p class="ui info message">Interpolation: Shows data in the template. Syntax: <br />
+    <code>&#123; &#123; &nbsp; &#125; &#125;</code>
+  </p>
+  <h4>Visualization of the Construction:</h4>
+  <p><img class="ui image large centered" src="assets/img/App-Building-2.png"></p>
   <h4>Create Class</h4>
   <p>For our project we are going to need a class to define a lecture. With this code you can generate a TypeScript
     class in a new folder named "shared":</p>
@@ -114,14 +160,30 @@
   <p>into the <b>app.component.html</b>.</p>
 </div>
 <h4>Pipes</h4>
-<div *ngIf="theoryLarge" style="margin-top: 20px;">
-  <p>Angular comes along with many build-in pipes. With pipes you can format strings, numbers and other displayed data.
-    Additionally it is possible to create your own pipes. In this case we are fine with the build-in pipes.</p>
+<div *ngIf="theoryLarge" style="margin-top: 20px;" class="ui message">
+  <p>In every application you will get data, you will transform the data and present it to the user. This data could be
+    just a simple local string variable, but also much more. You could display the data as raw values or you could
+    format them to achieve a better user experience. Angular comes along with many build-in pipes. With pipes you can
+    format strings, numbers and other displayed data.
+    Additionally it is possible to create your own pipes. In this case we are fine with the build-in pipes. For example
+    you can format the date of today. When you instantiate a <code>Date</code> object like this: <br />
+    <code>today: Date = new Date();</code> <br />
+    You will get this format when you display it in your HTML just "raw":
+  </p>
+  <p>{{today}} ---- code: <code>&#123; &#123;today&#125; &#125;</code></p>
+  <p>Probably users what to have another format for a date. So you can use pipes in your HTML to format the date like
+    this:</p>
+  <p>{{today | date}} ---- code: <code>&#123; &#123;today | date&#125; &#125;</code></p>
+  <p>{{today | date: 'medium'}} ---- code: <code>&#123; &#123;today | date: 'medium'&#125; &#125;</code></p>
+  <p>{{today | date: 'fullDate'}} ---- code: <code>&#123; &#123;today | date: 'fullDate'&#125; &#125;</code></p>
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
   <p>We want to try the UppercasePipe, which formats our string in capital letters:</p>
 
-  <p class="ui message black"><code>&lt;div class="header"&gt;What? &#123; &#123;lecture.name | uppercase&#125; &#125; &lt;/div&gt;</code></p>
+  <p class="ui message black">
+    <code>&lt;div class="header"&gt;What? &#123; &#123;lecture.name | uppercase&#125; &#125; &lt;/div&gt;</code></p>
 </div>
-
-<iframe style="margin-top:20px; width:100%; height: 500px" src="https://stackblitz.com/edit/where-to-go-step-2?embed=1&file=src/app/app.component.ts&hideNavigation=1"></iframe>
+<h4>Visualization of the Construction:</h4>
+<p><img class="ui image large centered" src="assets/img/App-Building-3.png"></p>
+<iframe style="margin-top:20px; width:100%; height: 500px"
+  src="https://stackblitz.com/edit/where-to-go-step-2?embed=1&file=src/app/app.component.ts&hideNavigation=1"></iframe>

@@ -12,6 +12,7 @@ export class ComponentsComponent implements OnInit {
   public theoryLarge: Boolean = true;
   public praxis: Boolean = true;
 
+  today: Date = new Date();
   ngOnInit() {
   }
 
