@@ -17,7 +17,7 @@
     first when you start the app.</p>
   <p class="ui message black"> <code>ng g component where-to-go</code></p>
 </div>
-<div *ngIf="theorySmall" style="margin-top: 20px;">
+<div *ngIf="theorySmall" style="margin-top: 20px;" class="ui message">
   <p>Result:</p>
   <p><img class="ui image centered" style="height: 65px" src="assets/img/Create-Three-Files.png"></p>
   <p>The app.module.ts automatically imported your new component. The CLI creates three files in one folder for you.
@@ -26,7 +26,7 @@
     The .ts file is for your TypeScript code and defines the components logic.
   </p>
 </div>
-<div *ngIf="theoryLarge" style="margin-top: 20px;">
+<div *ngIf="theoryLarge" style="margin-top: 20px;" class="ui message">
   <p><img class="ui image medium centered" src="assets/img/Skeleton-Component.png"></p>
   <p>There are some interesting things about the skeleton of the component.ts files. <code>@Component</code> is a
     decorator function which specifies the Angular metadata for the component. The CLI generates three metadata

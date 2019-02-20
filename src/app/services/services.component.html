@@ -1,12 +1,37 @@
 <h2>Services</h2>
-
+<div *ngIf="theoryLarge" style="margin-bottom: 20px;" class="ui message">
+  <h4>What is a Service?</h4>
+  <p>Every good application should have its logic in a service not in the components. A service is one of the main
+    concepts of Angular. If you are already experienced with object-orientated programming languages, you may know the
+    MVC model. The service is like the controller. A service is a function or class that provides the functionality for
+    other functions or classes. It has two main tasks:</p>
+  <ul>
+    <li>Encapsulation of the application logic.</li>
+    <li>Save the data, that is needed by one or more components of the application</li>
+  </ul>
+  <p>The concept "Inversion of Control (IoC)" and the pattern "Dependency Injection" can help us. If you want to use a
+    class at any point in the application, you could initialize this class at this point. But this solution is confusing
+    and has high maintenance. For example if you change just little things in the constructor of the class you might
+    have to make changes everywhere in your code. This can be avoided by giving the responsibility of generating
+    dependencies to a higher authority. You are not allowed to use the key word <code>new</code> to create a dependency.
+    You will get the dependencies from a higher authority instead. The responsibility of generating an object is
+    reversed. IoC can be realized with different patterns, Angular uses dependency injection.
+  </p>
+  <p>Angular uses constructor injection: <br/>
+    <code>constructor(myDependency: MyDependencyType) &#123; &#125;</code> <br/>
+    To use a service like this we need to give it the decorator <code>@Injectable()</code>.
+  </p>
+  <!--   <p><img class="ui image big centered" src="assets/img/Components-1.png"></p>
+ -->
+</div>
 <h4>Generate a Service</h4>
 <div *ngIf="theorySmall">
   <p>At the moment all the data is saved in the components. That is not the way it should be. The job of a component is
     to present data, however the direct data access is the job of a service.</p>
   <p>So in the next step we want to create a <code>LectureService</code> that all other classes in the application can
     use to get
-    the data of the lectures. We use Angular's dependency injection to inject the service into the <code>LectureItemComponent</code>.
+    the data of the lectures. We use Angular's dependency injection to inject the service into the
+    <code>LectureItemComponent</code>.
   </p>
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
@@ -14,7 +39,7 @@
   ng g service shared/lecture
 </code></p>
 </div>
-<div *ngIf="theorySmall" style="margin-top: 20px;">
+<div *ngIf="theorySmall" style="margin-top: 20px;" class="ui message">
   <p>The service class uses the <code>@Injectable()</code> decorator and therefor imports <code>Injectable</code>. This
     service class provides now a injectable service. The decorator accepts a metadata object for the service.</p>
   <p>If you use a service for accessing the data, from now on you can change your implementation without touching the
@@ -35,28 +60,31 @@
       import &#123; LECTURES &#125; from './mock-lectures';
   </code></p>
 </div>
-<h4>Inject the service</h4>
+<h4>Inject the Service</h4>
 <div *ngIf="praxis" style="margin-top: 20px;">
-  <p>We are going to add a parameter of type <code>LectureService</code> to the constructor of the <b>timetable.component.ts</b>:</p>
+  <p>We are going to add a parameter of type <code>LectureService</code> to the constructor of the
+    <b>timetable.component.ts</b>:</p>
   <p class="ui message black"><code>
         constructor(private lectureService: LectureService) &#123; &#125;
   </code></p>
 </div>
-<div *ngIf="theorySmall" style="margin-top: 20px;">
+<div *ngIf="theorySmall" style="margin-top: 20px;" class="ui message">
   <p>This added parameter <code>lectureService</code> defines also a property of the service class as well as it
     identifies it as an injection. With the dependency injection sets the parameter <code>lectureService</code> to the
     singleton instance of the <code>LectureService</code>. The singleton pattern is a software design pattern that
     ensures that exactly one object exists in a class.</p>
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
-  <p>Now replace the <code>lecture</code> propterty in <b>timetable.component.ts</b> and import the <code>LectureService</code>
+  <p>Now replace the <code>lecture</code> propterty in <b>timetable.component.ts</b> and import the
+    <code>LectureService</code>
     if it wasn't imported automatically by adding the parameter in the constructor before.</p>
   <p class="ui message black"><code>
       import &#123; LectureService &#125; from '../shared/lecture.service';
 <br/><br/>
       lectures: Lecture[];    
     </code></p>
-  <p>Next we are going to use the method of the service class to get the lectures into our <code>lecture</code> array.</p>
+  <p>Next we are going to use the method of the service class to get the lectures into our <code>lecture</code> array.
+  </p>
   <p class="ui message black"><code>
         getLectures(): void &#123;<br/>
         &nbsp; this.lectures = this.lectureService.getLectures();<br/>
@@ -70,14 +98,15 @@
         </code></p>
 </div>
 <h4>Observable Data</h4>
-<div *ngIf="theorySmall" style="margin-top: 20px;">
+<div *ngIf="theorySmall" style="margin-top: 20px;" class="ui message">
   <p>The service method <code>getLectures()</code> now has a synchronous signature which means that the service can
     fetch data synchronously. This is just working because we fetch mock-data right now. If we have a real app with
     real data this will not work at all. Fetching data from a remote server is an asynchronous operation. In the "real"
     world the service has to wait for the respond of the server and the method cannot return immediately.</p>
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
-  <p><code>LectureService.getLectures()</code> needs to have a asynchronous signature, therefor we will return a <code>Observable</code>.
+  <p><code>LectureService.getLectures()</code> needs to have a asynchronous signature, therefor we will return a
+    <code>Observable</code>.
     We need to import in <b>lecture.service.ts</b>:</p>
   <p class="ui message black"><code>
     import &#123; Observable, of &#125;  from 'rxjs';
@@ -98,7 +127,7 @@
           </code>
   </p>
 </div>
-<div *ngIf="theorySmall" style="margin-top: 20px;">
+<div *ngIf="theorySmall" style="margin-top: 20px;" class="ui message">
   <p><code>Observable.subscribe()</code> makes a huge difference. Before we had a synchronous assignment of the array
     of lectures to the <code>lectures</code> property and this assignment wanted back the data immediately. Now we wait
     for the <code>Observable</code> to return the array of lectures, even if this is after a view minutes. Then
@@ -108,4 +137,5 @@
 <h4>Visualization of the Construction:</h4>
 (No changes here)
 <p><img class="ui image large centered" src="assets/img/App-Building-6.png"></p>
-<iframe style="margin-top:20px; width:100%; height: 500px" src="https://stackblitz.com/edit/where-to-go-step-5?embed=1&file=src/app/timetable/timetable.component.ts&hideNavigation=1"></iframe>
+<iframe style="margin-top:20px; width:100%; height: 500px"
+  src="https://stackblitz.com/edit/where-to-go-step-5?embed=1&file=src/app/timetable/timetable.component.ts&hideNavigation=1"></iframe>
