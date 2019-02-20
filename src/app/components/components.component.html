@@ -44,6 +44,34 @@
     component. It is the right function to place initialisation logic.</p>
   <p>The component always class needs to be exported, to reuse it anywhere else. E.g. in the AppModule.</p>
 </div>
+<div *ngIf="theoryLarge" style="margin-top: 20px;" class="ui message">
+  <h4>Lifecycle of a Component</h4>
+  <p>Every component has a lifecycle that is managed by Angular. Angular creates the component, renders the component
+    and its children. Angular also checks if the databounded properties change and destroys it before removing it from
+    the DOM. The Angular Framework provides lifecycle hooks for the programmers that make visibility into these life
+    moments of the app available and also make them able to act at occurrence.</p>
+  <p><img class="ui image large centered" src="assets/img/Lifecycle.png"></p>
+  <p>The constructor is not Angular specific. But important when considering the lifecycle of a component since it is
+    responsible of instantiation of the component. You should not put much logic in the constructor because when the
+    constructor is called, no Input- / Output-Bindings are available nor the child-components.</p>
+  <p><code>ngOnInit</code> offers you the possibility to initialize your component. It is guaranteed that all bindings
+    are ready. It offers you the possibility to run here all the initialisation logic you have. For example to request
+    the data from the backend. <code>ngOnInit</code> is not just the function, Angular has a TypeScript interface
+    <code>OnInit</code>. The framework its own interface for all lifecycle-hooks.
+  </p>
+  <p><code>ngOnChanges</code> is called one time before <code>ngOnInit</code> and after that every time an
+    <code>Input</code> binding changes.
+  </p>
+  <p>With <code>ngAfterContentInit</code> you can react to the initialisation of child-components.</p>
+  <p>The view of the child-components is accessable with the <code>ngAfterViewInit</code>.</p>
+  <p>You can do some cleaning with <code>ngOnDestroy</code> before a component will be destroyed. This might be
+    nessessary when a component asks a service or other components for updates frequently.</p>
+  <p>With the methods <code>ngAfterContentChecked</code> and <code>ngAfterViewChecked</code> you can monitor the the
+    Angular ChangeDetection. This mechanism is responsible for redrawing the components after changes. While the
+    checked-flag that every component has is false, Angular checks to see if the component needs to be redrawn. The
+    performance of the application will be better the less the ChangeDetection runs and with the methods you can control
+    this.</p>
+</div>
 <div *ngIf="praxis" style="margin-top: 20px;">
   <h4>Reuse Component</h4>
   <p>We can now use the <code>selector</code></p>
