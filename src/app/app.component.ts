@@ -11,8 +11,6 @@ export class AppComponent {
 
   title = 'Master-Project';
 
-
-
   public routerLinks = ["/home", "/environment", "/first-app", "/typescript", "/project-overview",
     "/application", "/components", "/components-formmodules-directives", "/reusable-components",
     "/services", "/routing", "/http", "/finish-app"];
@@ -33,7 +31,6 @@ export class AppComponent {
     console.log(this.routerLink);
     this.location.go(this.routerLink);
     location.reload;
-
   }
 
   back(): void {
