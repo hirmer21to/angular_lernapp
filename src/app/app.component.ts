@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Location } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, Route } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +18,8 @@ export class AppComponent {
 
   constructor(private router: Router, public location: Location) { }
 
-  next(): void {
+
+  getNext(): string {
     this.routerLink = this.router.url;
     let counter = -1;
     for (let r of this.routerLinks) {
@@ -28,12 +29,9 @@ export class AppComponent {
         break;
       }
     }
-    console.log(this.routerLink);
-    this.location.go(this.routerLink);
-    location.reload;
+    return this.routerLink;
   }
-
-  back(): void {
+  getLast(): string {
     this.routerLink = this.router.url;
     let counter = -1;
     for (let r of this.routerLinks) {
@@ -43,8 +41,7 @@ export class AppComponent {
         break;
       }
     }
-    console.log(this.routerLink);
-    this.location.go(this.routerLink);
+    return this.routerLink;
   }
 
 }
