@@ -1,7 +1,19 @@
 <h2>HTTP</h2>
-
+<div *ngIf="theoryLarge" style="margin-bottom: 20px;" class="ui message">
+  <h4>Http</h4>
+  <p>
+    Most front-end applications interact with the backend over HTTP protocol. In fact, every application loads data at
+    runtime. Different patterns can be used. Angular uses the RxJS-Framework, that is based on the observable pattern.
+    The Angular class <code>Http</code> implements this pattern and provides a interface, where you can load data
+    asynchonous.
+  </p>
+  <h4>Observables</h4>
+  <p>Observables represent a data stream supplied by a source. The data stream maintains as long as it is subscribed.
+  
+  </p>
+</div>
 <h4>Using a Data Server</h4>
-<div>
+<div *ngIf="theorySmall" style="margin-bottom: 20px;" class="ui message">
   <p>The service class should get the data now with HTTP requests. We want to add functions:</p>
   <ul>
     <li><b>C</b>reate for adding new lectures</li>
@@ -78,7 +90,7 @@
           &#125;
           </code></p>
 </div>
-<div *ngIf="theorySmall" style="margin-top: 20px;">
+<div *ngIf="theorySmall" style="margin-top: 20px;" class="ui message">
   <p>All HttpClient methods return a RxJS-Observable of something. HTTP is a request / response protocol. Every time
     you make a request you will get a single response. </p>
 </div>
@@ -150,7 +162,7 @@
     <br />Store an entity at a URI. PUT can create a new entity or update an existing one.
   </p>
 </div>
-<div *ngIf="theorySmall" style="margin-top: 20px;">
+<div *ngIf="theorySmall" style="margin-top: 20px;" class="ui message">
   <p>The method <code>HttpClient.put()</code> needs three parameters: </p>
   <ul>
     <li>URL: the url has not changed. The Web-API knows what lecture to update, because of the ID</li>
@@ -161,7 +173,8 @@
 </div>
 
 <div *ngIf="praxis" style="margin-top: 20px;">
-  <p>Use the method from the service now to write a <code>save()</code> method in <b>lecture-details.component.ts</b>.</p>
+  <p>Use the method from the service now to write a <code>save()</code> method in <b>lecture-details.component.ts</b>.
+  </p>
   <p class="ui message black"><code>
     save(): void &#123;<br/>
     &nbsp; this.lectureService.updateLecture(this.lecture)<br/>
@@ -182,7 +195,8 @@
   <p>First we need a new component for the input form:</p>
   <p class="ui message black"><code>ng g component lecture-add</code></p>
   <p>Afterwards we copy the input form from lecture-details.component.html and make the neccessary changes.</p>
-  <p>Everytime you see something like <code>[(ngModel)]="lecture.name"</code> replace it with something like <code>#lectureName</code>.</p>
+  <p>Everytime you see something like <code>[(ngModel)]="lecture.name"</code> replace it with something like
+    <code>#lectureName</code>.</p>
   <p class="ui info message">
     Element Reference: Direct access to a DOM-element. Creates a local variable something that provides access to the
     element instance in data-binding and event-binding expressions in the current template. Syntnax:<br />
@@ -214,7 +228,8 @@
   &nbsp; &lt;/a&gt; <br/>
   &lt;/div&gt;
   </code></p>
-  <p>There are also some things we can take over from the details component and the timetable and insert it into <b>lecture-add.component.ts</b>,
+  <p>There are also some things we can take over from the details component and the timetable and insert it into
+    <b>lecture-add.component.ts</b>,
     that it looks like this:</p>
   <p class="ui message black"><code>
         import &#123; LectureService &#125; from '../shared/lecture.service';<br/>
@@ -328,7 +343,8 @@
       &nbsp;  &#125;<br/>
       &#125;<br/><br/>
   </code></p>
-  <p>Since we provided the functions, we can add them to new buttons now. We just need to keep them in a <code>div</code>
+  <p>Since we provided the functions, we can add them to new buttons now. We just need to keep them in a
+    <code>div</code>
     to check if the <code>lectures</code> already have data, otherwise we will have a timing problem at this point.</p>
   <p class="ui message black"><code>
     &lt;div *ngIf="lectures"&gt;<br/>
@@ -353,4 +369,5 @@
 </div>
 <h4>Visualization of the Construction:</h4>
 <p><img class="ui image big centered" src="assets/img/App-Building-9.png"></p>
-<iframe style="margin-top:20px; width:100%; height: 500px" src="https://stackblitz.com/edit/where-to-go-step-7?embed=1&file=src/app/timetable/timetable.component.ts&hideNavigation=1"></iframe>
+<iframe style="margin-top:20px; width:100%; height: 500px"
+  src="https://stackblitz.com/edit/where-to-go-step-7?embed=1&file=src/app/timetable/timetable.component.ts&hideNavigation=1"></iframe>
