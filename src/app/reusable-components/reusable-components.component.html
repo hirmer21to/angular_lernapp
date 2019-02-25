@@ -9,6 +9,7 @@
   <p class="ui message black"> <code>ng g component lecture-details</code></p>
   <p>If we want to use the details component not just for a selected item but also for every lecture item, we need to
     change <code>selectedLecture</code> to <code>lecture</code> again.</p>
+
   <p>The event property in <b>lecture-details.component.html</b> must be an input property that is commented on by the
     <code>@Input()</code> decorator, as it binds the external <code>LectureItemComponent</code> to it.</p>
   <p class="ui message black"><code>@Input() lecture: Lecture;</code></p>
@@ -29,7 +30,8 @@
   <p><code>[lecture]="selectedLecture"</code> creates a one-way-binding from the <code>selectedLecture</code> property
     of the <code>TimetableComponent</code> to the <code>lecture</code> property of the target element, which is
     assigned to the <code>lecture</code> property of the <code>LectureDetailsComponent</code>.</p>
-  <p>If the user clicks on an item from that list, the <code>selectedLecture</code> changes, this updates the <code>lecture</code>
+  <p>If the user clicks on an item from that list, the <code>selectedLecture</code> changes, this updates the
+    <code>lecture</code>
     because of the property-binding and the <code>LectureDetailsComponent</code> displayes the chosen object.</p>
   <p>In this section, there were just "inside changes", you cannot see any difference in the user interface. But we
     seperated the list and the details-view. Now a development of both components is possible, without any need to also
@@ -37,4 +39,5 @@
 </div>
 <h4>Visualization of the Construction:</h4>
 <p><img class="ui image large centered" src="assets/img/App-Building-6.png"></p>
-<iframe style="margin-top:20px; width:100%; height: 500px" src="https://stackblitz.com/edit/where-to-go-step-4?embed=1&file=src/app/lecture-details/lecture-details.component.html&hideNavigation=1"></iframe>
+<iframe style="margin-top:20px; width:100%; height: 500px"
+  src="https://stackblitz.com/edit/where-to-go-step-4?embed=1&file=src/app/lecture-details/lecture-details.component.html&hideNavigation=1"></iframe>

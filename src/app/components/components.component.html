@@ -1,14 +1,21 @@
 <h2>Components</h2>
 <div *ngIf="theoryLarge" style="margin-bottom: 20px;" class="ui message">
   <h4>What are Components?</h4>
-  <p>A component controls a part of the screen. In the HTML you define the structure of a component and the CSS styles
+  <p>A component controls a specific part of the screen. In the HTML you define the structure of a component and the CSS
+    styles
     this structure, togehter it's the view of the component. The TypeScript file is the logic part of the component. An
     Angular application is basically an application with a tree structure. It has a root, that is the
     <code>AppComponent</code> and it's also the entry point of the application. However, there is no difference to
     the other components in concept or syntax. Only difference is that the Angular framework knows that this component
     is the entry point of the application. If you have the root component you can put other components inside. You can
     interlace the components more and more. This is the most important architecture concept of Angular.</p>
+  <p>Components consist of three parts. A class with the <code>@Component</code>-decorator, that makes it a component,
+    the template and the CSS styles (optional). With the template of a component you define what the user sees at
+    runtime. In addition you can define the user interaction. The template is written in HTML and additional syntax
+    elements like data-binding.</p>
   <p><img class="ui image big centered" src="assets/img/Components-1.png"></p>
+
+
 </div>
 <h4>Generate new Component</h4>
 <div *ngIf="praxis">

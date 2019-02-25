@@ -6,7 +6,7 @@
     MVC model. The service is like the controller. A service is a function or class that provides the functionality for
     other functions or classes. It has two main tasks:</p>
   <ul>
-    <li>Encapsulation of the application logic.</li>
+    <li>Encapsulation of the application logic</li>
     <li>Save the data, that is needed by one or more components of the application</li>
   </ul>
   <p>The concept "Inversion of Control (IoC)" and the pattern "Dependency Injection" can help us. If you want to use a
@@ -17,9 +17,11 @@
     You will get the dependencies from a higher authority instead. The responsibility of generating an object is
     reversed. IoC can be realized with different patterns, Angular uses dependency injection.
   </p>
-  <p>Angular uses constructor injection: <br/>
-    <code>constructor(myDependency: MyDependencyType) &#123; &#125;</code> <br/>
-    To use a service like this we need to give it the decorator <code>@Injectable()</code>.
+  <p>Angular uses constructor injection: <br />
+    <code>constructor(myDependency: MyDependencyType) &#123; &#125;</code> <br />
+    To use a service like this we need to give it the decorator <code>@Injectable()</code>. Another possibility is to
+    register the service in the <code>providers</code> array of the <code>AppModule</code>, but here we will use the
+    other way.
   </p>
 </div>
 <h4>Generate a Service</h4>

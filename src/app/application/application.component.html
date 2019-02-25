@@ -67,6 +67,31 @@
         |- app.module.ts:</code> all used modules are declared here <br /><code>
       </code></p>
 </div>
+<div *ngIf="theoryLarge" class="ui message">
+  <h4>Angular Modules</h4>
+  <p>Angular modules help structuring the application by function. Technically modules are classes like all other
+    Angular blocks.The <code>NgModule</code>-Decorator makes the class a module. They define metadata Angular will need
+    at runtime to initialize the application.
+  </p>
+  <p>Decorators are specific functions that can be used for classes and their
+    properties, methods and parameters. They are called at runtime and expand the functionality of a class. Decorators
+    always start with an <code>@</code>-symbol.
+  </p>
+  <p>The class <code>main.ts</code> is the main Angular module for every
+    project. With <code>declarations</code> all components, directives and pipes that belong to this module are
+    declared. With <code>providers</code> all providers are registered. In <code>exports</code> you specify all
+    components, directives and pipes that should be available to other Angular modules. <code>imports</code> contains
+    all Angular modules of which this module depends.And <code>bootstrap</code> defines the main component of the
+    application. The main component is the root of the application. As you will learn in the chapter <a
+      routerLink="/components">Components</a> the root is the <code>AppComponent</code>.
+  </p>
+  <p>You can use different module
+    types, such as the main module (<code>module.ts</code>), routing-module and service-module. A routing-module
+    contains configuration for the router, you will learn <code>router</code> in the chapter <a
+      routerLink="/router">Router</a>. A service-module provides logic / functions for the entire application as you
+    will learn in the chapter <a routerLink="/service">Service</a>.
+  </p>
+</div>
 
 <h4>Git</h4>
 <p>Before we make changes, we want to manage our project with Git. As you already know, Visual Studio Code comes with

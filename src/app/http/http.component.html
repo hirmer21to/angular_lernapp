@@ -7,10 +7,67 @@
     The Angular class <code>Http</code> implements this pattern and provides a interface, where you can load data
     asynchonous.
   </p>
+  <p>Often web-applications use REST-server. They use http methods to define actions, e.g. what action should the server
+    run for the specific resource.</p>
+  <ul>
+    <li>GET: is used to request a ressource from the server, e.g. a list with items</li>
+    <li>POST: to add a new resource or update an existing one, e.g. adds or updates an item of that list</li>
+    <li>PUT: replaces an existing resource, e.g. replaces one item or one list with another item or list</li>
+    <li>DELETE: deletes a resource by the sent id</li>
+  </ul>
+  <p>The term "resource" refers to a single data object of a REST server. The path of the request tells the
+    server which resource to do an action on. For example can you make a request for a list with the path
+    <code>/list</code> and the method <code>GET</code>. And with the path <code>/list/1234</code> you could request the
+    list-item 1234.</p>
   <h4>Observables</h4>
-  <p>Observables represent a data stream supplied by a source. The data stream maintains as long as it is subscribed.
-  
-  </p>
+  <p>Reactive programming is a programming paradigma. It is about data streams. As an example calculation tables in MS
+    Excel can be used. It is not about Excel, it is about the table. If you have cells in the table connected by a
+    formula and you change a value in a connected cell, the outcome of the formula will be updated automatically.
+    Angular supports reactive programming with the RxJS-Framework. Observables are the main construct of the RxJS
+    library. Observables represent a data stream supplied by a source. They have the following tasks:</p>
+  <ul>
+    <li>Generate data</li>
+    <li>Allow the use of operators, to manipulate data</li>
+    <li>Release storage, if data stream is no longer needed</li>
+  </ul>
+  <p> <code>subscribe</code>-method: it is used to listen and react to signals of the observable. The signature could
+    look like this:
+    <code>obs.subscribe((data) => &#123;...&#125;);</code></p>
+  <p><code>pipe</code>-method: chains the operators of observables. The method gets null or more operators and returns
+    an observable.
+    The data of the returned observable have the same type as they have in the last operator</p>
+  <ul>
+    <li><code>map</code>-operator: gets an observable internally, gives the data of the observable to the transformation
+      function,
+      gets the return value and puts it in an observable. This new observable is forwarded to the next operator</li>
+    <li><code>mapTo</code>-operator: forwards a static value</li>
+    <li><code>tap</code>-operator: is used for side-effects. Can be used to print the data stream on the console, or to
+      save data from the server in a property</li>
+    <li><code>catchError</code>-operator: is compareable to the <code>catch</code> of a <code>try/catch</code>-block. It
+      gets an error, handles the error and returns a new observable or a new error-observable for the next
+      <code>catchError</code>-operator</li>
+    <li><code>of</code>-operator: creates a new observable from a static value</li>
+    <li><code>throwError</code>-operator: creates a new error-observable. It is similar to the <code>throw</code>
+      command</li>
+  </ul>
+  <h4>Http-Module</h4>
+  <p>The http-module contains three Angular modules: <code> HttpClientModule, HttpClientJsonpModule</code> and
+    <code>HttpClientXsrfModule</code>. The most important classes of the http-module are:</p>
+  <ul>
+    <li><code>HttpHeaders</code>: helps you to define and manipulate the http-headers of a server request</li>
+    <li><code>HttpParams</code>: helps you to define and manipulate the request parameter of a server request</li>
+    <li><code>HttpRequest</code>: represents server requests. An instance of this class contains URL and http-headers
+      for
+      the request. You do not assign instances of this class, Angular will do this internally.</li>
+    <li><code>HttpResponse</code>: represents an answer from the server. It contains for example the status the server
+      has for the request and the data the server sends.</li>
+    <li><code>HttpErrorResponse</code>: represents an error-answer from the server. The answer of the server fails when
+      the connection fails, an exception is in your code or the server status code is bigger or equals 400.
+    </li>
+  </ul>
+  <p>We will work with the <code>HttpClientModule</code>. It provieds the <code>HttpClient</code> service. All methods
+    of the <code>HttpClient</code> service return observables and use json data. The use of json data means that Angular
+    serializes and deserializes the data for you.</p>
 </div>
 <h4>Using a Data Server</h4>
 <div *ngIf="theorySmall" style="margin-bottom: 20px;" class="ui message">

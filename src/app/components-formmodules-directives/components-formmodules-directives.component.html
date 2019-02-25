@@ -49,6 +49,15 @@
     <p class="ui message black"><code>selector: 'a.app-lecture-item',</code></p>
     <p>And insert this right above the empty constructor:</p>
     <p class="ui message black"><code>@Input() lecture: Lecture;</code></p>
+    <div *ngIf="theoryLarge" style="margin-top: 20px;" class="ui message">
+        <h4>Input-Property</h4>
+        <p>
+            You can transfer data, especially between parent- and children-components via
+            <code>@Input()</code>-Proptery. The
+            decorator markes the class field as an input property and provides configuration metadata. This declares a
+            data-bound input propterty, which is automatically updated during change detection.
+        </p>
+    </div>
     <p>We display this component in the <b>app.component.ts</b> and replace the lecture-item with this code:</p>
     <p class="ui message black"><code>&lt;app-timetable&gt;&lt;/app-timetable&gt;</code></p>
     <p>In the <b>timetable.component.html</b> we display now the list of lecture-items with a header beyond and a
@@ -64,7 +73,8 @@
             &nbsp; &lt;/div&gt;<br/>
             &lt;/div&gt;
     </code></p>
-
+    <p>With the construct <code>[lecture]="l"</code> we make sure that l is the lecture we imported via input-binding
+        before.</p>
     <p class="ui info message">
         Property-Binding: Sets properties of the DOM-Tree. Syntax:<br />
         <code>[ ] = " "</code>
@@ -84,7 +94,8 @@
         the corresponding div if it has one.</p>
     <p>This is also called templating-microsyntax, because the way we iterate over an array is not just a simple
         templating expression, it is a very small own language that generates DOM-elements. For every element in the
-        array it creates a new instance of something. In this case <code>&lt;a class="app-lecture-item item" ...&gt;&lt;/a&gt;</code>.</p>
+        array it creates a new instance of something. In this case
+        <code>&lt;a class="app-lecture-item item" ...&gt;&lt;/a&gt;</code>.</p>
     <p class="ui info message">
         Structurdirectives: Directives to manipulate the DOM-Tree.
         Syntax:
