@@ -1,4 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
+import { ModiService } from '../shared/modi.service';
+import { Modus } from '../shared/modus';
 
 @Component({
   selector: 'app-home',
@@ -6,28 +8,37 @@ import { Component, OnInit, Output } from '@angular/core';
   styles: []
 })
 export class HomeComponent implements OnInit {  
-  public theorySmall: Boolean = true;
-  public theoryLarge: Boolean = true;
-  public praxis: Boolean = true;
-  constructor() { }
+  
+  modus: Modus;
+  modi: Modus[];
+
+  constructor(private service: ModiService) { }
 
   ngOnInit() {
+    this.getModi();
   }
 
-  theorist(): void {
-    this.theoryLarge = true;
-    this.theorySmall = true;
-    this.praxis = false;
-  };
-  practitioner(): void {
-    this.theoryLarge = false;
-    this.theorySmall = false;
-    this.praxis = true;
-  };
-  both(): void {
-    this.theoryLarge = false;
-    this.theorySmall = true;
-    this.praxis = true;
-  };
+  getModi(): void{
+    this.service.getModi()
+    .subscribe(modi => this.modi = modi);
+  }
 
+
+  theorist(): void {
+    this.service.setModus(this.modi[0])
+    .subscribe(modus => this.modus = modus);
+    console.log(this.modus);
+  }
+
+  practitioner(): void {
+    this.service.setModus(this.modi[1])
+    .subscribe(modus => this.modus = modus);
+    console.log(this.modus);
+  }
+
+  both(): void {
+    this.service.setModus(this.modi[2])
+    .subscribe(modus => this.modus = modus);
+    console.log(this.modus);
+  }
 }
