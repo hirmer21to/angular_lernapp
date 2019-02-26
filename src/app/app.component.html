@@ -1,9 +1,21 @@
 <div>
-  <h1 class="ui  header" style="text-align:center; margin: 30px; ">
+  <h1 class="ui header" style="text-align:center; margin-top: 30px; margin-left: 15%; ">
     {{ title }}
   </h1>
   <div class="ui grid container" style="min-width: 90%">
     <div class="four wide column">
+      <div class="ui compact menu">
+        <a class="item" (click)="theorist()">
+          <img src="assets/img/Icons-01.png">
+        </a>
+        <a class="item" (click)="practitioner()">
+          <img src="assets/img/Icons-02.png">
+        </a>
+        <a class="item" (click)="both()">
+          <img src="assets/img/Icons-03.png">
+        </a>
+      </div>
+
       <div class="ui vertical menu" style="max-width:100%;">
         <a class="item" routerLink="/home">
           Home
@@ -48,7 +60,6 @@
             Finish the App
           </a>
         </div>
-
       </div>
     </div>
     <div class="twelve wide column">
