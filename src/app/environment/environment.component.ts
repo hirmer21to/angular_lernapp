@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-environment',
@@ -6,9 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class EnvironmentComponent implements OnInit {
+  public theorySmall: Boolean = true;
+  public theoryLarge: Boolean = true;
+  public praxis: Boolean = true;
 
-/*   public checked: Boolean;
- */  constructor() { }
+  constructor() { }
 
   ngOnInit() {
   }

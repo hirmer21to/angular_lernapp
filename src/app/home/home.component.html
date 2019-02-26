@@ -1,4 +1,34 @@
-<p>
-  This webpage shows you how to build angular apps.
-</p>
-<p>Have fun!</p>
+<h2>Who are you?</h2>
+
+<div class="ui three column grid">
+  <div class="column">
+    <div class="ui fluid card">
+      <div class="image">
+        <img src="/images/avatar/large/daniel.jpg">
+      </div>
+      <div class="content">
+        <a class="header" (click)="theorist()" routerLink="/environment">Theorist</a>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="ui fluid card">
+      <div class="image">
+        <img src="/images/avatar/large/helen.jpg">
+      </div>
+      <div class="content">
+        <a class="header" (click)="practitioner()" routerLink="/environment">Practitioner</a>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="ui fluid card">
+      <div class="image">
+        <img src="/images/avatar/large/elliot.jpg">
+      </div>
+      <div class="content">
+        <a class="header" (click)="both()" routerLink="/environment">Both</a>
+      </div>
+    </div>
+  </div>
+</div>

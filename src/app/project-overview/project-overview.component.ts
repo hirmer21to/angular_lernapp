@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-project-overview',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class ProjectOverviewComponent implements OnInit {
+  public theorySmall: Boolean = true;
+  public theoryLarge: Boolean = true;
+  public praxis: Boolean = true;
 
   constructor() { }
 

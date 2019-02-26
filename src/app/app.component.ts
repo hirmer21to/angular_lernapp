@@ -18,7 +18,6 @@ export class AppComponent {
 
   constructor(private router: Router, public location: Location) { }
 
-
   getNext(): string {
     this.routerLink = this.router.url;
     let counter = -1;

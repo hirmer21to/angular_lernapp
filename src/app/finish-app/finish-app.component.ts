@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-finish-app',
@@ -9,6 +9,7 @@ export class FinishAppComponent implements OnInit {
   public theorySmall: Boolean = true;
   public theoryLarge: Boolean = true;
   public praxis: Boolean = true;
+
   constructor() { }
 
   ngOnInit() {
