@@ -1,7 +1,10 @@
 <h2>Finish the Application</h2>
 
-<h4>Start page</h4>
+<div *ngIf="theoryLarge" style="margin-top: 20px;">
+  <p>This chapter does not contain any more theory learning units.</p>
+</div>
 <div *ngIf="praxis" style="margin-top: 20px;">
+  <h4>Start page</h4>
   <p>There is still one page empty: the start page. On this page we want to see our next lecture and only the next one
     of the day. So first we need to prepare the <b>where-to-go.component.html</b>. We are going to need the
     <code>LectureService</code>

@@ -9,13 +9,13 @@
     and backward are challenging now, but HTML5 History API brings the technical basic for this. It is possible to
     change the browser history via JavaScript without reloading the web page. It looks like a normal web page but it is
     a single page. The <code>Router</code> interacts with this HTML5 History API and uses URLs to identify the
-    individual states. You will need three steps to get there:<br/>  
+    individual states. You will need three steps to get there:<br />
   </p>
-    <ul>
-      <li>Assign an URL a component.</li>
-      <li>Import the Routing-Module into the application.</li>
-      <li>Set where the components should be loaded into the template.</li>
-    </ul>
+  <ul>
+    <li>Assign an URL a component.</li>
+    <li>Import the Routing-Module into the application.</li>
+    <li>Set where the components should be loaded into the template.</li>
+  </ul>
 </div>
 
 <h4>Routing Module</h4>
@@ -75,9 +75,11 @@
         &lt;/div&gt;<br/>
         </code></p>
 </div>
-<h4>Visualization of the Construction:</h4>
-<p><img class="ui image large centered" src="assets/img/App-Building-7.png"></p>
+
 <div *ngIf="praxis" style="margin-top: 20px;">
+  <h4>Visualization of the Construction:</h4>
+  <p><img class="ui image large centered" src="assets/img/App-Building-7.png"></p>
+
   <h4>Details in own View</h4>
   <p>The lecture details should not be in an own view now, not beneath the timetable. Delete
     <code>&lt;app-lecture-details [lecture]="selectedLecture"&gt;&lt;/app-lecture-details&gt;</code>
@@ -169,8 +171,10 @@
     &lt;button class="ui button" (click)="goBack()"&gt;Go Back&lt;/button&gt;
     </code></p>
 </div>
-<h4>Visualization of the Construction:</h4>
-<p><img class="ui image big centered" src="assets/img/App-Building-8.png"></p>
+<div *ngIf="praxis" style="margin-top: 20px;">
+  <h4>Visualization of the Construction:</h4>
+  <p><img class="ui image big centered" src="assets/img/App-Building-8.png"></p>
 
-<iframe style="margin-top:20px; width:100%; height: 500px"
-  src="https://stackblitz.com/edit/where-to-go-step-6?embed=1&file=src/app/lecture-details/lecture-details.component.ts&hideNavigation=1"></iframe>
+  <iframe style="margin-top:20px; width:100%; height: 500px"
+    src="https://stackblitz.com/edit/where-to-go-step-6?embed=1&file=src/app/lecture-details/lecture-details.component.ts&hideNavigation=1"></iframe>
+</div>

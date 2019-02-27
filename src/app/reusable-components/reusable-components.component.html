@@ -1,8 +1,7 @@
 <h2>Reusable Components</h2>
 
-<h4>Generate Details Component</h4>
-
 <div *ngIf="praxis">
+  <h4>Generate Details Component</h4>
   <p>The lecture details should be reusable, that's why they will have an extra component from now on. Just cut out the
     HTML code about the details from <b>timetable.component.html</b>. It is the whole ui form. Generate the component
     and paste it in <b>lecture-details.component.html</b>.</p>
@@ -37,7 +36,9 @@
     seperated the list and the details-view. Now a development of both components is possible, without any need to also
     change the other one. The details-component is now resusable.</p>
 </div>
-<h4>Visualization of the Construction:</h4>
-<p><img class="ui image large centered" src="assets/img/App-Building-6.png"></p>
-<iframe style="margin-top:20px; width:100%; height: 500px"
-  src="https://stackblitz.com/edit/where-to-go-step-4?embed=1&file=src/app/lecture-details/lecture-details.component.html&hideNavigation=1"></iframe>
+<div *ngIf="praxis" style="margin-top: 20px;">
+  <h4>Visualization of the Construction:</h4>
+  <p><img class="ui image large centered" src="assets/img/App-Building-6.png"></p>
+  <iframe style="margin-top:20px; width:100%; height: 500px"
+    src="https://stackblitz.com/edit/where-to-go-step-4?embed=1&file=src/app/lecture-details/lecture-details.component.html&hideNavigation=1"></iframe>
+</div>

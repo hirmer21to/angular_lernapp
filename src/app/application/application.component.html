@@ -1,10 +1,7 @@
 <h2>App</h2>
 
-<h4>Initial Application</h4>
-<div *ngIf="theorySmall">
-</div>
-
 <div *ngIf="praxis">
+  <h4>Initial Application</h4>
   <p>Open your cmd and type:</p>
   <p class="ui message black"> <code>ng new where-to-go -is</code></p>
   <p>The <code>-is</code> defines that the project has an inline-style. If you don't do this, we would have an extra
@@ -16,7 +13,7 @@
   <img class="ui image big centered" src="assets/img/Angular-Initial-App.png">
 </div>
 
-<div *ngIf="theoryLarge" class="ui message">
+<div *ngIf="theoryLarge" class="ui message" style="margin-top: 20px;">
   <h4>Structure of the project</h4>
   <p>The CLI created a project for us. These are the workspace files:</p>
   <p><code>
@@ -67,7 +64,7 @@
         |- app.module.ts:</code> all used modules are declared here <br /><code>
       </code></p>
 </div>
-<div *ngIf="theoryLarge" class="ui message">
+<div *ngIf="theoryLarge" class="ui message" style="margin-top: 20px;">
   <h4>Angular Modules</h4>
   <p>Angular modules help structuring the application by function. Technically modules are classes like all other
     Angular blocks.The <code>NgModule</code>-Decorator makes the class a module. They define metadata Angular will need
@@ -92,19 +89,16 @@
     will learn in the chapter <a routerLink="/service">Service</a>.
   </p>
 </div>
-
-<h4>Git</h4>
-<p>Before we make changes, we want to manage our project with Git. As you already know, Visual Studio Code comes with
-  a Git integration. So my recommendation is to install Sourcetree, open a new tab and add the project folder and
-  manage Git from Sourcetree. Of cause, you can also use Git Gui or Visual Studio Code.
-</p>
-
-<h4>Make some changes</h4>
-<div *ngIf="theorySmall">
+<div *ngIf="praxis" style="margin-top: 20px;">
+  <h4>Git</h4>
+  <p>Before we make changes, we want to manage our project with Git. As you already know, Visual Studio Code comes with
+    a Git integration. So my recommendation is to install Sourcetree, open a new tab and add the project folder and
+    manage Git from Sourcetree. Of cause, you can also use Git Gui or Visual Studio Code.
+  </p>
 </div>
-<div *ngIf="theoryLarge">
-</div>
-<div *ngIf="praxis">
+
+<div *ngIf="praxis" style="margin-top: 20px;">
+  <h4>Make some changes</h4>
   <p>Open <b>app.component.ts</b> and change the title of the app.</p>
   <p class="ui message black"> <code>export class AppComponent &#123; 
     <br/>&nbsp;&nbsp; title = 'Where To Go'; <br/>
@@ -116,39 +110,43 @@
   <img class="ui image medium centered" src="assets/img/Angular-Changed-Title.png">
 </div>
 
-<h4>Import UI-Framework</h4>
-<p>As this is a web application showing you how to build an Angular app, there is no need to do CSS styling. Probably
-  you already know how to style with CSS and the focus here should be Angular, that's why we are going to use the
-  Semantic UI CSS-Framework for a nice look and feel.</p>
-<p>
-  With the plus button you can add another terminal to type in new commands while running the application.
-</p>
-<p><img class="ui image large centered" src="assets/img/Second-Terminal.png"></p>
-<p>You can install the UI-Framework with the command:</p>
-<p class="ui message black"><code>npm i --save semantic-ui-css</code></p>
-<p>Add to the file <b>angular.json</b>:</p>
-<p class="ui message black"><code>"styles": [<br/>
-&nbsp; <b>"../Where-To-Go/node_modules/semantic-ui-css/semantic.css",</b><br/>
-&nbsp; "src/styles.css"<br/>
-],</code></p>
+<div *ngIf="praxis" style="margin-top: 20px;">
+  <h4>Import UI-Framework</h4>
+  <p>As this is a web application showing you how to build an Angular app, there is no need to do CSS styling. Probably
+    you already know how to style with CSS and the focus here should be Angular, that's why we are going to use the
+    Semantic UI CSS-Framework for a nice look and feel.</p>
+  <p>
+    With the plus button you can add another terminal to type in new commands while running the application.
+  </p>
+  <p><img class="ui image large centered" src="assets/img/Second-Terminal.png"></p>
+  <p>You can install the UI-Framework with the command:</p>
+  <p class="ui message black"><code>npm i --save semantic-ui-css</code></p>
+  <p>Add to the file <b>angular.json</b>:</p>
+  <p class="ui message black"><code>"styles": [<br/>
+    &nbsp; <b>"../Where-To-Go/node_modules/semantic-ui-css/semantic.css",</b><br/>
+    &nbsp; "src/styles.css"<br/>
+    ],</code></p>
 
-<p>Now you can test the new style. Adjust the <b>app.component.html</b> like this and see if it looks different:</p>
-<p class="ui message black"><code>
-    &lt;div style="text-align:center" &gt; <br/>
-    &nbsp; &lt;h1 class="ui header" style="margin: 30px"&gt; <br/>
-    &nbsp;&nbsp;&nbsp; Welcome to &#123; &#123; title &#125; &#125;! <br/>
-    &nbsp; &lt;/h1&gt;  <br/>
-          &lt;/div&gt;<br/>
-          &lt;router-outlet&gt; &lt;/router-outlet&gt;
-</code></p>
-<p class="ui info message">If you have any problems with installing the semantic ui css, here are some tips that may
-  help. If you get on the console the
-  message <code>found 1 high severity vulnerability </code> just run <code>npm audit fix</code>. Next you can try a
-  restart of Visual Studio Code. If this is also not working. You can download it by yourself <a
-    href="https://github.com/Semantic-Org/Semantic-UI-CSS">(Semantic
-    UI CSS Download)</a> and paste it in your project folder.</p>
-<h4>Visualization of the Construction:</h4>
-<p><img class="ui image large centered" src="assets/img/App-Building-1.png"></p>
+  <p>Now you can test the new style. Adjust the <b>app.component.html</b> like this and see if it looks different:</p>
+  <p class="ui message black"><code>
+        &lt;div style="text-align:center" &gt; <br/>
+        &nbsp; &lt;h1 class="ui header" style="margin: 30px"&gt; <br/>
+        &nbsp;&nbsp;&nbsp; Welcome to &#123; &#123; title &#125; &#125;! <br/>
+        &nbsp; &lt;/h1&gt;  <br/>
+              &lt;/div&gt;<br/>
+              &lt;router-outlet&gt; &lt;/router-outlet&gt;
+    </code></p>
+  <p class="ui info message">If you have any problems with installing the semantic ui css, here are some tips that may
+    help. If you get on the console the
+    message <code>found 1 high severity vulnerability </code> just run <code>npm audit fix</code>. Next you can try a
+    restart of Visual Studio Code. If this is also not working. You can download it by yourself <a
+      href="https://github.com/Semantic-Org/Semantic-UI-CSS">(Semantic
+      UI CSS Download)</a> and paste it in your project folder.</p>
+</div>
+<div *ngIf="praxis" style="margin-top: 20px;">
+  <h4>Visualization of the Construction:</h4>
+  <p><img class="ui image large centered" src="assets/img/App-Building-1.png"></p>
 
-<iframe style="margin-top:20px; width:100%; height: 500px"
-  src="https://stackblitz.com/edit/where-to-go-step-1?embed=1&file=src/app/app.component.html&hideNavigation=1"></iframe>
+  <iframe style="margin-top:20px; width:100%; height: 500px"
+    src="https://stackblitz.com/edit/where-to-go-step-1?embed=1&file=src/app/app.component.html&hideNavigation=1"></iframe>
+</div>

@@ -1,4 +1,5 @@
 <h2>Components</h2>
+
 <div *ngIf="theoryLarge" style="margin-bottom: 20px;" class="ui message">
   <h4>What are Components?</h4>
   <p>A component controls a specific part of the screen. In the HTML you define the structure of a component and the CSS
@@ -14,11 +15,10 @@
     runtime. In addition you can define the user interaction. The template is written in HTML and additional syntax
     elements like data-binding.</p>
   <p><img class="ui image big centered" src="assets/img/Components-1.png"></p>
-
-
 </div>
-<h4>Generate new Component</h4>
-<div *ngIf="praxis">
+
+<div *ngIf="praxis" style="margin-top: 20px;">
+  <h4>Generate new Component</h4>
   <p>Open your command line in Visual Studio Code and generate (short form <code>g</code>) your "where-to-go"
     Component, it's going to be the page you see
     first when you start the app.</p>
@@ -85,40 +85,42 @@
   <p class="ui message black"><code>&lt;app-where-to-go&gt;&lt;/app-where-to-go&gt;</code></p>
   <p>and insert it into the <b>app.component.html</b>. Now the app shows the component at this location, just like it
     would do with every other HTML tag.</p>
-  <div *ngIf="theoryLarge" style="margin-top: 20px;" class="ui message">
-    <h4>Communication between Logic and View</h4>
-    <p>As we already learned every component consists of two parts, logic (means component.ts) and view (means
-      component.html). To ensure a communication between these two we can use different types of bindings.</p>
-    <ol>
-      <li>Property Binding: <br />they allow you to set the value of a DOM property based on an expression.
-        You assign them with square brackets.<br />
-        <code>&lt;element [propterty]="expression"&gt;...&lt;/element&gt;</code>
-      </li>
-      <li>Interpolation: <br />
-        helps to display properties of the component or calculated values as strings in the HTML view.<br />
-        <code>&lt;div&gt;&#123; &#123; component-property &#125; &#125;&lt;/div&gt;</code>
-      </li>
-      <li>Event Binding: <br />
-        this is kind of the opposite of property binding. It is possible to react to the occurrence of DOM events, in
-        order to change the application model, for example.<br />
-        <code>&lt;element (eventname)="action"&gt;...&lt;/element&gt;</code>
+</div>
+<div *ngIf="theoryLarge" style="margin-top: 20px;" class="ui message">
+  <h4>Communication between Logic and View</h4>
+  <p>As we already learned every component consists of two parts, logic (means component.ts) and view (means
+    component.html). To ensure a communication between these two we can use different types of bindings.</p>
+  <ol>
+    <li>Property Binding: <br />they allow you to set the value of a DOM property based on an expression.
+      You assign them with square brackets.<br />
+      <code>&lt;element [propterty]="expression"&gt;...&lt;/element&gt;</code>
+    </li>
+    <li>Interpolation: <br />
+      helps to display properties of the component or calculated values as strings in the HTML view.<br />
+      <code>&lt;div&gt;&#123; &#123; component-property &#125; &#125;&lt;/div&gt;</code>
+    </li>
+    <li>Event Binding: <br />
+      this is kind of the opposite of property binding. It is possible to react to the occurrence of DOM events, in
+      order to change the application model, for example.<br />
+      <code>&lt;element (eventname)="action"&gt;...&lt;/element&gt;</code>
 
-      </li>
-      <li>Two-Way Binding: <br />
-        use this if you want to bind a input component directly to a value of your component class.<br />
-        <code>&lt;input [(ngModel)]="text"&gt;...&lt;/input&gt;</code><br />
-        It is a combination of two bindings and you could write the expanded form too.<br />
-        <code>&lt;input [ngModel]="text" (ngModelChange)="setOtherText($event)"&gt;...&lt;/input&gt;</code>
-      </li>
-      <li>Local Template-Variables: <br />
-        you can create a local variable. With this you have now access to the whole DOM-API of the input field.<br />
-        <code>&lt;element #myElement&gt;...&lt;/element&gt;<br/>
+    </li>
+    <li>Two-Way Binding: <br />
+      use this if you want to bind a input component directly to a value of your component class.<br />
+      <code>&lt;input [(ngModel)]="text"&gt;...&lt;/input&gt;</code><br />
+      It is a combination of two bindings and you could write the expanded form too.<br />
+      <code>&lt;input [ngModel]="text" (ngModelChange)="setOtherText($event)"&gt;...&lt;/input&gt;</code>
+    </li>
+    <li>Local Template-Variables: <br />
+      you can create a local variable. With this you have now access to the whole DOM-API of the input field.<br />
+      <code>&lt;element #myElement&gt;...&lt;/element&gt;<br/>
         </code>
-      </li>
-    </ol>
-    <br /><a href="https://stackblitz.com/edit/practice-part-1?embed=1&file=src/app/app.component.ts&hideNavigation=1"
-      target="_blank">Click here and try it!</a>
-  </div>
+    </li>
+  </ol>
+  <br /><a href="https://stackblitz.com/edit/practice-part-1?embed=1&file=src/app/app.component.ts&hideNavigation=1"
+    target="_blank">Click here and try it!</a>
+</div>
+<div *ngIf="praxis" style="margin-top: 20px;">
   <h4>Create and show Property</h4>
   <p>Now we will use data-binding to show a temporary text message on the "Home" page until we are ready to show the
     information about the next lecture we have to go to. Put this property into <b>where-to-go.component.ts</b>:</p>
@@ -194,8 +196,9 @@
   <p class="ui message black"><code>&lt;app-lecture-item&gt;&lt;/app-lecture-item&gt;</code></p>
   <p>into the <b>app.component.html</b>.</p>
 </div>
-<h4>Pipes</h4>
+
 <div *ngIf="theoryLarge" style="margin-top: 20px;" class="ui message">
+  <h4>Pipes</h4>
   <p>In every application you will get data, you will transform the data and present it to the user. This data could be
     just a simple local string variable, but also much more. You could display the data as raw values or you could
     format them to achieve a better user experience. Angular comes along with many build-in pipes. With pipes you can
@@ -213,12 +216,15 @@
   <p>{{today | date: 'fullDate'}} ---- code: <code>&#123; &#123;today | date: 'fullDate'&#125; &#125;</code></p>
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
+  <h4>Try a Pipe</h4>
   <p>We want to try the UppercasePipe, which formats our string in capital letters:</p>
 
   <p class="ui message black">
     <code>&lt;div class="header"&gt;What? &#123; &#123;lecture.name | uppercase&#125; &#125; &lt;/div&gt;</code></p>
 </div>
-<h4>Visualization of the Construction:</h4>
-<p><img class="ui image large centered" src="assets/img/App-Building-3.png"></p>
-<iframe style="margin-top:20px; width:100%; height: 500px"
-  src="https://stackblitz.com/edit/where-to-go-step-2?embed=1&file=src/app/app.component.ts&hideNavigation=1"></iframe>
+<div *ngIf="praxis" style="margin-top: 20px;">
+  <h4>Visualization of the Construction:</h4>
+  <p><img class="ui image large centered" src="assets/img/App-Building-3.png"></p>
+  <iframe style="margin-top:20px; width:100%; height: 500px"
+    src="https://stackblitz.com/edit/where-to-go-step-2?embed=1&file=src/app/app.component.ts&hideNavigation=1"></iframe>
+</div>

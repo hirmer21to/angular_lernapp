@@ -14,6 +14,9 @@ export class AppComponent implements OnInit {
   title = 'Master-Project';
   modus: Modus;
   modi: Modus[];
+  hideBackButton: Boolean = false;
+  hideNextButton: Boolean = false;
+
 
   public routerLinks = ["/home", "/environment", "/first-app", "/typescript", "/project-overview",
     "/application", "/components", "/components-formmodules-directives", "/reusable-components",
@@ -31,7 +34,6 @@ export class AppComponent implements OnInit {
     .subscribe(modi => this.modi = modi);
   }
 
-
   theorist(): void {
     this.service.setModus(this.modi[0])
     .subscribe(modus => this.modus = modus);
@@ -48,6 +50,26 @@ export class AppComponent implements OnInit {
     this.service.setModus(this.modi[2])
     .subscribe(modus => this.modus = modus);
     console.log(this.modus);
+  }
+
+  getHideNextButton(): Boolean {
+    this.routerLink = this.router.url;
+    if (this.routerLink === this.routerLinks[0] || this.routerLink === this.routerLinks[this.routerLinks.length-1]){
+      this.hideNextButton = true;
+    } else
+    this.hideNextButton = false;
+    console.log(this.hideNextButton);
+    return this.hideNextButton;
+  }
+
+  getHideBackButton(): Boolean {
+    this.routerLink = this.router.url;
+    if (this.routerLink === this.routerLinks[0]){
+      this.hideBackButton = true;
+    } else
+    this.hideBackButton = false;
+    console.log(this.hideBackButton);
+    return this.hideBackButton;
   }
 
   getNext(): string {
