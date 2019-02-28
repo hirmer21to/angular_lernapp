@@ -5,33 +5,45 @@
   <p>The lecture details should be reusable, that's why they will have an extra component from now on. Just cut out the
     HTML code about the details from <b>timetable.component.html</b>. It is the whole ui form. Generate the component
     and paste it in <b>lecture-details.component.html</b>.</p>
-  <p class="ui message black"> <code>ng g component lecture-details</code></p>
+  <p class="ui message black"> <code style="font-family:'Consolas';">ng g component lecture-details</code></p>
   <p>If we want to use the details component not just for a selected item but also for every lecture item, we need to
-    change <code>selectedLecture</code> to <code>lecture</code> again.</p>
+    change <code style="font-family:'Consolas';">selectedLecture</code> to <code style="font-family:'Consolas';">lecture</code> again.</p>
 
   <p>The event property in <b>lecture-details.component.html</b> must be an input property that is commented on by the
-    <code>@Input()</code> decorator, as it binds the external <code>LectureItemComponent</code> to it.</p>
-  <p class="ui message black"><code>@Input() lecture: Lecture;</code></p>
+    <code style="font-family:'Consolas';">@Input()</code> decorator, as it binds the external <code style="font-family:'Consolas';">LectureItemComponent</code> to it.</p>
+  <!--   <p class="ui message black"><code style="font-family:'Consolas';">@Input() lecture: Lecture;</code></p> -->
+  <div class="ui message black">
+    <pre
+      style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#ffffff;">@Input() lecture: Lecture</span><span style="color:#ff8000;">;</span></pre>
+  </div>
   <p>This results in making these imports:</p>
-  <p class="ui message black"><code>
+  <!--   <p class="ui message black"><code style="font-family:'Consolas';" style="font-family:'Consolas';">
       import &#123; Component, OnInit, Input &#125; from '@angular/core';<br/>
-      import &#123; Lecture &#125; from '../shared/lecture';</code></p>
+      import &#123; Lecture &#125; from '../shared/lecture';</code></p> -->
+  <div class="ui message black">
+    <pre
+      style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#ffffff;">import &#123; Component, OnInit, Input &#125; from &#39;@angular/core&#39;</span><span style="color:#ff8000;">;
+</span><span style="color:#ffffff;">import &#123; Lecture &#125; from &#39;../shared/lecture&#39;</span><span style="color:#ff8000;">;</span></pre>
+  </div>
   <p>And put this in the <b>timetable.component.hmtl</b>:</p>
-  <p class="ui message black"><code>
+  <!--   <p class="ui message black"><code style="font-family:'Consolas';" style="font-family:'Consolas';">
           &lt;app-lecture-details [lecture]="selectedLecture"&gt;&lt;/app-lecture-details&gt;
-</code></p>
+</code></p> -->
+  <div class="ui message black">
+<pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#359aff;">&lt;app-lecture-details</span><span> [lecture]</span><span style="color:#ff4848;">=</span><span style="color:#ffffff;">&quot;selectedLecture&quot;</span><span style="color:#359aff;">&gt;</span><span style="color:#359aff;">&lt;/app-lecture-details&gt; </span></pre>
+  </div>
 </div>
 
 <div *ngIf="theorySmall" style="margin-top: 20px;" class="ui message">
   <p>This component receives a lecture object through its lecture property and indicates that. Now every time the user
     selects a lecture from the list this lecture will be displayed in the details component.</p>
-  <p>With the selector <code>app-lecture-details</code> the component can be displayed.</p>
-  <p><code>[lecture]="selectedLecture"</code> creates a one-way-binding from the <code>selectedLecture</code> property
-    of the <code>TimetableComponent</code> to the <code>lecture</code> property of the target element, which is
-    assigned to the <code>lecture</code> property of the <code>LectureDetailsComponent</code>.</p>
-  <p>If the user clicks on an item from that list, the <code>selectedLecture</code> changes, this updates the
-    <code>lecture</code>
-    because of the property-binding and the <code>LectureDetailsComponent</code> displayes the chosen object.</p>
+  <p>With the selector <code style="font-family:'Consolas';" style="font-family:'Consolas';">app-lecture-details</code> the component can be displayed.</p>
+  <p><code style="font-family:'Consolas';" style="font-family:'Consolas';">[lecture]="selectedLecture"</code> creates a one-way-binding from the <code style="font-family:'Consolas';" style="font-family:'Consolas';">selectedLecture</code> property
+    of the <code style="font-family:'Consolas';" style="font-family:'Consolas';">TimetableComponent</code> to the <code style="font-family:'Consolas';" style="font-family:'Consolas';">lecture</code> property of the target element, which is
+    assigned to the <code style="font-family:'Consolas';" style="font-family:'Consolas';">lecture</code> property of the <code style="font-family:'Consolas';" style="font-family:'Consolas';">LectureDetailsComponent</code>.</p>
+  <p>If the user clicks on an item from that list, the <code style="font-family:'Consolas';" style="font-family:'Consolas';">selectedLecture</code> changes, this updates the
+    <code style="font-family:'Consolas';" style="font-family:'Consolas';">lecture</code>
+    because of the property-binding and the <code style="font-family:'Consolas';" style="font-family:'Consolas';">LectureDetailsComponent</code> displayes the chosen object.</p>
   <p>In this section, there were just "inside changes", you cannot see any difference in the user interface. But we
     seperated the list and the details-view. Now a development of both components is possible, without any need to also
     change the other one. The details-component is now resusable.</p>

@@ -26,5 +26,4 @@ export class ApplicationComponent implements OnInit {
     this.service.getModus()
     .subscribe(modus => this.modus = modus);
   }
-
 }

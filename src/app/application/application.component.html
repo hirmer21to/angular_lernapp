@@ -3,12 +3,12 @@
 <div *ngIf="praxis">
   <h4>Initial Application</h4>
   <p>Open your cmd and type:</p>
-  <p class="ui message black"> <code>ng new where-to-go -is</code></p>
-  <p>The <code>-is</code> defines that the project has an inline-style. If you don't do this, we would have an extra
+  <p class="ui message black"> <code style="font-family:'Consolas';">ng new where-to-go -is</code></p>
+  <p>The <code style="font-family:'Consolas';">-is</code> defines that the project has an inline-style. If you don't do this, we would have an extra
     CSS-file for every single component. For this project, we don't want this.</p>
   <p>Next open your Visual Studio Code and open project from file (STRG + K &nbsp;&nbsp; STRG+O). And then run the
     initial application. You can open a terminal directly in Visual Studio Code with STRG+ö.</p>
-  <p class="ui message black"> <code>ng serve --open</code></p>
+  <p class="ui message black"> <code style="font-family:'Consolas';">ng serve --open</code></p>
   <p>When the brower is open you will see the inital app of Angular:</p>
   <img class="ui image big centered" src="assets/img/Angular-Initial-App.png">
 </div>
@@ -16,75 +16,75 @@
 <div *ngIf="theoryLarge" class="ui message" style="margin-top: 20px;">
   <h4>Structure of the project</h4>
   <p>The CLI created a project for us. These are the workspace files:</p>
-  <p><code>
+  <p><code style="font-family:'Consolas';">
     Where-To-Go <br/>
-    |- e2e:</code> file for end-to-end tests<br /> <code>
+    |- e2e:</code> file for end-to-end tests<br /> <code style="font-family:'Consolas';">
     |&nbsp;&nbsp; |-- ... <br/>
-    |- node_modules:</code> installed npm-packages<br /><code>
+    |- node_modules:</code> installed npm-packages<br /><code style="font-family:'Consolas';">
     |&nbsp;&nbsp; |-- ... <br/>
-    |- src:</code> code of our application<br /><code>
+    |- src:</code> code of our application<br /><code style="font-family:'Consolas';">
     |&nbsp;&nbsp; |-- ... <br/>
-    |- .editorconfig:</code> configuration for the code editor<br /> <code>
-    |- .gitignore:</code> files and folders ignored by Git<br /><code>
-    |- angular.json:</code> configuration file of the angular CLI<br /><code>
-    |- package-lock.json:</code> contains information about installed packages<br /><code>
-    |- package.json:</code> npm-packages configuration and information<br /><code>
-    |- README.md:</code> documents help<br /><code>
-    |- tsconfig.json:</code> configuration file for TypeScript<br /><code>
-    |- tslint.json:</code> TSLint configuration file<br /><code>
+    |- .editorconfig:</code> configuration for the code editor<br /> <code style="font-family:'Consolas';">
+    |- .gitignore:</code> files and folders ignored by Git<br /><code style="font-family:'Consolas';">
+    |- angular.json:</code> configuration file of the angular CLI<br /><code style="font-family:'Consolas';">
+    |- package-lock.json:</code> contains information about installed packages<br /><code style="font-family:'Consolas';">
+    |- package.json:</code> npm-packages configuration and information<br /><code style="font-family:'Consolas';">
+    |- README.md:</code> documents help<br /><code style="font-family:'Consolas';">
+    |- tsconfig.json:</code> configuration file for TypeScript<br /><code style="font-family:'Consolas';">
+    |- tslint.json:</code> TSLint configuration file<br /><code style="font-family:'Consolas';">
   </code></p>
   <p>In the src folder is our project code. These are the src files:</p>
-  <p><code>
+  <p><code style="font-family:'Consolas';">
       src <br/>
-      |- app:</code> contains modules and components<br /> <code>
+      |- app:</code> contains modules and components<br /> <code style="font-family:'Consolas';">
       |&nbsp;&nbsp; |-- ... <br/>
-      |- assets:</code> folder for images and files<br /><code>
+      |- assets:</code> folder for images and files<br /><code style="font-family:'Consolas';">
       |&nbsp;&nbsp; |-- ... <br/>
-      |- environments:</code> configuration for environment<br /><code>
+      |- environments:</code> configuration for environment<br /><code style="font-family:'Consolas';">
       |&nbsp;&nbsp; |-- ... <br/>
-      |- browserlist:</code> configuration for the code editor<br /> <code>
-      |- favicon.ico:</code> icon used in the browser bookmark bar<br /><code>
-      |- index.html:</code> main HTML page<br /><code>
-      |- main.ts:</code> compiles the application<br /><code>
-      |- polyfills.ts:</code> polyfill scripts<br /><code>
-      |- styles.css:</code> stylesheet for the project<br /><code>
-      |- test.ts:</code> entry point for unit tests<br /><code>
-      |- tsconfig.app.json:</code> inherits from the workspace-wide tsconfig.json file<br /><code>
-      |- tsconfig.spec.json:</code> inherits from the workspace-wide tsconfig.json file<br /><code>
-      |- tslint.json:</code> inherits from the workspace-wide tslint.json file<br /><code>
+      |- browserlist:</code> configuration for the code editor<br /> <code style="font-family:'Consolas';">
+      |- favicon.ico:</code> icon used in the browser bookmark bar<br /><code style="font-family:'Consolas';">
+      |- index.html:</code> main HTML page<br /><code style="font-family:'Consolas';">
+      |- main.ts:</code> compiles the application<br /><code style="font-family:'Consolas';">
+      |- polyfills.ts:</code> polyfill scripts<br /><code style="font-family:'Consolas';">
+      |- styles.css:</code> stylesheet for the project<br /><code style="font-family:'Consolas';">
+      |- test.ts:</code> entry point for unit tests<br /><code style="font-family:'Consolas';">
+      |- tsconfig.app.json:</code> inherits from the workspace-wide tsconfig.json file<br /><code style="font-family:'Consolas';">
+      |- tsconfig.spec.json:</code> inherits from the workspace-wide tsconfig.json file<br /><code style="font-family:'Consolas';">
+      |- tslint.json:</code> inherits from the workspace-wide tslint.json file<br /><code style="font-family:'Consolas';">
     </code></p>
   <p>In the app folder is the logic and data of our application. It always contains the follwing files:</p>
-  <p><code>
+  <p><code style="font-family:'Consolas';">
         src <br/>
-        |- app-routing.module:</code> provided for the router (navigation)<br /> <code>
+        |- app-routing.module:</code> provided for the router (navigation)<br /> <code style="font-family:'Consolas';">
         |- app.component.html:</code> HTML template, shell of the application and called in the index.html with
-    <code>app-root</code><br /><code>
-        |- app.component.spec.ts:</code> defines unit test for the root <code>AppComponent</code><br /><code>
-        |- app.component.ts:</code> defines logic for the <code>AppComponent</code><br /> <code>
-        |- app.module.ts:</code> all used modules are declared here <br /><code>
+    <code style="font-family:'Consolas';">app-root</code><br /><code style="font-family:'Consolas';">
+        |- app.component.spec.ts:</code> defines unit test for the root <code style="font-family:'Consolas';">AppComponent</code><br /><code style="font-family:'Consolas';">
+        |- app.component.ts:</code> defines logic for the <code style="font-family:'Consolas';">AppComponent</code><br /> <code style="font-family:'Consolas';">
+        |- app.module.ts:</code> all used modules are declared here <br /><code style="font-family:'Consolas';">
       </code></p>
 </div>
 <div *ngIf="theoryLarge" class="ui message" style="margin-top: 20px;">
   <h4>Angular Modules</h4>
   <p>Angular modules help structuring the application by function. Technically modules are classes like all other
-    Angular blocks.The <code>NgModule</code>-Decorator makes the class a module. They define metadata Angular will need
+    Angular blocks.The <code style="font-family:'Consolas';">NgModule</code>-Decorator makes the class a module. They define metadata Angular will need
     at runtime to initialize the application.
   </p>
   <p>Decorators are specific functions that can be used for classes and their
     properties, methods and parameters. They are called at runtime and expand the functionality of a class. Decorators
-    always start with an <code>@</code>-symbol.
+    always start with an <code style="font-family:'Consolas';">@</code>-symbol.
   </p>
-  <p>The class <code>main.ts</code> is the main Angular module for every
-    project. With <code>declarations</code> all components, directives and pipes that belong to this module are
-    declared. With <code>providers</code> all providers are registered. In <code>exports</code> you specify all
-    components, directives and pipes that should be available to other Angular modules. <code>imports</code> contains
-    all Angular modules of which this module depends.And <code>bootstrap</code> defines the main component of the
+  <p>The class <code style="font-family:'Consolas';">main.ts</code> is the main Angular module for every
+    project. With <code style="font-family:'Consolas';">declarations</code> all components, directives and pipes that belong to this module are
+    declared. With <code style="font-family:'Consolas';">providers</code> all providers are registered. In <code style="font-family:'Consolas';">exports</code> you specify all
+    components, directives and pipes that should be available to other Angular modules. <code style="font-family:'Consolas';">imports</code> contains
+    all Angular modules of which this module depends.And <code style="font-family:'Consolas';">bootstrap</code> defines the main component of the
     application. The main component is the root of the application. As you will learn in the chapter <a
-      routerLink="/components">Components</a> the root is the <code>AppComponent</code>.
+      routerLink="/components">Components</a> the root is the <code style="font-family:'Consolas';">AppComponent</code>.
   </p>
   <p>You can use different module
-    types, such as the main module (<code>module.ts</code>), routing-module and service-module. A routing-module
-    contains configuration for the router, you will learn <code>router</code> in the chapter <a
+    types, such as the main module (<code style="font-family:'Consolas';">module.ts</code>), routing-module and service-module. A routing-module
+    contains configuration for the router, you will learn <code style="font-family:'Consolas';">router</code> in the chapter <a
       routerLink="/router">Router</a>. A service-module provides logic / functions for the entire application as you
     will learn in the chapter <a routerLink="/service">Service</a>.
   </p>
@@ -98,15 +98,22 @@
 </div>
 
 <div *ngIf="praxis" style="margin-top: 20px;">
+
   <h4>Make some changes</h4>
   <p>Open <b>app.component.ts</b> and change the title of the app.</p>
-  <p class="ui message black"> <code>export class AppComponent &#123; 
-    <br/>&nbsp;&nbsp; title = 'Where To Go'; <br/>
-      &#125;</code>
-  </p>
+  <div class="ui message black">
+<pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">export </span><span style="color:#359aff;">class</span><span style="color:#ffffff;"> AppComponent </span><span style="color:#b16565;">&#123;
+    </span><span style="color:#ff8000;">title </span><span style="color:#008000;">= </span><span style="color:#ffff80;">&#39;Where To Go&#39;</span><span style="color:#b16565;">;
+}</span></pre>
+  </div>
   <p>In the <b>app.component.html</b> is a binding to "title". This binding brings the new title into the application.
   </p>
-  <p class="ui message black"><code>Welcome to &#123; &#123; title &#125; &#125;!</code></p>
+  <!--   <p class="ui message black"><code style="font-family:'Consolas';">Welcome to &#123; &#123; title &#125; &#125;!</code></p>
+ -->
+  <div class="ui message black">
+<pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#ffffff;">  Welcome to &#123; &#123; title &#125; &#125;!
+</span></pre>
+  </div>
   <img class="ui image medium centered" src="assets/img/Angular-Changed-Title.png">
 </div>
 
@@ -120,25 +127,41 @@
   </p>
   <p><img class="ui image large centered" src="assets/img/Second-Terminal.png"></p>
   <p>You can install the UI-Framework with the command:</p>
-  <p class="ui message black"><code>npm i --save semantic-ui-css</code></p>
+  <p class="ui message black"><code style="font-family:'Consolas';">npm i --save semantic-ui-css</code></p>
   <p>Add to the file <b>angular.json</b>:</p>
-  <p class="ui message black"><code>"styles": [<br/>
+  <!--   <p class="ui message black"><code style="font-family:'Consolas';">"styles": [<br/>
     &nbsp; <b>"../Where-To-Go/node_modules/semantic-ui-css/semantic.css",</b><br/>
     &nbsp; "src/styles.css"<br/>
-    ],</code></p>
+    ],</code></p> -->
+  <div class="ui message black">
+<pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#359aff;">&quot;styles&quot;</span><span style="color:#ffffff;">: [
+  </span><span style="color:#ffff80;">&quot;../Master-Project/node_modules/semantic-ui-css/semantic.css&quot;</span><span style="color:#ffffff;">,
+  </span><span style="color:#ffff80;">&quot;src/styles.css&quot;
+</span><span style="color:#ffffff;">]</span></pre>
+
+  </div>
 
   <p>Now you can test the new style. Adjust the <b>app.component.html</b> like this and see if it looks different:</p>
-  <p class="ui message black"><code>
+  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
         &lt;div style="text-align:center" &gt; <br/>
         &nbsp; &lt;h1 class="ui header" style="margin: 30px"&gt; <br/>
         &nbsp;&nbsp;&nbsp; Welcome to &#123; &#123; title &#125; &#125;! <br/>
         &nbsp; &lt;/h1&gt;  <br/>
               &lt;/div&gt;<br/>
               &lt;router-outlet&gt; &lt;/router-outlet&gt;
-    </code></p>
+    </code></p> -->
+  <div class="ui message black">
+<pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;text-align:center&quot; </span><span style="color:#359aff;">&gt;
+  </span><span style="color:#359aff;">&lt;h1 </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;ui header&quot; </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;margin: </span><span style="color:#00ff40;">30px</span><span style="color:#ffffff;">&quot;</span><span style="color:#359aff;">&gt;
+</span><span style="color:#ffffff;">    Welcome to &#123; &#123; title &#125; &#125;!
+  </span><span style="color:#359aff;">&lt;/h1&gt;
+&lt;/div&gt;
+</span><span style="color:#359aff;">&lt;router-outlet&gt;&lt;/router-outlet&gt;</span></pre>
+
+  </div>
   <p class="ui info message">If you have any problems with installing the semantic ui css, here are some tips that may
     help. If you get on the console the
-    message <code>found 1 high severity vulnerability </code> just run <code>npm audit fix</code>. Next you can try a
+    message <code style="font-family:'Consolas';">found 1 high severity vulnerability </code> just run <code style="font-family:'Consolas';">npm audit fix</code>. Next you can try a
     restart of Visual Studio Code. If this is also not working. You can download it by yourself <a
       href="https://github.com/Semantic-Org/Semantic-UI-CSS">(Semantic
       UI CSS Download)</a> and paste it in your project folder.</p>

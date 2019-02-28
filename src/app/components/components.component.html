@@ -6,11 +6,11 @@
     styles
     this structure, togehter it's the view of the component. The TypeScript file is the logic part of the component. An
     Angular application is basically an application with a tree structure. It has a root, that is the
-    <code>AppComponent</code> and it's also the entry point of the application. However, there is no difference to
+    <code style="font-family:'Consolas';">AppComponent</code> and it's also the entry point of the application. However, there is no difference to
     the other components in concept or syntax. Only difference is that the Angular framework knows that this component
     is the entry point of the application. If you have the root component you can put other components inside. You can
     interlace the components more and more. This is the most important architecture concept of Angular.</p>
-  <p>Components consist of three parts. A class with the <code>@Component</code>-decorator, that makes it a component,
+  <p>Components consist of three parts. A class with the <code style="font-family:'Consolas';">@Component</code>-decorator, that makes it a component,
     the template and the CSS styles (optional). With the template of a component you define what the user sees at
     runtime. In addition you can define the user interaction. The template is written in HTML and additional syntax
     elements like data-binding.</p>
@@ -19,10 +19,10 @@
 
 <div *ngIf="praxis" style="margin-top: 20px;">
   <h4>Generate new Component</h4>
-  <p>Open your command line in Visual Studio Code and generate (short form <code>g</code>) your "where-to-go"
+  <p>Open your command line in Visual Studio Code and generate (short form <code style="font-family:'Consolas';">g</code>) your "where-to-go"
     Component, it's going to be the page you see
     first when you start the app.</p>
-  <p class="ui message black"> <code>ng g component where-to-go</code></p>
+  <p class="ui message black"> <code style="font-family:'Consolas';">ng g component where-to-go</code></p>
 </div>
 <div *ngIf="theorySmall" style="margin-top: 20px;" class="ui message">
   <p>Result:</p>
@@ -35,19 +35,19 @@
 </div>
 <div *ngIf="theoryLarge" style="margin-top: 20px;" class="ui message">
   <p><img class="ui image medium centered" src="assets/img/Skeleton-Component.png"></p>
-  <p>There are some interesting things about the skeleton of the component.ts files. <code>@Component</code> is a
+  <p>There are some interesting things about the skeleton of the component.ts files. <code style="font-family:'Consolas';">@Component</code> is a
     decorator function which specifies the Angular metadata for the component. The CLI generates three metadata
     properties:</p>
   <ul>
-    <li><code>selector</code>: the CSS-element-selector of the component </li>
-    <li><code>templateURL</code>: the location of the components' template file</li>
-    <li><code>styles</code>: the location of the private CSS style of the component (here empty, because we decided to
+    <li><code style="font-family:'Consolas';">selector</code>: the CSS-element-selector of the component </li>
+    <li><code style="font-family:'Consolas';">templateURL</code>: the location of the components' template file</li>
+    <li><code style="font-family:'Consolas';">styles</code>: the location of the private CSS style of the component (here empty, because we decided to
       import the semantic-ui for a overall style and therefor generated the project without a css for every component)
     </li>
   </ul>
-  <p>The <code>selector</code> 'app-where-to-go' matches with the name of the HTML element. This name identifies the
+  <p>The <code style="font-family:'Consolas';">selector</code> 'app-where-to-go' matches with the name of the HTML element. This name identifies the
     component within the template of the parent-component.</p>
-  <p><code>ngOnInit</code> is a lifecycle hook function. Angular calls this function shortly after creating the
+  <p><code style="font-family:'Consolas';">ngOnInit</code> is a lifecycle hook function. Angular calls this function shortly after creating the
     component. It is the right function to place initialisation logic.</p>
   <p>The component always class needs to be exported, to reuse it anywhere else. E.g. in the AppModule.</p>
 </div>
@@ -61,19 +61,19 @@
   <p>The constructor is not Angular specific. But important when considering the lifecycle of a component since it is
     responsible of instantiation of the component. You should not put much logic in the constructor because when the
     constructor is called, no Input- / Output-Bindings are available nor the child-components.</p>
-  <p><code>ngOnInit</code> offers you the possibility to initialize your component. It is guaranteed that all bindings
+  <p><code style="font-family:'Consolas';">ngOnInit</code> offers you the possibility to initialize your component. It is guaranteed that all bindings
     are ready. It offers you the possibility to run here all the initialisation logic you have. For example to request
-    the data from the backend. <code>ngOnInit</code> is not just the function, Angular has a TypeScript interface
-    <code>OnInit</code>. The framework its own interface for all lifecycle-hooks.
+    the data from the backend. <code style="font-family:'Consolas';">ngOnInit</code> is not just the function, Angular has a TypeScript interface
+    <code style="font-family:'Consolas';">OnInit</code>. The framework its own interface for all lifecycle-hooks.
   </p>
-  <p><code>ngOnChanges</code> is called one time before <code>ngOnInit</code> and after that every time an
-    <code>Input</code> binding changes.
+  <p><code style="font-family:'Consolas';">ngOnChanges</code> is called one time before <code style="font-family:'Consolas';">ngOnInit</code> and after that every time an
+    <code style="font-family:'Consolas';">Input</code> binding changes.
   </p>
-  <p>With <code>ngAfterContentInit</code> you can react to the initialisation of child-components.</p>
-  <p>The view of the child-components is accessable with the <code>ngAfterViewInit</code>.</p>
-  <p>You can do some cleaning with <code>ngOnDestroy</code> before a component will be destroyed. This might be
+  <p>With <code style="font-family:'Consolas';">ngAfterContentInit</code> you can react to the initialisation of child-components.</p>
+  <p>The view of the child-components is accessable with the <code style="font-family:'Consolas';">ngAfterViewInit</code>.</p>
+  <p>You can do some cleaning with <code style="font-family:'Consolas';">ngOnDestroy</code> before a component will be destroyed. This might be
     nessessary when a component asks a service or other components for updates frequently.</p>
-  <p>With the methods <code>ngAfterContentChecked</code> and <code>ngAfterViewChecked</code> you can monitor the the
+  <p>With the methods <code style="font-family:'Consolas';">ngAfterContentChecked</code> and <code style="font-family:'Consolas';">ngAfterViewChecked</code> you can monitor the the
     Angular ChangeDetection. This mechanism is responsible for redrawing the components after changes. While the
     checked-flag that every component has is false, Angular checks to see if the component needs to be redrawn. The
     performance of the application will be better the less the ChangeDetection runs and with the methods you can control
@@ -81,8 +81,12 @@
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
   <h4>Reuse Component</h4>
-  <p>We can now use the <code>selector</code></p>
-  <p class="ui message black"><code>&lt;app-where-to-go&gt;&lt;/app-where-to-go&gt;</code></p>
+  <p>We can now use the <code style="font-family:'Consolas';">selector</code></p>
+  <!--   <p class="ui message black"><code style="font-family:'Consolas';">&lt;app-where-to-go&gt;&lt;/app-where-to-go&gt;</code></p>
+ -->
+  <div class="ui message black">
+<pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#ffffff;">&lt;app-where-to-go&gt;&lt;/app-where-to-go&gt;</span></pre>
+  </div>
   <p>and insert it into the <b>app.component.html</b>. Now the app shows the component at this location, just like it
     would do with every other HTML tag.</p>
 </div>
@@ -93,27 +97,27 @@
   <ol>
     <li>Property Binding: <br />they allow you to set the value of a DOM property based on an expression.
       You assign them with square brackets.<br />
-      <code>&lt;element [propterty]="expression"&gt;...&lt;/element&gt;</code>
+      <code style="font-family:'Consolas';">&lt;element [propterty]="expression"&gt;...&lt;/element&gt;</code>
     </li>
     <li>Interpolation: <br />
       helps to display properties of the component or calculated values as strings in the HTML view.<br />
-      <code>&lt;div&gt;&#123; &#123; component-property &#125; &#125;&lt;/div&gt;</code>
+      <code style="font-family:'Consolas';">&lt;div&gt;&#123; &#123; component-property &#125; &#125;&lt;/div&gt;</code>
     </li>
     <li>Event Binding: <br />
       this is kind of the opposite of property binding. It is possible to react to the occurrence of DOM events, in
       order to change the application model, for example.<br />
-      <code>&lt;element (eventname)="action"&gt;...&lt;/element&gt;</code>
+      <code style="font-family:'Consolas';">&lt;element (eventname)="action"&gt;...&lt;/element&gt;</code>
 
     </li>
     <li>Two-Way Binding: <br />
       use this if you want to bind a input component directly to a value of your component class.<br />
-      <code>&lt;input [(ngModel)]="text"&gt;...&lt;/input&gt;</code><br />
+      <code style="font-family:'Consolas';">&lt;input [(ngModel)]="text"&gt;...&lt;/input&gt;</code><br />
       It is a combination of two bindings and you could write the expanded form too.<br />
-      <code>&lt;input [ngModel]="text" (ngModelChange)="setOtherText($event)"&gt;...&lt;/input&gt;</code>
+      <code style="font-family:'Consolas';">&lt;input [ngModel]="text" (ngModelChange)="setOtherText($event)"&gt;...&lt;/input&gt;</code>
     </li>
     <li>Local Template-Variables: <br />
       you can create a local variable. With this you have now access to the whole DOM-API of the input field.<br />
-      <code>&lt;element #myElement&gt;...&lt;/element&gt;<br/>
+      <code style="font-family:'Consolas';">&lt;element #myElement&gt;...&lt;/element&gt;<br/>
         </code>
     </li>
   </ol>
@@ -124,24 +128,31 @@
   <h4>Create and show Property</h4>
   <p>Now we will use data-binding to show a temporary text message on the "Home" page until we are ready to show the
     information about the next lecture we have to go to. Put this property into <b>where-to-go.component.ts</b>:</p>
-  <p class="ui message black"><code>  tempText: string = "Here will appear your information soon!";
-      </code></p>
+  <!--   <p class="ui message black"><code style="font-family:'Consolas';">  tempText: string = "Here will appear your information soon!";
+      </code></p> -->
+  <div class="ui message black">
+<pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;"><span style="color:#ffffff;">tempText</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> string </span><span style="color:#008000;">= </span><span style="color:#ffff80;">&quot;Here will appear your information soon!&quot;</span><span style="color:#b16565;">;</span></pre>
+  </div>
   <p>and replace the auto generated code in the <b>where-to-go.component.html</b> with this code:</p>
-  <p class="ui message black"><code> &#123; &#123; tempText &#125; &#125; </code></p>
+  <!--   <p class="ui message black"><code style="font-family:'Consolas';"> &#123; &#123; tempText &#125; &#125; </code></p> -->
+  <div class="ui message black">
+<pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#ffffff;">&#123; &#123; tempText &#125; &#125;</span></pre>
+  </div>
   <p>This kind of data-binding is called interpolation and you just displayed the value of the property "tempText" via
     your
     HTML code.</p>
   <p class="ui info message">Interpolation: Shows data in the template. Syntax: <br />
-    <code>&#123; &#123; &nbsp; &#125; &#125;</code>
+    <code style="font-family:'Consolas';">&#123; &#123; &nbsp; &#125; &#125;</code>
   </p>
+
   <h4>Visualization of the Construction:</h4>
   <p><img class="ui image large centered" src="assets/img/App-Building-2.png"></p>
   <h4>Create Class</h4>
   <p>For our project we are going to need a class to define a lecture. With this code you can generate a TypeScript
     class in a new folder named "shared":</p>
-  <p class="ui message black"><code>ng g class shared/lecture</code></p>
+  <p class="ui message black"><code style="font-family:'Consolas';">ng g class shared/lecture</code></p>
   <p>In this new class we define the constructor for lecture.</p>
-  <p class="ui message black"><code>
+  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
       constructor( <br/>
         &nbsp; public name: string,<br/>
         &nbsp; public room: string,<br/>
@@ -151,19 +162,35 @@
         &nbsp; public floor: string,<br/>
         &nbsp; public department?: string<br/>
     )&#123; &#125;
-  </code></p>
-  <p>The property department is optional in this constructor and therefor marked with a <code>?</code>. Angular has its
+  </code></p> -->
+  <div class="ui message black">
+<pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff; ">  <span style="color:#ff8000;">constructor</span><span style="color:#b16565;">(
+    </span><span style="color:#359aff;">public </span><span style="color:#ffffff;">id</span><span style="color:#008000;">: </span><span style="color:#ffffff;">number</span><span style="color:#b16565;">,
+    </span><span style="color:#359aff;">public </span><span style="color:#ffffff;">name</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> string</span><span style="color:#b16565;">,
+    </span><span style="color:#359aff;">public</span><span style="color:#ffffff;"> room</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> string</span><span style="color:#b16565;">,
+    </span><span style="color:#359aff;">public</span><span style="color:#ffffff;"> day</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> string</span><span style="color:#b16565;">,
+    </span><span style="color:#359aff;">public</span><span style="color:#ffffff;"> time</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Time</span><span style="color:#b16565;">,
+    </span><span style="color:#359aff;">public</span><span style="color:#ffffff;"> building</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> string</span><span style="color:#b16565;">,
+    </span><span style="color:#359aff;">public </span><span style="color:#ffffff;">floor</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> string</span><span style="color:#b16565;">,
+    </span><span style="color:#359aff;">public</span><span style="color:#ffffff;"> department</span><span style="color:#008000;">?:</span><span style="color:#ffffff;"> string
+  </span><span style="color:#b16565;">)&#123; </span><span style="color:#b16565;">&#125;</span></pre>
+  </div>
+  <p>The property department is optional in this constructor and therefor marked with a <code style="font-family:'Consolas';">?</code>. Angular has its
     own type for Time. Usually Visual Studio Code should ask you right away if you want to import it.</p>
   <p><img class="ui image large centered" src="assets/img/Import-Time.png"></p>
   <p>If not, you can force it by placing the curser behind the underlined word and press STRG + space bar, or do it on
     your own like this:</p>
-  <p class="ui message black"><code>import &#123; Time &#125; from "@angular/common";</code></p>
+  <!--   <p class="ui message black"><code style="font-family:'Consolas';">import &#123; Time &#125; from "@angular/common";</code></p>
+ -->
+  <div class="ui message black">
+<pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> Time </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&quot;@angular/common&quot;</span><span style="color:#b16565;">;</span></pre>
+  </div>
   <h4>Generate Item Component</h4>
   <p>We want to show a complete lecture now so we generate the component lecture-item.</p>
-  <p class="ui message black"><code>ng g component lecture-item</code></p>
+  <p class="ui message black"><code style="font-family:'Consolas';">ng g component lecture-item</code></p>
   <p>We create a lecture the <b>lecture-item.component.ts</b> first and define all the properties the constructor
     requires.</p>
-  <p class="ui message black"><code>
+  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
       lecture: Lecture = &#123; <br/>
         &nbsp; name: 'Webtechnologien',<br/>
         &nbsp; room: '075',<br/>
@@ -173,10 +200,22 @@
         &nbsp; floor: '02',<br/>
         &nbsp; department: 'Lehrstuhl für Medieninformatik'<br/>
       &#125;
-  </code></p>
+  </code></p> -->
+  <div class="ui message black">
+<pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;"><span style="color:#ffffff;">lecture</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Lecture </span><span style="color:#008000;">= </span><span style="color:#b16565;">&#123;
+    </span><span style="color:#ffffff;">id</span><span style="color:#008000;">: </span><span style="color:#00ff40;">1</span><span style="color:#b16565;">,
+    </span><span style="color:#ffffff;">name</span><span style="color:#008000;">: </span><span style="color:#ffff80;">&#39;Webtechnologien&#39;</span><span style="color:#b16565;">,
+  </span><span style="color:#ffffff;">  room</span><span style="color:#008000;">: </span><span style="color:#ffff80;">&#39;075&#39;</span><span style="color:#b16565;">,
+  </span><span style="color:#ffffff;">  day</span><span style="color:#008000;">: </span><span style="color:#ffff80;">&#39;Monday&#39;</span><span style="color:#b16565;">,
+  </span><span style="color:#ffffff;">  time</span><span style="color:#008000;">: </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> hours</span><span style="color:#008000;">: </span><span style="color:#00ff40;">10</span><span style="color:#b16565;">,</span><span style="color:#ffffff;"> minutes</span><span style="color:#008000;">: </span><span style="color:#00ff40;">15 </span><span style="color:#b16565;">&#125;,
+  </span><span style="color:#ffffff;">  building</span><span style="color:#008000;">: </span><span style="color:#ffff80;">&#39;WE5&#39;</span><span style="color:#b16565;">,
+    </span><span style="color:#ffffff;">floor</span><span style="color:#008000;">: </span><span style="color:#ffff80;">&#39;02&#39;</span><span style="color:#b16565;">,
+  </span><span style="color:#ffffff;">  department</span><span style="color:#008000;">: </span><span style="color:#ffff80;">&#39;Lehrstuhl für Medieninformatik&#39;
+</span><span style="color:#b16565;">&#125;</span></pre>
+  </div>
   <p>And in the <b>lecture-item.component.html</b> we can define what of this item and how we want to display it. We
     use the interpolation to display the properties of the component-class in this HTML-template.</p>
-  <p class="ui message black"><code>
+  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
       &lt;div style="padding: 50px;"&gt; <br/>
       &nbsp; &lt;div class="ui middle aligned divided list"&gt; <br/>
       &nbsp;&nbsp; &lt;div class="item"&gt; <br/>
@@ -191,9 +230,33 @@
       &nbsp;&nbsp; &lt;/div&gt; <br/>
       &nbsp; &lt;/div&gt; <br/>
       &lt;/div&gt; <br/>
-  </code></p>
+  </code></p> -->
+  <div class="ui message black">
+<pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;padding: </span><span style="color:#00ff40;">50px</span><span style="color:#ff8000;">;</span><span style="color:#ffffff;">&quot;</span><span style="color:#359aff;">&gt;
+    </span><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;ui middle aligned divided list&quot;</span><span style="color:#359aff;">&gt;
+      </span><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;item&quot;</span><span style="color:#359aff;">&gt;
+        </span><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;content&quot;</span><span style="color:#359aff;">&gt;
+          </span><span style="color:#359aff;">&lt;h2 </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;padding-bottom: </span><span style="color:#00ff40;">20px</span><span style="color:#ffffff;">&quot; </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;header ui&quot;</span><span style="color:#359aff;">&gt; 
+            Lecture Details: </span><span style="color:#359aff;">&lt;/h2&gt;
+          </span><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;header&quot;</span><span style="color:#359aff;">&gt;</span><span style="color:#ffffff;">What? &#123; &#123;lecture.name &#125; &#125;
+            </span><span style="color:#359aff;">&lt;/div&gt;
+          </span><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;description&quot;</span><span style="color:#359aff;">&gt;</span><span style="color:#ffffff;">Where? &#123; &#123;lecture.building&#125; &#125;/
+            &#123; &#123;lecture.floor&#125; &#125;.&#123; &#123;lecture.room&#125; &#125;</span><span style="color:#359aff;">&lt;/div&gt;
+          </span><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;description&quot;</span><span style="color:#359aff;">&gt;</span><span style="color:#ffffff;">When? &#123; &#123;lecture.day&#125; &#125;, 
+            &#123; &#123;lecture.time.hours&#125; &#125;:&#123; &#123;lecture.time.minutes&#125; &#125;</span><span style="color:#359aff;">&lt;/div&gt;
+          </span><span style="color:#359aff;">&lt;div</span><span style="color:#ffffff;"> *ngIf</span><span style="color:#ff4848;">=</span><span style="color:#ffffff;">&quot;lecture.department&quot; </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;description&quot;</span><span style="color:#359aff;">&gt;
+  </span><span style="color:#ffffff;">          Department: &#123; &#123;lecture.department&#125; &#125;</span><span style="color:#359aff;">&lt;/div&gt;
+        </span><span style="color:#359aff;">&lt;/div&gt;
+      </span><span style="color:#359aff;">&lt;/div&gt;
+    </span><span style="color:#359aff;">&lt;/div&gt;
+&lt;/div&gt;</span></pre>
+  </div>
   <p>To show it beneath the title and the where-to-go component we insert</p>
-  <p class="ui message black"><code>&lt;app-lecture-item&gt;&lt;/app-lecture-item&gt;</code></p>
+  <!--   <p class="ui message black"><code style="font-family:'Consolas';">&lt;app-lecture-item&gt;&lt;/app-lecture-item&gt;</code></p>
+ -->
+  <div class="ui message black">
+<pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;"><span style="color:#ffffff;">&lt;app-lecture-item&gt;&lt;/app-lecture-item&gt;</span></pre>
+  </div>
   <p>into the <b>app.component.html</b>.</p>
 </div>
 
@@ -204,23 +267,26 @@
     format them to achieve a better user experience. Angular comes along with many build-in pipes. With pipes you can
     format strings, numbers and other displayed data.
     Additionally it is possible to create your own pipes. In this case we are fine with the build-in pipes. For example
-    you can format the date of today. When you instantiate a <code>Date</code> object like this: <br />
-    <code>today: Date = new Date();</code> <br />
+    you can format the date of today. When you instantiate a <code style="font-family:'Consolas';">Date</code> object like this: <br />
+    <code style="font-family:'Consolas';">today: Date = new Date();</code> <br />
     You will get this format when you display it in your HTML just "raw":
   </p>
-  <p>{{today}} ---- code: <code>&#123; &#123;today&#125; &#125;</code></p>
+  <p>{{today}} ---- code: <code style="font-family:'Consolas';">&#123; &#123;today&#125; &#125;</code></p>
   <p>Probably users what to have another format for a date. So you can use pipes in your HTML to format the date like
     this:</p>
-  <p>{{today | date}} ---- code: <code>&#123; &#123;today | date&#125; &#125;</code></p>
-  <p>{{today | date: 'medium'}} ---- code: <code>&#123; &#123;today | date: 'medium'&#125; &#125;</code></p>
-  <p>{{today | date: 'fullDate'}} ---- code: <code>&#123; &#123;today | date: 'fullDate'&#125; &#125;</code></p>
+  <p>{{today | date}} ---- code: <code style="font-family:'Consolas';">&#123; &#123;today | date&#125; &#125;</code></p>
+  <p>{{today | date: 'medium'}} ---- code: <code style="font-family:'Consolas';">&#123; &#123;today | date: 'medium'&#125; &#125;</code></p>
+  <p>{{today | date: 'fullDate'}} ---- code: <code style="font-family:'Consolas';">&#123; &#123;today | date: 'fullDate'&#125; &#125;</code></p>
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
   <h4>Try a Pipe</h4>
   <p>We want to try the UppercasePipe, which formats our string in capital letters:</p>
 
-  <p class="ui message black">
-    <code>&lt;div class="header"&gt;What? &#123; &#123;lecture.name | uppercase&#125; &#125; &lt;/div&gt;</code></p>
+  <!--   <p class="ui message black">
+    <code style="font-family:'Consolas';">&lt;div class="header"&gt;What? &#123; &#123;lecture.name | uppercase&#125; &#125; &lt;/div&gt;</code></p> -->
+  <div class="ui message black">
+<pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;"><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;header&quot;</span><span style="color:#359aff;">&gt;</span><span style="color:#ffffff;">What? &#123; &#123;lecture.name | uppercase&#125; &#125;</span><span style="color:#359aff;">&lt;/div&gt;</span></pre>
+  </div>
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
   <h4>Visualization of the Construction:</h4>
