@@ -27,18 +27,15 @@ export class HomeComponent implements OnInit {
   theorist(): void {
     this.service.setModus(this.modi[0])
     .subscribe(modus => this.modus = modus);
-    console.log(this.modus);
   }
 
   practitioner(): void {
     this.service.setModus(this.modi[1])
     .subscribe(modus => this.modus = modus);
-    console.log(this.modus);
   }
 
   both(): void {
     this.service.setModus(this.modi[2])
     .subscribe(modus => this.modus = modus);
-    console.log(this.modus);
   }
 }
