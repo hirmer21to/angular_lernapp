@@ -1,4 +1,10 @@
 <h2>Routing</h2>
+<div *ngIf="praxis" style="margin-top: 20px;" class="ui info message">
+  <h5>User Story</h5>
+  <p>As an <b>user</b><br />
+    I want to <b>navigate through the views</b>, <br />
+    to <b> have the start page and the timetable accessable via navigation bar and the details via click on a lecture in the timetable</b>.</p>
+</div>
 <div *ngIf="theoryLarge" style="margin-bottom: 20px;" class="ui message">
   <h4>What is Routing?</h4>
   <p>Angular provides something called <code style="font-family:'Consolas';">Router</code> for the navigation from one
@@ -47,14 +53,12 @@
   <p>First we want to have a default route. When the browser is reloading, this route is displayed by default. So we
     are going to type this into the <b>app-routing.module.ts</b> into <code
       style="font-family:'Consolas';">const routes: Routes = []</code>:</p>
-  <!--   <p class="ui message black"> <code style="font-family:'Consolas';">&#123; path: '', redirectTo: '/where-to-go', pathMatch: 'full' &#125;</code></p> -->
   <div class="ui message black">
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#b16565;">&#123; </span><span style="color:#ff00ff;">path</span><span style="color:#008000;">: </span><span style="color:#ffff80;">&#39;&#39;</span><span style="color:#b16565;">,</span><span style="color:#ffffff;"> redirectTo</span><span style="color:#008000;">: </span><span style="color:#ffff80;">&#39;/where-to-go&#39;</span><span style="color:#b16565;">,</span><span style="color:#ffffff;"> pathMatch</span><span style="color:#008000;">: </span><span style="color:#ffff80;">&#39;full&#39; </span><span style="color:#b16565;">&#125;</span></pre>
   </div>
   <p>Also insert there the other needed routes at the same location:</p>
-  <!--   <p class="ui message black"> <code style="font-family:'Consolas';">&#123; path: 'timetable', component: TimetableComponent &#125; <br/>
-      &#123; path: 'where-to-go', component: WhereToGoComponent &#125;</code></p> -->
+
   <div class="ui message black">
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#b16565;">&#123; </span><span style="color:#ff00ff;">path</span><span style="color:#008000;">: </span><span style="color:#ffff80;">&#39;timetable&#39;</span><span style="color:#b16565;">,</span><span style="color:#ffffff;"> component</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> TimetableComponent </span><span style="color:#b16565;">&#125;
@@ -78,22 +82,7 @@
     <code style="font-family:'Consolas';">routerLinkActive</code>
     the active item in the navigation will be highlighted. Our code in the <b>app.component.html</b> should look like
     this:</p>
-  <!--   <p class="ui message black"> <code style="font-family:'Consolas';">
-          &lt;div style="text-align:center"&gt; <br/>
-         &nbsp; &lt;h1 class="ui header" style="margin: 30px"&gt; <br/>
-         &nbsp;&nbsp;  Welcome to &#123; &#123; title &#125; &#125;! <br/>
-         &nbsp;  &lt;/h1&gt; <br/>
-         &nbsp; &lt;div class="ui two item menu"&gt;<br/>
-         &nbsp;&nbsp;  &lt;a class="item" routerLink="/where-to-go" routerLinkActive="active"&gt;<br/>
-         &nbsp;&nbsp;&nbsp;&nbsp;  Home<br/>
-         &nbsp;&nbsp;  &lt;/a&gt;<br/>
-         &nbsp;&nbsp;  &lt;a class="item" routerLink="/timetable" routerLinkActive="active"&gt;<br/>
-         &nbsp;&nbsp;&nbsp;&nbsp;  Timetable<br/>
-         &nbsp;&nbsp; &lt;/a&gt;<br/>
-         &nbsp; &lt;/div&gt;<br/>
-         &nbsp; &lt;router-outlet&gt;&lt;/router-outlet&gt;<br/>
-        &lt;/div&gt;<br/>
-        </code></p> -->
+
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;text-align:center&quot;</span><span style="color:#359aff;">&gt;
   </span><span style="color:#359aff;">&lt;h1 </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;ui header&quot; </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;margin: </span><span style="color:#00ff40;">30px</span><span style="color:#ffffff;">&quot;</span><span style="color:#359aff;">&gt;
@@ -118,22 +107,22 @@
 <div *ngIf="praxis" style="margin-top: 20px;">
   <h4>Visualization of the Construction:</h4>
   <p><img class="ui image large centered" src="assets/img/App-Building-7.png"></p>
+</div>
+<h4>Details in own View</h4>
+<div *ngIf="praxis" style="margin-top: 20px;">
 
-  <h4>Details in own View</h4>
   <p>The lecture details should not be in an own view now, not beneath the timetable. Delete
     <code
       style="font-family:'Consolas';">&lt;app-lecture-details [lecture]="selectedLecture"&gt;&lt;/app-lecture-details&gt;</code>
     from the <b>timetable.component.html</b>. We need an own route for them in the <b>app-routing.module.ts</b>:</p>
-  <!--   <p class="ui message black">
-    <code style="font-family:'Consolas';"> &#123; path: 'lecture-details/:id', component: LectureDetailsComponent &#125;</code></p> -->
+
   <div class="ui message black">
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "> <span style="color:#b16565;">&#123; </span><span style="color:#ff00ff;">path</span><span style="color:#008000;">: </span><span style="color:#ffff80;">&#39;lecture-details/:id&#39;</span><span style="color:#b16565;">,</span><span style="color:#ffffff;"> component</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> LectureDetailsComponent </span><span style="color:#b16565;">&#125;</span></pre>
   </div>
   <p>And in the <b>timetable.component.html</b> where we iterate with a for-loop through the lectures we insert the
     routerlink for the lecture details with the ID of the clicked one:</p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';"> &lt;a class="app-lecture-item item" [lecture]="l" routerLink="/lecture-details/&#123; &#123; l.id &#125; &#125;" style="margin: 10px; padding:10px"&gt; &lt;/a&gt;
-    </code></p> -->
+
   <div class="ui message black">
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">&lt;a </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;app-lecture-item item&quot; [lecture]</span><span style="color:#ff4848;">=</span><span style="color:#ffffff;">&quot;l&quot; routerLink</span><span style="color:#ff4848;">=
@@ -148,7 +137,7 @@
     it anymore.
   </p>
 </div>
-<div *ngIf="theorySmall" style="margin-top: 20px;" class="ui message">
+<div *ngIf="praxis" style="margin-top: 20px;">
   <p>Before the parent <code style="font-family:'Consolas';">LectureItemComponent</code> property (<code
       style="font-family:'Consolas';">lecture</code>) sets the
     <code style="font-family:'Consolas';">LectureDetailsComponent</code>
@@ -160,10 +149,7 @@
 <div *ngIf="praxis" style="margin-top: 20px;">
   <p>In <b>lecture-details.component.ts</b> we need to import the following and insert them as parameters in the
     constructor:</p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
-        import &#123; ActivatedRoute &#125; from '@angular/router'; <br/>
-        import &#123; LectureService &#125; from '../shared/lecture.service'; <br/>
-        import &#123; Location &#125; from '@angular/common'; <br/> </code></p> -->
+
   <div class="ui message black">
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> ActivatedRoute </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;@angular/router&#39;</span><span style="color:#b16565;">;
@@ -171,13 +157,6 @@
 </span><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> Location </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;@angular/common&#39;</span><span style="color:#b16565;">; </span></pre>
   </div>
 
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
-            constructor(<br/>
-            &nbsp;&nbsp;    private route: ActivatedRoute,<br/>
-            &nbsp;&nbsp;    private lectureService: LectureService,<br/>
-            &nbsp;&nbsp;    private location: Location<br/>
-                )    &#123;  &#125;
-              </code></p> -->
   <div class="ui message black">
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ff8000;">constructor</span><span style="color:#b16565;">(
@@ -188,6 +167,7 @@
   </div>
 </div>
 <div *ngIf="theorySmall" style="margin-top: 20px;" class="ui message">
+  <p>You will need the following things to pick a lecture by its id.</p>
   <p>The <code style="font-family:'Consolas';">ActivatedRoute</code> contains information about the route to this
     instance of the
     <code style="font-family:'Consolas';">LectureDetailsComponent</code>.
@@ -201,10 +181,7 @@
 <div *ngIf="praxis" style="margin-top: 20px;">
   <p>In the <b>lecture-datails.component.ts</b> we want to have a method that gets us one lecture by its ID and since
     we use a service class we need to define the method in <b>lecture.service.ts</b>:</p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
-        getLecture(id: number): Observable&lt;Lecture&gt;&#123;<br/>
-        &nbsp;&nbsp;return of(LECTURES.find(lecture =&gt; lecture.id === id));<br/>
-            &#125; </code></p> -->
+
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">getLecture</span><span style="color:#b16565;">(</span><span style="color:#ff8000;">id</span><span style="color:#008000;">: </span><span style="color:#ff8000;">number</span><span style="color:#b16565;">)</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Observable&lt;Lecture&gt;</span><span style="color:#b16565;">&#123;
   </span><span style="color:#359aff;">return</span><span style="color:#ffffff;"> of</span><span style="color:#b16565;">(</span><span style="color:#ffffff;">LECTURES.</span><span style="color:#ff8000;">find</span><span style="color:#b16565;">(</span><span style="color:#ffffff;">lecture </span><span style="color:#008000;">=&gt;</span><span style="color:#ffffff;"> lecture.</span><span style="color:#ff8000;">id </span><span style="color:#008000;">=== </span><span style="color:#ff8000;">id</span><span style="color:#b16565;">));
@@ -212,13 +189,7 @@
 
   </div>
   <p>Now we can use it in <b>lecture-datails.component.ts</b> like this:</p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
-                getLecture(): void &#123; <br/>
-                &nbsp;&nbsp;  const id = +this.route.snapshot.paramMap.get('id'); <br/>
-                &nbsp;&nbsp;  this.lectureService.getLecture(id) <br/>
-                &nbsp;&nbsp;  .subscribe(lecture => this.lecture = lecture); <br/>
-                  &#125;
-            </code></p> -->
+
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">getLecture</span><span style="color:#b16565;">()</span><span style="color:#008000;">: </span><span style="color:#359aff;">void </span><span style="color:#b16565;">&#123;
   </span><span style="color:#359aff;">const </span><span style="color:#ff8000;">id </span><span style="color:#008000;">= </span><span style="color:#008000;">+</span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.route.snapshot.paramMap.</span><span style="color:#ff8000;">get</span><span style="color:#b16565;">(</span><span style="color:#ffff80;">&#39;id&#39;</span><span style="color:#b16565;">);
@@ -233,7 +204,7 @@
   <p><code style="font-family:'Consolas';">route.snapshot</code> is a static image of the route information shortly
     after the component was created.
     <code style="font-family:'Consolas';">paramMap</code> is a dictionary of route parameter values extracted from the
-    URL. The <code style="font-family:'Consolas';">id</code>> key
+    URL. The <code style="font-family:'Consolas';">id</code> key
     returns the id of the lecture to fetch. As route parameters are strings the + JavaScript-operator converts them to
     a number, because the lecture id is one.</p>
 </div>
@@ -243,11 +214,7 @@
     <code style="font-family:'Consolas';">ngOnInit()</code>
     in <b>lecture-details.component.ts</b> and call the <code style="font-family:'Consolas';">getLecture()</code>
     method:</p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
-      ngOnInit(): void &#123;<br/>
-      &nbsp;&nbsp;this.getLecture();<br/>
-        &#125;
-</code></p> -->
+
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">ngOnInit</span><span style="color:#b16565;">()</span><span style="color:#008000;">: </span><span style="color:#359aff;">void </span><span style="color:#b16565;">&#123;
   </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.getLecture</span><span style="color:#b16565;">();
@@ -257,10 +224,7 @@
   <p>As already planed, in addition to the navigation we want to have a button that brings us back to the component we
     visited before. Thats what we needed the <code style="font-family:'Consolas';">location</code> for. Add to
     <b>lecture-details.component.ts</b>:</p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">goBack(): void &#123; <br/>
-      &nbsp;&nbsp; this.location.back(); <br/>
-      &#125;
-    </code></p> -->
+
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">goBack</span><span style="color:#b16565;">()</span><span style="color:#008000;">: </span><span style="color:#359aff;">void </span><span style="color:#b16565;">&#123;
   </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.</span><span style="color:#ff8000;">location</span><span style="color:#ffffff;">.</span><span style="color:#ff8000;">back</span><span style="color:#b16565;">();
@@ -269,9 +233,6 @@
   </div>
   <p>Last step is to add a button for this and bind it to the method in <b>lecture-details.component.html</b>.</p>
 
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
-    &lt;button class="ui button" (click)="goBack()"&gt;Go Back&lt;/button&gt;
-    </code></p> -->
   <div class="ui message black">
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">&lt;button </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;ui button&quot; (click)</span><span style="color:#ff4848;">=</span><span style="color:#ffffff;">&quot;goBack()&quot;</span><span style="color:#359aff;">&gt;</span><span style="color:#ffffff;">Go Back</span><span style="color:#359aff;">&lt;/button&gt; </span></pre>

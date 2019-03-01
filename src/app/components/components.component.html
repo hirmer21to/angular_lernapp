@@ -1,5 +1,10 @@
 <h2>Components</h2>
-
+<div *ngIf="praxis" style="margin-top: 20px;" class="ui info message">
+  <h5>User Story</h5>
+  <p>As an <b>user</b><br />
+    I want to <b>display a lecture</b>, <br />
+    to <b> see its details</b>.</p>
+</div>
 <div *ngIf="theoryLarge" style="margin-bottom: 20px;" class="ui message">
   <h4>What are Components?</h4>
   <p>A component controls a specific part of the screen. In the HTML you define the structure of a component and the CSS
@@ -30,9 +35,9 @@
 <div *ngIf="theorySmall" style="margin-top: 20px;" class="ui message">
   <p>Result:</p>
   <p><img class="ui image centered" style="height: 65px" src="assets/img/Create-Three-Files.png"></p>
-  <p>The app.module.ts automatically imported your new component. The CLI creates three files in one folder for you.
+  <p>When you add a new component the app.module.ts automatically imports your new component. The CLI creates three files in one folder for you.
     It's the skeleton for your component. The HTML file is nearly
-    empty and ready for your code. You can ignore the spec.ts file it defines a unit test for the WhereToGoComponent.
+    empty and ready for your code. You can ignore the spec.ts file it defines a unit test for the component.
     The .ts file is for your TypeScript code and defines the components logic.
   </p>
 </div>
@@ -96,8 +101,7 @@
 <div *ngIf="praxis" style="margin-top: 20px;">
   <h4>Reuse Component</h4>
   <p>We can now use the <code style="font-family:'Consolas';">selector</code></p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">&lt;app-where-to-go&gt;&lt;/app-where-to-go&gt;</code></p>
- -->
+
   <div class="ui message black">
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#ffffff;">&lt;app-where-to-go&gt;&lt;/app-where-to-go&gt;</span></pre>
@@ -144,14 +148,12 @@
   <h4>Create and show Property</h4>
   <p>Now we will use data-binding to show a temporary text message on the "Home" page until we are ready to show the
     information about the next lecture we have to go to. Put this property into <b>where-to-go.component.ts</b>:</p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">  tempText: string = "Here will appear your information soon!";
-      </code></p> -->
+
   <div class="ui message black">
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;"><span style="color:#ffffff;">tempText</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> string </span><span style="color:#008000;">= </span><span style="color:#ffff80;">&quot;Here will appear your information soon!&quot;</span><span style="color:#b16565;">;</span></pre>
   </div>
   <p>and replace the auto generated code in the <b>where-to-go.component.html</b> with this code:</p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';"> &#123; &#123; tempText &#125; &#125; </code></p> -->
   <div class="ui message black">
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#ffffff;">&#123; &#123; tempText &#125; &#125;</span></pre>
@@ -170,17 +172,7 @@
     class in a new folder named "shared":</p>
   <p class="ui message black"><code style="font-family:'Consolas';">ng g class shared/lecture</code></p>
   <p>In this new class we define the constructor for lecture.</p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
-      constructor( <br/>
-        &nbsp; public name: string,<br/>
-        &nbsp; public room: string,<br/>
-        &nbsp; public day: string,<br/>
-        &nbsp; public time: Time,<br/>
-        &nbsp; public building: string,<br/>
-        &nbsp; public floor: string,<br/>
-        &nbsp; public department?: string<br/>
-    )&#123; &#125;
-  </code></p> -->
+  
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff; ">  <span style="color:#ff8000;">constructor</span><span style="color:#b16565;">(
     </span><span style="color:#359aff;">public </span><span style="color:#ffffff;">id</span><span style="color:#008000;">: </span><span style="color:#ffffff;">number</span><span style="color:#b16565;">,
@@ -199,8 +191,7 @@
   <p><img class="ui image large centered" src="assets/img/Import-Time.png"></p>
   <p>If not, you can force it by placing the curser behind the underlined word and press STRG + space bar, or do it on
     your own like this:</p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">import &#123; Time &#125; from "@angular/common";</code></p>
- -->
+
   <div class="ui message black">
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> Time </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&quot;@angular/common&quot;</span><span style="color:#b16565;">;</span></pre>
@@ -210,17 +201,7 @@
   <p class="ui message black"><code style="font-family:'Consolas';">ng g component lecture-item</code></p>
   <p>We create a lecture the <b>lecture-item.component.ts</b> first and define all the properties the constructor
     requires.</p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
-      lecture: Lecture = &#123; <br/>
-        &nbsp; name: 'Webtechnologien',<br/>
-        &nbsp; room: '075',<br/>
-        &nbsp; day: 'Monday',<br/>
-        &nbsp; time: &#123; hours: 10, minutes: 15 &#125;,<br/>
-        &nbsp; building: 'WE5',<br/>
-        &nbsp; floor: '02',<br/>
-        &nbsp; department: 'Lehrstuhl für Medieninformatik'<br/>
-      &#125;
-  </code></p> -->
+  
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;"><span style="color:#ffffff;">lecture</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Lecture </span><span style="color:#008000;">= </span><span style="color:#b16565;">&#123;
     </span><span style="color:#ffffff;">id</span><span style="color:#008000;">: </span><span style="color:#00ff40;">1</span><span style="color:#b16565;">,
@@ -235,22 +216,7 @@
   </div>
   <p>And in the <b>lecture-item.component.html</b> we can define what of this item and how we want to display it. We
     use the interpolation to display the properties of the component-class in this HTML-template.</p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
-      &lt;div style="padding: 50px;"&gt; <br/>
-      &nbsp; &lt;div class="ui middle aligned divided list"&gt; <br/>
-      &nbsp;&nbsp; &lt;div class="item"&gt; <br/>
-      &nbsp;&nbsp;&nbsp; &lt;div class="content"&gt; <br/>
-      &nbsp;&nbsp;&nbsp;&nbsp; &lt;h2 style="padding-bottom: 20px" class="header ui"&gt; Lecture Details:  &lt;/h2&gt; <br/>
-      &nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="header"&gt;What? &#123; &#123;lecture.name&#125; &#125; &lt;/div&gt; <br/>
-      &nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="description"&gt;Where? &#123; &#123;lecture.building&#125; &#125;/&#123; &#123;lecture.floor&#125; &#125;.&#123; &#123;lecture.room&#125; &#125; &lt;/div&gt; <br/> 
-      &nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="description"&gt;When? &#123; &#123;lecture.day&#125; &#125;, <br/> 
-      &nbsp;&nbsp;&nbsp;&nbsp; &#123; &#123;lecture.time.hours&#125; &#125;:&#123; &#123;lecture.time.minutes&#125; &#125; &lt;/div&gt; <br/>
-      &nbsp;&nbsp;&nbsp;&nbsp; &lt;div *ngIf="lecture.department" class="description">Department: &#123; &#123;lecture.department&#125; &#125; &lt;/div&gt; <br/>
-      &nbsp;&nbsp;&nbsp; &lt;/div&gt; <br/>
-      &nbsp;&nbsp; &lt;/div&gt; <br/>
-      &nbsp; &lt;/div&gt; <br/>
-      &lt;/div&gt; <br/>
-  </code></p> -->
+
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;padding: </span><span style="color:#00ff40;">50px</span><span style="color:#ff8000;">;</span><span style="color:#ffffff;">&quot;</span><span style="color:#359aff;">&gt;
     </span><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;ui middle aligned divided list&quot;</span><span style="color:#359aff;">&gt;
@@ -272,8 +238,7 @@
 &lt;/div&gt;</span></pre>
   </div>
   <p>To show it beneath the title and the where-to-go component we insert</p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">&lt;app-lecture-item&gt;&lt;/app-lecture-item&gt;</code></p>
- -->
+
   <div class="ui message black">
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;"><span style="color:#ffffff;">&lt;app-lecture-item&gt;&lt;/app-lecture-item&gt;</span></pre>
@@ -306,8 +271,7 @@
   <h4>Try a Pipe</h4>
   <p>We want to try the UppercasePipe, which formats our string in capital letters:</p>
 
-  <!--   <p class="ui message black">
-    <code style="font-family:'Consolas';">&lt;div class="header"&gt;What? &#123; &#123;lecture.name | uppercase&#125; &#125; &lt;/div&gt;</code></p> -->
+ 
   <div class="ui message black">
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;"><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;header&quot;</span><span style="color:#359aff;">&gt;</span><span style="color:#ffffff;">What? &#123; &#123;lecture.name | uppercase&#125; &#125;</span><span style="color:#359aff;">&lt;/div&gt;</span></pre>

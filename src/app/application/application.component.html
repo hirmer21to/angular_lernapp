@@ -1,6 +1,12 @@
 <h2>App</h2>
+<div *ngIf="praxis" style="margin-top: 20px;" class="ui info message">
+  <h5>User Story</h5>
+  <p>As an <b>user</b><br />
+    I want to <b>have an app shell</b>, <br />
+    to <b> build the app from the beginning and make first changes</b>.</p>
+</div>
 
-<div *ngIf="praxis">
+<div *ngIf="praxis" style="margin-top: 20px;">
   <h4>Initial Application</h4>
   <p>Open your cmd and type:</p>
   <p class="ui message black"> <code style="font-family:'Consolas';">ng new where-to-go -is</code></p>
@@ -108,8 +114,7 @@
   </div>
   <p>In the <b>app.component.html</b> is a binding to "title". This binding brings the new title into the application.
   </p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">Welcome to &#123; &#123; title &#125; &#125;!</code></p>
- -->
+
   <div class="ui message black">
 <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#ffffff;">  Welcome to &#123; &#123; title &#125; &#125;!
 </span></pre>
@@ -129,10 +134,7 @@
   <p>You can install the UI-Framework with the command:</p>
   <p class="ui message black"><code style="font-family:'Consolas';">npm i --save semantic-ui-css</code></p>
   <p>Add to the file <b>angular.json</b>:</p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">"styles": [<br/>
-    &nbsp; <b>"../Where-To-Go/node_modules/semantic-ui-css/semantic.css",</b><br/>
-    &nbsp; "src/styles.css"<br/>
-    ],</code></p> -->
+
   <div class="ui message black">
 <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#359aff;">&quot;styles&quot;</span><span style="color:#ffffff;">: [
   </span><span style="color:#ffff80;">&quot;../Master-Project/node_modules/semantic-ui-css/semantic.css&quot;</span><span style="color:#ffffff;">,
@@ -142,14 +144,7 @@
   </div>
 
   <p>Now you can test the new style. Adjust the <b>app.component.html</b> like this and see if it looks different:</p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
-        &lt;div style="text-align:center" &gt; <br/>
-        &nbsp; &lt;h1 class="ui header" style="margin: 30px"&gt; <br/>
-        &nbsp;&nbsp;&nbsp; Welcome to &#123; &#123; title &#125; &#125;! <br/>
-        &nbsp; &lt;/h1&gt;  <br/>
-              &lt;/div&gt;<br/>
-              &lt;router-outlet&gt; &lt;/router-outlet&gt;
-    </code></p> -->
+
   <div class="ui message black">
 <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;text-align:center&quot; </span><span style="color:#359aff;">&gt;
   </span><span style="color:#359aff;">&lt;h1 </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;ui header&quot; </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;margin: </span><span style="color:#00ff40;">30px</span><span style="color:#ffffff;">&quot;</span><span style="color:#359aff;">&gt;

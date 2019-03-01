@@ -1,5 +1,10 @@
 <h2>Finish the Application</h2>
-
+<div *ngIf="praxis" style="margin-top: 20px;" class="ui info message">
+  <h5>User Story</h5>
+  <p>As an <b>user</b><br />
+    I want to <b>display the very next lecture on the front page</b>, <br />
+    to <b> see immediately where to go next when I open the app</b>.</p>
+</div>
 <div *ngIf="theoryLarge" style="margin-top: 20px;">
   <p>This chapter does not contain any more theory learning units.</p>
 </div>
@@ -9,8 +14,7 @@
     of the day. So first we need to prepare the <b>where-to-go.component.html</b>. We are going to need the
     <code style="font-family:'Consolas';">LectureService</code>
     injected in the <code style="font-family:'Consolas';">constructor</code> again.</p>
-<!--   <p class="ui message black"><code style="font-family:'Consolas';">constructor(private lectureService: LectureService) &#123; &#125;</code></p>
- -->  
+  
  <div class="ui message black">
 <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ff8000;">constructor</span><span style="color:#b16565;">(</span><span style="color:#359aff;">private</span><span style="color:#ffffff;"> lectureService</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> LectureService</span><span style="color:#b16565;">) </span><span style="color:#b16565;">&#123; </span><span style="color:#b16565;">&#125;</span></pre>
   </div>
@@ -20,21 +24,7 @@
     <code style="font-family:'Consolas';">Lecture</code> variable to save the next lecture with, a <code style="font-family:'Consolas';">Boolean</code> that will save if there still
     is a lecture today and a <code style="font-family:'Consolas';">Lecture</code> object with initialized start values and to save every time the
     lecture that is closer to the time right now.</p>
-<!--   <p class="ui message black"><code style="font-family:'Consolas';">
-    lecture: Lecture[]; <br/>
-    nextLecture: Lecture; <br/>
-    localTime: Date = new Date(); <br/>
-    isThereANextLecture: Boolean = false; <br/>
-    tempLecture: Lecture = &#123; <br/>
-    &nbsp; id: 99, <br/>
-    &nbsp; name: 'Dummy', <br/>
-    &nbsp; room: '0', <br/>
-    &nbsp; day: this.getWeekday(), <br/>
-    &nbsp; time: &#123; hours: 20, minutes: 15 &#125;, <br/>
-    &nbsp; building: Buildings.weberei5, <br/>
-    &nbsp; floor: '0' <br/>
-    &#125;; <br/>
-        </code></p> -->
+
   <div class="ui message black">
 <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">lecture</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Lecture</span><span style="color:#008000;">[]</span><span style="color:#b16565;">;
 </span><span style="color:#ffffff;">nextLecture</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Lecture</span><span style="color:#b16565;">;
@@ -51,16 +41,7 @@
 </span><span style="color:#b16565;">&#125;;</span></pre>    
   </div>
   <p>We will also have the <code style="font-family:'Consolas';">getLectures()</code> method that we call in <code style="font-family:'Consolas';">ngOnInit()</code>.</p>
-<!--   <p class="ui message black"><code style="font-family:'Consolas';">
-      ngOnInit() &#123; <br/>
-      &nbsp; this.getLectures();<br/>
-        &#125;<br/><br/>
-    
-      getLectures(): void &#123; <br/>
-      &nbsp; this.lectureService.getLectures()<br/>
-      &nbsp;  &nbsp; .subscribe(lectures => &#123; this.lectures = lectures; this.getNextLecture() &#125;);<br/>
-          &#125;
-  </code></p> -->
+
   <div class="ui message black">
   <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">ngOnInit</span><span style="color:#b16565;">() </span><span style="color:#b16565;">&#123;
   </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.getLectures</span><span style="color:#b16565;">();
@@ -74,10 +55,7 @@
   <p>With the method <code style="font-family:'Consolas';">getDay()</code> we will get the weekday of today as a number. 0 is sunday, 1 is monday and
     so on. But we need them as strings. We pick from an array of strings the string whose index that is the same
     number like today's number.</p>
-<!--   <p class="ui message black"><code style="font-family:'Consolas';">  getWeekday(): string &#123; <br/>
-      &nbsp; var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];<br/>
-      &nbsp; return days[this.localTime.getDay()];<br/>
-        &#125;  </code></p> -->
+
   <div class="ui message black">
 <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">getWeekday</span><span style="color:#b16565;">()</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> string </span><span style="color:#b16565;">&#123;
   </span><span style="color:#359aff;">var</span><span style="color:#ffffff;"> days </span><span style="color:#008000;">= </span><span style="color:#008000;">[</span><span style="color:#ffff80;">&#39;Sunday&#39;</span><span style="color:#b16565;">, </span><span style="color:#ffff80;">&#39;Monday&#39;</span><span style="color:#b16565;">, </span><span style="color:#ffff80;">&#39;Tuesday&#39;</span><span style="color:#b16565;">, 
@@ -86,27 +64,7 @@
 &#125;</span></pre>
   </div>
   <p>Now it is time for the function that will return the correct next lecture for us.</p>
-<!--   <p class="ui message black"><code style="font-family:'Consolas';">
-      getNextLecture(): void &#123;<br/>
-      &nbsp; let tempArray: Array&lt;Lecture&gt; = [];<br/>
-          &nbsp; for (let lecture of this.lectures) &#123;<br/>
-          &nbsp;  &nbsp; if (lecture.day === this.getWeekday()) &#123;<br/>
-          &nbsp;  &nbsp;  &nbsp; if (lecture.time.hours &gt;= this.localTime.getHours()) &#123;<br/>
-          &nbsp;  &nbsp;  &nbsp;  &nbsp; tempArray.push(lecture);<br/>
-          &nbsp;  &nbsp;  &nbsp; &#125;<br/>
-          &nbsp;  &nbsp;  &#125;<br/>
-          &nbsp;  &nbsp;  for (let t of tempArray) &#123;<br/>
-          &nbsp;  &nbsp;  &nbsp;  if (t.time.hours &lt; this.tempLecture.time.hours) &#123;<br/>
-          &nbsp;  &nbsp;  &nbsp;  &nbsp;  this.tempLecture = t;<br/>
-          &nbsp;  &nbsp;  &nbsp;  &nbsp;  this.isThereANextLecture = true;<br/>
-          &nbsp;  &nbsp;  &nbsp;  &#125;<br/>
-          &nbsp;  &nbsp; &#125;<br/>
-          &nbsp;  &nbsp; if (this.isThereANextLecture) &#123;<br/>
-          &nbsp;  &nbsp;  &nbsp;  this.nextLecture = this.tempLecture;<br/>
-          &nbsp;  &nbsp;  &#125;<br/>
-          &nbsp;  &#125;<br/>
-        &#125;
- </code></p> -->
+
   <div class="ui message black">
 <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">getNextLecture</span><span style="color:#b16565;">()</span><span style="color:#008000;">: </span><span style="color:#359aff;">void </span><span style="color:#b16565;">&#123;
 </span><span style="color:#ffffff;">  let tempArray</span><span style="color:#008000;">: </span><span style="color:#ff4848;">Array</span><span style="color:#ffffff;">&lt;Lecture&gt; </span><span style="color:#008000;">= </span><span style="color:#008000;">[]</span><span style="color:#b16565;">;
@@ -137,24 +95,6 @@
     <code style="font-family:'Consolas';">nextLecture</code>s' building, floor, room, day,time and name. If there is no <code style="font-family:'Consolas';">nextLecture</code>, we
     want to display the text "No events today!"</p>
 
-<!--   <p class="ui message black"><code style="font-family:'Consolas';">&lt;div style="margin: 30px;"&gt;<br/>
-    &nbsp;  &lt;div *ngIf="nextLecture" class="ui info message" style="width: 50%; margin-left: 25%"&gt;<br/>
-    &nbsp;  &nbsp;  &lt;div class="header"&gt;<br/>
-    &nbsp;  &nbsp;  &nbsp;  You need to be in<br/>
-    &nbsp;  &nbsp;  &lt;/div&gt;<br/>
-    &nbsp;  &nbsp;  &lt;div class="header"&gt;<br/>
-    &nbsp;  &nbsp;  &nbsp;   &#123; &#123;nextLecture.building&#125; &#125;/&#123; &#123;nextLecture.floor&#125; &#125;.&#123; &#123;nextLecture.room&#125; &#125;<br/>
-    &nbsp;  &nbsp;  &lt;/div&gt;<br/>
-    &nbsp;  &nbsp;  &lt;div style="text-align: center; list-style-type: none;" class="list"&gt;<br/>
-    &nbsp;  &nbsp;  &nbsp;  &lt;p&gt;At &#123; &#123;nextLecture.day&#125; &#125;, &#123; &#123;nextLecture.time.hours&#125; &#125;:&#123; &#123;nextLecture.time.minutes&#125; &#125;&lt;/p&gt;<br/>
-    &nbsp;  &nbsp;  &nbsp;  &lt;p&gt;For &#123; &#123;nextLecture.name&#125; &#125;&lt;/p&gt;<br/>
-    &nbsp;  &nbsp;  &lt;/div&gt;<br/>
-    &nbsp;  &lt;/div&gt;<br/>
-    &nbsp;  &lt;div *ngIf="!nextLecture" class="ui info message" style="width: 50%; margin-left: 25%"&gt;<br/>
-    &nbsp;  &nbsp;   No events today!<br/>
-    &nbsp;  &lt;/div&gt;<br/>
-    &lt;/div&gt;
-  </code></p> -->
   <div class="ui message black">
 <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;margin: </span><span style="color:#00ff40;">30px</span><span style="color:#ff8000;">;</span><span style="color:#ffffff;">&quot;</span><span style="color:#359aff;">&gt;
   </span><span style="color:#359aff;">&lt;div</span><span style="color:#ffffff;"> *ngIf</span><span style="color:#ff4848;">=</span><span style="color:#ffffff;">&quot;nextLecture&quot; </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;ui info message&quot;

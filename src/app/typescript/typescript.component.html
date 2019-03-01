@@ -8,27 +8,23 @@
 
     <h4>1. Basictypes</h4>
     <p>When you declare and initialize a variable, it's always the same:</p>
-    <!--     <p class="ui info message"> <code style="font-family:'Consolas';">name: type = value;</code></p>
- -->
+
     <div class="ui info message">
         <pre
             style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#ff8000;">name</span><span style="color:#008000;">: </span><span style="color:#ff8000;">type </span><span style="color:#008000;">= </span><span style="color:#ff8000;">value</span><span style="color:#804040;">;</span></pre>
     </div>
     <h5>number</h5>
-    <!--     <p> <code style="font-family:'Consolas';">age: number = 5;</code></p>
- -->
+
     <div>
         <pre
             style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#000000;">age</span><span style="color:#008000;">: </span><span style="color:#ff8000;">number </span><span style="color:#008000;">= </span><span style="color:#ff0000;">5</span><span style="color:#804040;">;</span></pre>
     </div>
     <h5>String</h5>
-    <!--     <p> <code style="font-family:'Consolas';">firstname: String = 'Michaela';</code></p> -->
     <div>
         <pre
             style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#000000;">firstname</span><span style="color:#008000;">: </span><span style="color:#ff0000;">String </span><span style="color:#008000;">= </span><span style="color:#808080;">&#39;Michaela&#39;</span><span style="color:#804040;">;</span></pre>
     </div>
     <p>Template-String: Expressions embedded directly in the string.</p>
-    <!--     <p> <code style="font-family:'Consolas';">output: String = `&#123;firstname&#125; is &#123;age&#125; years old.`;</code></p>-->
     <div>
         <pre
             style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#000000;">output</span><span style="color:#008000;">: </span><span style="color:#ff0000;">String </span><span style="color:#008000;">=</span><span style="color:#000000;"> `</span><span style="color:#804040;">&#123;</span><span style="color:#000000;">firstname</span><span style="color:#804040;">&#125; </span><span style="color:#008000;">is </span><span style="color:#804040;">&#123;</span><span style="color:#000000;">age</span><span style="color:#804040;">&#125;</span><span style="color:#000000;"> years old.`</span><span style="color:#804040;">;</span></pre>
@@ -46,17 +42,13 @@
         Known from object oriented programing. You can read or set the property of an object.
     </p>
     <h5>Boolean</h5>
-    <!--     <p> <code style="font-family:'Consolas';">let workingHard: Boolean = ‚true‘;</code></p>
- -->55
+
     <div>
         <pre
             style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#000000;">let workingHard</span><span style="color:#008000;">: </span><span style="color:#ff0000;">Boolean </span><span style="color:#008000;">=</span><span style="color:#000000;"> ‚true‘</span><span style="color:#804040;">;</span></pre>
     </div>
     <h5>Arrays</h5>
-<!--     <p> <code style="font-family:'Consolas';">let fibonacci: Array&lt;number&gt;  = [0, 1, 1, 2, 3, 5, 8, 13];</code></p>
-    <p> <code style="font-family:'Consolas';">let fibonacci: number[] =[0, 1, 1, 2, 3, 5, 8, 13];</code></p>
-    <p> <code style="font-family:'Consolas';">let differentValueTypes = [ 5, &#123; firstname: 'Michaela' &#125;, function() &#123; console.warn(‚Nothing inside.‘) &#125; ];</code>
-    </p> -->
+
     <div>
 <pre style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#000000;">let fibonacci</span><span style="color:#008000;">: </span><span style="color:#ff0000;">Array</span><span style="color:#000000;">&lt;number&gt; </span><span style="color:#008000;">= </span><span style="color:#008000;">[</span><span style="color:#ff0000;">0</span><span style="color:#804040;">, </span><span style="color:#ff0000;">1</span><span style="color:#804040;">, </span><span style="color:#ff0000;">1</span><span style="color:#804040;">, </span><span style="color:#ff0000;">2</span><span style="color:#804040;">, </span><span style="color:#ff0000;">3</span><span style="color:#804040;">, </span><span style="color:#ff0000;">5</span><span style="color:#804040;">, </span><span style="color:#ff0000;">8</span><span style="color:#804040;">, </span><span style="color:#ff0000;">13</span><span style="color:#008000;">]</span><span style="color:#804040;">;
 
@@ -67,8 +59,7 @@
     </span><span style="color:#804040;">&#125; </span><span style="color:#008000;">]</span><span style="color:#804040;">;</span></pre>
     </div>
     <h5>Spread-Operator</h5>
-<!--     <p> <code style="font-family:'Consolas';">var arr1 = [ 1, 2, 5];</code></p>
-    <p> <code style="font-family:'Consolas';">var arr2 = [ ...arr1, 7, 8,];</code></p> -->
+
     <div>
 <pre style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#0000ff;">var</span><span style="color:#000000;"> arr1 </span><span style="color:#008000;">= </span><span style="color:#008000;">[ </span><span style="color:#ff0000;">1</span><span style="color:#804040;">, </span><span style="color:#ff0000;">2</span><span style="color:#804040;">, </span><span style="color:#ff0000;">5</span><span style="color:#008000;">]</span><span style="color:#804040;">;
 
@@ -80,14 +71,12 @@
     <p> You can always use the fallback value "any", if you do not know which data type you will get back.</p>
 
     <h4>2. Classes</h4>
-<!--     <p> <code style="font-family:'Consolas';">class Animal &#123; &#125; </code></p>
- -->    <div>
+    <div>
 <pre style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#0000ff;">class</span><span style="color:#000000;"> Animal </span><span style="color:#804040;">&#123; </span><span style="color:#804040;">&#125; </span></pre>
     </div>
     <h5>Properties</h5>
     <p>Extend classes with further information. An animal could have name, age and owner.</p>
-<!--     <p> <code style="font-family:'Consolas';">class Animal &#123; <br />&nbsp;&nbsp;public name: String; <br />&nbsp;&nbsp;public age: number; <br />&nbsp;&nbsp;public owner: String; <br />&#125;</code>
-    </p> -->
+
     <div>
 <pre style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#0000ff;">class</span><span style="color:#000000;"> Animal </span><span style="color:#804040;">&#123;
     </span><span style="color:#0000ff;">public </span><span style="color:#ff8000;">name</span><span style="color:#008000;">: </span><span style="color:#ff0000;">String</span><span style="color:#804040;">;
@@ -99,8 +88,7 @@
     <h5>Methods</h5>
     <p>Extend classes with logic. In addition TypeScript allows it to precise the signature of the methods with a
         parameter type and a return type. </p>
-<!--     <p> <code style="font-family:'Consolas';">class Animal &#123; <br />&nbsp;&nbsp;public name: String; <br />&nbsp;&nbsp;public age: number; <br />&nbsp;&nbsp;public owner: String; <br />&nbsp;&nbsp;changeOwner(owner: String): String&#123;<br />&nbsp;&nbsp;&nbsp;&nbsp;this.owner = owner; <br />&nbsp;&nbsp;&nbsp;&nbsp;return this.owner; <br />&nbsp;&nbsp;&#125;<br />&#125;</code>
-    </p> -->
+
     <div>
 <pre style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#0000ff;">class</span><span style="color:#000000;"> Animal </span><span style="color:#804040;">&#123;
     </span><span style="color:#0000ff;">public </span><span style="color:#ff8000;">name</span><span style="color:#008000;">: </span><span style="color:#ff0000;">String</span><span style="color:#804040;">;
@@ -117,10 +105,7 @@
     <h5>Constructors</h5>
     <p>Constructors are methods which are called during initializing a class. Values can be transferred that are
         necessary later.</p>
-<!--     <p> <code style="font-family:'Consolas';">constructor( name: String; age: number; owner: String;) &#123; 
-        <br />&nbsp;&nbsp;this.name = name;
-        <br />&nbsp;&nbsp;this.age = age;
-        <br />&nbsp;&nbsp;this.owner = owner; <br />&#125;</code></p> -->
+
     <div>
 <pre style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#ff8000;">constructor</span><span style="color:#804040;">( </span><span style="color:#ff8000;">name</span><span style="color:#008000;">: </span><span style="color:#ff0000;">String</span><span style="color:#804040;">;</span><span style="color:#000000;"> age</span><span style="color:#008000;">: </span><span style="color:#ff8000;">number</span><span style="color:#804040;">;</span><span style="color:#000000;"> owner</span><span style="color:#008000;">: </span><span style="color:#ff0000;">String</span><span style="color:#804040;">;) </span><span style="color:#804040;">&#123;
     </span><span style="color:#0000ff;">this</span><span style="color:#000000;">.</span><span style="color:#ff8000;">name </span><span style="color:#008000;">= </span><span style="color:#ff8000;">name</span><span style="color:#804040;">;
@@ -132,8 +117,7 @@
 
     <h5>Inheritance</h5>
     <p>Also known from object oriented programing, with the keyword  <code style="font-family:'Consolas';">extends</code>.</p>
-<!--     <p> <code style="font-family:'Consolas';">class Cat extends Animal &#123; &#125; </code></p>
- -->    
+ 
     <div>
 <pre style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#0000ff;">class</span><span style="color:#000000;"> Cat </span><span style="color:#0000ff;">extends</span><span style="color:#000000;"> Animal </span><span style="color:#804040;">&#123; </span><span style="color:#804040;">&#125; </span></pre>
     </div>
@@ -145,8 +129,7 @@
     <p>Interfaces are used to define a public interface and hide the concrete implementation. It can be determined
         which parts must be included and which types they should have.</p>
     <p>Optional parameters have a  <code style="font-family:'Consolas';">?</code> behind their name. E.g.  <code style="font-family:'Consolas';">public owner?: String;</code></p>
-<!--     <p> <code style="font-family:'Consolas';">interface Contact = &#123; firstname: String; lastname: String; age?: number | String &#125;</code></p>
- -->    
+  
     <div>
 <pre style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#0000ff;">interface</span><span style="color:#000000;"> Contact </span><span style="color:#008000;">= </span><span style="color:#804040;">&#123;</span><span style="color:#000000;"> firstname</span><span style="color:#008000;">: </span><span style="color:#ff0000;">String</span><span style="color:#804040;">;</span><span style="color:#000000;"> lastname</span><span style="color:#008000;">: </span><span style="color:#ff0000;">String</span><span style="color:#804040;">;</span><span style="color:#000000;"> age</span><span style="color:#008000;">?: </span><span style="color:#ff8000;">number </span><span style="color:#008000;">| </span><span style="color:#ff0000;">String </span><span style="color:#804040;">&#125;</span></pre>
     </div>
@@ -156,8 +139,7 @@
     <h5>Indexable Interfaces</h5>
     <p>Interfaces can also be defined via an indexable key. E.g. interface determines the type for all elements of an
         array.</p>
-<!--     <p> <code style="font-family:'Consolas';">interface StringArray &#123; [index: number]: string; &#125;</code></p>
- -->    <div>
+    <div>
 <pre style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#0000ff;">interface</span><span style="color:#000000;"> StringArray </span><span style="color:#804040;">&#123; </span><span style="color:#008000;">[</span><span style="color:#ff8000;">index</span><span style="color:#008000;">: </span><span style="color:#ff8000;">number</span><span style="color:#008000;">]:</span><span style="color:#000000;"> string</span><span style="color:#804040;">; </span><span style="color:#804040;">&#125;</span></pre>
     </div>
     <h5>Interfaces for Functions</h5>
@@ -169,11 +151,7 @@
         definitions are the same like in the interface.</p>
 
     <h4>5. Decorators</h4>
-<!--     <p> <code style="font-family:'Consolas';">
-            @Component(&#123; <br/>// configuration object <br/>&#125;)<br/>
-            class myComponent &#123; &#125;
-              
-    </code></p> -->
+
     <div>
 <pre style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#000000;">@Component</span><span style="color:#804040;">(&#123;
     </span><span style="color:#008080;">// configuration object

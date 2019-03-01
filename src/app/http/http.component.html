@@ -1,4 +1,10 @@
 <h2>HTTP</h2>
+<div *ngIf="praxis" style="margin-top: 20px;" class="ui info message">
+  <h5>User Story</h5>
+  <p>As an <b>user</b><br />
+    I want to <b>add, change and delete lectures</b>, <br />
+    to <b> keep my timetable up to date</b>.</p>
+</div>
 <div *ngIf="theoryLarge" style="margin-bottom: 20px;" class="ui message">
   <h4>Http</h4>
   <p>
@@ -99,19 +105,13 @@
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
   <p>Import this in <b>app.module.ts</b>:</p>
-  <!--   <p class="ui message black"> <code style="font-family:'Consolas';">import &#123; HttpClientModule &#125; from '@angular/common/http';
-  </code></p> -->
+ 
   <div class="ui message black">
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> HttpClientModule </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;@angular/common/http&#39;</span><span style="color:#b16565;">;</span></pre>
   </div>
   <p>And add it to the <code style="font-family:'Consolas';">imports</code> array:</p>
-  <!--   <p class="ui message black"> <code style="font-family:'Consolas';">
-    imports: [ <br/>
-      &nbsp; ...,<br/>
-      &nbsp; HttpClientModule<br/>
-    ],
-    </code></p> -->
+
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">imports</span><span style="color:#008000;">: </span><span style="color:#008000;">[
   </span><span style="color:#ffffff;">  ...</span><span style="color:#b16565;">,
@@ -124,24 +124,14 @@
   </p>
   <p class="ui message black"> <code style="font-family:'Consolas';">ng g service shared/InMemoryData</code></p>
   <p>Import to <b>app.module.ts</b>:</p>
-  <!--   <p class="ui message black"> <code style="font-family:'Consolas';">import &#123; HttpInMemoryWebApiModule &#125; from 'angular-in-memory-web-api; <br/>
-    import &#123; InMemoryDataService &#125; from './shared/in-memory-data.service';
-    </code></p> -->
+
   <div class="ui message black">
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> HttpInMemoryWebApiModule </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;angular-in-memory-web-api;
 </span><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> InMemoryDataService </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;./shared/in-memory-data.service&#39;</span><span style="color:#b16565;">; </span></pre>
   </div>
   <p>And you also need to add it to the <code style="font-family:'Consolas';">imports</code> array:</p>
-  <!--     <p class="ui message black"> <code style="font-family:'Consolas';">
-      imports: [ <br/>
-        &nbsp; ...,<br/>
-        &nbsp; HttpClientModule,<br/>
-        &nbsp; HttpClientInMemoryWebApiModule.forRoot(<br/>
-        &nbsp; InMemoryDataService, <br/>
-        &nbsp; &#123; dataEncapsulation: false &#125;) <br/>
-      ],
-      </code></p> -->
+
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">imports</span><span style="color:#008000;">: </span><span style="color:#008000;">[
   </span><span style="color:#ffffff;">  ...</span><span style="color:#b16565;">,
@@ -159,14 +149,7 @@
       style="font-family:'Consolas';">InMemoryDbService</code> and the
     property
     <code style="font-family:'Consolas';">createDb</code> is missing.</p>
-  <!--   <p class="ui message black"> <code style="font-family:'Consolas';">
-        export class InMemoryDataService implements InMemoryDbService &#123; <br/>
-          &nbsp; createDb() &#123;<br/>
-          &nbsp;&nbsp; const lectures = [];<br/>
-          &nbsp;&nbsp; return &#123;lectures&#125;;<br/>
-          &nbsp; &#125; <br/>
-          &#125;
-        </code></p> -->
+
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">export </span><span style="color:#359aff;">class</span><span style="color:#ffffff;"> InMemoryDataService </span><span style="color:#359aff;">implements</span><span style="color:#ffffff;"> InMemoryDbService </span><span style="color:#b16565;">&#123;
   </span><span style="color:#ffffff;">  createDb</span><span style="color:#b16565;">() </span><span style="color:#b16565;">&#123;
@@ -176,8 +159,7 @@
 &#125;</span></pre>
   </div>
   <p>Therefor you need to import:</p>
-  <!--   <p class="ui message black"> <code style="font-family:'Consolas';">import &#123; InMemoryDbService &#125; 'angular-in-memory-web-api';</code></p>
- -->
+
   <div class="ui message black">
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> InMemoryDbService </span><span style="color:#b16565;">&#125; </span><span style="color:#ffff80;">&#39;angular-in-memory-web-api&#39;</span><span style="color:#b16565;">;</span></pre>
@@ -187,9 +169,7 @@
   <p>To be sure every new lecture will have an unique id we add the method <code
       style="font-family:'Consolas';">genId()</code>. If the array is
     empty the initial id 11 will be used, otherwise the highste id + 1 will be used.</p>
-  <!--   <p class="ui message black"> <code style="font-family:'Consolas';">  genId(lectures: Lecture[]): number &#123; <br/>
-    &nbsp; return lectures.length > 0 ? Math.max(...lectures.map(lecture => lecture.id)) + 1 : 11;<br/> 
-      &#125;</code></p> -->
+
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">genId</span><span style="color:#b16565;">(</span><span style="color:#ffffff;">lectures</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Lecture</span><span style="color:#008000;">[]</span><span style="color:#b16565;">)</span><span style="color:#008000;">: </span><span style="color:#ff8000;">number </span><span style="color:#b16565;">&#123;
   </span><span style="color:#359aff;">return</span><span style="color:#ffffff;"> lectures.</span><span style="color:#ff8000;">length </span><span style="color:#008000;">&gt; </span><span style="color:#00ff40;">0 </span><span style="color:#008000;">? </span><span style="color:#ff4848;">Math</span><span style="color:#ffffff;">.</span><span style="color:#ff8000;">max</span><span style="color:#b16565;">(</span><span style="color:#ffffff;">...lectures
@@ -205,29 +185,22 @@
     resource to which requests are made, and <code style="font-family:'Consolas';">collectionName</code> is the lectures
     data object in the
     in-memory-data-service.ts.</p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">private lectureUrl = 'api/lecture';</code></p> -->
   <div class="ui message black">
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">private</span><span style="color:#ffffff;"> lectureUrl </span><span style="color:#008000;">= </span><span style="color:#ffff80;">&#39;api/lecture&#39;</span><span style="color:#b16565;">;</span></pre>
   </div>
   <p>Injection into the constructor:</p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">constructor( private http: HttpClient ) &#123; &#125;</code></p> -->
   <div class="ui message black">
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ff8000;">constructor</span><span style="color:#b16565;">( </span><span style="color:#359aff;">private</span><span style="color:#ffffff;"> http</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> HttpClient </span><span style="color:#b16565;">) </span><span style="color:#b16565;">&#123; </span><span style="color:#b16565;">&#125;</span></pre>
   </div>
-  <!--   <p class="ui message black"> <code style="font-family:'Consolas';">import &#123; HttpClient &#125; from '@angular/common/http';</code></p>
- -->
+
   <div class="ui message black">
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> HttpClient </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;@angular/common/http&#39;</span><span style="color:#b16565;">;</span></pre>
   </div>
   <p>And now change the getter:</p>
-  <!-- <p class="ui message black"><code style="font-family:'Consolas';">
-      getLectures(): Observable&lt;Lecture[]&gt; &#123; <br/>
-      &nbsp; return this.http.get&lt;Lecture[]&gt;(this.lectureUrl) <br/>
-          &#125;
-          </code></p> -->
+
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">getLectures</span><span style="color:#b16565;">()</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Observable&lt;Lecture</span><span style="color:#008000;">[]&gt; </span><span style="color:#b16565;">&#123;
   </span><span style="color:#359aff;">return </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.http.</span><span style="color:#ff8000;">get</span><span style="color:#ffffff;">&lt;Lecture</span><span style="color:#008000;">[]&gt;</span><span style="color:#b16565;">(</span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.lectureUrl</span><span style="color:#b16565;">)
@@ -243,14 +216,7 @@
     server sometimes, that's why <code style="font-family:'Consolas';">getLectures()</code> should catch an error and do
     something appropriate with it.
     So we need a method for that:</p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
-        private handleError&lt;T&gt;(operation = 'operation', result?: T)  &#123;<br/>
-        &nbsp; return (error: any): Observable&lt;T&gt; =>  &#123;<br/>
-        &nbsp;&nbsp; console.log(operation + ' failed: ' + error);<br/>
-        &nbsp;&nbsp; return of (result as T);<br/>
-        &nbsp; &#125;<br/>
-              &#125;
-      </code></p> -->
+
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">private</span><span style="color:#ffffff;"> handleError&lt;T&gt;</span><span style="color:#b16565;">(</span><span style="color:#ffffff;">operation </span><span style="color:#008000;">= </span><span style="color:#ffff80;">&#39;operation&#39;</span><span style="color:#b16565;">,</span><span style="color:#ffffff;"> result</span><span style="color:#008000;">?:</span><span style="color:#ffffff;"> T</span><span style="color:#b16565;">) </span><span style="color:#b16565;">&#123;
   </span><span style="color:#359aff;">return </span><span style="color:#b16565;">(</span><span style="color:#ffffff;">error</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> any</span><span style="color:#b16565;">)</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Observable&lt;T&gt; </span><span style="color:#008000;">=&gt; </span><span style="color:#b16565;">&#123;
@@ -263,21 +229,12 @@
     value, that will keep the application running. The next step is to import <code
       style="font-family:'Consolas';">catchError</code> and add it to the
     get method.</p>
-  <!--   <p class="ui message black"> <code style="font-family:'Consolas';">import &#123; catchError, map, tap &#125; from 'rxjs/operators';</code></p>
- -->
+
   <div class="ui message black">
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> catchError</span><span style="color:#b16565;">,</span><span style="color:#ffffff;"> map</span><span style="color:#b16565;">,</span><span style="color:#ffffff;"> tap </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;rxjs/operators&#39;</span><span style="color:#b16565;">;</span></pre>
   </div>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
-        getLectures(): Observable&lt;Lecture[]&gt; &#123; <br/>
-        &nbsp; return this.http.get&lt;Lecture[]&gt;(this.lectureUrl) <br/>
-        &nbsp; .pipe( <br/>
-        &nbsp;&nbsp; catchError(this.handleError('getLectures', [])) <br/>
-        &nbsp; );<br/>
-            &#125;
-        </code>
-  </p> -->
+
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">getLectures</span><span style="color:#b16565;">()</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Observable&lt;Lecture</span><span style="color:#008000;">[]&gt; </span><span style="color:#b16565;">&#123;
   </span><span style="color:#359aff;">return </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.http.</span><span style="color:#ff8000;">get</span><span style="color:#ffffff;">&lt;Lecture</span><span style="color:#008000;">[]&gt;</span><span style="color:#b16565;">(</span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.lectureUrl</span><span style="color:#b16565;">)
@@ -291,16 +248,7 @@
   </p>
 
   <p>We also need to change the getter method for the single lecture:</p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
-      getLecture(id: number): Observable&lt;Lecture&gt; &#123; <br/>
-      &nbsp; const url = `$&#123;this.lectureUrl&#125;/$&#123;id&#125;`; <br/>
-      &nbsp; return this.http.get&lt;Lecture&gt;(url) <br/>
-      &nbsp; .pipe( <br/>
-      &nbsp;&nbsp; catchError(this.handleError&lt;Lecture&gt;(`getLecture id=$&#123;id&#125;`)) <br/>
-      &nbsp; );<br/>
-          &#125;
-      </code>
-  </p> -->
+
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">getLecture</span><span style="color:#b16565;">(</span><span style="color:#ff8000;">id</span><span style="color:#008000;">: </span><span style="color:#ff8000;">number</span><span style="color:#b16565;">)</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Observable&lt;Lecture&gt; </span><span style="color:#b16565;">&#123;
   </span><span style="color:#359aff;">const</span><span style="color:#ffffff;"> url </span><span style="color:#008000;">=</span><span style="color:#ffffff;"> `$</span><span style="color:#b16565;">&#123;</span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.lectureUrl</span><span style="color:#b16565;">&#125;</span><span style="color:#008000;">/$</span><span style="color:#b16565;">&#123;</span><span style="color:#ff8000;">id</span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;">`</span><span style="color:#b16565;">;
@@ -321,10 +269,7 @@
   <p>We want to be able to change something in the details of a lecture. In the detail view we can display our lecture
     in a form, but we need to write the changes on the server, if we want to have them permanent. We need to prepare a
     function in <b>lecture.service.ts</b>.</p>
-  <!--   <p class="ui message black"> <code style="font-family:'Consolas';">
-      import &#123; HttpHeaders &#125; from '@angular/common/http'; <br/> <br/>
-      const httpOptions = &#123; <br/>
-      headers: new HttpHeaders (&#123; 'Content-Type': 'application/json'&#125;) &#125;</code></p> -->
+
   <div class="ui message black">
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> HttpHeaders </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;@angular/common/http&#39;</span><span style="color:#b16565;">;
@@ -333,15 +278,6 @@
 </span><span style="color:#ffffff;">headers</span><span style="color:#008000;">: </span><span style="color:#008000;">new</span><span style="color:#ffffff;"> HttpHeaders </span><span style="color:#b16565;">(&#123; </span><span style="color:#ffff80;">&#39;Content-Type&#39;</span><span style="color:#008000;">: </span><span style="color:#ffff80;">&#39;application/json&#39;</span><span style="color:#b16565;">&#125;) </span><span style="color:#b16565;">&#125;</span></pre>
   </div>
 
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
-      updateLecture(lecture: Lecture): Observable&lt;any&gt; &#123; <br/>
-        &nbsp; return this.http.put(this.lectureUrl, lecture, httpOptions) <br/>
-        &nbsp; .pipe( <br/>
-        &nbsp;&nbsp; catchError(this.handleError&lt;any&gt;('updateLecture')) <br/>
-        &nbsp; );<br/>
-            &#125;
-        </code>
-  </p> -->
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">updateLecture</span><span style="color:#b16565;">(</span><span style="color:#ffffff;">lecture</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Lecture</span><span style="color:#b16565;">)</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Observable&lt;any&gt; </span><span style="color:#b16565;">&#123;
   </span><span style="color:#359aff;">return </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.http.put</span><span style="color:#b16565;">(</span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.lectureUrl</span><span style="color:#b16565;">,</span><span style="color:#ffffff;"> lecture</span><span style="color:#b16565;">,</span><span style="color:#ffffff;"> httpOptions</span><span style="color:#b16565;">)
@@ -368,12 +304,7 @@
   <p>Use the method from the service now to write a <code style="font-family:'Consolas';">save()</code> method in
     <b>lecture-details.component.ts</b>.
   </p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
-    save(): void &#123;<br/>
-    &nbsp; this.lectureService.updateLecture(this.lecture)<br/>
-    &nbsp; .subscribe(() => this.goBack());<br/>
-    &#125;
-</code></p> -->
+
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">save</span><span style="color:#b16565;">()</span><span style="color:#008000;">: </span><span style="color:#359aff;">void </span><span style="color:#b16565;">&#123;
   </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.lectureService.updateLecture</span><span style="color:#b16565;">(</span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.lecture</span><span style="color:#b16565;">)
@@ -382,11 +313,7 @@
   </div>
   <p>Afterwards you can add the button in <b>lecture-details.component.hmtl</b> with the click-event-binding and check
     if all input fields are filled.</p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">&lt;button class="ui primary button" (click)="save()"&gt;Save&lt;/button&gt; <br/>
-      &lt;p style="color:red" *ngIf="!lecture.name || !lecture.room || 
-      !lecture.day || !lecture.time.hours || !lecture.time.minutes || !lecture.building || !lecture.floor">Please
-          check again, if you filled all input fields correctly!&lt;/p&gt;
-  </code></p> -->
+
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">&lt;button </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;ui primary button&quot; (click)</span><span style="color:#ff4848;">=</span><span style="color:#ffffff;">&quot;save()&quot;</span><span style="color:#359aff;">&gt;</span><span style="color:#ffffff;">Save</span><span style="color:#359aff;">&lt;/button&gt;
 &lt;p </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;color:red&quot; *ngIf</span><span style="color:#ff4848;">=</span><span style="color:#ffffff;">&quot;!lecture.name || !lecture.room ||
@@ -410,9 +337,7 @@
     <code style="font-family:'Consolas';">#something</code>
   </p>
   <p>All of them should look like this example: </p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
-      &lt;input #lectureName placeholder="Name" /&gt;
-  </code></p> -->
+
   <div class="ui message black">
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">&lt;input</span><span style="color:#ffffff;"> #lectureName </span><span style="color:#ff4848;">placeholder=</span><span style="color:#ffffff;">&quot;Name&quot; </span><span style="color:#359aff;">/&gt;</span></pre>
@@ -424,13 +349,7 @@
   </p>
   <p>In a next step add the component to the routing and to the navigation:</p>
   <p><b>routing.module.ts</b></p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">import &#123; LectureAddComponent &#125; from './lecture-add/lecture-add.component';
-    <br/><br/>
-    const routes: Routes = [<br/>
-  &nbsp; ...<br/>
-  &nbsp; &#123; path: 'lecture-add', component: LectureAddComponent &#125; <br/>
-];
-  </code></p> -->
+
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> LectureAddComponent </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;./lecture-add/lecture-add.component&#39;</span><span style="color:#b16565;">;
 
@@ -440,14 +359,7 @@
 </span><span style="color:#008000;">]</span><span style="color:#b16565;">;</span></pre>
   </div>
   <p><b>app.component.html</b></p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
-      &lt;div class="ui three item menu"&gt;<br/>
-  &nbsp; ...<br/>
-  &nbsp;     &lt;a class="item" routerLink="/lecture-add" routerLinkActive="active"&gt;<br/>
-  &nbsp; Add<br/>
-  &nbsp; &lt;/a&gt; <br/>
-  &lt;/div&gt;
-  </code></p> -->
+
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;ui three item menu&quot;</span><span style="color:#359aff;">&gt;
 </span><span style="color:#ffffff;">  ...
@@ -459,41 +371,14 @@
   <p>There are also some things we can take over from the details component and the timetable and insert it into
     <b>lecture-add.component.ts</b>,
     that it looks like this:</p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
-        import &#123; LectureService &#125; from '../shared/lecture.service';<br/>
-        import &#123; Lecture &#125; from '../shared/lecture';<br/>
-        import &#123; Location &#125; from '@angular/common';
-    </code></p> -->
+
   <div class="ui message black">
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> LectureService </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;../shared/lecture.service&#39;</span><span style="color:#b16565;">;
 </span><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> Lecture </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;../shared/lecture&#39;</span><span style="color:#b16565;">;
 </span><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> Location </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;@angular/common&#39;</span><span style="color:#b16565;">;</span></pre>
   </div>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
-        export class LectureAddComponent implements OnInit &#123;<br/>
-        &nbsp; lectures: Lecture[];<br/><br/>
-        
-        &nbsp; constructor(    <br/>
-        &nbsp;  &nbsp; private lectureService: LectureService,<br/>
-        &nbsp;  &nbsp; private location: Location<br/>
-        &nbsp; ) &#123; &#125;<br/><br/>
-        
-        &nbsp; ngOnInit() &#123;<br/>
-        &nbsp;  &nbsp;  this.getLectures();<br/>
-        &nbsp; &#125;<br/><br/>
-        
-        &nbsp; getLectures(): void &#123;<br/>
-        &nbsp;  &nbsp;  this.lectureService.getLectures()<br/>
-        &nbsp;  &nbsp;   .subscribe(lectures =&gt; this.lectures = lectures);<br/>
-        &nbsp;  &#125;<br/><br/>
 
-        &nbsp; goBack(): void&#123;<br/>
-        &nbsp;  &nbsp;   this.location.back();<br/>
-        &nbsp;   &#125;<br/><br/>
-        
-           &#125;
-    </code></p> -->
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">export </span><span style="color:#359aff;">class</span><span style="color:#ffffff;"> LectureAddComponent </span><span style="color:#359aff;">implements</span><span style="color:#ffffff;"> OnInit </span><span style="color:#b16565;">&#123;
 </span><span style="color:#ffffff;">  lectures</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Lecture</span><span style="color:#008000;">[]</span><span style="color:#b16565;">;
@@ -519,14 +404,7 @@
 &#125;</span></pre>
   </div>
   <p>Write the <code style="font-family:'Consolas';">addLecture</code> method in the <b>lecture.service.ts</b> now:</p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
-        addLecture(lecture: Lecture): Observable&lt;Lecture&gt; &#123;<br/>
-        &nbsp; return this.http.post&lt;Lecture&gt;(this.lectureUrl, lecture, httpOptions)<br/>
-        &nbsp; .pipe(<br/>
-        &nbsp; &nbsp;   catchError(this.handleError&lt;Lecture&gt;('addLecture'))<br/>
-        &nbsp; );<br/>
-          &#125;
-    </code></p> -->
+
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">addLecture</span><span style="color:#b16565;">(</span><span style="color:#ffffff;">lecture</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Lecture</span><span style="color:#b16565;">)</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Observable&lt;Lecture&gt; </span><span style="color:#b16565;">&#123;
   </span><span style="color:#359aff;">return </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.http.post&lt;Lecture&gt;</span><span style="color:#b16565;">(</span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.lectureUrl</span><span style="color:#b16565;">,</span><span style="color:#ffffff;"> lecture</span><span style="color:#b16565;">,</span><span style="color:#ffffff;"> httpOptions</span><span style="color:#b16565;">)
@@ -540,23 +418,7 @@
     new entity, but it can also be used to update an entity.
   </p>
   <p>We can use it again in the <b>lecture-add.component.ts</b>:</p>
-  <!--   <p class="ui message black">
-    <code style="font-family:'Consolas';">
-          add( name: string,  building: string, <br/>
-          &nbsp; floor: string, room: string, day: string, hours: number, minutes: number, <br/>
-          &nbsp; department?: string): void &#123;<br/>
-          &nbsp; &nbsp; let time = &#123;hours, minutes&#125;;<br/>
-          &nbsp; &nbsp; if(!name || !room || !day || !time || !building || !floor )&#123; <br/>
-          &nbsp; &nbsp; &nbsp; &nbsp; this.fieldsEmpty=true; <br/>
-          &nbsp; &nbsp; &nbsp; &nbsp; return; &#125;<br/>
-          &nbsp; &nbsp; this.lectureService.addLecture(&#123; name, building, floor, room, day, time, department&#125; as Lecture)<br/>
-          &nbsp; &nbsp; &nbsp; &nbsp; .subscribe(lecture => &#123;<br/>
-          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  this.lectures.push(lecture);<br/>
-          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; this.goBack();<br/>
-          &nbsp; &nbsp; &nbsp; &nbsp; &#125;);<br/>
-          &#125;
-      </code>
-  </p> -->
+
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">add</span><span style="color:#b16565;">( </span><span style="color:#ffffff;">name</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> string</span><span style="color:#b16565;">,</span><span style="color:#ffffff;"> building</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> string</span><span style="color:#b16565;">,
 </span><span style="color:#ffffff;">floor</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> string</span><span style="color:#b16565;">,</span><span style="color:#ffffff;"> room</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> string</span><span style="color:#b16565;">,</span><span style="color:#ffffff;"> day</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> string</span><span style="color:#b16565;">,</span><span style="color:#ffffff;"> hours</span><span style="color:#008000;">: </span><span style="color:#ffffff;">number</span><span style="color:#ffffff;">, 
@@ -580,8 +442,7 @@ minutes</span><span style="color:#008000;">: </span><span style="color:#ffffff;"
     <code style="font-family:'Consolas';">Boolean</code>. We are going to ask in the HTML later if it's true or false
     and print a message complete the
     form. But first we need to initialize it in <b>lecture-add.component.ts</b>.</p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">fieldsEmpty: Boolean = false;</code></p>
- -->
+
   <div class="ui message black">
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">fieldsEmpty</span><span style="color:#008000;">: </span><span style="color:#ff4848;">Boolean </span><span style="color:#008000;">= </span><span style="color:#359aff;">false</span><span style="color:#b16565;">;</span></pre>
@@ -589,20 +450,7 @@ minutes</span><span style="color:#008000;">: </span><span style="color:#ffffff;"
   <p>The rest of the function you should already recognize. We use the function from the service and subscibe it. With
     <code style="font-family:'Consolas';">push</code> we add it to the array.</p>
   <p>Last step is to complete the <b>lecture-add.component.html</b>.</p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
-        &lt;button class="ui primary button" (click)="add( <br/>
-        &nbsp;   lectureName.value, <br/>
-        &nbsp;   lectureBuilding.value, <br/>
-        &nbsp;   lectureFloor.value, <br/>
-        &nbsp;   lectureRoom.value, <br/>
-        &nbsp;   lectureDay.value, <br/>
-        &nbsp;   lectureHours.value, <br/>
-        &nbsp;   lectureMinutes.value,<br/>
-        &nbsp;   lectureDepartment.value)">Add<br/>
-          &lt;/button&gt;<br/>
-          &lt;p style="color:red" *ngIf="fieldsEmpty==true"&gt;Please check again, if you filled all input fields correctly!&lt;/p&gt;<br/>
-          &lt;button class="ui button" (click)="goBack()"&gt;Go Back&lt;/button&gt;
-    </code></p> -->
+
   <div class="ui message black">
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">&lt;button </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;ui primary button&quot; (click)</span><span style="color:#ff4848;">=</span><span style="color:#ffffff;">&quot;add(
@@ -623,16 +471,7 @@ minutes</span><span style="color:#008000;">: </span><span style="color:#ffffff;"
 <div *ngIf="praxis" style="margin-top: 20px;">
   <h4>Delete Lectures</h4>
   <p>Same procedure again. Prepare a function in <b>lecture-service.ts</b>.</p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
-      deleteLecture(lecture: Lecture | number ): Observable&lt;Lecture&gt; &#123;<br/>
-      &nbsp; const id = typeof lecture === 'number' ? lecture : lecture.id;
-      &nbsp; const url = `$&#123;this.lectureUrl&#125;/$&#123;id&#125;`;
-      &nbsp; return this.http.delete&lt;Lecture&gt;(url, httpOptions)<br/>
-      &nbsp; .pipe(<br/>
-      &nbsp; &nbsp;   catchError(this.handleError&lt;Lecture&gt;('deleteLecture'))<br/>
-      &nbsp; );<br/>
-        &#125;
-  </code></p> -->
+
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">deleteLecture</span><span style="color:#b16565;">(</span><span style="color:#ffffff;">lecture</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Lecture </span><span style="color:#008000;">| </span><span style="color:#ff8000;">number </span><span style="color:#b16565;">)</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Observable&lt;Lecture&gt; </span><span style="color:#b16565;">&#123;
   </span><span style="color:#359aff;">const </span><span style="color:#ff8000;">id </span><span style="color:#008000;">= </span><span style="color:#008000;">typeof</span><span style="color:#ffffff;"> lecture </span><span style="color:#008000;">=== </span><span style="color:#ffff80;">&#39;number&#39; </span><span style="color:#008000;">?</span><span style="color:#ffffff;"> lecture </span><span style="color:#008000;">:</span><span style="color:#ffffff;"> lecture.</span><span style="color:#ff8000;">id</span><span style="color:#b16565;">;
@@ -645,12 +484,7 @@ minutes</span><span style="color:#008000;">: </span><span style="color:#ffffff;"
 
   </div>
   <p>Use it in <b>timetable.component.ts</b>:</p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
-      delete(lecture: Lecture): void &#123;<br/>
-      &nbsp;  this.lectures = this.lectures.filter(l =&gt; l !== lecture);<br/>
-      &nbsp;  this.lectureService.deleteLecture(lecture).subscribe();<br/>
-      &#125;<br/><br/>
-  </code></p> -->
+
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">delete</span><span style="color:#b16565;">(</span><span style="color:#ffffff;">lecture</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Lecture</span><span style="color:#b16565;">)</span><span style="color:#008000;">: </span><span style="color:#359aff;">void </span><span style="color:#b16565;">&#123;
   </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.lectures </span><span style="color:#008000;">= </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.lectures.filter</span><span style="color:#b16565;">(</span><span style="color:#ffffff;">l </span><span style="color:#008000;">=&gt;</span><span style="color:#ffffff;"> l </span><span style="color:#008000;">!==</span><span style="color:#ffffff;"> lecture</span><span style="color:#b16565;">);
@@ -658,13 +492,7 @@ minutes</span><span style="color:#008000;">: </span><span style="color:#ffffff;"
 &#125;</span></pre>
   </div>
   <p>And there should be a function to delete all lectures with one click:</p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
-      deleteAll():void &#123;<br/>
-      &nbsp;  for(let lecture of this.lectures) &#123;<br/>
-      &nbsp; &nbsp; this.delete(lecture);<br/>
-      &nbsp;  &#125;<br/>
-      &#125;<br/><br/>
-  </code></p> -->
+
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">deleteAll</span><span style="color:#b16565;">()</span><span style="color:#008000;">:</span><span style="color:#359aff;">void </span><span style="color:#b16565;">&#123;
   </span><span style="color:#359aff;">for</span><span style="color:#b16565;">(</span><span style="color:#ffffff;">let lecture of </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.lectures</span><span style="color:#b16565;">) </span><span style="color:#b16565;">&#123;
@@ -676,25 +504,7 @@ minutes</span><span style="color:#008000;">: </span><span style="color:#ffffff;"
     <code style="font-family:'Consolas';">div</code>
     to check if the <code style="font-family:'Consolas';">lectures</code> already have data, otherwise we will have a
     timing problem at this point.</p>
-  <!--   <p class="ui message black"><code style="font-family:'Consolas';">
-    &lt;div *ngIf="lectures"&gt;<br/>
-    &nbsp;&lt;button class="ui primary button" routerLink="/lecture-add">Add Lecture&lt;/button&gt;<br/>
-    &nbsp;&lt;button class="ui button" (click)="deleteAll()" *ngIf="lectures.length&gt;0"&gt;Delete All&lt;/button&gt;<br/>
-    &nbsp;&lt;div *ngIf="lectures.length&gt;0" style="padding: 15px;"&gt;<br/>
-    &nbsp;&nbsp; &lt;div class="ui middle aligned divided list"&gt;<br/>
-    &nbsp;&nbsp; &nbsp; &lt;div *ngFor="let l of lectures" class="item"&gt;<br/>
-    &nbsp;&nbsp; &nbsp; &nbsp; &lt;a class="app-lecture-item item" [lecture]="l" routerLink="/lecture-details/&#123; &#123;l.id&#125; &#125;" <br/>
-    &nbsp;&nbsp; &nbsp; &nbsp; style="margin: 10px; padding:10px">&lt;/a><br/>
-    &nbsp;&nbsp; &nbsp; &nbsp; &lt;button (click)="delete(l)" class="ui button"&gt;Delete&lt;/button&gt;<br/>
-    &nbsp;&nbsp; &nbsp; &lt;/div&gt;<br/>
-    &nbsp;&nbsp; &lt;/div&gt;<br/>
-    &nbsp;&lt;/div&gt;<br/><br/>
 
-    &nbsp;&lt;div *ngIf="lectures.length==0" style="padding: 15px;"&gt;<br/>
-    &nbsp;&nbsp;  &lt;p&gt;No Items in the Timetable!&lt;/p&gt;<br/>
-    &nbsp;&lt;/div&gt;<br/>
-    &lt;/div&gt;
-    </code></p> -->
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">&lt;div</span><span style="color:#ffffff;"> *ngIf</span><span style="color:#ff4848;">=</span><span style="color:#ffffff;">&quot;lectures&quot;</span><span style="color:#359aff;">&gt;
 </span><span style="color:#359aff;">  &lt;button </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;ui primary button&quot;
