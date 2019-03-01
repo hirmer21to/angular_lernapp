@@ -17,7 +17,7 @@ import { FinishAppComponent } from './finish-app/finish-app.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'environment', component: EnvironmentComponent },
+  { path: 'environment', component: EnvironmentComponent,runGuardsAndResolvers: 'always' },
   { path: 'first-app', component: FirstAppComponent },
   { path: 'typescript', component: TypescriptComponent },
   { path: 'project-overview', component: ProjectOverviewComponent },
@@ -32,7 +32,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,
+    {onSameUrlNavigation: "reload"}
+    )],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

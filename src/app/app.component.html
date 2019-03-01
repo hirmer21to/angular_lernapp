@@ -1,22 +1,22 @@
 <div>
-  <h1 class="ui header" style="text-align:center; margin-top: 30px; margin-bottom: 50px; margin-left: 15%; ">
+  <h1 class="ui header" style="text-align:center; margin-top: 30px; margin-bottom: 50px; margin-left: 20%; ">
     {{ title }}
   </h1>
-  <div class="ui grid container" style="min-width: 90%">
+  <div class="ui grid container" style="min-width:90%;">
     <div class="four wide column">
-      <div class="ui compact menu">
-        <a class="item" (click)="theorist()">
-          <img src="assets/img/Icons-01.png">
-        </a>
-        <a class="item" (click)="practitioner()">
-          <img src="assets/img/Icons-02.png">
-        </a>
-        <a class="item" (click)="both()">
-          <img src="assets/img/Icons-03.png">
-        </a>
-      </div>
 
-      <div class="ui vertical menu" style="max-width:100%;">
+      <div class="ui left fixed vertical menu " style="max-width:25%;">
+          <div class="ui compact menu" *ngIf="!getHideMiniNavigation()" style="border:none; box-shadow: none;">
+              <a class="item" (click)="theorist()" [routerLink]="getCurrentUrl()" style="max-width: 100%">
+                <img class="ui mini image" src="assets/img/Icons-01.png">
+              </a>
+              <a class="item" (click)="practitioner()" style="max-width: 100%">
+                <img class="ui mini image" src="assets/img/Icons-02.png">
+              </a>
+              <a class="item" (click)="both()" style="max-width: 100%">
+                <img class="ui mini image" src="assets/img/Icons-03.png">
+              </a>
+            </div>
         <a class="item" routerLink="/home">
           Home
         </a>
@@ -63,7 +63,7 @@
       </div>
     </div>
     <div class="twelve wide column">
-      <router-outlet></router-outlet>
+      <router-outlet (activate)="onActivate()"></router-outlet>
       <div style="text-align:center; margin: 50px;">
         <button class="ui button primary" [routerLink]="getLast()" *ngIf="!getHideBackButton()">Back</button>
         <button class="ui button primary" [routerLink]="getNext()" *ngIf="!getHideNextButton()">Next</button>

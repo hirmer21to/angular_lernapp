@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { Modus } from './shared/modus';
 import { ModiService } from './shared/modi.service';
 
@@ -16,60 +16,79 @@ export class AppComponent implements OnInit {
   modi: Modus[];
   hideBackButton: Boolean = false;
   hideNextButton: Boolean = false;
-
+  hideMiniNavi: Boolean = false;
+  navigationSubscription;
 
   public routerLinks = ["/home", "/environment", "/first-app", "/typescript", "/project-overview",
     "/application", "/components", "/components-formmodules-directives", "/reusable-components",
     "/services", "/routing", "/http", "/finish-app"];
+
   public routerLink: string;
 
-  constructor(private router: Router, public location: Location, private service: ModiService) { }
+  constructor(private router: Router, public location: Location, private service: ModiService) {
+    this.navigationSubscription = this.router.events.subscribe ((e:any)=> {if(e instanceof NavigationEnd){
+      this.getCurrentUrl();
+    }})
+   }
 
   ngOnInit() {
     this.getModi();
   }
 
-  getModi(): void{
+  onActivate(){
+    window.scroll(0,0);
+  }
+
+  getModi(): void {
     this.service.getModi()
-    .subscribe(modi => this.modi = modi);
+      .subscribe(modi => this.modi = modi);
+  }
+
+  getCurrentUrl(): string {
+    let url = this.router.url;
+    return url;
   }
 
   theorist(): void {
     this.service.setModus(this.modi[0])
-    .subscribe(modus => this.modus = modus);
-    console.log(this.modus);
+      .subscribe(modus => {this.modus = modus; });
   }
 
   practitioner(): void {
     this.service.setModus(this.modi[1])
-    .subscribe(modus => this.modus = modus);
-    console.log(this.modus);
+      .subscribe(modus => this.modus = modus);
   }
 
   both(): void {
     this.service.setModus(this.modi[2])
-    .subscribe(modus => this.modus = modus);
-    console.log(this.modus);
+      .subscribe(modus => this.modus = modus);
   }
 
   getHideNextButton(): Boolean {
     this.routerLink = this.router.url;
-    if (this.routerLink === this.routerLinks[0] || this.routerLink === this.routerLinks[this.routerLinks.length-1]){
+    if (this.routerLink === this.routerLinks[0] || this.routerLink === this.routerLinks[this.routerLinks.length - 1]) {
       this.hideNextButton = true;
     } else
-    this.hideNextButton = false;
-    console.log(this.hideNextButton);
+      this.hideNextButton = false;
     return this.hideNextButton;
   }
 
   getHideBackButton(): Boolean {
     this.routerLink = this.router.url;
-    if (this.routerLink === this.routerLinks[0]){
+    if (this.routerLink === this.routerLinks[0]) {
       this.hideBackButton = true;
     } else
-    this.hideBackButton = false;
-    console.log(this.hideBackButton);
+      this.hideBackButton = false;
     return this.hideBackButton;
+  }
+
+  getHideMiniNavigation(): Boolean {
+    this.routerLink = this.router.url;
+    if (this.routerLink === this.routerLinks[0]) {
+      this.hideMiniNavi = true;
+    } else
+      this.hideMiniNavi = false;
+    return this.hideMiniNavi;
   }
 
   getNext(): string {

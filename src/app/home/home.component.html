@@ -1,9 +1,9 @@
 <div class="ui three column grid" style="text-align: center">
   <div class="column">
     <div class="ui fluid card">
-      <div class="image">
+      <a class="image" (click)="theorist()" routerLink="/environment">
         <img src="assets/img/Icons-01.png">
-      </div>
+      </a>
       <div class="content">
         <a class="header" (click)="theorist()" routerLink="/environment">Theorist</a>
       </div>
@@ -11,9 +11,9 @@
   </div>
   <div class="column">
     <div class="ui fluid card">
-      <div class="image">
+      <a class="image" (click)="practitioner()" routerLink="/environment">
         <img src="assets/img/Icons-02.png">
-      </div>
+      </a>
       <div class="content">
         <a class="header" (click)="practitioner()" routerLink="/environment">Practitioner</a>
       </div>
@@ -21,9 +21,9 @@
   </div>
   <div class="column">
     <div class="ui fluid card">
-      <div class="image">
+      <a class="image" (click)="both()" routerLink="/environment">
         <img src="assets/img/Icons-03.png">
-      </div>
+      </a>
       <div class="content">
         <a class="header" (click)="both()" routerLink="/environment">Both</a>
       </div>
