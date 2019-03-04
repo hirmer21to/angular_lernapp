@@ -18,6 +18,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpComponent } from './http/http.component';
 import { FinishAppComponent } from './finish-app/finish-app.component';
 
+import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -41,7 +43,10 @@ import { FinishAppComponent } from './finish-app/finish-app.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: APP_BASE_HREF, useValue: '/' },
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
