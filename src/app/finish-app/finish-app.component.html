@@ -103,14 +103,14 @@
   </span><span style="color:#ffffff;">      You need to be in
     </span><span style="color:#359aff;">&lt;/div&gt;
     </span><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;header&quot;</span><span style="color:#359aff;">&gt;
-  </span><span style="color:#ffffff;">      &#123; &#123;nextLecture.building&#125; &#125;/&#123; &#123;nextLecture.floor&#125; &#125;
-      .&#123; &#123;nextLecture.room&#125; &#125;
+  </span><span style="color:#ffffff;">      <span>{{</span>nextLecture.building<span>}}</span>/<span>{{</span>nextLecture.floor<span>}}</span>
+      .<span>{{</span>nextLecture.room<span>}}</span>
     </span><span style="color:#359aff;">&lt;/div&gt;
     </span><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;text-align: center</span><span style="color:#ff8000;">;
   </span><span style="color:#ffffff;">      list-style-type: none</span><span style="color:#ff8000;">;</span><span style="color:#ffffff;">&quot; </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;list&quot;</span><span style="color:#359aff;">&gt;
-      </span><span style="color:#359aff;">&lt;p&gt;</span><span style="color:#ffffff;">At &#123; &#123;nextLecture.day&#125; &#125;, &#123; &#123;nextLecture.time.hours&#125; &#125;
-      :&#123; &#123;nextLecture.time.minutes&#125; &#125;</span><span style="color:#359aff;">&lt;/p&gt;
-      </span><span style="color:#359aff;">&lt;p&gt;</span><span style="color:#ffffff;">For &#123; &#123;nextLecture.name&#125; &#125;</span><span style="color:#359aff;">&lt;/p&gt;
+      </span><span style="color:#359aff;">&lt;p&gt;</span><span style="color:#ffffff;">At <span>{{</span>nextLecture.day<span>}}</span>, <span>{{</span>nextLecture.time.hours<span>}}</span>
+      :<span>{{</span>nextLecture.time.minutes<span>}}</span></span><span style="color:#359aff;">&lt;/p&gt;
+      </span><span style="color:#359aff;">&lt;p&gt;</span><span style="color:#ffffff;">For <span>{{</span>nextLecture.name<span>}}</span></span><span style="color:#359aff;">&lt;/p&gt;
     </span><span style="color:#359aff;">&lt;/div&gt;
   </span><span style="color:#359aff;">&lt;/div&gt;
   </span><span style="color:#359aff;">&lt;div</span><span style="color:#ffffff;"> *ngIf</span><span style="color:#ff4848;">=</span><span style="color:#ffffff;">&quot;!nextLecture&quot; </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;ui info message&quot;

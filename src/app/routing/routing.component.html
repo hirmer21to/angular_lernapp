@@ -86,7 +86,7 @@
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;text-align:center&quot;</span><span style="color:#359aff;">&gt;
   </span><span style="color:#359aff;">&lt;h1 </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;ui header&quot; </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;margin: </span><span style="color:#00ff40;">30px</span><span style="color:#ffffff;">&quot;</span><span style="color:#359aff;">&gt;
-</span><span style="color:#ffffff;">    Welcome to &#123; &#123; title &#125; &#125;!
+</span><span style="color:#ffffff;">    Welcome to <span>{{</span> title <span>}}</span>!
   </span><span style="color:#359aff;">&lt;/h1&gt;
   </span><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;ui two item menu&quot;</span><span style="color:#359aff;">&gt;
     </span><span style="color:#359aff;">&lt;a </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;item&quot; routerLink</span><span style="color:#ff4848;">=</span><span style="color:#ffffff;">&quot;/where-to-go&quot;
@@ -126,7 +126,7 @@
   <div class="ui message black">
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">&lt;a </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;app-lecture-item item&quot; [lecture]</span><span style="color:#ff4848;">=</span><span style="color:#ffffff;">&quot;l&quot; routerLink</span><span style="color:#ff4848;">=
-  </span><span style="color:#ffffff;">  &quot;/lecture-details/&#123; &#123; l.id &#125; &#125;&quot; </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;margin: </span><span style="color:#00ff40;">10px</span><span style="color:#ff8000;">;</span><span style="color:#ffffff;"> padding:</span><span style="color:#00ff40;">10px</span><span style="color:#ffffff;">&quot;</span><span style="color:#359aff;">&gt; </span><span style="color:#359aff;">&lt;/a&gt;</span></pre>
+  </span><span style="color:#ffffff;">  &quot;/lecture-details/<span>{{</span> l.id <span>}}</span>&quot; </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;margin: </span><span style="color:#00ff40;">10px</span><span style="color:#ff8000;">;</span><span style="color:#ffffff;"> padding:</span><span style="color:#00ff40;">10px</span><span style="color:#ffffff;">&quot;</span><span style="color:#359aff;">&gt; </span><span style="color:#359aff;">&lt;/a&gt;</span></pre>
   </div>
   <p>When you click on the first lecture you will see this in the address bar of your browser:
     <img style="margin-bottom:15px;" class="ui centered medium image" src="assets/img/Browser-Navigates-To-Id.png">

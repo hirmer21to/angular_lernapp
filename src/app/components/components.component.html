@@ -120,7 +120,7 @@
     </li>
     <li>Interpolation: <br />
       helps to display properties of the component or calculated values as strings in the HTML view.<br />
-      <code style="font-family:'Consolas';">&lt;div&gt;&#123; &#123; component-property &#125; &#125;&lt;/div&gt;</code>
+      <code style="font-family:'Consolas';">&lt;div&gt;<span>{{</span> component-property <span>}}</span>&lt;/div&gt;</code>
     </li>
     <li>Event Binding: <br />
       this is kind of the opposite of property binding. It is possible to react to the occurrence of DOM events, in
@@ -156,13 +156,13 @@
   <p>and replace the auto generated code in the <b>where-to-go.component.html</b> with this code:</p>
   <div class="ui message black">
     <pre
-      style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#ffffff;">&#123; &#123; tempText &#125; &#125;</span></pre>
+      style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#ffffff;"><span>{{</span> tempText <span>}}</span></span></pre>
   </div>
   <p>This kind of data-binding is called interpolation and you just displayed the value of the property "tempText" via
     your
     HTML code.</p>
   <p class="ui info message">Interpolation: Shows data in the template. Syntax: <br />
-    <code style="font-family:'Consolas';">&#123; &#123; &nbsp; &#125; &#125;</code>
+    <code style="font-family:'Consolas';"><span>{{</span> &nbsp; <span>}}</span></code>
   </p>
 
   <h4>Visualization of the Construction:</h4>
@@ -224,14 +224,14 @@
         </span><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;content&quot;</span><span style="color:#359aff;">&gt;
           </span><span style="color:#359aff;">&lt;h2 </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;padding-bottom: </span><span style="color:#00ff40;">20px</span><span style="color:#ffffff;">&quot; </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;header ui&quot;</span><span style="color:#359aff;">&gt; 
             Lecture Details: </span><span style="color:#359aff;">&lt;/h2&gt;
-          </span><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;header&quot;</span><span style="color:#359aff;">&gt;</span><span style="color:#ffffff;">What? &#123; &#123;lecture.name &#125; &#125;
+          </span><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;header&quot;</span><span style="color:#359aff;">&gt;</span><span style="color:#ffffff;">What? <span>{{</span>lecture.name <span>}}</span>
             </span><span style="color:#359aff;">&lt;/div&gt;
-          </span><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;description&quot;</span><span style="color:#359aff;">&gt;</span><span style="color:#ffffff;">Where? &#123; &#123;lecture.building&#125; &#125;/
-            &#123; &#123;lecture.floor&#125; &#125;.&#123; &#123;lecture.room&#125; &#125;</span><span style="color:#359aff;">&lt;/div&gt;
-          </span><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;description&quot;</span><span style="color:#359aff;">&gt;</span><span style="color:#ffffff;">When? &#123; &#123;lecture.day&#125; &#125;, 
-            &#123; &#123;lecture.time.hours&#125; &#125;:&#123; &#123;lecture.time.minutes&#125; &#125;</span><span style="color:#359aff;">&lt;/div&gt;
+          </span><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;description&quot;</span><span style="color:#359aff;">&gt;</span><span style="color:#ffffff;">Where? <span>{{</span>lecture.building<span>}}</span>/
+            <span>{{</span>lecture.floor<span>}}</span>.<span>{{</span>lecture.room<span>}}</span></span><span style="color:#359aff;">&lt;/div&gt;
+          </span><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;description&quot;</span><span style="color:#359aff;">&gt;</span><span style="color:#ffffff;">When? <span>{{</span>lecture.day<span>}}</span>, 
+            <span>{{</span>lecture.time.hours<span>}}</span>:<span>{{</span>lecture.time.minutes<span>}}</span></span><span style="color:#359aff;">&lt;/div&gt;
           </span><span style="color:#359aff;">&lt;div</span><span style="color:#ffffff;"> *ngIf</span><span style="color:#ff4848;">=</span><span style="color:#ffffff;">&quot;lecture.department&quot; </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;description&quot;</span><span style="color:#359aff;">&gt;
-  </span><span style="color:#ffffff;">          Department: &#123; &#123;lecture.department&#125; &#125;</span><span style="color:#359aff;">&lt;/div&gt;
+  </span><span style="color:#ffffff;">          Department: <span>{{</span>lecture.department<span>}}</span></span><span style="color:#359aff;">&lt;/div&gt;
         </span><span style="color:#359aff;">&lt;/div&gt;
       </span><span style="color:#359aff;">&lt;/div&gt;
     </span><span style="color:#359aff;">&lt;/div&gt;
@@ -258,14 +258,14 @@
     <code style="font-family:'Consolas';">today: Date = new Date();</code> <br />
     You will get this format when you display it in your HTML just "raw":
   </p>
-  <p>{{today}} ---- code: <code style="font-family:'Consolas';">&#123; &#123;today&#125; &#125;</code></p>
+  <p>{{today}} ---- code: <code style="font-family:'Consolas';"><span>{{</span>today<span>}}</span></code></p>
   <p>Probably users what to have another format for a date. So you can use pipes in your HTML to format the date like
     this:</p>
-  <p>{{today | date}} ---- code: <code style="font-family:'Consolas';">&#123; &#123;today | date&#125; &#125;</code></p>
+  <p>{{today | date}} ---- code: <code style="font-family:'Consolas';"><span>{{</span>today | date<span>}}</span></code></p>
   <p>{{today | date: 'medium'}} ---- code: <code
-      style="font-family:'Consolas';">&#123; &#123;today | date: 'medium'&#125; &#125;</code></p>
+      style="font-family:'Consolas';"><span>{{</span>today | date: 'medium'<span>}}</span></code></p>
   <p>{{today | date: 'fullDate'}} ---- code: <code
-      style="font-family:'Consolas';">&#123; &#123;today | date: 'fullDate'&#125; &#125;</code></p>
+      style="font-family:'Consolas';"><span>{{</span>today | date: 'fullDate'<span>}}</span></code></p>
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
   <h4>Try a Pipe</h4>
@@ -274,7 +274,7 @@
  
   <div class="ui message black">
     <pre
-      style="font-family:'Consolas'; font-size:10pt; color:#ffffff;"><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;header&quot;</span><span style="color:#359aff;">&gt;</span><span style="color:#ffffff;">What? &#123; &#123;lecture.name | uppercase&#125; &#125;</span><span style="color:#359aff;">&lt;/div&gt;</span></pre>
+      style="font-family:'Consolas'; font-size:10pt; color:#ffffff;"><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;header&quot;</span><span style="color:#359aff;">&gt;</span><span style="color:#ffffff;">What? <span>{{</span>lecture.name | uppercase<span>}}</span></span><span style="color:#359aff;">&lt;/div&gt;</span></pre>
   </div>
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">

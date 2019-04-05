@@ -12,7 +12,7 @@
   <p class="ui message black"> <code style="font-family:'Consolas';">ng new where-to-go -is</code></p>
   <p>The <code style="font-family:'Consolas';">-is</code> defines that the project has an inline-style. If you don't do this, we would have an extra
     CSS-file for every single component. For this project, we don't want this.</p>
-  <p>Next open your Visual Studio Code and open project from file (STRG + K &nbsp;&nbsp; STRG+O). And then run the
+  <p>Next open your Visual Studio Code (restart it when it was open during the other installations) and open project from file (STRG + K &nbsp;&nbsp; STRG+O). And then run the
     initial application. You can open a terminal directly in Visual Studio Code with STRG+ö.</p>
   <p class="ui message black"> <code style="font-family:'Consolas';">ng serve --open</code></p>
   <p>When the brower is open you will see the inital app of Angular:</p>
@@ -116,7 +116,7 @@
   </p>
 
   <div class="ui message black">
-<pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#ffffff;">  Welcome to &#123; &#123; title &#125; &#125;!
+<pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#ffffff;">  Welcome to  <span>{{</span> title <span>}}</span>;!
 </span></pre>
   </div>
   <img class="ui image medium centered" src="assets/img/Angular-Changed-Title.png">
@@ -137,7 +137,7 @@
 
   <div class="ui message black">
 <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#359aff;">&quot;styles&quot;</span><span style="color:#ffffff;">: [
-  </span><span style="color:#ffff80;">&quot;../Master-Project/node_modules/semantic-ui-css/semantic.css&quot;</span><span style="color:#ffffff;">,
+  </span><span style="color:#ffff80;">&quot;../Where-To-Go/node_modules/semantic-ui-css/semantic.css&quot;</span><span style="color:#ffffff;">,
   </span><span style="color:#ffff80;">&quot;src/styles.css&quot;
 </span><span style="color:#ffffff;">]</span></pre>
 
@@ -148,7 +148,7 @@
   <div class="ui message black">
 <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;text-align:center&quot; </span><span style="color:#359aff;">&gt;
   </span><span style="color:#359aff;">&lt;h1 </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;ui header&quot; </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;margin: </span><span style="color:#00ff40;">30px</span><span style="color:#ffffff;">&quot;</span><span style="color:#359aff;">&gt;
-</span><span style="color:#ffffff;">    Welcome to &#123; &#123; title &#125; &#125;!
+</span><span style="color:#ffffff;">    Welcome to <span>{{</span> title <span>}}</span>!
   </span><span style="color:#359aff;">&lt;/h1&gt;
 &lt;/div&gt;
 </span><span style="color:#359aff;">&lt;router-outlet&gt;&lt;/router-outlet&gt;</span></pre>
