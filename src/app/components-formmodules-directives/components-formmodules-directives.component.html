@@ -13,7 +13,15 @@
     <p class="ui message black"><code style="font-family:'Consolas';">ng g class shared/mock-lectures</code></p>
     <p>In this class we define the constant LECTURES as an Array of lectures and export it. The content is the same
         like the property lecture from the lecture-item.component.ts, so you can copy the first from there and paste
-        them a few times for different lectures.</p>
+        them a few times for different lectures. The id must always be different!</p>
+    <div class="ui info message">
+        <p>Later we will have drop-downs for day, time and building. To avoid problems, please make sure that: <br>
+            Your day looks like that: Monday, Tuesday, Wednesday, Thursday, Friday.<br>
+            Your hours are between 08 and 19 and always consists of two numbers.<br>
+            Your minutes are 00, 15, 30 or 45.<br>
+            Your building is KR1, WE5, F21 or M3.
+        </p>
+    </div>
 
     <div class="ui message black">
         <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#ffffff;">export </span><span style="color:#359aff;">const</span><span style="color:#ffffff;"> LECTURES</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Lecture</span><span style="color:#008000;">[] </span><span style="color:#008000;">= </span><span style="color:#008000;">[
@@ -33,6 +41,12 @@
     </span><span style="color:#b16565;">&#125;
 </span><span style="color:#008000;">]</span></pre>
     </div>
+    <p>Of course we also need to import the class <code style="font-family:'Consolas';">Lecture</code>.</p>
+    <div class="ui message black">
+      <pre
+      style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> Lecture </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;./lecture&#39;</span><span style="color:#b16565;">;</span></pre>
+    </div>
+
     <p>After that, you can delete the property lecture from the <b>lecture-item.component.ts</b> and initialize the
         constant in the <b>timetable.component.ts</b>, because we need the data in the list now.</p>
  
@@ -40,13 +54,19 @@
         <pre
             style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#ffffff;">lectures </span><span style="color:#008000;">=</span><span style="color:#ffffff;"> LECTURES</span><span style="color:#b16565;">;</span></pre>
     </div>
+    <p>Of course we also need to import the class <code style="font-family:'Consolas';">Lecture</code>.</p>
+    <div class="ui message black">
+      <pre
+      style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> Lecture </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;./lecture&#39;</span><span style="color:#b16565;">;</span></pre>
+    </div>
+
 
     <h4>Display a List</h4>
     <p>
         We generated our shell for the lecture items. The timetable is going to be a list with all the lectures we
         have.
     </p>
-    <p>First we have to write the code for the a single lecture item in <b>lecture-item.component.html</b>: </p>
+    <p>First we have to write the code for the a single lecture item and replace the code in <b>lecture-item.component.html</b>: </p>
 
     <div class="ui message black">
         <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">&lt;a </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;content&quot;</span><span style="color:#359aff;">&gt;
@@ -82,7 +102,7 @@
     </p>
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
-    <p>We display this component in the <b>app.component.ts</b> and replace the lecture-item with this code:</p>
+    <p>We display this component in the <b>app.component.html</b> and replace the lecture-item with this code:</p>
     <div class="ui message black">
         <pre
             style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#ffffff;">&lt;app-timetable&gt;&lt;/app-timetable&gt;</span></pre>
@@ -151,6 +171,11 @@
     <span style="color:#359aff;">this</span><span style="color:#ffffff;">.selectedLecture </span><span style="color:#008000;">=</span><span style="color:#ffffff;"> lecture</span><span style="color:#b16565;">;
 &#125;</span></pre>
     </div>
+    <p>Of course we also need to import the class <code style="font-family:'Consolas';">Lecture</code>.</p>
+    <div class="ui message black">
+      <pre
+      style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> Lecture </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;./lecture&#39;</span><span style="color:#b16565;">;</span></pre>
+    </div>
 
     <p>We add a click-event-binding to the <b>timetable.component.html</b>:</p>
   
@@ -166,7 +191,7 @@
         the selected lecture, but just if there is a lecture selected. To make this sure, we have the <code
             style="font-family:'Consolas';">*ngIf</code>
         directive.</p>
-    <p>In the <b>timetable.component</b> we need to insert the following code snippet:</p>
+    <p>In the <b>timetable.component.html</b> we need to insert the following code snippet beneath the existing code:</p>
 
     <div class="ui message black">
         <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;"><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;padding: </span><span style="color:#00ff40;">15px</span><span style="color:#ff8000;">;</span><span style="color:#ffffff;">&quot;</span><span style="color:#359aff;">&gt;
@@ -226,7 +251,7 @@
     </span><span style="color:#359aff;">&lt;/div&gt;
 &lt;/div&gt;</span></pre>
     </div>
-    <p>Replace the old code for the details with this code for every input and finally the app looks like that:</p>
+    <p>Replace the old code for the details with this code for every input and finally the app looks like in the code editor at the end of this page.</p>
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
     <h4>Visualization of the Construction:</h4>

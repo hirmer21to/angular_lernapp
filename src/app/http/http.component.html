@@ -127,7 +127,7 @@
 
   <div class="ui message black">
     <pre
-      style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> HttpInMemoryWebApiModule </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;angular-in-memory-web-api;
+      style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> HttpClientInMemoryWebApiModule </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;angular-in-memory-web-api&#39;<span style="color:#b16565;">; </span>
 </span><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> InMemoryDataService </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;./shared/in-memory-data.service&#39;</span><span style="color:#b16565;">; </span></pre>
   </div>
   <p>And you also need to add it to the <code style="font-family:'Consolas';">imports</code> array:</p>
@@ -162,7 +162,7 @@
 
   <div class="ui message black">
     <pre
-      style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> InMemoryDbService </span><span style="color:#b16565;">&#125; </span><span style="color:#ffff80;">&#39;angular-in-memory-web-api&#39;</span><span style="color:#b16565;">;</span></pre>
+      style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> InMemoryDbService </span><span style="color:#b16565;">&#125; </span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;angular-in-memory-web-api&#39;</span><span style="color:#b16565;">;</span></pre>
   </div>
   <p>Now we need to fill the <code style="font-family:'Consolas';">const lectures</code> with the data we have in <code
       style="font-family:'Consolas';">mock-lectures.ts</code>.</p>
@@ -176,10 +176,16 @@
   .map</span><span style="color:#b16565;">(</span><span style="color:#ffffff;">lecture </span><span style="color:#008000;">=&gt;</span><span style="color:#ffffff;"> lecture.</span><span style="color:#ff8000;">id</span><span style="color:#b16565;">)) </span><span style="color:#008000;">+ </span><span style="color:#00ff40;">1 </span><span style="color:#008000;">: </span><span style="color:#00ff40;">11</span><span style="color:#b16565;">;
 &#125;</span></pre>
   </div>
+  <p>Of course we also need to import the class <code style="font-family:'Consolas';">Lecture</code>.</p>
+  <div class="ui message black">
+    <pre
+    style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> Lecture </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;./lecture&#39;</span><span style="color:#b16565;">;</span></pre>
+  </div>
+
   <h4>Update the Getter</h4>
   <p>To get the data from the remote server now, we need to update the getter-methods for the lecture array and the
     single lecture item. First we define in <b>lecture.service.ts</b> the <code
-      style="font-family:'Consolas';">lecturesUrl</code> of the form
+      style="font-family:'Consolas';">lectureUrl</code> of the form
     <code style="font-family:'Consolas';">:base/:collectionName</code> with the address of the lecture resource on the
     server. Here base is the
     resource to which requests are made, and <code style="font-family:'Consolas';">collectionName</code> is the lectures
@@ -187,7 +193,7 @@
     in-memory-data-service.ts.</p>
   <div class="ui message black">
     <pre
-      style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">private</span><span style="color:#ffffff;"> lectureUrl </span><span style="color:#008000;">= </span><span style="color:#ffff80;">&#39;api/lecture&#39;</span><span style="color:#b16565;">;</span></pre>
+      style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">private</span><span style="color:#ffffff;"> lectureUrl </span><span style="color:#008000;">= </span><span style="color:#ffff80;">&#39;api/lectures&#39;</span><span style="color:#b16565;">;</span></pre>
   </div>
   <p>Injection into the constructor:</p>
   <div class="ui message black">
@@ -348,7 +354,7 @@
   <p>Call the button below "Add" and delete the function, we need to write one first.
   </p>
   <p>In a next step add the component to the routing and to the navigation:</p>
-  <p><b>routing.module.ts</b></p>
+  <p><b>app-routing.module.ts</b></p>
 
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> LectureAddComponent </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;./lecture-add/lecture-add.component&#39;</span><span style="color:#b16565;">;
