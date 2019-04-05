@@ -11,7 +11,7 @@ import { ModiService } from './shared/modi.service';
 })
 export class AppComponent implements OnInit {
 
-  title = 'Master-Project';
+  title = 'Learn Angular!';
   modus: Modus;
   modi: Modus[];
   hideBackButton: Boolean = false;
@@ -103,6 +103,7 @@ export class AppComponent implements OnInit {
     }
     return this.routerLink;
   }
+  
   getLast(): string {
     this.routerLink = this.router.url;
     let counter = -1;
@@ -115,5 +116,4 @@ export class AppComponent implements OnInit {
     }
     return this.routerLink;
   }
-
 }

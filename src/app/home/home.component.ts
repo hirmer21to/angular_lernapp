@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit {
     .subscribe(modi => this.modi = modi);
   }
 
-
   theorist(): void {
     this.service.setModus(this.modi[0])
     .subscribe(modus => this.modus = modus);

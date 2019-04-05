@@ -4,5 +4,6 @@ export class Modus {
         public name: string,
         public theorySmall: Boolean,
         public theoryLarge: Boolean,
-        public praxis: Boolean) { }
+        public praxis: Boolean
+        ) { }
 }

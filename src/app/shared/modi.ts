@@ -2,21 +2,19 @@ import { Modus } from "./modus";
 
 export const MODI: Modus[] = [
     {
-        name: "theorist",
+        name: 'theorist',
         theorySmall: true,
         theoryLarge: true,
         praxis: false
     },
-
     {
-        name: "practitioner",
+        name: 'practitioner',
         theorySmall: false,
         theoryLarge: false,
         praxis: true
     },
-
     {
-        name: "both",
+        name: 'both',
         theorySmall: true,
         theoryLarge: true,
         praxis: true
