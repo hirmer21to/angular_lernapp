@@ -1,19 +1,19 @@
 <h2>Components, FormModules and Directives</h2>
 <div *ngIf="praxis" style="margin-top: 20px;" class="ui info message">
     <h5>User Story</h5>
-    <p>As an <b>user</b><br />
+    <p>As a <b>user</b><br />
       I want to <b>display all lectures in a timetable and click to select one</b>, <br />
       to <b> look through all of them and change the selected one</b>.</p>
   </div>
 <div *ngIf="praxis">
     <h4>Mock Data</h4>
-    <p>Later we will have more than one lecture and therefor we are going to need a list to display all of them. </p>
+    <p>Later we will have more than one lecture and therefore we will need a list to display all of them. </p>
     <p class="ui message black"><code style="font-family:'Consolas';">ng g component timetable</code></p>
-    <p>Because we don't get our data from a server we will create some mock-data and pretend they are from a server.</p>
+    <p>Because we don't get our data from a server we will create some mock-data and pretend that they are from a server.</p>
     <p class="ui message black"><code style="font-family:'Consolas';">ng g class shared/mock-lectures</code></p>
-    <p>In this class we define the constant LECTURES as an Array of lectures and export it. The content is the same
-        like the property lecture from the lecture-item.component.ts, so you can copy the first from there and paste
-        them a few times for different lectures. The id must always be different!</p>
+    <p>In this class we define the constant LECTURES as an array of lectures and export it. The content is the same
+        as in the property lecture from the lecture-item.component.ts, so you can copy the first lecture from there and paste
+        it a few times for different lectures. The id must always be different!</p>
     <div class="ui info message">
         <p>Later we will have drop-downs for day, time and building. To avoid problems, please make sure that: <br>
             Your day looks like that: Monday, Tuesday, Wednesday, Thursday, Friday.<br>
@@ -47,7 +47,7 @@
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> Lecture </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;./lecture&#39;</span><span style="color:#b16565;">;</span></pre>
     </div>
 
-    <p>After that, you can delete the property lecture from the <b>lecture-item.component.ts</b> and initialize the
+    <p>After that, you can delete the property lecture from the <b>lecture-item.component.ts</b> and initialise the
         constant in the <b>timetable.component.ts</b>, because we need the data in the list now.</p>
  
     <div class="ui message black">
@@ -66,7 +66,7 @@
         We generated our shell for the lecture items. The timetable is going to be a list with all the lectures we
         have.
     </p>
-    <p>First we have to write the code for the a single lecture item and replace the code in <b>lecture-item.component.html</b>: </p>
+    <p>First we have to write the code for a single lecture item and replace the code in <b>lecture-item.component.html</b>: </p>
 
     <div class="ui message black">
         <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">&lt;a </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;content&quot;</span><span style="color:#359aff;">&gt;
@@ -96,9 +96,9 @@
     <h4>Input-Property</h4>
     <p>
         You can transfer data, especially between parent- and children-components via
-        <code style="font-family:'Consolas';">@Input()</code>-Proptery. The
+        <code style="font-family:'Consolas';">@Input()</code>-property. The
         decorator marks the class field as an input property and provides configuration metadata. This declares a
-        data-bound input propterty, which is automatically updated during change detection.
+        data-bound input property, which is automatically updated during change detection.
     </p>
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
@@ -107,7 +107,7 @@
         <pre
             style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#ffffff;">&lt;app-timetable&gt;&lt;/app-timetable&gt;</span></pre>
     </div>
-    <p>In the <b>timetable.component.html</b> we display now the list of lecture-items with a header beyond and a
+    <p>In the <b>timetable.component.html</b> we display the list of lecture-items now with a header beyond and a
         for-loop, because every item should be displayed the same way:</p>
    
     <div class="ui message black">
@@ -122,7 +122,7 @@
     </span><span style="color:#359aff;">&lt;/div&gt;
 &lt;/div&gt; </span></pre>
     </div>
-    <p>With the construct <code style="font-family:'Consolas';">[lecture]="l"</code> we make sure that l is the lecture
+    <p>With the construct <code style="font-family:'Consolas';">[lecture]="l"</code> we make sure that <code style="font-family:'Consolas';">l</code> is the lecture
         we imported via input-binding
         before.</p>
     <p class="ui info message">
@@ -134,16 +134,16 @@
     <h4>Directives</h4>
     <p>Constructs like <code style="font-family:'Consolas';">*ngFor</code> are called "Directives". With this you can
         make loops in the HTML similar to
-        loops in the logic code (TypeScript, Java,...), like you may know. </p>
-    <p>Every time I iterate over my list of items (if you read also the code examples, it's a list of lectures) I take
-        one single item out of all items and for this item is displayed what I defined for one item as HTML code before. With the
-        attribute <code style="font-family:'Consolas';">[lecture]</code> I give the respective lecture object. And with
+        loops in the logic code (TypeScript, Java,...), as you may know. </p>
+    <p>Every time I iterate over my list of items (if you also read the code examples, it's a list of lectures) I take
+        one single item out of all items, for which is displayed what I defined for it as HTML code before. With the
+        attribute <code style="font-family:'Consolas';">[lecture]</code> I assign the respective lecture object. And with
         this for-loop I repeat this for all the items (lectures) I have.</p>
-    <p>Another directive we already used before is <code style="font-family:'Consolas';">*ngIf</code>. For who read the code: because we made
-        department a optional property, someone may not set a value for this property. So we want to ask if this property has a value and just display
-        the corresponding div if it has one.</p>
-    <p>This is also called templating-microsyntax, because the way we iterate over an array is not just a simple
-        templating expression, it is a very small own language that generates DOM-elements. For every element in the
+    <p>Another directive we already used before is <code style="font-family:'Consolas';">*ngIf</code>. For those who read the code: because we made
+        department an optional property, someone may not set a value for this property. So we want to ask if this property has a value and just display
+        the corresponding <code style="font-family:'Consolas';">div</code> if it has one.</p>
+    <p>This is also called templating-microsyntax, because the way we iterate over an array isn't just a simple
+        templating expression, it is a very small own language which generates DOM-elements. For every element in the
         array it creates a new instance of something. In this case
         <code style="font-family:'Consolas';">&lt;a class="app-lecture-item item" ...&gt;&lt;/a&gt;</code>.</p>
     <p class="ui info message">
@@ -159,8 +159,8 @@
     <p><img class="ui image large centered" src="assets/img/App-Building-4.png"></p>
 
     <h4>Details View</h4>
-    <p>Later we want to be able to make changes within a lecture item so we want select one lecture and get its details
-        view via click. So first we need a variable for the selected lecture in the <b>timetable.component.ts</b>
+    <p>Later we want to be able to make changes within a lecture item so we want to select one lecture and get its details
+        view via click. First we need a variable for the selected lecture in the <b>timetable.component.ts</b>
         and second we need a function, we call it <code style="font-family:'Consolas';">onSelect()</code>, which assigns
         the clicked lecture from the
         template to the <code style="font-family:'Consolas';">selectedLecture</code> of the component.</p>
@@ -187,8 +187,8 @@
     <p class="ui info message">Event-Binding: Interrogate results and treat them. Syntax: <br />
         <code style="font-family:'Consolas';">() = " "</code>
     </p>
-    <p>We want to display the clicked lecture beneath the list of all lectures. Therefor we need to add some code for
-        the selected lecture, but just if there is a lecture selected. To make this sure, we have the <code
+    <p>We want to display the clicked lecture beneath the list of all lectures. therefore we need to add some code for
+        the selected lecture, but only if there is a lecture selected. To make this sure, we have the <code
             style="font-family:'Consolas';">*ngIf</code>
         directive.</p>
     <p>In the <b>timetable.component.html</b> we need to insert the following code snippet beneath the existing code:</p>
@@ -208,14 +208,14 @@
     </span><span style="color:#359aff;">&lt;/div&gt;
 &lt;/div&gt;</span></pre>
     </div>
-    <p>Now we did ask, is there a <code style="font-family:'Consolas';">selectedLecture</code>, then display the
+    <p>Now we asked, is there a <code style="font-family:'Consolas';">selectedLecture</code>? If there is, display the
         <code style="font-family:'Consolas';">selectedLecture.name, selectedLecture.building</code>
         and all the other information.</p>
 </div>
 
 <div *ngIf="praxis" style="margin-top: 20px;">
     <h4>Make it an Input Form</h4>
-    <p>If we want to make changes in the details of a lecture, we are going to need two-way-binding and input fields.
+    <p>If we want to make changes in the details of a lecture, we will need two-way-binding and input fields.
     </p>
     <p class="ui info message">Two-Way-Binding: Can read in properties and process results. Syntax: <br />
         <code style="font-family:'Consolas';">[()] = " "</code>
@@ -259,17 +259,17 @@
     <div class="ui success message">
         <h4>Summary</h4>
         <ul>
-            <li>You learned about directives</li>
-            <li>You used <code style="font-family:'Consolas';">*ngIf</code> to show or hide the department</li>
+            <li>You learned about directives.</li>
+            <li>You used <code style="font-family:'Consolas';">*ngIf</code> to show or hide the department.</li>
             <li>You binded the lecture via <code style="font-family:'Consolas';">@Input()</code> binding and set the
-                property via property binding</li>
+                property via property binding.</li>
             <li>You applied the <code style="font-family:'Consolas';">*ngFor</code> directive to display a list of
-                lectures</li>
-            <li>You prepared a details view for lectures and displayed it with a click event</li>
+                lectures.</li>
+            <li>You prepared a details view for lectures and displayed it with a click event.</li>
             <li>You imported the <code style="font-family:'Consolas';">FormsModule</code> in the <code
-                    style="font-family:'Consolas';">AppModule</code></li>
+                    style="font-family:'Consolas';">AppModule</code>.</li>
             <li>You made the details view editable because you applied the <code
-                    style="font-family:'Consolas';">NgModel</code> directive and made it an input form</li>
+                    style="font-family:'Consolas';">NgModel</code> directive and made it an input form.</li>
         </ul>
     </div>
     <iframe style="margin-top:20px; width:100%; height: 500px"

@@ -1,14 +1,14 @@
 <h2>Services</h2>
 <div *ngIf="praxis" style="margin-top: 20px;" class="ui info message">
   <h5>User Story</h5>
-  <p>As a <b>programmer</b><br />
+  <p>As a <b>programer</b><br />
     I want to <b>use a service</b>, <br />
     to <b> not manage my data in the components anymore</b>.</p>
 </div>
 <div *ngIf="theoryLarge" style="margin-bottom: 20px;" class="ui message">
   <h4>What is a Service?</h4>
   <p>Every good application should have its logic in a service not in the components. A service is one of the main
-    concepts of Angular. If you are already experienced with object-orientated programming languages, you may know the
+    concepts of Angular. If you are already experienced with object-orientated programing languages, you may know the
     MVC model. The service is like the controller. A service is a function or class that provides the functionality for
     other functions or classes. It has two main tasks:</p>
   <ul>
@@ -16,13 +16,13 @@
     <li>Save the data, that is needed by one or more components of the application</li>
   </ul>
   <p>The concept "Inversion of Control (IoC)" and the pattern "Dependency Injection" can help us. If you want to use a
-    class at any point in the application, you could initialize this class at this point. But this solution is confusing
-    and has high maintenance. For example if you change just little things in the constructor of the class you might
+    class at any point in the application, you could initialise the class at this point. But this solution is confusing
+    and has high maintenance. For example if you change just little things in the constructor of the class, you might
     have to make changes everywhere in your code. This can be avoided by giving the responsibility of generating
     dependencies to a higher authority. You are not allowed to use the key word <code
       style="font-family:'Consolas';">new</code> to create a dependency.
     You will get the dependencies from a higher authority instead. The responsibility of generating an object is
-    reversed. IoC can be realized with different patterns, Angular uses dependency injection.
+    reversed. IoC can be realised with different patterns, Angular uses dependency injection.
   </p>
   <p>Angular uses constructor injection: <br />
     <code style="font-family:'Consolas';">constructor(myDependency: MyDependencyType) &#123; &#125;</code> <br />
@@ -38,7 +38,7 @@
 
   <p>At the moment all the data is saved in the components. That is not the way it should be. The job of a component is
     to present data, however the direct data access is the job of a service.</p>
-  <p>So in the next step we want to create a <code style="font-family:'Consolas';">LectureService</code> that all other
+  <p>In the next step we want to create a <code style="font-family:'Consolas';">LectureService</code> that all other
     classes in the application can
     use to get
     the data of the lectures. We use Angular's dependency injection to inject the service into the
@@ -51,15 +51,15 @@
 </code></p>
 </div>
 <div *ngIf="theorySmall" style="margin-top: 20px;" class="ui message">
-  <p>The service class uses the <code style="font-family:'Consolas';">@Injectable()</code> decorator and therefor
+  <p>The service class uses the <code style="font-family:'Consolas';">@Injectable()</code>-decorator and therefore
     imports <code style="font-family:'Consolas';">Injectable</code>. This
-    service class provides now a injectable service. The decorator accepts a metadata object for the service.</p>
+    service class now provides an injectable service. The decorator accepts a metadata object for the service.</p>
   <p>If you use a service for accessing the data, from now on you can change your implementation without touching the
     components.</p>
 </div>
 
 <div *ngIf="praxis" style="margin-top: 20px;">
-  <p>We are going to need this function in <b>lecture.service.ts</b> to get the lecture data. For now we still use the
+  <p>We are going to need this function in <b>lecture.service.ts</b> to get the lecture data. For now we'll still use the
     mock-data.</p>
 
   <div class="ui message black">
@@ -89,12 +89,12 @@
     </div>
 </div>
 <div *ngIf="theorySmall" style="margin-top: 20px;" class="ui message">
-  <p>This added parameter <code style="font-family:'Consolas';">lectureService</code> defines also a property of the
+  <p>This added parameter <code style="font-family:'Consolas';">lectureService</code> also defines a property of the
     service class as well as it
-    identifies it as an injection. With the dependency injection sets the parameter <code
+    identifies it as an injection. With the dependency injection we set the parameter <code
       style="font-family:'Consolas';">lectureService</code> to the
     singleton instance of the <code style="font-family:'Consolas';">LectureService</code>. The singleton pattern is a
-    software design pattern that
+    software design pattern which
     ensures that exactly one object exists in a class.</p>
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
@@ -140,12 +140,12 @@
   <p>The service method <code style="font-family:'Consolas';">getLectures()</code> now has a synchronous signature which
     means that the service can
     fetch data synchronously. This is just working because we fetch mock-data right now. If we have a real app with
-    real data this will not work at all. Fetching data from a remote server is an asynchronous operation. In the "real"
+    real data this won't work at all. Fetching data from a remote server is an asynchronous operation. In the "real"
     world the service has to wait for the respond of the server and the method cannot return immediately.</p>
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
-  <p><code style="font-family:'Consolas';">LectureService.getLectures()</code> needs to have a asynchronous signature,
-    therefor we will return a
+  <p><code style="font-family:'Consolas';">LectureService.getLectures()</code> needs to have an asynchronous signature,
+    therefore we will return an
     <code style="font-family:'Consolas';">Observable</code>.
     We need to import in <b>lecture.service.ts</b>:</p>
 
@@ -176,7 +176,7 @@
     of lectures to the <code style="font-family:'Consolas';" style="font-family:'Consolas';">lectures</code> property
     and this assignment wanted back the data immediately. Now we wait
     for the <code style="font-family:'Consolas';" style="font-family:'Consolas';">Observable</code> to return the array
-    of lectures, even if this is after a view minutes. Then
+    of lectures, even if this happens after only a view minutes. Then
     <code style="font-family:'Consolas';" style="font-family:'Consolas';">subscribe()</code> passes the emitted array to
     the callback, which sets the component's lecture property.
     You will learn more about observable data in the chapter <a routerLink="/http">HTTP</a>.
@@ -190,9 +190,9 @@
   <div class="ui success message">
     <h4>Summary</h4>
     <ul>
-      <li>You learned about services</li>
-      <li>You generated a service and performed constructor injection</li>
-      <li>You made the signature of the methods asynchronous</li>
+      <li>You learned about services.</li>
+      <li>You generated a service and performed constructor injection.</li>
+      <li>You made the signature of the methods asynchronous.</li>
     </ul>
   </div>
   <iframe style="margin-top:20px; width:100%; height: 500px"

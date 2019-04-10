@@ -1,7 +1,7 @@
 <h2>Routing</h2>
 <div *ngIf="praxis" style="margin-top: 20px;" class="ui info message">
   <h5>User Story</h5>
-  <p>As an <b>user</b><br />
+  <p>As a <b>user</b><br />
     I want to <b>navigate through the views</b>, <br />
     to <b> have the start page and the timetable accessable via navigation bar and the details via click on a lecture in the timetable</b>.</p>
 </div>
@@ -13,15 +13,15 @@
     available for the user via URLs.
     We will use clickable links for the navigation. These could be navigation items or list items. Angular is for
     developing Single-Page-Applications. That means that the application is just one single HTML page and the content is
-    loaded asynchronously. The loading is usually no "hard" reloading. Things like linking the components or go forward
-    and backward are challenging now, but HTML5 History API brings the technical basic for this. It is possible to
-    change the browser history via JavaScript without reloading the web page. It looks like a normal web page but it is
+    loaded asynchronously. The loading is usually no "hard" reloading. Things like linking the components or going forward
+    and backwards are challenging now, but HTML5 History API brings the technical basic for this. It's possible to
+    change the browser history via JavaScript without reloading the web page. It looks like a normal web page but it's
     a single page. The <code style="font-family:'Consolas';">Router</code> interacts with this HTML5 History API and
     uses URLs to identify the
     individual states. You will need three steps to get there:<br />
   </p>
   <ul>
-    <li>Assign an URL a component.</li>
+    <li>Assign an URL to a component.</li>
     <li>Import the Routing-Module into the application.</li>
     <li>Set where the components should be loaded into the template.</li>
   </ul>
@@ -29,20 +29,20 @@
 
 <h4>Routing Module</h4>
 <div *ngIf="praxis">
-  <p>If we do not want to arrange the components among each other we need a navigation logic to route between
-    components. If you answered the question if you want to have routing during the creation of the project with (Y)
-    you will already have the file <b>app-routing.module.ts</b> in your project folder. If not generate it:</p>
+  <p>If we don't want to arrange the components one below the other, we need a navigation logic to route between
+    components. If you answered the question about routing during the creation of the project with (Y),
+    you will already have the file <b>app-routing.module.ts</b> in your project folder. If not, generate it now:</p>
   <p class="ui message black"> <code
       style="font-family:'Consolas';">ng generate module app-routing --flat --module=app</code></p>
 </div>
 
 <div *ngIf="theorySmall" style="margin-top: 20px;" class="ui message">
-  <p>Routes tell the router which view to display when the user clicks on a link or inserts a URL in the address bar of
+  <p>Routes tell the router which view to display when the user clicks on a link or inserts an URL in the address bar of
     the browser.
     A typical Angular route has two properties:
   </p>
   <ul>
-    <li><code style="font-family:'Consolas';">path</code>: a string, that matches with the URL in the adress bar of the
+    <li><code style="font-family:'Consolas';">path</code>: a string, that matches with the URL in the address bar of the
       browser</li>
     <li><code style="font-family:'Consolas';">component</code>: the component that the router should create when
       navigating to this route</li>
@@ -57,7 +57,7 @@
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#b16565;">&#123; </span><span style="color:#ff00ff;">path</span><span style="color:#008000;">: </span><span style="color:#ffff80;">&#39;&#39;</span><span style="color:#b16565;">,</span><span style="color:#ffffff;"> redirectTo</span><span style="color:#008000;">: </span><span style="color:#ffff80;">&#39;/where-to-go&#39;</span><span style="color:#b16565;">,</span><span style="color:#ffffff;"> pathMatch</span><span style="color:#008000;">: </span><span style="color:#ffff80;">&#39;full&#39; </span><span style="color:#b16565;">&#125;</span>,</pre>
   </div>
-  <p>Also insert there the other needed routes at the same location:</p>
+  <p>Also insert the other needed routes at the same location:</p>
 
   <div class="ui message black">
     <pre
@@ -72,7 +72,7 @@
       style="font-family:'Consolas';">&lt;app-timetable&gt;</code> from the
     <b>app.component.html</b>
     and just leave the title and the <code style="font-family:'Consolas';">&lt;router-outlet&gt;</code>. These
-    components will only parts of the route
+    components will only be parts of the route
     now.</p>
   <p>The <code style="font-family:'Consolas';">&lt;router-outlet&gt;</code> indicates that the routed views are
     displayed here.</p>
@@ -111,7 +111,7 @@
 <h4>Details in own View</h4>
 <div *ngIf="praxis" style="margin-top: 20px;">
 
-  <p>The lecture details should not be in an own view now, not beneath the timetable. Delete
+  <p>The lecture details should be in an own view now, not beneath the timetable. Delete
     <code
       style="font-family:'Consolas';">&lt;app-lecture-details [lecture]="selectedLecture"&gt;&lt;/app-lecture-details&gt;</code>
     from the <b>timetable.component.html</b>. We need an own route for them in the <b>app-routing.module.ts</b>:</p>
@@ -121,7 +121,7 @@
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "> <span style="color:#b16565;">&#123; </span><span style="color:#ff00ff;">path</span><span style="color:#008000;">: </span><span style="color:#ffff80;">&#39;lecture-details/:id&#39;</span><span style="color:#b16565;">,</span><span style="color:#ffffff;"> component</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> LectureDetailsComponent </span><span style="color:#b16565;">&#125;</span></pre>
   </div>
   <p>And in the <b>timetable.component.html</b> where we iterate with a for-loop through the lectures we insert the
-    routerlink for the lecture details with the ID of the clicked one:</p>
+    routerlink for the lecture details with the id of the clicked one:</p>
 
   <div class="ui message black">
     <pre
@@ -130,15 +130,15 @@
   </div>
   <p>When you click on the first lecture you will see this in the address bar of your browser:
     <img style="margin-bottom:15px;" class="ui centered medium image" src="assets/img/Browser-Navigates-To-Id.png">
-    But you will not see the details view. First we need to change some things. Delete <code
+    But you won't see the details view. First we need to change some things. Delete <code
       style="font-family:'Consolas';">selectedLecture</code> and
     the <code style="font-family:'Consolas';">onSelect()</code> method from the <b>timetable.component.ts</b>. Because
-    of the routing you will not need
+    of the routing you won't need
     it anymore.
   </p>
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
-  <p>Before the parent <code style="font-family:'Consolas';">LectureItemComponent</code> property (<code
+  <p>Before that, the parent <code style="font-family:'Consolas';">LectureItemComponent</code> property (<code
       style="font-family:'Consolas';">lecture</code>) sets the
     <code style="font-family:'Consolas';">LectureDetailsComponent</code>
     property (<code style="font-family:'Consolas';">lecture</code>), and the <code
@@ -147,7 +147,7 @@
     like ~/lecture-detail/1.</p>
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
-  <p>In <b>lecture-details.component.ts</b> we need to import the following and insert them as parameters in the
+  <p>In <b>lecture-details.component.ts</b> we need to import the following and insert it as parameters in the
     constructor:</p>
 
   <div class="ui message black">
@@ -173,7 +173,7 @@
     <code style="font-family:'Consolas';">LectureDetailsComponent</code>.
     This component is interested in the route's bag of parameters extracted from the URL. The
     <code style="font-family:'Consolas';">LectureService</code>
-    gets the lecture data from the server and here it is used to display the lecture view. The <code
+    gets the lecture data from the server and here it's used to display the lecture view. The <code
       style="font-family:'Consolas';">Location</code> is
     an Angular service to interact with the browser. We are going to use this for a function to go back to the last
     location.</p>
@@ -201,7 +201,7 @@
 
 </div>
 <div *ngIf="theorySmall" style="margin-top: 20px;" class="ui message">
-  <p><code style="font-family:'Consolas';">route.snapshot</code> is a static image of the route information shortly
+  <p><code style="font-family:'Consolas';">route.snapshot</code> is a static image of the route information, taken shortly
     after the component was created.
     <code style="font-family:'Consolas';">paramMap</code> is a dictionary of route parameter values extracted from the
     URL. The <code style="font-family:'Consolas';">id</code> key
@@ -221,8 +221,8 @@
 &#125;</span></pre>
   </div>
   <h4>Go Back Button</h4>
-  <p>As already planed, in addition to the navigation we want to have a button that brings us back to the component we
-    visited before. Thats what we needed the <code style="font-family:'Consolas';">location</code> for. Add to
+  <p>As already planned, in addition to the navigation we want to have a button that brings us back to the component we
+    visited before. That's what we needed the <code style="font-family:'Consolas';">location</code> for. Add to
     <b>lecture-details.component.ts</b>:</p>
 
   <div class="ui message black">
@@ -244,12 +244,12 @@
   <div class="ui success message">
     <h4>Summary</h4>
     <ul>
-      <li>You learned about routing</li>
-      <li>You added the Angular router to make a proper navigation</li>
-      <li>You added a navigation to the <code style="font-family: 'Consolas';">AppComponent</code></li>
-      <li>You defined paths, a default path and paths including parameters like the lecture id</li>
-      <li>The details component got its own view</li>
-      <li>You added there a go back function and button to go back to the last location in the browser history</li>
+      <li>You learned about routing.</li>
+      <li>You added the Angular router to make a proper navigation.</li>
+      <li>You added a navigation to the <code style="font-family: 'Consolas';">AppComponent</code>.</li>
+      <li>You defined paths, a default path and paths including parameters like the lecture id.</li>
+      <li>The details component got its own view.</li>
+      <li>You added there a go back function and button to go back to the last location in the browser history.</li>
     </ul>
   </div>
   <iframe style="margin-top:20px; width:100%; height: 500px"

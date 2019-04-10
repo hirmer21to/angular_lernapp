@@ -14,6 +14,8 @@ export class ComponentsComponent implements OnInit {
   public praxis: Boolean;
   public modus: Modus;
 
+  public today: number = Date.now();
+
   constructor(private service: ModiService) { }
 
   ngOnInit() {

@@ -1,13 +1,13 @@
 <h2>TypeScript Introduction:</h2>
 <div>
-    <p>TypeScript is an Open-Source-Project from Microsoft. It expands JavaScript, so you can also write as much
-        JavaScript as you want in your TypeScript document.
+    <p>TypeScript is an Open-Source-Project developed by Microsoft. It expands JavaScript, which means that you can write as much
+        JavaScript in your TypeScript document as you want.
     </p>
-    <p>But it comes with a much stronger type system, as you may know from programming languages like Java and C#.</p>
-    <p>Bonus: TypeScript compiles to pure JavaScript and therefor it's runable in every browser and platform.</p>
+    <p>But it comes with a much stronger type system, as you may know from programing languages like Java and C#.</p>
+    <p>Bonus: TypeScript is runnable in every browser and platform as it compiles to pure JavaScript.</p>
 
-    <h4>1. Basictypes</h4>
-    <p>When you declare and initialize a variable, it's always the same:</p>
+    <h4>1. Basic Types</h4>
+    <p>When you declare and initialise a variable, it's always the same:</p>
 
     <div class="ui info message">
         <pre
@@ -30,12 +30,11 @@
             style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#000000;">output</span><span style="color:#008000;">: </span><span style="color:#ff0000;">String </span><span style="color:#008000;">=</span><span style="color:#000000;"> `</span><span style="color:#804040;">&#123;</span><span style="color:#000000;">firstname</span><span style="color:#804040;">&#125; </span><span style="color:#008000;">is </span><span style="color:#804040;">&#123;</span><span style="color:#000000;">age</span><span style="color:#804040;">&#125;</span><span style="color:#000000;"> years old.`</span><span style="color:#804040;">;</span></pre>
     </div>
     <h5>var</h5>
-    <p>Variables with var are just valid in the function you declared them.</p>
+    <p>Variables with "var" are only valid in the function in which they were declared.</p>
     <h5>let</h5>
-    <p>It is for block-bound variables only, they are just valid for the specific control structure, not
-        for the whole function. E.g. just valid in a control structure such as a for-loop.</p>
+    <p>"let" is only for block-bound variables, which are solely valid for the specific control structure e.g. a for-loop &ndash; not for the whole function.</p>
     <h5>const</h5>
-    <p>Once initialized you can't overwrite the value. They always have to be initialized.</p>
+    <p>Once initialised you can't overwrite the value. They always have to be initialised.</p>
 
     <h5>Getter and Setter</h5>
     <p>
@@ -68,7 +67,7 @@
     <p>Numbers in arr2 are now:</p>
     <pre style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#008000;">[ </span><span style="color:#ff0000;">1</span><span style="color:#804040;">, </span><span style="color:#ff0000;">2</span><span style="color:#804040;">, </span><span style="color:#ff0000;">5</span><span style="color:#804040;">, </span><span style="color:#ff0000;">7</span><span style="color:#804040;">, </span><span style="color:#ff0000;">8</span><span style="color:#008000;">]</span></pre>
     <h5>Any</h5>
-    <p> You can always use the fallback value "any", if you do not know which data type you will get back.</p>
+    <p> You can always use the fallback value "any" if you don't know which data type you will get back.</p>
 
     <h4>2. Classes</h4>
     <div>
@@ -86,7 +85,7 @@
     </div>
 
     <h5>Methods</h5>
-    <p>Extend classes with logic. In addition TypeScript allows it to precise the signature of the methods with a
+    <p>Extend classes with logic. In addition TypeScript allows to precise the signature of the methods with a
         parameter type and a return type. </p>
 
     <div>
@@ -101,10 +100,10 @@
 &#125;</span></pre>
                  
     </div>
-    <p>If you use void as return type, the method has no return value.</p>
+    <p>If you use "void" as return type, the method has no return value.</p>
     <h5>Constructors</h5>
-    <p>Constructors are methods which are called during initializing a class. Values can be transferred that are
-        necessary later.</p>
+    <p>Constructors are methods which are called during the initialization of a class. Values that are
+        necessary later, can be transferred.</p>
 
     <div>
 <pre style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#ff8000;">constructor</span><span style="color:#804040;">( </span><span style="color:#ff8000;">name</span><span style="color:#008000;">: </span><span style="color:#ff0000;">String</span><span style="color:#804040;">;</span><span style="color:#000000;"> age</span><span style="color:#008000;">: </span><span style="color:#ff8000;">number</span><span style="color:#804040;">;</span><span style="color:#000000;"> owner</span><span style="color:#008000;">: </span><span style="color:#ff0000;">String</span><span style="color:#804040;">;) </span><span style="color:#804040;">&#123;
@@ -113,31 +112,31 @@
     </span><span style="color:#0000ff;">this</span><span style="color:#000000;">.owner </span><span style="color:#008000;">=</span><span style="color:#000000;"> owner</span><span style="color:#804040;">;
 &#125;</span></pre>
     </div>
-    <p>A difference to other programing languages: per class is just ONE constructor possible!</p>
+    <p>A difference to other programing languages: Only ONE constructor per class is possible!</p>
 
     <h5>Inheritance</h5>
-    <p>Also known from object oriented programing, with the keyword  <code style="font-family:'Consolas';">extends</code>.</p>
+    <p>Also known from object-oriented programing, with the keyword  <code style="font-family:'Consolas';">extends</code>.</p>
  
     <div>
 <pre style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#0000ff;">class</span><span style="color:#000000;"> Cat </span><span style="color:#0000ff;">extends</span><span style="color:#000000;"> Animal </span><span style="color:#804040;">&#123; </span><span style="color:#804040;">&#125; </span></pre>
     </div>
-    <p>You can use the methods and constructors of the basis class with  <code style="font-family:'Consolas';">super()</code>. The methods can be
+    <p>You can use the methods and constructors of the basis class with  "<code style="font-family:'Consolas';">super()</code>". The methods can be
         rewritten. If a derived class (Cat) is instantiated, you automatically get access to attributes and methods of
         the parent classes (Animal). </p>
 
-    <h4>4. Interfaces</h4>
+    <h4>3. Interfaces</h4>
     <p>Interfaces are used to define a public interface and hide the concrete implementation. It can be determined
         which parts must be included and which types they should have.</p>
-    <p>Optional parameters have a  <code style="font-family:'Consolas';">?</code> behind their name. E.g.  <code style="font-family:'Consolas';">public owner?: String;</code></p>
+    <p>Optional parameters have a  <code style="font-family:'Consolas';">?</code> behind their name e.g.  <code style="font-family:'Consolas';">public owner?: String;</code>.</p>
   
     <div>
 <pre style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#0000ff;">interface</span><span style="color:#000000;"> Contact </span><span style="color:#008000;">= </span><span style="color:#804040;">&#123;</span><span style="color:#000000;"> firstname</span><span style="color:#008000;">: </span><span style="color:#ff0000;">String</span><span style="color:#804040;">;</span><span style="color:#000000;"> lastname</span><span style="color:#008000;">: </span><span style="color:#ff0000;">String</span><span style="color:#804040;">;</span><span style="color:#000000;"> age</span><span style="color:#008000;">?: </span><span style="color:#ff8000;">number </span><span style="color:#008000;">| </span><span style="color:#ff0000;">String </span><span style="color:#804040;">&#125;</span></pre>
     </div>
-    <p>If the object gets an additional property or the value does not have the required type you would get an error.
+    <p>If the object gets an additional property or the value doesn't have the required type, you would get an error.
     </p>
 
     <h5>Indexable Interfaces</h5>
-    <p>Interfaces can also be defined via an indexable key. E.g. interface determines the type for all elements of an
+    <p>Interfaces can also be defined by an indexable key. For instance the interface determines the type for all elements of an
         array.</p>
     <div>
 <pre style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#0000ff;">interface</span><span style="color:#000000;"> StringArray </span><span style="color:#804040;">&#123; </span><span style="color:#008000;">[</span><span style="color:#ff8000;">index</span><span style="color:#008000;">: </span><span style="color:#ff8000;">number</span><span style="color:#008000;">]:</span><span style="color:#000000;"> string</span><span style="color:#804040;">; </span><span style="color:#804040;">&#125;</span></pre>
@@ -146,11 +145,11 @@
     <p>The key is the function signature. The value of the interface is the return value of the function.</p>
 
     <h5>Interface for Classes</h5>
-    <p>The keyword to implement an Interface is  <code style="font-family:'Consolas';">implements</code>. The compiler will indicate that the
-        implementation of the interface required. That means, all defined properties and methods of the interface. Type
-        definitions are the same like in the interface.</p>
+    <p>The keyword to implement an Interface is  "<code style="font-family:'Consolas';">implements</code>". The compiler will display what the
+        implementation of the interface requires. That means all defined properties and methods of the interface. Type
+        definitions are the same as in interfaces.</p>
 
-    <h4>5. Decorators</h4>
+    <h4>4. Decorators</h4>
 
     <div>
 <pre style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#000000;">@Component</span><span style="color:#804040;">(&#123;
@@ -158,8 +157,8 @@
 </span><span style="color:#804040;">&#125;)
 </span><span style="color:#0000ff;">class</span><span style="color:#000000;"> myComponent </span><span style="color:#804040;">&#123; </span><span style="color:#804040;">&#125;</span></pre>              
     </div>
-    <p>Metadata is added to the class. The Angular-Framework knows that the class is to handle as a component</p>
-    <p>Expressions such as  <code style="font-family:'Consolas';">@readonly</code> are not provided in Angular.</p>
+    <p>Metadata is added to the class. The Angular-Framework knows that the class must be handled as a component.</p>
+    <p>Expressions such as  "<code style="font-family:'Consolas';">@readonly</code>" are not provided in Angular.</p>
 </div>
 
 <div class="ui message" style="margin-top: 30px; margin-bottom: 30px;">

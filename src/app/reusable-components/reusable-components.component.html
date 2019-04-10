@@ -1,8 +1,8 @@
 <h2>Reusable Components</h2>
 <div *ngIf="praxis" style="margin-top: 20px;" class="ui info message">
   <h5>User Story</h5>
-  <p>As a <b>programmer</b><br />
-    I want to <b>have the details view seperate from the list</b>, <br />
+  <p>As a <b>programer</b><br />
+    I want to <b>have the details view seperated from the list</b>, <br />
     to <b> make it reusable</b>.</p>
 </div>
 <div *ngIf="praxis">
@@ -11,12 +11,12 @@
     HTML code about the details from <b>timetable.component.html</b>. It is the whole ui form. Generate the component
     and paste it in <b>lecture-details.component.html</b>.</p>
   <p class="ui message black"> <code style="font-family:'Consolas';">ng g component lecture-details</code></p>
-  <p>If we want to use the details component not just for a selected item but also for every lecture item, we need to
+  <p>If we want to use the details component not only for a selected item but also for every lecture item, we need to
     change <code style="font-family:'Consolas';">selectedLecture</code> to <code
       style="font-family:'Consolas';">lecture</code> again.</p>
 
-  <p>The lecture property in <b>lecture-details.component.html</b> must be an input property that is commented on by the
-    <code style="font-family:'Consolas';">@Input()</code> decorator, as it binds the external <code
+  <p>The lecture property in <b>lecture-details.component.html</b> must be an input property which is commented on by the
+    <code style="font-family:'Consolas';">@Input()</code>-decorator, as it binds the external <code
       style="font-family:'Consolas';">LectureItemComponent</code> to it.</p>
   <div class="ui message black">
     <pre
@@ -39,8 +39,8 @@
 
 <div *ngIf="theorySmall" style="margin-top: 20px;" class="ui message">
   <p>If you have components that have a main and a detail view, you should seperate them for better maintenance. In this
-    expamle with the list of lectures, this component receives a lecture object through its lecture property and
-    indicates that. Now every time the user selects a lecture from the list this lecture will be displayed in the details component.</p>
+    expamle with the list of lectures, the component receives a lecture object through its lecture property and
+    indicates it. Now every time the user selects a lecture from the list, it will be displayed in the details component.</p>
   <p>With the selector <code style="font-family:'Consolas';" style="font-family:'Consolas';">app-lecture-details</code>
     the component can be displayed.</p>
   <p><code style="font-family:'Consolas';" style="font-family:'Consolas';">[lecture]="selectedLecture"</code> creates a
@@ -51,14 +51,14 @@
     which is
     assigned to the <code style="font-family:'Consolas';" style="font-family:'Consolas';">lecture</code> property of the
     <code style="font-family:'Consolas';" style="font-family:'Consolas';">LectureDetailsComponent</code>.</p>
-  <p>If the user clicks on an item from that list, the <code style="font-family:'Consolas';"
-      style="font-family:'Consolas';">selectedLecture</code> changes, this updates the
+  <p>If the user clicks on an item of that list, the <code style="font-family:'Consolas';"
+      style="font-family:'Consolas';">selectedLecture</code> changes. This updates the
     <code style="font-family:'Consolas';" style="font-family:'Consolas';">lecture</code>
     because of the property-binding and the <code style="font-family:'Consolas';"
       style="font-family:'Consolas';">LectureDetailsComponent</code> displayes the chosen object.</p>
-  <p>In this section, there were just "inside changes", you cannot see any difference in the user interface. But we
+  <p>In this section we only made "inside changes". That means that you can't see any difference in the user interface. We
     seperated the list and the details-view. Now a development of both components is possible, without any need to
-    change the other one. The details-component is now resusable.</p>
+    change the other one. The details-component is now reusable.</p>
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
   <h4>Visualization of the Construction:</h4>
@@ -66,10 +66,10 @@
   <div class="ui success message">
     <h4>Summary</h4>
     <ul>
-      <li>You generated a reusable, seperate component for the details view</li>
-      <li>You used the <code style="font-family:'Consolas';">@Input</code> decorator to make the property available for
-        the property binding</li>
-      <li>You made the property binding for the selected lecture</li>
+      <li>You generated a reusable, seperate component for the details-view.</li>
+      <li>You used the <code style="font-family:'Consolas';">@Input</code>-decorator to make the property available for
+        the property binding.</li>
+      <li>You made the property binding for the selected lecture.</li>
     </ul>
   </div>
   <iframe style="margin-top:20px; width:100%; height: 500px"
