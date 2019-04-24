@@ -59,7 +59,8 @@
 </div>
 
 <div *ngIf="praxis" style="margin-top: 20px;">
-  <p>We are going to need this function in <b>lecture.service.ts</b> to get the lecture data. For now we'll still use the
+  <p>We are going to need this function in <b>lecture.service.ts</b> to get the lecture data. For now we'll still use
+    the
     mock-data.</p>
 
   <div class="ui message black">
@@ -86,7 +87,7 @@
   <div class="ui message black">
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ff8000;">constructor</span><span style="color:#b16565;">(</span><span style="color:#359aff;">private</span><span style="color:#ffffff;"> lectureService</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> LectureService</span><span style="color:#b16565;">) </span><span style="color:#b16565;">&#123; </span><span style="color:#b16565;">&#125; </span></pre>
-    </div>
+  </div>
 </div>
 <div *ngIf="theorySmall" style="margin-top: 20px;" class="ui message">
   <p>This added parameter <code style="font-family:'Consolas';">lectureService</code> also defines a property of the
@@ -107,14 +108,14 @@
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> LectureService </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;../shared/lecture.service&#39;</span><span style="color:#b16565;">;
 </span><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> Lecture </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;./lecture&#39;</span><span style="color:#b16565;">;</span></pre>
-  
-</div>
 
-<div class="ui message black">
-  <pre
-    style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">lectures</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Lecture</span><span style="color:#008000;">[]</span><span style="color:#b16565;">; </span></pre>
+  </div>
 
-</div>
+  <div class="ui message black">
+    <pre
+      style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">lectures</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Lecture</span><span style="color:#008000;">[]</span><span style="color:#b16565;">; </span></pre>
+
+  </div>
   <p>Next we are going to use the method of the service class to get the lectures into our <code
       style="font-family:'Consolas';">lecture</code> array.
   </p>
@@ -195,6 +196,11 @@
       <li>You made the signature of the methods asynchronous.</li>
     </ul>
   </div>
-  <iframe style="margin-top:20px; width:100%; height: 500px"
+  <iframe style="margin-top:20px; margin-bottom:20px; width:100%; height: 500px"
     src="https://stackblitz.com/edit/where-to-go-step-5?embed=1&file=src/app/timetable/timetable.component.ts&hideNavigation=1"></iframe>
+
+  <div class="ui center aligned segment" style="width: 50%; margin: 0 auto">
+    <h4>Your Progress:</h4>
+    <mat-progress-bar style="margin-bottom:20px;" mode="determinate" value="50"></mat-progress-bar>
+  </div>
 </div>

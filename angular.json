@@ -28,8 +28,7 @@
             ],
             "styles": [
               "../Master-Project/node_modules/semantic-ui-css/semantic.css",
-              "src/styles.css"
-            ],
+              "src/styles.css"            ],
             "scripts": []
           },
           "configurations": {

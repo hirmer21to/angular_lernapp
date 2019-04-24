@@ -20,6 +20,9 @@ import { FinishAppComponent } from './finish-app/finish-app.component';
 
 import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/common';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatProgressBarModule} from '@angular/material/progress-bar'; 
+
 
 @NgModule({
   declarations: [
@@ -41,7 +44,9 @@ import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatProgressBarModule
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },

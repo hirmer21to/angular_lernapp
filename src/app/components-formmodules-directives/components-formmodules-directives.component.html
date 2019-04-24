@@ -2,17 +2,19 @@
 <div *ngIf="praxis" style="margin-top: 20px;" class="ui info message">
     <h5>User Story</h5>
     <p>As a <b>user</b><br />
-      I want to <b>display all lectures in a timetable and click to select one</b>, <br />
-      to <b> look through all of them and change the selected one</b>.</p>
-  </div>
+        I want to <b>display all lectures in a timetable and click to select one</b>, <br />
+        to <b> look through all of them and change the selected one</b>.</p>
+</div>
 <div *ngIf="praxis">
     <h4>Mock Data</h4>
     <p>Later we will have more than one lecture and therefore we will need a list to display all of them. </p>
     <p class="ui message black"><code style="font-family:'Consolas';">ng g component timetable</code></p>
-    <p>Because we don't get our data from a server we will create some mock-data and pretend that they are from a server.</p>
+    <p>Because we don't get our data from a server we will create some mock-data and pretend that they are from a
+        server.</p>
     <p class="ui message black"><code style="font-family:'Consolas';">ng g class shared/mock-lectures</code></p>
     <p>In this class we define the constant LECTURES as an array of lectures and export it. The content is the same
-        as in the property lecture from the lecture-item.component.ts, so you can copy the first lecture from there and paste
+        as in the property lecture from the lecture-item.component.ts, so you can copy the first lecture from there and
+        paste
         it a few times for different lectures. The id must always be different!</p>
     <div class="ui info message">
         <p>Later we will have drop-downs for day, time and building. To avoid problems, please make sure that: <br>
@@ -43,21 +45,21 @@
     </div>
     <p>Of course we also need to import the class <code style="font-family:'Consolas';">Lecture</code>.</p>
     <div class="ui message black">
-      <pre
-      style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> Lecture </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;./lecture&#39;</span><span style="color:#b16565;">;</span></pre>
+        <pre
+            style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> Lecture </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;./lecture&#39;</span><span style="color:#b16565;">;</span></pre>
     </div>
 
     <p>After that, you can delete the property lecture from the <b>lecture-item.component.ts</b> and initialise the
         constant in the <b>timetable.component.ts</b>, because we need the data in the list now.</p>
- 
+
     <div class="ui message black">
         <pre
             style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#ffffff;">lectures </span><span style="color:#008000;">=</span><span style="color:#ffffff;"> LECTURES</span><span style="color:#b16565;">;</span></pre>
     </div>
     <p>Of course we also need to import the class <code style="font-family:'Consolas';">Lecture</code>.</p>
     <div class="ui message black">
-      <pre
-      style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> Lecture </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;./lecture&#39;</span><span style="color:#b16565;">;</span></pre>
+        <pre
+            style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> Lecture </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;./lecture&#39;</span><span style="color:#b16565;">;</span></pre>
     </div>
 
 
@@ -66,7 +68,8 @@
         We generated our shell for the lecture items. The timetable is going to be a list with all the lectures we
         have.
     </p>
-    <p>First we have to write the code for a single lecture item and replace the code in <b>lecture-item.component.html</b>: </p>
+    <p>First we have to write the code for a single lecture item and replace the code in
+        <b>lecture-item.component.html</b>: </p>
 
     <div class="ui message black">
         <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">&lt;a </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;content&quot;</span><span style="color:#359aff;">&gt;
@@ -109,7 +112,7 @@
     </div>
     <p>In the <b>timetable.component.html</b> we display the list of lecture-items now with a header beyond and a
         for-loop, because every item should be displayed the same way:</p>
-   
+
     <div class="ui message black">
         <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;"><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;margin-top: </span><span style="color:#00ff40;">15px</span><span style="color:#ffffff;">&quot;</span><span style="color:#359aff;">&gt;&lt;/div&gt;
     &lt;h2 </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;ui header&quot;</span><span style="color:#359aff;">&gt;</span><span style="color:#ffffff;">Timetable:</span><span style="color:#359aff;">&lt;/h2&gt;
@@ -122,7 +125,8 @@
     </span><span style="color:#359aff;">&lt;/div&gt;
 &lt;/div&gt; </span></pre>
     </div>
-    <p>With the construct <code style="font-family:'Consolas';">[lecture]="l"</code> we make sure that <code style="font-family:'Consolas';">l</code> is the lecture
+    <p>With the construct <code style="font-family:'Consolas';">[lecture]="l"</code> we make sure that <code
+            style="font-family:'Consolas';">l</code> is the lecture
         we imported via input-binding
         before.</p>
     <p class="ui info message">
@@ -137,10 +141,13 @@
         loops in the logic code (TypeScript, Java,...), as you may know. </p>
     <p>Every time I iterate over my list of items (if you also read the code examples, it's a list of lectures) I take
         one single item out of all items, for which is displayed what I defined for it as HTML code before. With the
-        attribute <code style="font-family:'Consolas';">[lecture]</code> I assign the respective lecture object. And with
+        attribute <code style="font-family:'Consolas';">[lecture]</code> I assign the respective lecture object. And
+        with
         this for-loop I repeat this for all the items (lectures) I have.</p>
-    <p>Another directive we already used before is <code style="font-family:'Consolas';">*ngIf</code>. For those who read the code: because we made
-        department an optional property, someone may not set a value for this property. So we want to ask if this property has a value and just display
+    <p>Another directive we already used before is <code style="font-family:'Consolas';">*ngIf</code>. For those who
+        read the code: because we made
+        department an optional property, someone may not set a value for this property. So we want to ask if this
+        property has a value and just display
         the corresponding <code style="font-family:'Consolas';">div</code> if it has one.</p>
     <p>This is also called templating-microsyntax, because the way we iterate over an array isn't just a simple
         templating expression, it is a very small own language which generates DOM-elements. For every element in the
@@ -159,12 +166,13 @@
     <p><img class="ui image large centered" src="assets/img/App-Building-4.png"></p>
 
     <h4>Details View</h4>
-    <p>Later we want to be able to make changes within a lecture item so we want to select one lecture and get its details
+    <p>Later we want to be able to make changes within a lecture item so we want to select one lecture and get its
+        details
         view via click. First we need a variable for the selected lecture in the <b>timetable.component.ts</b>
         and second we need a function, we call it <code style="font-family:'Consolas';">onSelect()</code>, which assigns
         the clicked lecture from the
         template to the <code style="font-family:'Consolas';">selectedLecture</code> of the component.</p>
-    
+
     <div class="ui message black">
         <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">selectedLecture</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Lecture</span><span style="color:#b16565;">;</span>
 <span style="color:#ffffff;">onSelect</span><span style="color:#b16565;">(</span><span style="color:#ffffff;">lecture</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Lecture</span><span style="color:#b16565;">)</span><span style="color:#008000;">: </span><span style="color:#359aff;">void </span><span style="color:#b16565;">&#123;</span>
@@ -173,12 +181,12 @@
     </div>
     <p>Of course we also need to import the class <code style="font-family:'Consolas';">Lecture</code>.</p>
     <div class="ui message black">
-      <pre
-      style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> Lecture </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;./lecture&#39;</span><span style="color:#b16565;">;</span></pre>
+        <pre
+            style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> Lecture </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;./lecture&#39;</span><span style="color:#b16565;">;</span></pre>
     </div>
 
     <p>We add a click-event-binding to the <b>timetable.component.html</b>:</p>
-  
+
     <div class="ui message black">
         <pre
             style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">&lt;a </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;app-lecture-item item&quot; [lecture]</span><span style="color:#ff4848;">=</span><span style="color:#ffffff;">&quot;l&quot; 
@@ -191,7 +199,8 @@
         the selected lecture, but only if there is a lecture selected. To make this sure, we have the <code
             style="font-family:'Consolas';">*ngIf</code>
         directive.</p>
-    <p>In the <b>timetable.component.html</b> we need to insert the following code snippet beneath the existing code:</p>
+    <p>In the <b>timetable.component.html</b> we need to insert the following code snippet beneath the existing code:
+    </p>
 
     <div class="ui message black">
         <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;"><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;padding: </span><span style="color:#00ff40;">15px</span><span style="color:#ff8000;">;</span><span style="color:#ffffff;">&quot;</span><span style="color:#359aff;">&gt;
@@ -251,7 +260,8 @@
     </span><span style="color:#359aff;">&lt;/div&gt;
 &lt;/div&gt;</span></pre>
     </div>
-    <p>Replace the old code for the details with this code for every input and finally the app looks like in the code editor at the end of this page.</p>
+    <p>Replace the old code for the details with this code for every input and finally the app looks like in the code
+        editor at the end of this page.</p>
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
     <h4>Visualization of the Construction:</h4>
@@ -272,6 +282,11 @@
                     style="font-family:'Consolas';">NgModel</code> directive and made it an input form.</li>
         </ul>
     </div>
-    <iframe style="margin-top:20px; width:100%; height: 500px"
+    <iframe style="margin-top:20px; margin-bottom:20px; width:100%; height: 500px"
         src="https://stackblitz.com/edit/where-to-go-step-3?embed=1&file=src/app/timetable/timetable.component.html&hideNavigation=1"></iframe>
+
+    <div class="ui center aligned segment" style="width: 50%; margin: 0 auto">
+        <h4>Your Progress:</h4>
+        <mat-progress-bar style="margin-bottom:20px;" mode="determinate" value="35"></mat-progress-bar>
+    </div>
 </div>
