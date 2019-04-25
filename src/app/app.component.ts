@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, NavigationEnd } from '@angular/router';
 import { Modus } from './shared/modus';
@@ -12,8 +12,8 @@ import { ModiService } from './shared/modi.service';
 export class AppComponent implements OnInit {
 
   title = 'Learn Angular!';
-  modus: Modus;
   modi: Modus[];
+  modus: Modus;
   hideBackButton: Boolean = false;
   hideNextButton: Boolean = false;
   hideMiniNavi: Boolean = false;
@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
 
   constructor(private router: Router, public location: Location, private service: ModiService) {
     this.navigationSubscription = this.router.events.subscribe ((e:any)=> {if(e instanceof NavigationEnd){
-      this.getCurrentUrl();
+      this.getModi();
     }})
    }
 
@@ -51,17 +51,20 @@ export class AppComponent implements OnInit {
 
   theorist(): void {
     this.service.setModus(this.modi[0])
-      .subscribe(modus => {this.modus = modus; });
+      .subscribe(modus => {this.modus = modus;});
+      console.log(this.modus);
   }
 
   practitioner(): void {
     this.service.setModus(this.modi[1])
       .subscribe(modus => this.modus = modus);
+      console.log(this.modus);
   }
 
   both(): void {
     this.service.setModus(this.modi[2])
       .subscribe(modus => this.modus = modus);
+      console.log(this.modus);
   }
 
   getHideNextButton(): Boolean {

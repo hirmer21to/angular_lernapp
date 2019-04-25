@@ -13,7 +13,8 @@ export class ComponentsFormmodulesDirectivesComponent implements OnInit {
   public praxis: Boolean;
   public modus: Modus;
 
-  constructor(private service: ModiService) { }
+  constructor(private service: ModiService) { 
+  }
 
   ngOnInit() {
     this.getModus();
@@ -25,6 +26,7 @@ export class ComponentsFormmodulesDirectivesComponent implements OnInit {
   getModus(): void{
     this.service.getModus()
     .subscribe(modus => this.modus = modus);
+    console.log(this.modus);
   }
 
 }

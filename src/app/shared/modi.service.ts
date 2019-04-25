@@ -7,7 +7,6 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class ModiService {
-
   public currentModus: Modus = {name: "default", theorySmall: true, theoryLarge: true, praxis: true};
 
   constructor() { }
