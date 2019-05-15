@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Modus } from '../shared/modus';
 import { ModiService } from '../shared/modi.service';
 

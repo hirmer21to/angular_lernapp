@@ -1,8 +1,7 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { Router, NavigationEnd } from '@angular/router';
-import { Modus } from './shared/modus';
-import { ModiService } from './shared/modi.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -12,12 +11,8 @@ import { ModiService } from './shared/modi.service';
 export class AppComponent implements OnInit {
 
   title = 'Learn Angular!';
-  modi: Modus[];
-  modus: Modus;
   hideBackButton: Boolean = false;
   hideNextButton: Boolean = false;
-  hideMiniNavi: Boolean = false;
-  navigationSubscription;
 
   public routerLinks = ["/home", "/environment", "/first-app", "/typescript", "/project-overview",
     "/application", "/components", "/components-formmodules-directives", "/reusable-components",
@@ -25,46 +20,12 @@ export class AppComponent implements OnInit {
 
   public routerLink: string;
 
-  constructor(private router: Router, public location: Location, private service: ModiService) {
-    this.navigationSubscription = this.router.events.subscribe ((e:any)=> {if(e instanceof NavigationEnd){
-      this.getModi();
-    }})
-   }
+  constructor(private router: Router, public location: Location) { }
 
-  ngOnInit() {
-    this.getModi();
-  }
+  ngOnInit() { }
 
   onActivate(){
     window.scroll(0,0);
-  }
-
-  getModi(): void {
-    this.service.getModi()
-      .subscribe(modi => this.modi = modi);
-  }
-
-  getCurrentUrl(): string {
-    let url = this.router.url;
-    return url;
-  }
-
-  theorist(): void {
-    this.service.setModus(this.modi[0])
-      .subscribe(modus => {this.modus = modus;});
-      console.log(this.modus);
-  }
-
-  practitioner(): void {
-    this.service.setModus(this.modi[1])
-      .subscribe(modus => this.modus = modus);
-      console.log(this.modus);
-  }
-
-  both(): void {
-    this.service.setModus(this.modi[2])
-      .subscribe(modus => this.modus = modus);
-      console.log(this.modus);
   }
 
   getHideNextButton(): Boolean {
@@ -83,15 +44,6 @@ export class AppComponent implements OnInit {
     } else
       this.hideBackButton = false;
     return this.hideBackButton;
-  }
-
-  getHideMiniNavigation(): Boolean {
-    this.routerLink = this.router.url;
-    if (this.routerLink === this.routerLinks[0]) {
-      this.hideMiniNavi = true;
-    } else
-      this.hideMiniNavi = false;
-    return this.hideMiniNavi;
   }
 
   getNext(): string {
