@@ -24,7 +24,7 @@
   <h4>Structure of the project</h4>
   <p>The CLI created a project for us. These are the workspace files:</p>
   <p><code style="font-family:'Consolas';">
-    Where-To-Go <br/>
+    where-to-go <br/>
     |- e2e:</code> file for end-to-end tests<br /> <code style="font-family:'Consolas';">
     |&nbsp;&nbsp; |-- ... <br/>
     |- node_modules:</code> installed npm-packages<br /><code style="font-family:'Consolas';">
@@ -154,13 +154,14 @@
 
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#359aff;">&quot;styles&quot;</span><span style="color:#ffffff;">: [
-  </span><span style="color:#ffff80;">&quot;../Where-To-Go/node_modules/semantic-ui-css/semantic.css&quot;</span><span style="color:#ffffff;">,
+  </span><span style="color:#ffff80;">&quot;node_modules/semantic-ui-css/semantic.css&quot;</span><span style="color:#ffffff;">,
   </span><span style="color:#ffff80;">&quot;src/styles.css&quot;
 </span><span style="color:#ffffff;">]</span></pre>
 
   </div>
 
   <p>Now you can test the new style. Adjust the <b>app.component.html</b> like this and see if it looks different:</p>
+  <!-- TODO: For me this did not work, I had to restart the app with 'ng serve --open' -->
 
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;text-align:center&quot; </span><span style="color:#359aff;">&gt;
