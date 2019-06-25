@@ -21,7 +21,8 @@ import { FinishAppComponent } from './finish-app/finish-app.component';
 import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatProgressBarModule} from '@angular/material/progress-bar'; 
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { AboutComponent } from './about/about.component'; 
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     ServicesComponent,
     RoutingComponent,
     HttpComponent,
-    FinishAppComponent
+    FinishAppComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

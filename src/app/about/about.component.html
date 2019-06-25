@@ -1,0 +1,11 @@
+<div class="ui list" *ngIf="!about" style="text-align:center; margin-top: 100px; margin-bottom: 50px;" >
+  <a class="item" (click)="aboutFunc()">About</a>
+</div>
+
+<div *ngIf="about" style="margin: 30px; text-align: center;" class="ui message">
+  <i class="close icon" (click)="hideAbout()"></i>
+  <h4>This project was designed and developed by Michaela Rodenbücher.</h4>
+  <p>Master-Thesis at Otto-Friedrich University Bamberg.
+    <br>May 2019
+  </p>
+</div>
