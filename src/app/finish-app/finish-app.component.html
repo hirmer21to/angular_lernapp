@@ -37,7 +37,7 @@
     overwrite it every time, a lecture is closer to the time right now than the saved lecture before.</p>
 
   <div class="ui message black">
-    <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">lecture</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Lecture</span><span style="color:#008000;">[]</span><span style="color:#b16565;">;
+    <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">lectures</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Lecture</span><span style="color:#008000;">[]</span><span style="color:#b16565;">;
 </span><span style="color:#ffffff;">nextLecture</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Lecture</span><span style="color:#b16565;">;
 </span><span style="color:#ffffff;">localTime</span><span style="color:#008000;">: </span><span style="color:#ff4848;">Date </span><span style="color:#008000;">= </span><span style="color:#008000;">new </span><span style="color:#ff4848;">Date</span><span style="color:#b16565;">();
 </span><span style="color:#ffffff;">isThereANextLecture</span><span style="color:#008000;">: </span><span style="color:#ff4848;">Boolean </span><span style="color:#008000;">= </span><span style="color:#359aff;">false</span><span style="color:#b16565;">;
@@ -54,7 +54,7 @@
   <p>Of course we also need to import the class <code style="font-family:'Consolas';">Lecture</code>.</p>
   <div class="ui message black">
     <pre
-      style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> Lecture </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;./lecture&#39;</span><span style="color:#b16565;">;</span></pre>
+      style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> Lecture </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;../shared/lecture&#39;</span><span style="color:#b16565;">;</span></pre>
   </div>
 
   <p>We will also have the <code style="font-family:'Consolas';">getLectures()</code> method that we call in <code

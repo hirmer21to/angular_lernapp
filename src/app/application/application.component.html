@@ -114,9 +114,9 @@
     a Git integration. My recommendation is to install Sourcetree, open a new tab and add the project folder, so you can
     manage Git from Sourcetree. Of course, you can also use your command line, Git Gui or Visual Studio Code.</p>
   <p class="ui info message" style="margin-bottom:30px;">
-    Please note: If you use Git it will not save your projectfolder nodeModules in the Git repository. So if you clone your project 
+    Please note: If you use Git it will not save the folder node_modules in the Git repository. So if you clone your project
     for the first time you need to install all dependencies via <code style="font-family:'Consolas';">npm install</code> (this time as an administrator). 
-    Also make sure, that you have installed Nodejs and the Angular CLI. 
+    Also make sure, that you have installed Node.js and the Angular-CLI (see chapter <a routerLink="/environment">Environment</a>).
   </p>
 </div>
 
@@ -161,7 +161,6 @@
   </div>
 
   <p>Now you can test the new style. Adjust the <b>app.component.html</b> like this and see if it looks different:</p>
-  <!-- TODO: For me this did not work, I had to restart the app with 'ng serve --open' -->
 
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;text-align:center&quot; </span><span style="color:#359aff;">&gt;

@@ -10,7 +10,7 @@
   <p>A component controls a specific part of the screen. In the HTML file you define the structure of a component and
     the CSS
     styles
-    this structure, togehter it's the view of the component. The TypeScript file is the logic part of the component. An
+    this structure, together it's the view of the component. The TypeScript file is the logic part of the component. An
     Angular application is basically an application with a tree structure. It has a root, that is the
     <code style="font-family:'Consolas';">AppComponent</code> and it's also the entry point of the application. However,
     there is no difference to
@@ -121,7 +121,7 @@
   <ol>
     <li>Property Binding: <br />they allow you to set the value of a DOM property based on an expression.
       You assign them with square brackets.<br />
-      <code style="font-family:'Consolas';">&lt;element [propterty]="expression"&gt;...&lt;/element&gt;</code>
+      <code style="font-family:'Consolas';">&lt;element [property]="expression"&gt;...&lt;/element&gt;</code>
     </li>
     <li>Interpolation: <br />
       helps to display properties of the component or calculated values as strings in the HTML view.<br />
@@ -204,7 +204,7 @@
   <h4>Generate Item Component</h4>
   <p>We want to show a complete lecture now, so we generate the component lecture-item.</p>
   <p class="ui message black"><code style="font-family:'Consolas';">ng g component lecture-item</code></p>
-  <p>We create a lecture inside the <b>lecture-item.component.ts</b> first and define all the properties the constructor
+  <p>We create a lecture inside the class LectureItemComponent in <b>lecture-item.component.ts</b> first and define all the properties the constructor
     requires.</p>
 
   <div class="ui message black">
@@ -223,7 +223,7 @@
   <p>Of course we also need to import the class <code style="font-family:'Consolas';">Lecture</code>.</p>
   <div class="ui message black">
     <pre
-      style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> Lecture </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;./lecture&#39;</span><span style="color:#b16565;">;</span></pre>
+      style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> Lecture </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;../shared/lecture&#39;</span><span style="color:#b16565;">;</span></pre>
   </div>
 
   <p>And in the <b>lecture-item.component.html</b> we can define what of this item we want to display and how we want to
