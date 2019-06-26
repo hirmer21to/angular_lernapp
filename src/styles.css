@@ -1,1 +1,9 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.bold {
+    font-weight: bolder;
+}
+
+.border {
+    border: 3px solid black;
+}
