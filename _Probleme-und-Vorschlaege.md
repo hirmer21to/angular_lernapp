@@ -47,3 +47,11 @@ add( name: string, building: string,
     ...
 }
 ```
+
+# Weitere Anmerkungen von Gruppen 
+
+
+Unter dem Punkt Compontent  > „Communication between Logic and View“ ist bei den Übungsaufgaben zunächst nicht ganz klar was gemacht werden soll bzw. was genau sie im Code anpassen sollen
+Bei Punkt 5 ist nicht beschrieben, dass man auf #info mit info.value zugreifen kann
+
+Außerdem wird unter Services > „What is a Service“ „key word“ anstelle von „keyword“ verwendet
