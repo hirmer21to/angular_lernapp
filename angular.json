@@ -28,8 +28,11 @@
             ],
             "styles": [
               "./node_modules/semantic-ui-css/semantic.css",
-              "src/styles.css"            ],
-            "scripts": []
+              "src/styles.css",
+              "src/prism.css"],
+            "scripts": [
+              "src/prism.js"
+            ]
           },
           "configurations": {
             "production": {

@@ -1,5 +1,5 @@
 <h2>TypeScript Introduction:</h2>
-<div>
+<div class="language-typescript">
     <p>TypeScript is an Open-Source-Project developed by Microsoft. It expands JavaScript, which means that you can write as much
         JavaScript in your TypeScript document as you want.
     </p>
@@ -8,56 +8,32 @@
 
     <h4>1. Basic Types</h4>
     <p>When you declare and initialise a variable, it's always the same:</p>
+    <pre><code>name: type = value;</code></pre>
 
-    <div class="ui info message">
-        <pre
-            style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#ff8000;">name</span><span style="color:#008000;">: </span><span style="color:#ff8000;">type </span><span style="color:#008000;">= </span><span style="color:#ff8000;">value</span><span style="color:#804040;">;</span></pre>
-    </div>
-    <h5>number</h5>
+    <h5>Number</h5>
+	<pre><code>age: number = 5;</code></pre>
 
-    <div>
-        <pre
-            style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#000000;">age</span><span style="color:#008000;">: </span><span style="color:#ff8000;">number </span><span style="color:#008000;">= </span><span style="color:#ff0000;">5</span><span style="color:#804040;">;</span></pre>
-    </div>
-    <h5>String</h5>
-    <div>
-        <pre
-            style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#000000;">firstname</span><span style="color:#008000;">: </span><span style="color:#ff0000;">String </span><span style="color:#008000;">= </span><span style="color:#808080;">&#39;Michaela&#39;</span><span style="color:#804040;">;</span></pre>
-    </div>
-    <p>Template-String: Expressions embedded directly in the string.</p>
-    <div>
-        <pre
-            style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#000000;">output</span><span style="color:#008000;">: </span><span style="color:#ff0000;">String </span><span style="color:#008000;">=</span><span style="color:#000000;"> `</span><span style="color:#804040;">&#123;</span><span style="color:#000000;">firstname</span><span style="color:#804040;">&#125; </span><span style="color:#008000;">is </span><span style="color:#804040;">&#123;</span><span style="color:#000000;">age</span><span style="color:#804040;">&#125;</span><span style="color:#000000;"> years old.`</span><span style="color:#804040;">;</span></pre>
-    </div>
-    <h5>var</h5>
-    <p>Variables with "var" are only valid in the function in which they were declared.</p>
-    <h5>let</h5>
-    <p>"let" is only for block-bound variables, which are solely valid for the specific control structure e.g. a for-loop &ndash; not for the whole function.</p>
-    <h5>const</h5>
-    <p>Once initialised you can't overwrite the value. They always have to be initialised.</p>
+	<h5>String</h5>
+	<pre><code>firstname: string = "Max Mustermann";</code></pre>
+
+	<br/><p>Template-String: Expressions embedded directly in the string.</p>
+	<pre><code>output: string = "$&#123;firstname&#125; is $&#123;age&#125; years old.";</code></pre>
 
     <h5>Getter and Setter</h5>
     <p>
         Known from object oriented programing. You can read or set the property of an object.
     </p>
     <h5>Boolean</h5>
+	<pre><code>let workingHard: boolean = true;</code></pre>
 
-    <div>
-        <pre
-            style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#000000;">let workingHard</span><span style="color:#008000;">: </span><span style="color:#ff0000;">Boolean </span><span style="color:#008000;">=</span><span style="color:#000000;"> ‚true‘</span><span style="color:#804040;">;</span></pre>
-    </div>
     <h5>Arrays</h5>
+	<pre><code>let fibonacci: Array&lt;number&gt; = [0, 1, 1, 2, 3, 5, 8, 13];</code></pre>
+	<pre><code>let fibonacci: number[] = [0, 1, 1, 2, 3, 5, 8, ,13];</code></pre>
+	<pre><code>let differentValueTypes: any[] = [5, &#123; firstname: "Max Mustermann" &#125;, function() &#123;
+		console.warn("Nothing inside.")
+		&#125;];</code></pre>
 
-    <div>
-<pre style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#000000;">let fibonacci</span><span style="color:#008000;">: </span><span style="color:#ff0000;">Array</span><span style="color:#000000;">&lt;number&gt; </span><span style="color:#008000;">= </span><span style="color:#008000;">[</span><span style="color:#ff0000;">0</span><span style="color:#804040;">, </span><span style="color:#ff0000;">1</span><span style="color:#804040;">, </span><span style="color:#ff0000;">1</span><span style="color:#804040;">, </span><span style="color:#ff0000;">2</span><span style="color:#804040;">, </span><span style="color:#ff0000;">3</span><span style="color:#804040;">, </span><span style="color:#ff0000;">5</span><span style="color:#804040;">, </span><span style="color:#ff0000;">8</span><span style="color:#804040;">, </span><span style="color:#ff0000;">13</span><span style="color:#008000;">]</span><span style="color:#804040;">;
-
-</span><span style="color:#000000;">let fibonacci</span><span style="color:#008000;">: </span><span style="color:#ff8000;">number</span><span style="color:#008000;">[] </span><span style="color:#008000;">=[</span><span style="color:#ff0000;">0</span><span style="color:#804040;">, </span><span style="color:#ff0000;">1</span><span style="color:#804040;">, </span><span style="color:#ff0000;">1</span><span style="color:#804040;">, </span><span style="color:#ff0000;">2</span><span style="color:#804040;">, </span><span style="color:#ff0000;">3</span><span style="color:#804040;">, </span><span style="color:#ff0000;">5</span><span style="color:#804040;">, </span><span style="color:#ff0000;">8</span><span style="color:#804040;">, </span><span style="color:#ff0000;">13</span><span style="color:#008000;">]</span><span style="color:#804040;">;
-
-</span><span style="color:#000000;">let differentValueTypes </span><span style="color:#008000;">= </span><span style="color:#008000;">[ </span><span style="color:#ff0000;">5</span><span style="color:#804040;">, </span><span style="color:#804040;">&#123;</span><span style="color:#000000;"> firstname</span><span style="color:#008000;">: </span><span style="color:#808080;">&#39;Michaela&#39; </span><span style="color:#804040;">&#125;, </span><span style="color:#0000ff;">function</span><span style="color:#804040;">() </span><span style="color:#804040;">&#123; 
-    console.warn</span><span style="color:#804040;">(‚</span><span style="color:#000000;">Nothing inside.‘</span><span style="color:#804040;">) 
-    </span><span style="color:#804040;">&#125; </span><span style="color:#008000;">]</span><span style="color:#804040;">;</span></pre>
-    </div>
-    <h5>Spread-Operator</h5>
+	<h5>Spread-Operator</h5>
 
     <div>
 <pre style="font-family:'Consolas'; font-size:10pt; color:#000000;  "><span style="color:#0000ff;">var</span><span style="color:#000000;"> arr1 </span><span style="color:#008000;">= </span><span style="color:#008000;">[ </span><span style="color:#ff0000;">1</span><span style="color:#804040;">, </span><span style="color:#ff0000;">2</span><span style="color:#804040;">, </span><span style="color:#ff0000;">5</span><span style="color:#008000;">]</span><span style="color:#804040;">;
