@@ -1,45 +1,50 @@
-<h2>How to set up the Environment:</h2>
+<h2>How to set up your Environment:</h2>
 <div>
-  <h4>The Editor</h4>
+  <h3>Editor</h3>
+  <p>First of all we need a code editor to kick off our bootcamp. You can choose among a large list of available editors, some popular ones are:</p>
+    <ul>
+      <li>Microsoft: <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a></li>
+      <li>GitHub: <a href="https://atom.io/" target="_blank">Atom</a></li>
+      <li>Adobe: <a href="http://brackets.io/" target="_blank">Brackets</a></li>
+      <li><a href="https://www.sublimetext.com/" target="_blank">Sublime Text</a></li>
+    </ul>
+    <p>All of them a cross-platform, feature a packet or extension manager, different themes, customization and enable a direct Git integration.</p>
+
+  <h3>Node.js</h3>
   <p>
-    As a perfect code editor for Angular I would recommend Visual Studio Code.
-    It works for all operating systems and comes with an own Git integration and support for TypesScript.
+    <a href="https://nodejs.org/" target="_blank">Node.js</a> is a open-source, cross-platform JavaScript runtime environment, which executes JavaScript outside the browser. Therefore it can be used for server-side scripting.<br>
+    It is build on top of Google's <a href="https://v8.dev" target="_blank">V8</a> JavaScript engine and uses a modular approach together with the bundled packet manager <a href="https://www.npmjs.com/" target="_blank">npm</a>, which allows developers to install, publish and share modules of code (especially on the npm Registry, which is a public collection of open-source packages).
   </p>
-  <p>If you don't have it already, just download it:</p>
-  <a href="https://code.visualstudio.com/download" target="_blank">Visual Studio Code Download Link</a>
+  
+    <p>After installing the Long Term Support (LTS) Node.js you can check the used versions in the command line:</p>
+    <pre class="command-line language-bash" data-user="user" data-host="localhost"><code>node -v</code></pre>
+    <pre class="command-line language-bash" data-user="user" data-host="localhost"><code>npm -v</code></pre>
+  
+    <p>Now you can search for packages on the npm website and install them locally, in the currenty directory, by running: </p>
+    <pre class="command-line language-bash" data-user="user" data-host="localhost"><code>npm install &lt;package_name&gt;</code></pre>
+    <p>This creates a <code class="language-bash">node_modules</code> directory and downloads the package into that directory.</p>
+    <p>Or, to use the module as a set of tools on your computer, globally by running:</p>
+    <pre class="command-line language-bash" data-user="user" data-host="localhost"><code>npm install -g &lt;package_name&gt;</code></pre>
 
-  <h4>Node.js</h4>
+  <h3>Angular CLI</h3>
   <p>
-    Node.js is a runtime environment for running JavaScript on the server and can be used for developing frontend and
-    backend.
-    It comes with the Node Package Manager (NPM).
-  </p>
-  <p>If you don't have Node, you can download and install it:</p>
-  <p><a href="https://nodejs.org/en/" target="_blank">Node.js Download Link</a></p>
-  <p>Next you should try to get the version number on your command line:</p>
-  <p class="ui black message"> <code style="font-family:'Consolas';">node -v</code></p>
-  <p class="ui black message"> <code style="font-family:'Consolas';">npm -v</code></p>
-  <p class="ui info message">Angular requires Node.js version 8.x or 10.x, you always need to keep it up-to-date.</p>
-  <p>Now you can install packages like this: </p>
-  <p class="ui black message"> <code style="font-family:'Consolas';">npm install your-package-name</code></p>
-  <p>Or global like this:</p>
-  <p class="ui black message"> <code style="font-family:'Consolas';">npm install -g your-package-name</code></p>
-
-  <h4>Angular-CLI</h4>
-  <p>
-    Angular-CLI is a command line tool based on Node.js which helps you from the very beginning. When you start a new project, the CLI prepares everything for you:
-    It creates your files, installs the npm-packages and creates Git for you. It automatically generates skeletons for components, services, pipes and directives.
+    The <a href="https://angular.io/cli" target="_blank">Angular CLI</a> tool is a command line tool based on Node.js, which helps you from the very beginning:
+    It creates projects, generates application and library code (skeletons for components, services, pipes and directives) and helps you with development tasks such as testing, bundling and deployment.
   </p>
   <p>
-    For Windows users I recommend windows-build-tools for a frictionless setup. You need to execute this installation as an administrator.</p>
-  <p class="ui black message"> <code style="font-family:'Consolas';">npm install -g windows-build-tools</code></p>
-  <p>Now you can install the Angular-CLI by using this command:</p>
-  <p class="ui black message"> <code style="font-family:'Consolas';">npm install -g @angular/cli</code></p>
+  For Windows users I recommend <a href="https://github.com/felixrieseberg/windows-build-tools#readme" target="_blank"> Windows-Build-Tools</a> for a frictionless setup.<br> 
+  Attention: You need to execute this installation as an administrator.</p>
+  <pre class="command-line language-bash" data-user="user" data-host="localhost"><code>npm install --global windows-build-tools</code></pre>
 
-  <p class="ui red message" style="margin-bottom:30px;">In some cases it might be required to install the Angular-CLI as the user, that will use it. So if it does not work, try to install it with your local user.</p>
+  <p>Now you can install the Angular CLI by using this command:</p>
+  <pre class="command-line language-bash" data-user="user" data-host="localhost"><code>npm install -g @angular/cli</code></pre>
 
-  <p class="ui info message" style="margin-bottom:30px;">To help you with all the CLI commands: <a href="assets/files/Cheat-Sheet-Angular-CLI.pdf"
-      download>
-      Cheat-Sheet
-    </a></p>
+  <p class="ui red message" style="margin-bottom:30px;">In some cases it might be required to install the Angular CLI as the user, that will use it. So if it does not work, try to install it with your local user.</p>
+
+  <p class="ui info message" style="margin-bottom:30px;">To help you with all the CLI commands:<br>
+    <a href="https://kapeli.com/cheat_sheets/npm.docset/Contents/Resources/Documents/index" target="_blank">
+      <strong>npm Cheat Sheet</strong>
+    </a><br>
+    <a href="https://malcoded.com/static/68c150aaaee9e8056f44fb81a08799ad/aaced/angular-cli-cheat-sheet.webp" download="angular_cli_cheat_sheet" target="_blank"><strong>Angular CLI Cheat Sheet</strong></a>
+  </p>
 </div>
