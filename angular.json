@@ -31,7 +31,8 @@
               "src/styles.css",
               "src/prism.css"],
             "scripts": [
-              "src/prism.js"
+              "src/prism.js",
+              "./node_modules/semantic-ui-css/semantic.js"
             ]
           },
           "configurations": {

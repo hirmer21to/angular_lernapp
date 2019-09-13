@@ -1,6 +1,18 @@
-<h2>How to set up your Environment:</h2>
-<div>
-  <h3>Editor</h3>
+<h2 style="float:left">How to set up your Environment:</h2>
+<div class="ui compact menu" style="float:right">
+    <div class="ui simple dropdown item">
+    Content
+    <i class="dropdown icon"></i>
+    <div class="menu">
+      <div class="item"><a href="#toc_editor">Editor</a></div>
+      <div class="item"><a href="#toc_nodejs">Node.js</a></div>
+      <div class="item"><a href="#toc_angular_cli">Angular CLI</a></div>
+      <div class="item"><a href="#toc_further_references">Further references</a></div>
+    </div>
+    </div>
+</div>
+<div style="clear:both">
+  <h3 id="toc_editor">Editor</h3>
   <p>First of all we need a code editor to kick off our bootcamp. You can choose among a large list of available editors, some popular ones are:</p>
     <ul>
       <li>Microsoft: <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a></li>
@@ -10,7 +22,7 @@
     </ul>
     <p>All of them a cross-platform, feature a packet or extension manager, different themes, customization and enable a direct Git integration.</p>
 
-  <h3>Node.js</h3>
+  <h3 id="toc_nodejs">Node.js</h3>
   <p>
     <a href="https://nodejs.org/" target="_blank">Node.js</a> is a open-source, cross-platform JavaScript runtime environment, which executes JavaScript outside the browser. Therefore it can be used for server-side scripting.<br>
     It is build on top of Google's <a href="https://v8.dev" target="_blank">V8</a> JavaScript engine and uses a modular approach together with the bundled packet manager <a href="https://www.npmjs.com/" target="_blank">npm</a>, which allows developers to install, publish and share modules of code (especially on the npm Registry, which is a public collection of open-source packages).
@@ -26,7 +38,7 @@
     <p>Or, to use the module as a set of tools on your computer, globally by running:</p>
     <pre class="command-line language-bash" data-user="user" data-host="localhost"><code>npm install -g &lt;package_name&gt;</code></pre>
 
-  <h3>Angular CLI</h3>
+  <h3 id="toc_angular_cli">Angular CLI</h3>
   <p>
     The <a href="https://angular.io/cli" target="_blank">Angular CLI</a> tool is a command line tool based on Node.js, which helps you from the very beginning:
     It creates projects, generates application and library code (skeletons for components, services, pipes and directives) and helps you with development tasks such as testing, bundling and deployment.
@@ -39,12 +51,24 @@
   <p>Now you can install the Angular CLI by using this command:</p>
   <pre class="command-line language-bash" data-user="user" data-host="localhost"><code>npm install -g @angular/cli</code></pre>
 
-  <p class="ui red message" style="margin-bottom:30px;">In some cases it might be required to install the Angular CLI as the user, that will use it. So if it does not work, try to install it with your local user.</p>
+  <p class="ui red message">In some cases it might be required to install the Angular CLI as the user, that will use it. So if it does not work, try to install it with your local user.</p>
 
-  <p class="ui info message" style="margin-bottom:30px;">To help you with all the CLI commands:<br>
+  <p>For those who rather like to work with a graphical user interface there even exists the app <a href="https://angularconsole.com" target="_blank">Angular Console</a>. Please be aware that this desktop application is neither developed nor maintained by the Angular team!</p>
+
+  <h3 id="toc_further_references">Further references</h3>
+  <p class="ui info message">To help you with all the CLI commands:<br>
     <a href="https://kapeli.com/cheat_sheets/npm.docset/Contents/Resources/Documents/index" target="_blank">
       <strong>npm Cheat Sheet</strong>
     </a><br>
     <a href="https://malcoded.com/static/68c150aaaee9e8056f44fb81a08799ad/aaced/angular-cli-cheat-sheet.webp" download="angular_cli_cheat_sheet" target="_blank"><strong>Angular CLI Cheat Sheet</strong></a>
   </p>
+  <div class="ui warning message">
+    <p>Official documentation:</p>
+    <ul>
+      <li><a href="https://nodejs.org/en/docs/guides/" target="_blank">Node.js Guides</a></li>
+      <li><a href="https://docs.npmjs.com/getting-started/configuring-your-local-environment" target="_blank">npm: Configuring your local environment</a></li>
+      <li><a href="https://docs.npmjs.com/packages-and-modules/getting-packages-from-the-registry" target="_blank">npm: Getting packages from the registry</a></li>
+      <li><a href="https://angular.io/guide/setup-local" target="_blank">Angular: Setting up the Local Environment and Workspace</a></li>
+    </ul>
+  </div>
 </div>

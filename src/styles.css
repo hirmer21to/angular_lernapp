@@ -11,3 +11,9 @@
 code {
     font-family: 'Consolas', 'Monospace'
 }
+
+div.item a {
+    display:block !important;
+    width:100%;
+    height:100%;
+}
