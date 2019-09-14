@@ -1,12 +1,38 @@
-<h2>TypeScript Introduction:</h2>
+<h2 id="headline">TypeScript Introduction:</h2>
+<div class="ui compact menu" id="header_content">
+        <div class="ui simple dropdown item">
+        Content
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item"><a href="#toc_general">General usage</a></div>
+          <div class="item"><a href="#toc_basic_types">Basic Types</a></div>
+          <div class="item"><a href="#toc_angular_cli">Functions</a></div>
+          <div class="item"><a href="#toc_angular_cli">Classes</a></div>
+          <div class="item"><a href="#toc_angular_cli">Interfaces</a></div>
+          <div class="item"><a href="#toc_angular_cli">Decorators</a></div>
+          <div class="item"><a href="#toc_further_references">Further references</a></div>
+        </div>
+        </div>
+    </div>
 <div class="language-typescript" id="start_content">
-    <p>TypeScript is an Open-Source-Project developed by Microsoft. It expands JavaScript, which means that you can write as much
-        JavaScript in your TypeScript document as you want.
+    <p><a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a> is an open-source programming language developed by Microsoft. It is a syntactical superset of JavaScript and therefore only expands JavaScript, which means that every JavaScript program is also valid TypeScript and you can write as much JavaScript in your TypeScript document as you want.
     </p>
-    <p>But it comes with a much stronger type system, as you may know from programing languages like Java and C#.</p>
-    <p>Bonus: TypeScript is runnable in every browser and platform as it compiles to pure JavaScript.</p>
+    <p>TypeScript is based on <a href="https://www.ecma-international.org/ecma-262/6.0/index.html" target="_blank">ECMAScript 6</a> proposals (partly taken over and standardized in JavaScript) and it comes with a much stronger type system, as you may know from programming languages like Java and C#.</p>
+    <p>Bonus: TypeScript can be transpiled to pure JavaScript and thus enables its use in web frontend development.</p>
 
-    <h4>1. Basic Types</h4>
+    <h3 id="toc_general">1. General usage</h3>
+    <p>The Angular CLI already installs TypScript for you. Apart from that, normally you install TypeScript once again by using npm:</p>
+    <pre class="command-line language-bash" data-user="user" data-host="localhost"><code>npm install -g typescript</code></pre>
+    <p>And check your installed version with:</p>
+    <pre class="command-line language-bash" data-user="user" data-host="localhost"><code>tsc -v</code></pre>
+    <p>
+    If you want to play around with TypeScript apart from Angular you simply write your TypeScript code into a <code class="language-bash">.ts</code> file and then use the TypeScript compiler <code class="language-bash">tsc</code> to transpile into pure JavaScript. With the <code class="language-bash">--target</code> or <code class="language-bash">-t</code>option to can choose your desired ECMA/JavaScript version.
+    </p>
+    <pre class="command-line language-bash" data-user="user" data-host="localhost"><code>tsc &lt;your_ts_file&gt;.ts</code></pre>
+    Now your ready to run your generated JavaScript file with Node.js:
+    <pre class="command-line language-bash" data-user="user" data-host="localhost"><code>node &lt;your_js_file&gt;.js</code></pre>
+
+    <h3 id="toc_basic_types">2. Basic Types</h3>
     <p>When you declare and initialise a variable, it's always the same:</p>
     <pre><code>name: type = value;</code></pre>
 
@@ -36,7 +62,7 @@
     <h5>Any</h5>
     <p> You can always use the fallback value "any" if you don't know which data type you will get back.</p>
 
-    <h4>2. Classes</h4>
+    <h4>3. Classes</h4>
     <pre><code>class Animal &#123; &#125;</code></pre>
 
     <h5>Properties</h5>
