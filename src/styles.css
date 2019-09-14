@@ -17,3 +17,15 @@ div.item a {
     width:100%;
     height:100%;
 }
+
+#headline {
+    float: left;
+}
+
+#header_content {
+    float: right;
+}
+
+#start_content {
+    clear: both;
+}

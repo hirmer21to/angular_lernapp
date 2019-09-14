@@ -1,33 +1,67 @@
-<h2>My first Angular-App:</h2>
-<div>
-  <h4>Let's start</h4>
-  <p>First open your command line and type:
+<h2 id="headline">My first Angular-App:</h2>
+<div class="ui compact menu" id="header_content">
+    <div class="ui simple dropdown item">
+    Content
+    <i class="dropdown icon"></i>
+    <div class="menu">
+      <div class="item"><a href="#toc_editor">Let's start</a></div>
+      <div class="item"><a href="#toc_further_references">Further references</a></div>
+    </div>
+    </div>
+</div>
+<div id="start_content">
+  <h3>Let's start</h3>
+  <p>To get a simple welcome app, first open your command line and type:
   </p>
  <pre class="command-line language-bash" data-user="user" data-host="localhost"><code>ng new my-first-app</code></pre>
-  <p>You will get the question "<code style="font-family:'Consolas';">? Would you like to add Angular routing?</code>". Answer it with "Yes"! 
-    In the next step you can choose which stylesheet format you would like to use. In this tutorial we use CSS.</p>
+
+  <p>You will get questions about the features ti include in your app:<br></p>
+    <ul>
+    <li><code class="language-bash">? Would you like to add Angular routing?</code>". Answer it with <code class="language-bash">Yes</code>! Therefore you get a router to navigate between states and view within your app.</li>
+    <li><code class="language-bash">? Which stylesheet format would you like to use?</code> 
+     In this tutorial we use plain <code class="language-bash">CSS</code>. The other options <a href="https://sass-lang.com/documentation/syntax" target="_blank">SCSS</a>, <a href="https://sass-lang.com" target="_blank">Sass</a>, <a href="http://lesscss.org/" target="_blank">Less</a> and <a href="http://stylus-lang.com/" target="_blank">Stylus</a> are other stylesheet languages, with further features like functions and variables, which are compiled to CSS through their CSS preprocessor.</li></ul>
   <img style="margin-bottom:15px;" class="ui centered large image" src="assets/img/New-Project.png">
-  <p> A project which includes all files and folders will be created.</p>
+
+  <p> A project which includes all necessary files and folders will be created.</p>
   <p>These are:</p>
   <ul>
-    <li>The new workspace with the root folder "my-first-app".</li>
-    <li>An initial skeleton app project, also called "my-first-app" which you will find it in the subfolder "src".
+    <li>The new workspace with the root folder <code class="language-bash">my-first-app</code>.</li>
+    <li>An initial skeleton app project, also called "my-first-app" which you will find it in the subfolder <code class="language-bash">src</code>.
     </li>
-    <li> An end-to-end test project in the subfolder "e2e".
+    <li> An end-to-end test project in the subfolder <code class="language-bash">e2e</code>.
     </li>
+    <li>The, by npm installed, packages in the subfolder <code class="language-bash">node_modules</code>.</li>
     <li>Related configuration files.</li>
   </ul>
-  <pre class="command-line language-bash" data-user="user" data-host="localhost"><code>cd my-first-app</code></pre>
-  <p>Then you can navigate to that project-folder. If you get an answer like this from your system: <code class="language-bash">added 1098 packages from 1166 contributors and audited 39144 packages in 35.242s
-      <span class="bold">found 3 vulnerabilities (2 low, 1 high)</span></code>, just follow the instructions on your command
-    line (<code class="language-bash">npm audit fix</code> or similar) and it will be fine.</p>
+  <p>After installation you get an answer from your system, like this: <code class="language-bash">added 1098 packages from 1166 contributors and audited 39144 packages in 35.242s
+      <span class="bold">found 3 vulnerabilities (2 low, 1 high)</span></code>. npm scanned your whole project with all your packages for vulnerabilities and shows you the summarized results.
+      If there are vulnerabilities just follow the instructions on your command line (<code class="language-bash">npm audit fix</code> or similar) to automatically install any compatible updates to vulnerable dependencies. For production-ready code you should fix at least all high vulnerabilities, but as we only learn for ourselves you can ignore all eventually remaining vulnerabilities.</p>
 
-  <pre><code class="language-bash">ng serve --open</code></pre>
+  <p>Then you can navigate to that project-folder:</p> 
+  <pre class="command-line language-bash" data-user="user" data-host="localhost"><code>cd my-first-app</code></pre>
+  <pre><code class="command-line language-bash" data-user="user" data-host="localhost">ng serve --open</code></pre>
   <p>With <code class="language-bash">serve</code> you can already run the application and <code class="language-bash">--open</code> opens the browser directly on <a
       href="http://localhost:4200/">http://localhost:4200/</a>
-    and shows your brand new application.
+    and shows your brand new application (instead of localhost you can type <a href="http://127.0.0.1:4200">http://127.0.0.1:4200</a>).
   </p>
   <h4>First things first</h4>
   <p>Before we start our big project, we need to know some things about <a routerLink="/typescript">TypeScript</a> in
     general.</p>
+
+  <h3 id="toc_further_references">Further references</h3>
+  <p class="ui info message">If your already confused by all the special Angular terms:<br>
+    <a href="https://angular.io/guide/glossary" target="_blank">
+      <strong>Angular Glossary</strong>
+    </a><br>
+  </p>
+  <div class="ui warning message">
+    <p>Official documentation:</p>
+    <ul>
+      <li><a href="https://docs.npmjs.com/cli/audit" target="_blank">npm-audit</a></li>
+      <li><a href="https://angular.io/guide/setup-local#step-2-create-a-workspace-and-initial-application" target="_blank">Angular: Create a workspace and initial application</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/CSS_preprocessor" target="_blank">MDN: CSS preprocessor</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_web_server" target="_blank">MDN: What is a web server?</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Localhost" target="_blank">Wikipedia: Localhost</a></li>
+    </ul>
+  </div>
 </div>
