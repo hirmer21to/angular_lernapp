@@ -6,10 +6,10 @@
         <div class="menu">
           <div class="item"><a href="#toc_general">General usage</a></div>
           <div class="item"><a href="#toc_basic_types">Basic Types</a></div>
-          <div class="item"><a href="#toc_angular_cli">Functions</a></div>
-          <div class="item"><a href="#toc_angular_cli">Classes</a></div>
-          <div class="item"><a href="#toc_angular_cli">Interfaces</a></div>
-          <div class="item"><a href="#toc_angular_cli">Decorators</a></div>
+          <div class="item"><a href="#toc_functions">Functions</a></div>
+          <div class="item"><a href="#toc_classes">Classes</a></div>
+          <div class="item"><a href="#toc_interfaces">Interfaces</a></div>
+          <div class="item"><a href="#toc_decorators">Decorators</a></div>
           <div class="item"><a href="#toc_further_references">Further references</a></div>
         </div>
         </div>
@@ -33,102 +33,220 @@
     <pre class="command-line language-bash" data-user="user" data-host="localhost"><code>node &lt;your_js_file&gt;.js</code></pre>
 
     <h3 id="toc_basic_types">2. Basic Types</h3>
-    <p>When you declare and initialise a variable, it's always the same:</p>
-    <pre><code>name: type = value;</code></pre>
+    <p>When you declare and initialise a variable, it has always the same strucuture:</p>
+    <pre><code>let name: type = value;</code></pre>
 
     <h5>Number</h5>
-	<pre><code>age: number = 5;</code></pre>
+    <p>As in JavaScript all numbers are floating point values:</p>
+	<pre><code>let age: number = 5;
+let pi: number = 3.14;</code></pre>
 
 	<h5>String</h5>
-	<pre><code>firstname: string = "Max Mustermann";</code></pre>
+	<pre><code>let firstname: string = "Max";
+let lastname: string = 'Mustermann';</code></pre>
 
-	<br/><p>Template-String: Expressions embedded directly in the string.</p>
-	<pre><code>output: string = "$&#123;firstname&#125; is $&#123;age&#125; years old.";</code></pre>
+	<br/><p>With template strings expressions can be embedded directly into the string:</p>
+	<pre><code>let output: string = `$&#123;firstname&#125; is $&#123;age&#125; years old.`;</code></pre>
 
-    <h5>Getter and Setter</h5>
-    <p>
-        Known from object oriented programing. You can read or set the property of an object.
-    </p>
     <h5>Boolean</h5>
 	<pre><code>let workingHard: boolean = true;</code></pre>
 
-    <h5>Arrays</h5>
-	<pre><code>let fibonacci: Array&lt;number&gt; = [0, 1, 1, 2, 3, 5, 8, 13];</code></pre>
-	<pre><code>let fibonacci: number[] = [0, 1, 1, 2, 3, 5, 8, ,13];</code></pre>
-	<pre><code>let differentValueTypes: any[] = [5, &#123; firstname: "Max Mustermann" &#125;, function() &#123;
-		console.warn("Nothing inside.")
-		&#125;];</code></pre>
+    <h5>Array</h5>
+	<pre><code>let fibonacci: Array&lt;number&gt; = [0, 1, 1, 2, 3, 5, 8, 13];
+let fibonacci2: number[] = [0, 1, 1, 2, 3, 5, 8, ,13];</code></pre>
+
+    <h5>Object</h5>
+    Object represents the non-primitive type (anything apart from number, string, boolean, symbol, null or undefined).
+
+    <h5>Enum</h5>
+    <p>An enumy always you to give proper names to a set of numeric values. By default enums begin at 0 and and count on, but you can set values manually for each member.</p>
+    <pre><code>enum Day &#123;Mon, Tue, Wed, Thu, Fri, Sat, Sun&#125;
+let d: Day = Day.Mon;</code></pre>
 
     <h5>Any</h5>
-    <p> You can always use the fallback value "any" if you don't know which data type you will get back.</p>
+    <p> You can always use the fallback value <code>any</code> if you don't know which data type you will get back.</p>
+    <pre><code>let differentValueTypes: any[] = [5, &#123; firstname: "Max Mustermann" &#125;, function() &#123;
+    console.warn("Nothing inside.");
+&#125;];</code></pre>
 
-    <h4>3. Classes</h4>
-    <pre><code>class Animal &#123; &#125;</code></pre>
+    <h5>Tuple</h5>
+    <p>You can express the example above also as a fixed-length array with known, but different, types:</p>
+    <pre><code>let differentValueTypes: [number, object, object] = [5, &#123; firstname: "Max Mustermann" &#125;, function() &#123;
+    console.warn("Nothing inside.");
+&#125;];</code></pre>
 
-    <h5>Properties</h5>
-    <p>Extend classes with further information. An animal could have name, age and owner.</p>
+    <h5>Union type</h5>
+    <p>If a value can be one of several types you can use a vertical bar to separate each acceptable type:</p>
+    <pre><code>let id: string | number;</code></pre>
 
-    <pre><code>class Animal &#123; 
-    public name: string;
-    public age: number;
-    public owner: string;
+    <h3 id="toc_functions">3. Functions</h3>
+    Functions are a key part in each TypeScript application and work pretty much like in JavaScript except for the added types:
+    <pre><code>//Named function
+function print(message: string): void &#123;
+    console.log(message);
+&#125;
+// Anonymous function
+let printFunc = function(message: string): void &#123; console.log(message); &#125;;</code></pre>
+
+    <h5>Optional, default and rest parameters</h5>
+    <p>Furthermore parameters can be marked with <code>?</code> as optional, can have a default value if none is provided or may exist in a number that is not known beforehand:</p>
+    <pre><code>function (firstName?: string, lastName = "Not provided", ...middleNames: string[]) &#123;
+    return firstName + " " + middleNames.join(" ") + lastName;
 &#125;</code></pre>
 
-    <h5>Methods</h5>
-    <p>Extend classes with logic. In addition TypeScript allows to precise the signature of the methods with a
-        parameter type and a return type. </p>
-
-    <pre><code>class Animal &#123; 
-    public name: string;
-    public age: number;
-    public owner: string;
-
-    changeOwner(owner: string): string &#123;
-        this.owner = owner;
-        return this.owner;
+    <h5>Overload</h5>
+    <p>JavaScript enables functions to return different typed values dependending on which and how many parameters were passed into it. To still allow type checking in TypeScript you can supply a list of multiple function types as overloads:</p>
+    <pre><code>function saveFile(file: string): boolean;
+function saveFile(file: File): void;
+function saveFile(file): any &#123;
+    // Check with which input we are working
+    if (typeof file == "string") &#123;
+        // Try to find file by its path or create new one
+        // Write file to disk
+        // Return if newly created or not
+    &#125;
+    if (typeof file == "File") &#123;
+        // Write file to disk
     &#125;
 &#125;</code></pre>
 
-    <p>If you use "void" as return type, the method has no return value.</p>
-
-    <h5>Constructors</h5>
-    <p>Constructors are methods which are called during the initialization of a class. Values that are
-        necessary later, can be transferred.</p>
-
+    <h3 id="toc_classes">4. Classes</h3>
+    The general syntax looks and works familiar if you compare it to Java. A simple example class Animal with the properties <code>age</code>, <code>name</code> and <code>owner</code>, the method <code>changeOwner</code> and a <code>constructor</code> looks like this:
     <pre><code>class Animal &#123;
-    public name: string;
-    public age: number;
-    public owner: string;
+    name: string;
+    age: number;
+    owner: string;
 
     constructor(name: string, age: number, owner: string) &#123;
         this.name = name;
         this.age = age;
         this.owner = owner;
     &#125;
-&#125;</code></pre>
 
-    <p>As shorthand the use of <code>public</code> on constructor arguments automatically creates these properties:</p>
+    changeOwner(newOwner: string) &#123;
+        this.owner = newOwner;
+    &#125;
+&#125;
+
+let myAnimal = new Animal("dog", "2", "max mustermann");
+</code></pre>
+
+    <p>Member properties of the class are accessed through prepending <code>this.</code>. An instance of the class is created through using <code>new</code>, which calls our previously defined constructor.</p>
+
+    <p>The use of <code>public</code> on constructor arguments is a shorthand to automatically creates these properties:</p>
 
     <pre><code>class Animal &#123;
     constructor(public name: string, public age: number, public owner: string) &#123;
     &#125;
 &#125;</code></pre>
 
-    <p>A difference to other programing languages: Only ONE constructor per class is possible!</p>
+    <p>A notable difference to other programing languages: Only <strong>one</strong> constructor per class is possible!</p>
 
     <h5>Inheritance</h5>
-    <p>Also known from object-oriented programing, with the keyword  <code>extends</code>.</p>
+    <p>Also known from object-oriented programing, with the keyword  <code>extends</code> an existing class can be extended to create a new one:</p>
 
-    <pre><code>class Cat extends Animal &#123; &#125;</code></pre>
+    <pre><code>class Cat extends Animal &#123; 
+    constructor(name: string, age: number, owner: string) &#123;
+        super(name, age, owner);
+    &#125;
 
-    <p>You can use the methods and constructors of the base class with  <code>super()</code>. The methods can be
-        rewritten. If a derived class (Cat) is instantiated, you automatically get access to attributes and methods of
-        the parent classes (Animal). </p>
+    changeOwner(newOwner = "I am my own king") &#123;
+        console.log("I will be always free.");
+        super.changeOwner(newOwner);
+    &#125;
+&#125;</code></pre>
 
-    <h4>3. Interfaces</h4>
-    <p>Interfaces are used to define a public interface and hide the concrete implementation. It can be determined
-        which parts must be included and which types they should have.</p>
-    <p>Optional parameters have a  <code>?</code> behind their name e.g. <code>public owner?: string;</code>.</p>
+    <p>You can use the methods and constructors of the base class with  <code>super</code>. The methods can be overwritten. If a derived class (Cat) is instantiated, you automatically have the attributes and methods of the parent classes (Animal), too.</p>
+
+    <h5>Modifiers</h5>
+    <p>Access to methods and properties can be controlled through the typical modifiers:</p>
+    <ul>
+        <li><code>public</code>: Default value; free access to the declared members throughout our program.</li>
+        <li><code>private</code>: Declared members can only be accessed from within the class; no access from outside.</li>
+        <li><code>protected</code>: Much like <code>private</code>, but members declared protected are also accessible within derived classes.</li>
+    </ul>
+
+    <pre><code>class Animal &#123;
+    public name: string;
+    protected age: number;
+    protected owner: string;
+
+    private changeOwner(newOwner = "I am my own king") &#123;
+        console.log("I will be always free.");
+        super.changeOwner(newOwner);
+    &#125;
+&#125;</code></pre>
+
+    <h5>Accessors</h5>
+    <p>To intercept the call to members of an object and control how members are accessed and modified, while retaining the ease of the <code>object.member</code> access, its possible to use <code>get</code> and <code>set</code>:</p>
+
+    <pre><code>class Person &#123;
+    private _name: string;
+    
+    get name(): string &#123;
+        return this._name.toLowerCase();
+    &#125;
+
+    set name(newName: string): void &#123;
+        if(newName) &#123;
+            throw new Error("Name can not be empty or null!");
+        &#125;
+        this._name = newName;
+    &#125;
+&#125;</code></pre>
+
+    <h5>Static properties</h5>
+    <p>Apart from instance members of a class, its also possible to add <code>static</code>s members, which are visibile on the class itself and not on a particular instance:</p>
+
+    <pre><code>class Animal &#123;
+    static counter: number = 0;
+
+    constructor(name: string, age: number, owner: string) &#123;
+        this.name = name;
+        this.age = age;
+        this.owner = owner;
+
+        Animal.counter++;
+    &#125;
+&#125;</code></pre>
+
+    <h5>Abstract classes</h5>
+    <p>Its even possible to define base classes, which can not be instantiated directly, but do already contain some implementation logic. Instead only from these base classes derived classes, which have to implement all abstract methods, can be instantiated.</p>
+
+<pre><code>abstract class Animal &#123;
+    abstract move(): void;
+    print() : void &#123;
+        console.log("Animal has number " + Animal.counter);
+    &#125;
+&#125;</code></pre>
+
+    <div class="ui warning message">
+        Be aware that JavaScript uses the prototype-chain under the hood to build up the object-oriented class hierarchies. This approach works different then the object-oriented approach in, for instance, Java. The newly introduced <code>class</code> and other related keywords are only syntactic sugar above this concept.<br>
+        A deeper understanding is not needed in our tutorial, but to thoroughly grasp JavaScript one should address this issue:
+        <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes" target="_blank">MDN: Object prototypes</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS" target="_blank">MDN: Object-oriented JavaScript for beginners</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics" target="_blank">MDN: JavaScript object basics</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain" target="_blank">MDN: Inheritance and the prototype chain</a></li>
+        </ul>
+    </div>
+    <h3 id="toc_interfaces">5. Interfaces</h3>
+    <p>Type checking in TypeScript looks only at the <i>shape</i> the values have (cf. <a href="https://en.wikipedia.org/wiki/Duck_typing" target="_blank">duck typing</a>). Consequentially interfaces are naming these types and define a contract within your code which typed values must be at least included to fulfill this contract (additional properties are allowed).</p>
+    <pre><code>function printID(identifiedObj: &#123;id: string&#125;) &#123;
+    console.log(identifiedObj.id);
+&#125;</code></pre>
+    <p>Here the type checker tests for each object passed in as parameter if it has at least a property called <code>id</code> of type <code>string</code>.<br>
+    We can now express this requirement as an interface, too:</p>
+<pre><code>interface IdentifiedValue &#123;
+    id: string;
+&#125;
+
+function printID(identifiedObj: IdentifiedValue) &#123;
+    console.log(identifiedObj.id);
+&#125;</code></pre>
+
+    <h5>Otional and readonly properties</h5>
+    <p>Optional properties have a  <code>?</code> behind their name, e.g. <code>owner?: string;</code>, and are not required.</p>
   
     <pre><code>interface Contact &#123;
     firstname: string;
@@ -136,37 +254,93 @@
     age?: number | string;
 &#125;</code></pre>
 
-    <p>If the object gets an additional property or the value doesn't have the required type, you would get an error.
-    </p>
+    <p>Furthermore properties can defined to be not modifiable after the object was created:</p>
+    <pre><code>interface Contact &#123;
+    readonly id: string;
+    firstname: string;
+    lastname: string;
+&#125;</code></pre>
 
-    <h5>Indexable Interfaces</h5>
-    <p>Interfaces can also be defined by an indexable key. For instance the interface determines the type for all elements of an
-        array.</p>
+    <h5>Indexable types</h5>
+    <p>Interfaces can also be defined by an indexable key (cf. dictionary). For instance the interface determines the index signature to index through the object and the return type for all elements of the array.</p>
     
     <pre><code>interface StringArray &#123;
     [index: number]: string;
+&#125;
+
+let myStringArray: StringArray;
+myStringArray = ["Max", "Manuela"];
+
+let myString: string = myStringArray[1];
+</code></pre>
+
+    <h5>Function types</h5>
+    <p>Interfaces are even capable to describe function signatures. Therefore we define the parameter list and the return type:</p>
+
+    <pre><code>interface EqualsFunc &#123;
+(anObject: object, secondObject: object): boolean
 &#125;</code></pre>
 
-    <h5>Interfaces for Functions</h5>
-    <p>The key is the function signature. The value of the interface is the return value of the function.</p>
+    <h5>Class types</h5>
+    <p>A common use case is to enforce a class to meet a defined set of named and typed values. The keyword to implement such an interface is <code>implements</code>.</p>
+    <pre><code>
+interface File &#123; 
+    path: string;
+&#125;
 
-    <h5>Interface for Classes</h5>
-    <p>The keyword to implement an Interface is <code>implements</code>. The compiler will display what the
-        implementation of the interface requires. That means all defined properties and methods of the interface. Type
-        definitions are the same as in interfaces.</p>
+class BinaryFile implements File &#123;
+    path: string;
+    encoding: string;
+&#125;</code></pre>
 
-    <h4>4. Decorators</h4>
+    <h5>Extending Interfaces</h5>
+    <p>Last but not least its possible for an interface to extend another interface with new properties and take over the existing members:</p>
+    <pre><code>interface List &#123;
+    next(): object;
+&#125;
+
+interface LinkedList extends List &#123;
+    previous(): object;
+&#125;</code></pre>
+
+    <h3 id="toc_decorators">6. Decorators</h3>
 
     <pre><code>@Component(&#123;
     // Configuration object
 &#125;)
 class myComponent &#123; &#125;</code></pre>
 
-    <p>Metadata is added to the class. The Angular-Framework knows that the class must be handled as a component.</p>
-    <p>Expressions such as <code>@readonly</code> are not provided in Angular.</p>
+    <p>With decorators metadata and additional or modifying features can be annotated to classes and class members. Especially the Angular framework makes heavy use of this technique to mark classes as a components and modules and to configure them. Be aware that this feature is still experimental in TypeScript and may change in future releases.<br>
+    Expressions are added with <code>@expression</code>, where <code>expression</code> is a function called at runtime with information about the decorated declaration.</p>
 </div>
 
 <div class="ui message" style="margin-top: 30px; margin-bottom: 30px;">
     <p>Now that you know all these things, you are ready for a bigger project. Feel free to come back any time, if you
         want to look up something.</p>
 </div>
+
+<h3 id="toc_further_references">Further references</h3>
+  <p class="ui info message">To help you with all the keywords, concepts and syntax:<br>
+    <a href="https://github.com/iLoveCodingOrg/javascript-cheatsheet/raw/master/js-cheatsheet.pdf" download="js_cheat_sheet" target="_blank"><strong>JavaScript Cheat Sheet</strong></a>
+  </p>
+  <div class="ui warning message">
+    <p><strong>Official documentation:</strong></p>
+    <ul>
+        <li><a href="https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html" target="_blank">TypeScript in 5 minutes</a></li>
+        <li><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">TypeScript: Basic Types</a></li>
+        <li><a href="https://www.typescriptlang.org/docs/handbook/variable-declarations.html" target="_blank">TypeScript: Variable Declarations</a></li>
+        <li><a href="https://www.typescriptlang.org/docs/handbook/interfaces.html" target="_blank">TypeScript: Interfaces</a></li>
+        <li><a href="https://www.typescriptlang.org/docs/handbook/classes.html" target="_blank">TypeScript: Classes</a></li>
+        <li><a href="https://www.typescriptlang.org/docs/handbook/functions.html" target="_blank">TypeScript: Functions</a></li>
+        <li><a href="https://www.typescriptlang.org/docs/handbook/decorators.html" target="_blank">TypeScript: Decorators</a></li>
+    </ul>
+    <p><strong>Advanced concepts:</strong></p>
+    <ul>
+        <li><a href="https://en.wikipedia.org/wiki/Source-to-source_compiler" target="_blank">Wikipedia: Transpiler</a></li>
+        <li><a href="https://www.typescriptlang.org/docs/handbook/compiler-options.html" target="_blank">TypeScript: Compiler Options</a></li>
+        <li><a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html" target="_blank">TypeScript: tsconfig.json</a></li>
+        <li>To review your basics in JS: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">MDN web docs &gt; JavaScript</a></li>
+        <li>What is linting and why to use it?: <a href="https://en.wikipedia.org/wiki/Lint_(software)" target="_blank">Wikipedia &gt; lint (software)</a></li>
+        <li><a href="https://eslint.org/" target="_blank">ESLint for JavaScript</a></li>
+    </ul>
+  </div>
