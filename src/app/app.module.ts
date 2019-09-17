@@ -24,6 +24,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { AboutComponent } from './about/about.component'; 
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { AboutComponent } from './about/about.component';
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    NgbModule
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },

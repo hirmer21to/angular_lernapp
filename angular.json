@@ -27,12 +27,13 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/semantic-ui-css/semantic.css",
+              "./node_modules/semantic-ui/dist/semantic.min.css",
               "src/styles.css",
-              "src/prism.css"],
+              "src/prism.css",
+              "src/bootstrap.min.css"
+            ],
             "scripts": [
-              "src/prism.js",
-              "./node_modules/semantic-ui-css/semantic.js"
+              {"input": "src/prism.js", "inject": false}
             ]
           },
           "configurations": {

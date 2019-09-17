@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
+import * as Prism from '../prism.js';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,6 @@ import { Router } from '@angular/router';
   styles: []
 })
 export class AppComponent implements OnInit {
-
   title = 'Learn Angular!';
   hideBackButton: Boolean = false;
   hideNextButton: Boolean = false;
@@ -20,9 +20,12 @@ export class AppComponent implements OnInit {
 
   public routerLink: string;
 
-  constructor(private router: Router, public location: Location) { }
+  constructor(private router: Router, public location: Location) { 
+  }
 
-  ngOnInit() { }
+  ngOnInit() {
+    Prism.manual = true;
+  }
 
   onActivate(){
     window.scroll(0,0);
