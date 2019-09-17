@@ -1,59 +1,73 @@
-<h2>Project Introduction and Overview</h2>
-<div>
-  <h4>What am I able to do after this Tutorial?</h4>
-  <p>Probably the most interesting question: What will I be able to program after working through this project?</p>
+<h2 id="headline">Project Overview</h2>
+<div class="ui compact menu" id="header_content">
+    <div class="ui simple dropdown item">
+    Content
+    <i class="dropdown icon"></i>
+    <div class="menu">
+      <div class="item"><a href="#toc_goals">Goals</a></div>
+      <div class="item"><a href="#toc_task">Task</a></div>
+      <div class="item"><a href="#toc_layout">Layout</a></div>
+      <div class="item"><a href="#toc_outline">Outline</a></div>
+      <div class="item"><a href="#toc_further_references">Further references</a></div>
+    </div>
+    </div>
+</div>
+
+<div id="start_content">
+  <h3 id="toc_goals">What am I able to do after this Tutorial?</h3>
+  <p>Probably the most interesting question. Afterwards you should have a solid grasp about the following concepts in Angular:</p>
   <ul>
-    <li>Create an application with many reusable <a href="https://angular.io/guide/glossary#component" target="_blank">components</a>.</li>
-    <li>Show a list of items by using built-in Angular <a href="https://angular.io/guide/glossary#directive" target="_blank">directives</a>.</li>
+    <li>Create an application with reusable <a href="https://angular.io/guide/glossary#component" target="_blank">components</a>.</li>
+    <li>Show a list of data items by using built-in Angular <a href="https://angular.io/guide/glossary#directive" target="_blank">directives</a>.</li>
     <li>Use directives to show and hide items.</li>
-    <li>Create, read, update and delete items of a list.</li>
-    <li>Create <a href="https://angular.io/guide/glossary#template-driven-forms" target="_blank">forms</a>.</li>
-    <li>Use one-way and two-way data <a href="https://angular.io/guide/glossary#binding" target="_blank">binding</a>.</li>
-    <li>Bind methods to user events like button click.</li>
+    <li>Create, read, update and delete data blocks.</li>
+    <li>Create <a href="https://angular.io/guide/glossary#template-driven-forms" target="_blank">forms</a> to submit user input.</li>
+    <li>Use one-way and two-way data <a href="https://angular.io/guide/glossary#binding" target="_blank">binding</a> to synchronize views with the backend logic.</li>
+    <li>Bind methods to events, like a button click.</li>
     <li>Use <a href="https://angular.io/guide/glossary#router" target="_blank">routing</a> to navigate through components and their <a href="https://angular.io/guide/glossary#view" target="_blank">views</a>.</li>
     <li>Format data by using <a href="https://angular.io/guide/glossary#pipe" target="_blank">pipes</a>.</li>
-    <li>Use a <a href="https://angular.io/guide/glossary#service" target="_blank">service</a> to manage the whole functionality.</li>
+    <li>Use a <a href="https://angular.io/guide/glossary#service" target="_blank">service</a> to encapsulate your business logic and functionality.</li>
   </ul>
 </div>
+
 <div>
-  <h4>What is this project about?</h4>
-  <p>Every student might know the problem. It's a new semester, you have a lot of lectures and
-    you never know which room to go next. Wouldn't it be nice to have an app that shows you where to go at first sight by
-    just opening it.</p>
+  <h3 id="toc_task">What is this project about?</h3>
+  <p>Every student might know the problem. It's a new semester, you have a lot of lectures and you never know which room to go next.
+  Wouldn't it be nice to have an app that shows you where to go at first sight by just opening it?</p>
   <div class="ui info message">
     <h5>User Story</h5>
-    <p>As a <strong>student </strong><br />
-      I want to <strong>have an app that shows me the room of my very next lecture</strong>, <br />
+    <p>As a <strong>student</strong><br />
+      I want to <strong>have a dashboard that shows me the room of my next upcoming lecture</strong>, <br />
       to <strong>see where to go next at first sight.</strong></p>
   </div>
-  <p>So this is basically the whole idea. On the first page we will display the next lecture of the day. We will also
-    have lecture data to manage. It will be possible to view all lectures in a timetable, to create new ones, update existing lectures or delete them.
+  <p>So this is basically the whole idea. On the start page we will display the next lecture of the day.<br>
+  We used the format of a user story as it best describes the requirements and wishes from the user's point of view. This approach is common in the software development process to gather the user's expectation apart from any technical detail.<br>
+  Following from that, we will have to manage the lecture data backlog.
+  It will be possible to view all lectures in a timetable, to create new ones, update existing lectures or delete them.
   </p>
-  <h4>Wireframes</h4>
-  <p>When you start the app you will see the next lecture you have to go to on the "Home-Screen". Above the Home-Screen
-    you can find the
-    navigation.</p>
-  <img style="margin-bottom:15px;" class="ui centered large image" src="assets/img/Home.png">
 
-  <p>When you click on Timetable you will get to the list of lectures you have. Here you can see that every lecture can
-    be
-    deleted. You can also delete all lectures with one click. Furthermore you can click the "Add"-button to add a new
-    lecture. With a click on one lecture you will get to the details of this specific lecture and you can change them.
+  <h3 id="toc_layout">How should this app look like?</h3>
+  <p>When you start the app you will see the next lecture you have to go to on the "Home-Screen". Above the Home-Screen you can find the navigation bar. There, it is possible to go back to the Home-Screen immediately at all times through clicking <em>&gt; Home</em>.</p>
+  <img class="ui centered large image" src="assets/img/Home.png">
+
+  <p>When you click on <em>&gt; Timetable</em> you will get to the list of lectures you have. Here you can see that every lecture can be deleted (<em>&gt; Delete</em>).
+  You can also delete all lectures with one click (<em>&gt; Delete All</em>). Furthermore you can click the button <em>&gt; Add</em> to create a new lecture entry.
+  With a click on one lecture you will get to the details of this specific lecture and you can change them.
   </p>
-  <img style="margin-bottom:15px;" class="ui centered large image" src="assets/img/Timetable.png">
+  <img class="ui centered large image" src="assets/img/Timetable.png">
 
-  <p>So here you can change some details and save them. Then you go back to the Timetable and see the updated list of
-    lectures.</p>
-  <img style="margin-bottom:15px;" class="ui centered large image" src="assets/img/Details.png">
+  <p>So here you can change some details and save them (<em>&gt; Save</em>). Then you go back to the Timetable and see the updated list of
+    lectures (<em>&gt; Go Back</em>).</p>
+  <img class="ui centered large image" src="assets/img/Details.png">
 
-  <p>The last point in the menu is "Add". From there, or with the "Add"-button on the timetable-view you can get to the
-    add-view.
-    There you can add a totally new lecture by making some input and choosing options from the drop-downs.</p>
-  <img style="margin-bottom:15px;" class="ui centered large image" src="assets/img/Add.png">
-
+  <p>The last point in the menu is <em>&gt; Add</em>. From there, or with the button <em>&gt; Add Lecture</em> in the <em>&gt; Timetable</em> view you can get to the <em>&gt; Add</em> view.
+  There you can add a totally new lecture by making some input and choosing options from the drop-down menues.</p>
+  <img class="ui centered large image" src="assets/img/Add.png">
+  
+  <p>Once again we used a proofen method from the software development tool box: A wireframe. The wireframe enables us to have a early visual prototype of our conceptual design and to reach a common understanding about the fundamental elements on the web page.</p>
 </div>
-<br />
-<h2>How this Web-App works</h2>
+
+<h3 id="toc_outline">What steps follow to proceed?</h3>
 <p>You will learn about the basic concepts of Angular. For every concept like components, routing, service and so on,
   you will have an own chapter with theoretical parts (light-grey background) and practical parts (instructions on white background). 
   Every chapter will bring you closer to the app I introduced to you. At the beginning of every chapter you will find a user story (light-blue background) about what you want to achieve and
@@ -108,10 +122,21 @@
       and you will see the results immediately or you can just look through the code. None of your changes are permanent, so play with the code as you like.
     </p>
 
-<div style="margin-top: 20px;">
-  <h4>Here you see the finished application and you can try it:</h4>
+<div>
+  <h5>Finished App</h5>
+  <p>Feel free to try it out:</p>
   <iframe style="width:100%; height: 750px;"
     src="https://stackblitz.com/edit/where-to-go-step-8?embed=1&file=src/app/app.component.ts&hideExplorer=1&hideNavigation=1&view=preview"></iframe>
 </div>
 
-<script type="text/javascript">alert("hi!");</script>
+<h3 id="toc_further_references">Further references</h3>
+<div class="ui warning message">
+    <ul>
+      <li><a href="https://en.wikipedia.org/wiki/Requirement" target="_blank">Requirement</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Software_prototyping" target="_blank">Software prototyping</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Website_wireframe" target="_blank">Website wireframe</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/User_story" target="_blank">User story</a></li>
+      <li><a href="https://angularplayground.it/" target="_blank">Angular Playground</a>: An open-source tool for building Angular components, directives and pipes in isolation</li>
+      <li><a href="https://angular.io/start" target="_blank">Getting Started with Angular: Your First App</a></li>
+    </ul>
+</div>

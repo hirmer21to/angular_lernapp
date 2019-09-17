@@ -1,10 +1,11 @@
-<h2 id="headline">How to set up your Environment:</h2>
+<h2 id="headline">Set up your Environment:</h2>
 <div class="ui compact menu" id="header_content">
     <div class="ui simple dropdown item">
     Content
     <i class="dropdown icon"></i>
     <div class="menu">
       <div class="item"><a href="#toc_editor">Editor</a></div>
+      <div class="item"><a href="#toc_git">Git</a></div>
       <div class="item"><a href="#toc_nodejs">Node.js</a></div>
       <div class="item"><a href="#toc_angular_cli">Angular CLI</a></div>
       <div class="item"><a href="#toc_further_references">Further references</a></div>
@@ -21,6 +22,24 @@
       <li><a href="https://www.sublimetext.com/" target="_blank">Sublime Text</a></li>
     </ul>
     <p>All of them a cross-platform, feature a packet or extension manager, different themes, customization and enable a direct Git integration.</p>
+
+  <h3 id="toc_git">Git</h3>
+  <p>
+    To track changes, see our progress and be able to restore to the last working version (if something is broken), we use <a href="https://git-scm.com/" target="_blank">Git</a> as our <a href="https://www.atlassian.com/git/tutorials/what-is-version-control">Version Control System</a> to manage our tutorial project.<br>
+    Apart from the standalone git client (CLI and a crud GUI), almost all editors have nowadays an integrated git client. Furthermore, if you prefer it, its possible to use dedicated graphical applications with advanced features and a streamlined workflow:</p>
+    <ul>
+        <li><a href="https://git-fork.com/" target="_blank">Fork</a></li>
+        <li><a href="https://www.sourcetreeapp.com/" target="_blank">Sourcetree</a></li>
+        <li><a href="https://gitfiend.com/" target="_blank">GitFiend</a></li>
+        <li><a href="https://gitblade.com/" target="_blank">GitBlade</a></li>
+        <li><a href="https://www.sublimemerge.com/" target="_blank">Sublime Merge</a></li>
+    </ul>
+
+    <p class="ui info message" style="margin-bottom:30px;">
+        Please note: Git will not save the <code class="language-bash">node_modules</code> folger in the Git repository. So if you clone your project
+        for the first time you need to install all dependencies via <code class="language-bash">npm install</code> (this time as an administrator).
+        Also make sure, that on this different PC Node.js and the Angular CLI are installed, too (see above for instructions).
+    </p>
 
   <h3 id="toc_nodejs">Node.js</h3>
   <p>

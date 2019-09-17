@@ -108,17 +108,6 @@
     will learn in the chapter <a routerLink="/service">Service</a>.
   </p>
 </div>
-<div *ngIf="praxis" style="margin-top: 20px;">
-  <h4>Git</h4>
-  <p>Before we make changes, we want to manage our project with Git. As you already know, Visual Studio Code comes with
-    a Git integration. My recommendation is to install Sourcetree, open a new tab and add the project folder, so you can
-    manage Git from Sourcetree. Of course, you can also use your command line, Git Gui or Visual Studio Code.</p>
-  <p class="ui info message" style="margin-bottom:30px;">
-    Please note: If you use Git it will not save the folder node_modules in the Git repository. So if you clone your project
-    for the first time you need to install all dependencies via <code style="font-family:'Consolas';">npm install</code> (this time as an administrator). 
-    Also make sure, that you have installed Node.js and the Angular-CLI (see chapter <a routerLink="/environment">Environment</a>).
-  </p>
-</div>
 
 <div *ngIf="praxis" style="margin-top: 20px;">
 
@@ -203,4 +192,12 @@
     <mat-progress-bar style="margin-bottom:20px;" mode="determinate" value="10"></mat-progress-bar>
   </div>
 
+</div>
+
+<h3 id="toc_further_references">Further references</h3>
+<div class="ui warning message">
+    <ul>
+        <li><a href="https://material.angular.io/" target="_blank">Angular Material</a>: Material design components for Angular</li>
+        <li><a href="https://ng-bootstrap.github.io/#/home" target="_blank">Bootstrap widgets</a>: The angular way</li>
+    </ul>
 </div>
