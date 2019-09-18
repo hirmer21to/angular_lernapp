@@ -27,7 +27,7 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/semantic-ui/dist/semantic.min.css",
+              "./node_modules/semantic-ui-css/semantic.min.css",
               "src/styles.css",
               "src/prism.css",
               "src/bootstrap.min.css"

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ModiService } from '../shared/modi.service';
 import { Modus } from '../shared/modus';
 
+import * as Prism from '../../prism.js';
+
 @Component({
   selector: 'app-components',
   templateUrl: './components.component.html',
@@ -23,6 +25,10 @@ export class ComponentsComponent implements OnInit {
     this.theorySmall = this.modus.theorySmall;
     this.theoryLarge = this.modus.theoryLarge;
     this.praxis = this.modus.praxis;
+  }
+
+  ngAfterViewInit() {
+    Prism.highlightAll();
   }
 
   getModus(): void{

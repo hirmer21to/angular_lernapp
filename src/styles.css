@@ -8,10 +8,6 @@
     border: 3px solid black;
 }
 
-code {
-    font-family: 'Consolas', 'Monospace'
-}
-
 div.item a {
     display:block !important;
     width:100%;

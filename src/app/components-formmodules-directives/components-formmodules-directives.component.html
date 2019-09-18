@@ -8,10 +8,10 @@
 <div *ngIf="praxis">
     <h4>Mock Data</h4>
     <p>Later we will have more than one lecture and therefore we will need a list to display all of them. </p>
-    <p class="ui message black"><code style="font-family:'Consolas';">ng g component timetable</code></p>
+    <pre class="command-line language-bash"><code>ng g component timetable</code></pre>
     <p>Because we don't get our data from a server we will create some mock-data and pretend that they are from a
         server.</p>
-    <p class="ui message black"><code style="font-family:'Consolas';">ng g class shared/mock-lectures</code></p>
+    <pre class="command-line language-bash"><code>ng g class shared/mock-lectures</code></pre>
     <p>Remove the class in this file and define the constant LECTURES as an array of lectures and export it. The content is the same
         as in the property lecture from the lecture-item.component.ts, so you can copy the first lecture from there and
         paste
@@ -25,38 +25,29 @@
         </p>
     </div>
 
-    <div class="ui message black">
-        <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#ffffff;">export </span><span style="color:#359aff;">const</span><span style="color:#ffffff;"> LECTURES</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Lecture</span><span style="color:#008000;">[] </span><span style="color:#008000;">= </span><span style="color:#008000;">[
-    </span><span style="color:#b16565;">&#123;
-        </span><span style="color:#ffffff;">id</span><span style="color:#008000;">: </span><span style="color:#00ff40;">1</span><span style="color:#b16565;">,
-        </span><span style="color:#ffffff;">name</span><span style="color:#008000;">: </span><span style="color:#ffff80;">&#39;Webtechnologien&#39;</span><span style="color:#b16565;">,
-    </span><span style="color:#ffffff;">    room</span><span style="color:#008000;">: </span><span style="color:#ffff80;">&#39;075&#39;</span><span style="color:#b16565;">,
-    </span><span style="color:#ffffff;">    day</span><span style="color:#008000;">: </span><span style="color:#ffff80;">&#39;Monday&#39;</span><span style="color:#b16565;">,
-    </span><span style="color:#ffffff;">    time</span><span style="color:#008000;">: </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> hours</span><span style="color:#008000;">: </span><span style="color:#00ff40;">10</span><span style="color:#b16565;">,</span><span style="color:#ffffff;"> minutes</span><span style="color:#008000;">: </span><span style="color:#00ff40;">15 </span><span style="color:#b16565;">&#125;,
-    </span><span style="color:#ffffff;">    building</span><span style="color:#008000;">: </span><span style="color:#ffff80;">&#39;WE5&#39;</span><span style="color:#b16565;">,
-        </span><span style="color:#ffffff;">floor</span><span style="color:#008000;">: </span><span style="color:#ffff80;">&#39;02&#39;</span><span style="color:#b16565;">,
-    </span><span style="color:#ffffff;">    department</span><span style="color:#008000;">: </span><span style="color:#ffff80;">&#39;Lehrstuhl für Medieninformatik&#39;
-    </span><span style="color:#b16565;">&#125;,
-    </span><span style="color:#b16565;">&#123;
-        </span><span style="color:#ffffff;">id</span><span style="color:#008000;">: </span><span style="color:#00ff40;">2</span><span style="color:#b16565;">,
-    </span><span style="color:#ffffff;">    ... and so on
-    </span><span style="color:#b16565;">&#125;
-</span><span style="color:#008000;">]</span></pre>
-    </div>
+    <pre class="language-ts"><code>export const LECTURES: Lecture[] = [
+  &#123;
+    id: 1,
+    name: 'Webtechnologien',
+    room: '075',
+    day: 'Monday',
+    time: &#123;hours: 10, minutes: 15&#125;,
+    building: 'WE5',
+    floor: '02',
+    department: 'Lehrstuhl für Medieninformatik'
+  &#125;,
+  &#123;
+    id: 2,
+    // ... and so on
+  &#125;
+]</code></pre>
 
     <p>After that, you can delete the property lecture from the <b>lecture-item.component.ts</b> and initialise the
         constant in the <b>timetable.component.ts</b>, because we need the data in the list now.</p>
 
-    <div class="ui message black">
-        <pre
-            style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#ffffff;">lectures </span><span style="color:#008000;">=</span><span style="color:#ffffff;"> LECTURES</span><span style="color:#b16565;">;</span></pre>
-    </div>
-    <p>Of course we also need to import the constant <code style="font-family:'Consolas';">LECTURES</code> now.</p>
-    <div class="ui message black">
-        <pre
-            style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> LECTURES </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;../shared/mock-lectures&#39;</span><span style="color:#b16565;">;</span></pre>
-    </div>
-
+    <pre class="language-ts"><code>lectures = LECTURES;</code></pre>
+    <p>Of course we also need to import the constant <code>LECTURES</code> now.</p>
+    <pre class="language-ts"><code>import &#123; LECTURES &#125; from "../shared/mock-lectures";</code></pre>
 
     <h4>Display a List</h4>
     <p>
@@ -66,100 +57,86 @@
     <p>First we have to write the code for a single lecture item and replace the code in
         <b>lecture-item.component.html</b>: </p>
 
-    <div class="ui message black">
-        <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">&lt;a </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;content&quot;</span><span style="color:#359aff;">&gt;
-    </span><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;header&quot;</span><span style="color:#359aff;">&gt;</span><span style="color:#ffffff;">What? <span>{{</span>lecture.name | uppercase<span>}}</span></span><span style="color:#359aff;">&lt;/div&gt;
-    </span><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;description&quot;</span><span style="color:#359aff;">&gt;</span><span style="color:#ffffff;">Where? <span>{{</span>lecture.building<span>}}</span>/
-        <span>{{</span>lecture.floor<span>}}</span>.<span>{{</span>lecture.room<span>}}</span></span><span style="color:#359aff;">&lt;/div&gt;
-    </span><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;description&quot;</span><span style="color:#359aff;">&gt;</span><span style="color:#ffffff;">When? <span>{{</span>lecture.day<span>}}</span>, 
-        <span>{{</span>lecture.time.hours<span>}}</span>:<span>{{</span>lecture.time.minutes<span>}}</span></span><span style="color:#359aff;">&lt;/div&gt;
-    </span><span style="color:#359aff;">&lt;div</span><span style="color:#ffffff;"> *ngIf</span><span style="color:#ff4848;">=</span><span style="color:#ffffff;">&quot;lecture.department&quot; </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;description&quot;</span><span style="color:#359aff;">&gt;</span><span style="color:#ffffff;">Department: 
-        <span>{{</span>lecture.department<span>}}</span></span><span style="color:#359aff;">&lt;/div&gt;
-&lt;/a&gt;</span></pre>
+    <pre class="language-html"><code>&lt;a class="content"&gt;
+    &lt;div class="header"&gt;What? <span>{{</span>lecture.name | uppercase<span>}}</span>&lt;&#47;div&gt;
+    &lt;div class="description"&gt;Where? <span>{{</span>lecture.building<span>}}</span>&#47;
+        <span>{{</span>lecture.floor<span>}}</span>.<span>{{</span>lecture.room<span>}}</span>&lt;&#47;div&gt;
+    &lt;div class="description"&gt;When? <span>{{</span>lecture.day<span>}}</span>, 
+        <span>{{</span>lecture.time.hours<span>}}</span>:<span>{{</span>lecture.time.minutes<span>}}</span>&lt;&#47;div&gt;
+    &lt;div *ngIf="lecture.department" class="description"&gt;Department: 
+        <span>{{</span>lecture.department<span>}}</span>&lt;&#47;div&gt;
+&lt;&#47;a&gt;</code></pre>
 
-    </div>
     <p>Next change the selector in the <b>lecture-item.component.ts</b>:</p>
-    <div class="ui message black">
-        <pre
-            style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#ffffff;">selector</span><span style="color:#008000;">: </span><span style="color:#ffff80;">&#39;a.app-lecture-item&#39;</span><span style="color:#b16565;">,</span></pre>
-    </div>
+    <pre class="language-ts"><code>selector: 'a.app-lecture-item',</code></pre>
     <p>And insert this right above the empty constructor:</p>
 
-    <div class="ui message black">
-        <pre
-            style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#ffffff;">@</span><span style="color:#ff4848;">Input</span><span style="color:#b16565;">()</span><span style="color:#ffffff;"> lecture</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Lecture</span><span style="color:#b16565;">;</span></pre>
-    </div>
-    <p>For that, we need to import the class <code style="font-family:'Consolas';">Input</code>.</p>
-    <div class="ui message black">
-        <pre
-            style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> Input </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;@angular/core&#39;</span><span style="color:#b16565;">;</span></pre>
-    </div>
+    <pre class="language-ts"><code>@Input() lecture: Lecture;</code></pre>
+
+    <p>For that, we need to import the class <code>Input</code>.</p>
+    <pre class="language-ts"><code>import &#123; Input &#125; from "@angular/core";</code></pre>
 </div>
 <div *ngIf="theoryLarge" style="margin-top: 20px;" class="ui message">
     <h4>Input-Property</h4>
     <p>
         You can transfer data, especially between parent- and children-components via
-        <code style="font-family:'Consolas';">@Input()</code>-property. The
+        <code>@Input()</code>-property. The
         decorator marks the class field as an input property and provides configuration metadata. This declares a
         data-bound input property, which is automatically updated during change detection.
     </p>
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
     <p>We display this component in the <b>app.component.html</b> and replace the lecture-item with this code:</p>
-    <div class="ui message black">
-        <pre
-            style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#ffffff;">&lt;app-timetable&gt;&lt;/app-timetable&gt;</span></pre>
-    </div>
+    <pre class="language-html"><code>&lt;app-timetable&gt;&lt;/app-timetable&gt;</code></pre>
     <p>In the <b>timetable.component.html</b> we display the list of lecture-items now with a header beyond and a
         for-loop, because every item should be displayed the same way:</p>
 
-    <div class="ui message black">
-        <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;"><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;margin-top: </span><span style="color:#00ff40;">15px</span><span style="color:#ffffff;">&quot;</span><span style="color:#359aff;">&gt;&lt;/div&gt;
-    &lt;h2 </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;ui header&quot;</span><span style="color:#359aff;">&gt;</span><span style="color:#ffffff;">Timetable:</span><span style="color:#359aff;">&lt;/h2&gt;
-    &lt;div </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;padding: </span><span style="color:#00ff40;">15px</span><span style="color:#ff8000;">;</span><span style="color:#ffffff;">&quot;</span><span style="color:#359aff;">&gt;
-        </span><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;ui middle aligned divided list&quot;</span><span style="color:#359aff;">&gt;
-            </span><span style="color:#359aff;">&lt;div</span><span style="color:#ffffff;"> *ngFor</span><span style="color:#ff4848;">=</span><span style="color:#ffffff;">&quot;let l of lectures&quot; </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;item&quot;</span><span style="color:#359aff;">&gt;
-                </span><span style="color:#359aff;">&lt;a </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;app-lecture-item item&quot; [lecture]</span><span style="color:#ff4848;">=</span><span style="color:#ffffff;">&quot;l&quot; 
-                </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;margin: </span><span style="color:#00ff40;">10px</span><span style="color:#ff8000;">;</span><span style="color:#ffffff;"> padding:</span><span style="color:#00ff40;">10px</span><span style="color:#ffffff;">&quot;</span><span style="color:#359aff;">&gt;&lt;/a&gt;
-        </span><span style="color:#359aff;">&lt;/div&gt;
-    </span><span style="color:#359aff;">&lt;/div&gt;
-&lt;/div&gt; </span></pre>
-    </div>
-    <p>With the construct <code style="font-family:'Consolas';">[lecture]="l"</code> we make sure that <code
-            style="font-family:'Consolas';">l</code> is the lecture
+<pre class="line-numbers language-html"><code>&lt;div style="margin-top: 15px"&gt;&lt;&#47;div&gt;
+    &lt;h2 class="ui header"&gt;Timetable:&lt;&#47;h2&gt;
+    &lt;div style="padding: 15px;"&gt;
+        &lt;div class="ui middle aligned divided list"&gt;
+            &lt;div *ngFor="let l of lectures" class="item"&gt;
+                &lt;a class="app-lecture-item item" [lecture]="l" 
+                style="margin: 10px; padding:10px"&gt;&lt;&#47;a&gt;
+        &lt;&#47;div&gt;
+    &lt;&#47;div&gt;
+&lt;&#47;div&gt; 
+</code></pre>
+
+    <p>With the construct <code>[lecture]="l"</code> we make sure that <code
+           >l</code> is the lecture
         we imported via input-binding
         before.</p>
     <p class="ui info message">
         Property-Binding: Sets properties of the DOM-Tree. Syntax:<br />
-        <code style="font-family:'Consolas';">[ ] = " "</code>
+        <code>[ ] = " "</code>
     </p>
 </div>
 <div *ngIf="theorySmall" style="margin-top: 20px;" class="ui message">
     <h4>Directives</h4>
-    <p>Constructs like <code style="font-family:'Consolas';">*ngFor</code> are called "Directives". With this you can
+    <p>Constructs like <code>*ngFor</code> are called "Directives". With this you can
         make loops in the HTML similar to
         loops in the logic code (TypeScript, Java,...), as you may know. </p>
     <p>Every time I iterate over my list of items (if you also read the code examples, it's a list of lectures) I take
         one single item out of all items, for which is displayed what I defined for it as HTML code before. With the
-        attribute <code style="font-family:'Consolas';">[lecture]</code> I assign the respective lecture object. And
+        attribute <code>[lecture]</code> I assign the respective lecture object. And
         with
         this for-loop I repeat this for all the items (lectures) I have.</p>
-    <p>Another directive we already used before is <code style="font-family:'Consolas';">*ngIf</code>. For those who
+    <p>Another directive we already used before is <code>*ngIf</code>. For those who
         read the code: because we made
         department an optional property, someone may not set a value for this property. So we want to ask if this
         property has a value and just display
-        the corresponding <code style="font-family:'Consolas';">div</code> if it has one.</p>
+        the corresponding <code>div</code> if it has one.</p>
     <p>This is also called templating-microsyntax, because the way we iterate over an array isn't just a simple
         templating expression, it is a very small own language which generates DOM-elements. For every element in the
         array it creates a new instance of something. In this case
-        <code style="font-family:'Consolas';">&lt;a class="app-lecture-item item" ...&gt;&lt;/a&gt;</code>.</p>
+        <code>&lt;a class="app-lecture-item item" ...&gt;&lt;/a&gt;</code>.</p>
     <p class="ui info message">
-        Structurdirectives: Directives to manipulate the DOM-Tree.
-        Syntax:
-        <br />
-        <code style="font-family:'Consolas';">*ngFor="let lecture of lectures" <br />
-        *ngIf="lecture.department"</code>
-    </p>
+        Structure directives: Directives to manipulate the DOM-Tree.
+        Syntax:<br>
+    <code class="language-ts">*ngFor="let lecture of lectures"</code><br><code class="language-ts">
+*ngIf="lecture.department"</code></p>
+    
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
     <h4>Visualization of the Construction:</h4>
@@ -169,56 +146,46 @@
     <p>Later we want to be able to make changes within a lecture item so we want to select one lecture and get its
         details
         view via click. First we need a variable for the selected lecture in the <b>timetable.component.ts</b>
-        and second we need a function, we call it <code style="font-family:'Consolas';">onSelect()</code>, which assigns
+        and second we need a function, we call it <code>onSelect()</code>, which assigns
         the clicked lecture from the
-        template to the <code style="font-family:'Consolas';">selectedLecture</code> of the component.</p>
+        template to the <code>selectedLecture</code> of the component.</p>
 
-    <div class="ui message black">
-        <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">selectedLecture</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Lecture</span><span style="color:#b16565;">;</span>
-<span style="color:#ffffff;">onSelect</span><span style="color:#b16565;">(</span><span style="color:#ffffff;">lecture</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Lecture</span><span style="color:#b16565;">)</span><span style="color:#008000;">: </span><span style="color:#359aff;">void </span><span style="color:#b16565;">&#123;</span>
-    <span style="color:#359aff;">this</span><span style="color:#ffffff;">.selectedLecture </span><span style="color:#008000;">=</span><span style="color:#ffffff;"> lecture</span><span style="color:#b16565;">;
-&#125;</span></pre>
-    </div>
-    <p>Of course we also need to import the class <code style="font-family:'Consolas';">Lecture</code>.</p>
-    <div class="ui message black">
-        <pre
-            style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> Lecture </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;../shared/lecture&#39;</span><span style="color:#b16565;">;</span></pre>
-    </div>
+    <pre class="language-ts"><code>selectedLecture: Lecture;
+
+onSelect(lecture: Lecture): void &#123;
+    this.selectedLecture = lecture;
+&#125;</code></pre>
+
+    <p>Of course we also need to import the class <code>Lecture</code>.</p>
+    <pre class="language-ts"><code>import &#123; Lecture &#125; from "../shared/lecture";</code></pre>
 
     <p>We add a click-event-binding to the <b>timetable.component.html</b>:</p>
 
-    <div class="ui message black">
-        <pre
-            style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">&lt;a </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;app-lecture-item item&quot; [lecture]</span><span style="color:#ff4848;">=</span><span style="color:#ffffff;">&quot;l&quot; 
-    (click)</span><span style="color:#ff4848;">=</span><span style="color:#ffffff;">&quot;onSelect(l)&quot; </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;margin: </span><span style="color:#00ff40;">10px</span><span style="color:#ff8000;">;</span><span style="color:#ffffff;"> padding:</span><span style="color:#00ff40;">10px</span><span style="color:#ffffff;">&quot;</span><span style="color:#359aff;">&gt;&lt;/a&gt;</span></pre>
-    </div>
+    <pre class="language-html"><code>&lt;a class="app-lecture-item item" [lecture]="l" (click)="onSelect(l)" style="margin: 10px; padding: 10px"&gt;&lt;&#47;a&gt;</code></pre>
+
     <p class="ui info message">Event-Binding: Interrogate results and treat them. Syntax: <br />
-        <code style="font-family:'Consolas';">() = " "</code>
+        <code>() = " "</code>
     </p>
     <p>We want to display the clicked lecture beneath the list of all lectures. therefore we need to add some code for
         the selected lecture, but only if there is a lecture selected. To make this sure, we have the <code
-            style="font-family:'Consolas';">*ngIf</code>
+           >*ngIf</code>
         directive.</p>
     <p>In the <b>timetable.component.html</b> we need to insert the following code snippet beneath the existing code:
     </p>
 
-    <div class="ui message black">
-        <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;"><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;padding: </span><span style="color:#00ff40;">15px</span><span style="color:#ff8000;">;</span><span style="color:#ffffff;">&quot;</span><span style="color:#359aff;">&gt;
-    </span><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;ui middle aligned divided list&quot;</span><span style="color:#359aff;">&gt;
-        </span><span style="color:#359aff;">&lt;div</span><span style="color:#ffffff;"> *ngIf</span><span style="color:#ff4848;">=</span><span style="color:#ffffff;">&quot;selectedLecture&quot; </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;padding: </span><span style="color:#00ff40;">50px</span><span style="color:#ff8000;">;</span><span style="color:#ffffff;">&quot;</span><span style="color:#359aff;">&gt;
-        </span><span style="color:#359aff;">&lt;h4&gt;</span><span style="color:#ffffff;"> <span>{{</span>selectedLecture.name<span>}}</span> Details </span><span style="color:#359aff;">&lt;/h4&gt;
-                </span><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;description&quot;</span><span style="color:#359aff;">&gt;</span><span style="color:#ffffff;">Where? <span>{{</span>selectedLecture.building<span>}}</span>/
-                <span>{{</span>selectedLecture.floor<span>}}</span>.<span>{{</span>selectedLecture.room<span>}}</span> </span><span style="color:#359aff;">&lt;/div&gt;
-                </span><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;description&quot;</span><span style="color:#359aff;">&gt;</span><span style="color:#ffffff;">When? <span>{{</span>selectedLecture.day<span>}}</span>,
-                <span>{{</span>selectedLecture.time.hours<span>}}</span>:<span>{{</span>selectedLecture.time.minutes<span>}}</span> </span><span style="color:#359aff;">&lt;/div&gt;
-                </span><span style="color:#359aff;">&lt;div</span><span style="color:#ffffff;"> *ngIf</span><span style="color:#ff4848;">=</span><span style="color:#ffffff;">&quot;selectedLecture.department&quot; </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;description&quot;</span><span style="color:#359aff;">&gt;</span><span style="color:#ffffff;">Department:
-            <span>{{</span>selectedLecture.department<span>}}</span> </span><span style="color:#359aff;">&lt;/div&gt;
-        </span><span style="color:#359aff;">&lt;/div&gt;
-    </span><span style="color:#359aff;">&lt;/div&gt;
-&lt;/div&gt;</span></pre>
-    </div>
-    <p>Now we asked, is there a <code style="font-family:'Consolas';">selectedLecture</code>? If there is, display the
-        <code style="font-family:'Consolas';">selectedLecture.name, selectedLecture.building</code>
+<pre class="language-html line-numbers"><code>&lt;div style="padding: 15px;"&gt;
+    &lt;div class="ui middle aligned divided list"&gt;
+        &lt;div *ngIf="selectedLecture" style="padding: 50px;"&gt;
+            &lt;h4&gt; <span>{{</span>selectedLecture.name<span>}}</span> Details &lt;&#47;h4&gt;
+            &lt;div class="description"&gt;Where? <span>{{</span>selectedLecture.building<span>}}</span>&#47;<span>{{</span>selectedLecture.floor<span>}}</span>.<span>{{</span>selectedLecture.room<span>}}</span> &lt;&#47;div&gt;
+            &lt;div class="description"&gt;When? <span>{{</span>selectedLecture.day<span>}}</span>,<span>{{</span>selectedLecture.time.hours<span>}}</span>:<span>{{</span>selectedLecture.time.minutes<span>}}</span> &lt;&#47;div&gt;
+            &lt;div *ngIf="selectedLecture.department" class="description"&gt;Department: <span>{{</span>selectedLecture.department<span>}}</span> &lt;&#47;div&gt;
+        &lt;&#47;div&gt;
+    &lt;&#47;div&gt;
+&lt;&#47;div&gt;</code></pre>
+    
+    <p>Now we asked, is there a <code>selectedLecture</code>? If there is, display the
+        <code>selectedLecture.name, selectedLecture.building</code>
         and all the other information.</p>
 </div>
 
@@ -227,23 +194,19 @@
     <p>If we want to make changes in the details of a lecture, we will need two-way-binding and input fields.
     </p>
     <p class="ui info message">Two-Way-Binding: Can read in properties and process results. Syntax: <br />
-        <code style="font-family:'Consolas';">[()] = " "</code>
+        <code>[()] = " "</code>
     </p>
     <p>First we need to import the FormsModule in <b>app.module.ts</b>:</p>
 
-    <div class="ui message black">
-        <pre
-            style="font-family:'Consolas'; font-size:10pt; color:#ffffff;"><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> FormsModule </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;@angular/forms&#39;</span><span style="color:#b16565;">;</span></pre>
-    </div>
+    <pre class="language-ts"><code>import &#123; FormsModule &#125; from "@angular/forms";</code></pre>
 
-    <div class="ui message black">
-        <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff; "><span style="color:#ffffff;">imports</span><span style="color:#008000;">: </span><span style="color:#008000;">[
-    </span><span style="color:#ffffff;">...</span><span style="color:#b16565;">,
-    </span><span style="color:#ffffff;">FormsModule
-</span><span style="color:#008000;">]</span><span style="color:#b16565;">,</span></pre>
-    </div>
+    <pre class="language-ts"><code>imports: [
+    // Beside other entries, add:
+    FormsModule
+],</code></pre>
+
     <p>Afterwards we can make the changes in <b>timetable.component.html</b> with <code
-            style="font-family:'Consolas';">[(ngModel)]</code>, the
+           >[(ngModel)]</code>, the
         bidirectional data-binding of Angular. It binds the selectedLecture.name property to the HTML input field so
         that
         data can flow in both directions: from the selectedLecture.name property to the input field and from the input
@@ -252,14 +215,13 @@
     <p>This is going to be a lot of code, because the input form should already look good and provide drop-downs for an
         easier input. For one item the code will look like this:</p>
 
-    <div class="ui message black">
-        <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;"><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;field&quot;</span><span style="color:#359aff;">&gt;
-    </span><span style="color:#359aff;">&lt;label&gt;</span><span style="color:#ffffff;">Name of the Lecture*:</span><span style="color:#359aff;">&lt;/label&gt;
-    </span><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;field&quot;</span><span style="color:#359aff;">&gt;
-        </span><span style="color:#359aff;">&lt;input</span><span style="color:#ffffff;"> [(ngModel)]</span><span style="color:#ff4848;">=</span><span style="color:#ffffff;">&quot;selectedLecture.name&quot; </span><span style="color:#ff4848;">placeholder=</span><span style="color:#ffffff;">&quot;Name&quot; </span><span style="color:#359aff;">/&gt;
-    </span><span style="color:#359aff;">&lt;/div&gt;
-&lt;/div&gt;</span></pre>
-    </div>
+<pre class="language-html line-numbers"><code>&lt;div class="field"&gt;
+    &lt;label&gt;Name of the Lecture*:&lt;&#47;label&gt;
+    &lt;div class="field"&gt;
+        &lt;input [(ngModel)]="selectedLecture.name" placeholder="Name" &#47;&gt;
+    &lt;&#47;div&gt;
+&lt;&#47;div&gt;</code></pre>
+
     <p>Replace the old code for the details with this code for every input and finally the app looks like in the code
         editor at the end of this page.</p>
 </div>
@@ -270,16 +232,16 @@
         <h4>Summary</h4>
         <ul>
             <li>You learned about directives.</li>
-            <li>You used <code style="font-family:'Consolas';">*ngIf</code> to show or hide the department.</li>
-            <li>You binded the lecture via <code style="font-family:'Consolas';">@Input()</code> binding and set the
+            <li>You used <code>*ngIf</code> to show or hide the department.</li>
+            <li>You binded the lecture via <code>@Input()</code> binding and set the
                 property via property binding.</li>
-            <li>You applied the <code style="font-family:'Consolas';">*ngFor</code> directive to display a list of
+            <li>You applied the <code>*ngFor</code> directive to display a list of
                 lectures.</li>
             <li>You prepared a details view for lectures and displayed it with a click event.</li>
-            <li>You imported the <code style="font-family:'Consolas';">FormsModule</code> in the <code
-                    style="font-family:'Consolas';">AppModule</code>.</li>
+            <li>You imported the <code>FormsModule</code> in the <code
+                   >AppModule</code>.</li>
             <li>You made the details view editable because you applied the <code
-                    style="font-family:'Consolas';">NgModel</code> directive and made it an input form.</li>
+                   >NgModel</code> directive and made it an input form.</li>
         </ul>
     </div>
     <iframe style="margin-top:20px; margin-bottom:20px; width:100%; height: 500px"
