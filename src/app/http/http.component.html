@@ -10,7 +10,7 @@
   <p>
     Most front-end applications interact with the backend over HTTP protocol. In fact, every application loads data at
     runtime. Different patterns can be used. Angular uses the RxJS-Framework, that is based on the observable pattern.
-    The Angular class <code style="font-family:'Consolas';">Http</code> implements this pattern and provides an
+    The Angular class <code>Http</code> implements this pattern and provides an
     interface, where you can load data
     asynchonous.
   </p>
@@ -24,8 +24,8 @@
   </ul>
   <p>The term "resource" refers to a single data object of a REST server. The path of the request tells the
     server which resource to do an action on. For example you can make a request for a list with the path
-    <code style="font-family:'Consolas';">/list</code> and the method <code style="font-family:'Consolas';">GET</code>.
-    And with the path <code style="font-family:'Consolas';">/list/1234</code> you could request the
+    <code>/list</code> and the method <code>GET</code>.
+    And with the path <code>/list/1234</code> you could request the
     list-item 1234.</p>
   <h4>Observables</h4>
   <p>Reactive programing is a programing paradigm. It's about data streams. As an example calculation tables in MS
@@ -38,58 +38,58 @@
     <li>Allow the use of operators, to manipulate data</li>
     <li>Release storage, if data stream is no longer needed</li>
   </ul>
-  <p> <code style="font-family:'Consolas';">subscribe</code>-method: it's used to listen and react to signals of the
+  <p> <code>subscribe</code>-method: it's used to listen and react to signals of the
     observable. The signature could
     look like this:
-    <code style="font-family:'Consolas';">obs.subscribe((data) => &#123;...&#125;);</code></p>
-  <p><code style="font-family:'Consolas';">pipe</code>-method: chains the operators of observables. The method gets null
+    <code>obs.subscribe((data) => &#123;...&#125;);</code></p>
+  <p><code>pipe</code>-method: chains the operators of observables. The method gets null
     or more operators and returns
     an observable.
     The data of the returned observable have the same type as they have in the last operator</p>
   <ul>
-    <li><code style="font-family:'Consolas';">map</code>-operator: gets an observable internally, gives the data of the
+    <li><code>map</code>-operator: gets an observable internally, gives the data of the
       observable to the transformation
       function,
       gets the return value and puts it in an observable. This new observable is forwarded to the next operator</li>
-    <li><code style="font-family:'Consolas';">mapTo</code>-operator: forwards a static value</li>
-    <li><code style="font-family:'Consolas';">tap</code>-operator: is used for side-effects. Can be used to print the
+    <li><code>mapTo</code>-operator: forwards a static value</li>
+    <li><code>tap</code>-operator: is used for side-effects. Can be used to print the
       data stream on the console, or to
       save data from the server in a property</li>
-    <li><code style="font-family:'Consolas';">catchError</code>-operator: is comparable to the <code
-        style="font-family:'Consolas';">catch</code> of a <code style="font-family:'Consolas';">try/catch</code>-block.
+    <li><code>catchError</code>-operator: is comparable to the <code
+       >catch</code> of a <code>try/catch</code>-block.
       It
       gets an error, handles the error and returns a new observable or a new error-observable for the next
-      <code style="font-family:'Consolas';">catchError</code>-operator</li>
-    <li><code style="font-family:'Consolas';">of</code>-operator: creates a new observable from a static value</li>
-    <li><code style="font-family:'Consolas';">throwError</code>-operator: creates a new error-observable. It's similar
-      to the <code style="font-family:'Consolas';">throw</code>
+      <code>catchError</code>-operator</li>
+    <li><code>of</code>-operator: creates a new observable from a static value</li>
+    <li><code>throwError</code>-operator: creates a new error-observable. It's similar
+      to the <code>throw</code>
       command</li>
   </ul>
   <h4>Http-Module</h4>
   <p>The http-module contains three Angular modules: <code
-      style="font-family:'Consolas';"> HttpClientModule, HttpClientJsonpModule</code> and
-    <code style="font-family:'Consolas';">HttpClientXsrfModule</code>. The most important classes of the http-module
+     > HttpClientModule, HttpClientJsonpModule</code> and
+    <code>HttpClientXsrfModule</code>. The most important classes of the http-module
     are:</p>
   <ul>
-    <li><code style="font-family:'Consolas';">HttpHeaders</code>: helps you to define and manipulate the http-headers of
+    <li><code>HttpHeaders</code>: helps you to define and manipulate the http-headers of
       a server request</li>
-    <li><code style="font-family:'Consolas';">HttpParams</code>: helps you to define and manipulate the request
+    <li><code>HttpParams</code>: helps you to define and manipulate the request
       parameter of a server request</li>
-    <li><code style="font-family:'Consolas';">HttpRequest</code>: represents server requests. An instance of this class
+    <li><code>HttpRequest</code>: represents server requests. An instance of this class
       contains URL and http-headers
       for
       the request. You don't assign instances of this class, Angular will do this internally.</li>
-    <li><code style="font-family:'Consolas';">HttpResponse</code>: represents an answer from the server. It contains for
+    <li><code>HttpResponse</code>: represents an answer from the server. It contains for
       example the status, the server
       has for the request and the data the server sends.</li>
-    <li><code style="font-family:'Consolas';">HttpErrorResponse</code>: represents an error-answer from the server. The
+    <li><code>HttpErrorResponse</code>: represents an error-answer from the server. The
       answer of the server fails when
       the connection fails, when an exception is in your code or when the server status code is bigger or equals 400.
     </li>
   </ul>
-  <p>We will work with the <code style="font-family:'Consolas';">HttpClientModule</code>. It provides the <code
-      style="font-family:'Consolas';">HttpClient</code> service. All methods
-    of the <code style="font-family:'Consolas';">HttpClient</code> service return observables and use json data. The use
+  <p>We will work with the <code>HttpClientModule</code>. It provides the <code
+     >HttpClient</code> service. All methods
+    of the <code>HttpClient</code> service return observables and use json data. The use
     of json data means that Angular
     serializes and deserializes the data for you.</p>
 </div>
@@ -110,7 +110,7 @@
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> HttpClientModule </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;@angular/common/http&#39;</span><span style="color:#b16565;">;</span></pre>
   </div>
-  <p>And add it to the <code style="font-family:'Consolas';">imports</code> array:</p>
+  <p>And add it to the <code>imports</code> array:</p>
 
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">imports</span><span style="color:#008000;">: </span><span style="color:#008000;">[
@@ -120,9 +120,9 @@
   </div>
   <p>The In-Memory Web API Module will be used. It imitates the communication with a remote data server. First install
     the npm package and generate the InMemoryData-Service:</p>
-  <p class="ui message black"> <code style="font-family:'Consolas';">npm install angular-in-memory-web-api --save</code>
+  <p class="ui message black"> <code>npm install angular-in-memory-web-api --save</code>
   </p>
-  <p class="ui message black"> <code style="font-family:'Consolas';">ng g service shared/InMemoryData</code></p>
+  <p class="ui message black"> <code>ng g service shared/InMemoryData</code></p>
   <p>Import to <b>app.module.ts</b>:</p>
 
   <div class="ui message black">
@@ -130,7 +130,7 @@
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> HttpClientInMemoryWebApiModule </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;angular-in-memory-web-api&#39;<span style="color:#b16565;">; </span>
 </span><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> InMemoryDataService </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;./shared/in-memory-data.service&#39;</span><span style="color:#b16565;">; </span></pre>
   </div>
-  <p>And you also need to add it to the <code style="font-family:'Consolas';">imports</code> array:</p>
+  <p>And you also need to add it to the <code>imports</code> array:</p>
 
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">imports</span><span style="color:#008000;">: </span><span style="color:#008000;">[
@@ -145,10 +145,10 @@
   <p>If you have this problem, don't worry, we will fix it now.
   </p>
   <img style="margin-bottom:15px;" class="ui centered large image" src="assets/img/InMemoryData-Error.png">
-  <p>The class <code style="font-family:'Consolas';"><b>InMemoryDataService</b></code> needs to implement <code
-      style="font-family:'Consolas';">InMemoryDbService</code> and the
+  <p>The class <code><b>InMemoryDataService</b></code> needs to implement <code
+     >InMemoryDbService</code> and the
     property
-    <code style="font-family:'Consolas';">createDb</code> is missing.</p>
+    <code>createDb</code> is missing.</p>
 
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">export </span><span style="color:#359aff;">class</span><span style="color:#ffffff;"> InMemoryDataService </span><span style="color:#359aff;">implements</span><span style="color:#ffffff;"> InMemoryDbService </span><span style="color:#b16565;">&#123;
@@ -164,10 +164,10 @@
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> InMemoryDbService </span><span style="color:#b16565;">&#125; </span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;angular-in-memory-web-api&#39;</span><span style="color:#b16565;">;</span></pre>
   </div>
-  <p>Now we need to fill the <code style="font-family:'Consolas';">const lectures</code> with the data we have in <code
-      style="font-family:'Consolas';">mock-lectures.ts</code>.</p>
+  <p>Now we need to fill the <code>const lectures</code> with the data we have in <code
+     >mock-lectures.ts</code>.</p>
   <p>To be sure every new lecture will have an unique id we add the method <code
-      style="font-family:'Consolas';">genId()</code>. If the array is
+     >genId()</code>. If the array is
     empty the initial id 11 will be used, otherwise the highest id + 1 will be used.</p>
 
   <div class="ui message black">
@@ -176,7 +176,7 @@
   .map</span><span style="color:#b16565;">(</span><span style="color:#ffffff;">lecture </span><span style="color:#008000;">=&gt;</span><span style="color:#ffffff;"> lecture.</span><span style="color:#ff8000;">id</span><span style="color:#b16565;">)) </span><span style="color:#008000;">+ </span><span style="color:#00ff40;">1 </span><span style="color:#008000;">: </span><span style="color:#00ff40;">11</span><span style="color:#b16565;">;
 &#125;</span></pre>
   </div>
-  <p>Of course we also need to import the class <code style="font-family:'Consolas';">Lecture</code>.</p>
+  <p>Of course we also need to import the class <code>Lecture</code>.</p>
   <div class="ui message black">
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> Lecture </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;./lecture&#39;</span><span style="color:#b16565;">;</span></pre>
@@ -185,10 +185,10 @@
   <h4>Update the Getter</h4>
   <p>To get the data from the remote server now, we need to update the getter-methods for the lecture array and the
     single lecture item. First we define in <b>lecture.service.ts</b> the <code
-      style="font-family:'Consolas';">lectureUrl</code> of the form
-    <code style="font-family:'Consolas';">:base/:collectionName</code> with the address of the lecture resource on the
+     >lectureUrl</code> of the form
+    <code>:base/:collectionName</code> with the address of the lecture resource on the
     server. Here base is the
-    resource to which requests are made, and <code style="font-family:'Consolas';">collectionName</code> is the lectures
+    resource to which requests are made, and <code>collectionName</code> is the lectures
     data object in the
     in-memory-data-service.ts.</p>
   <div class="ui message black">
@@ -219,7 +219,7 @@
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
   <p>There might go something wrong with the data of the remote
-    server sometimes, that's why <code style="font-family:'Consolas';">getLectures()</code> should catch an error and do
+    server sometimes, that's why <code>getLectures()</code> should catch an error and do
     something appropriate with it.
     So we need a method for that:</p>
 
@@ -233,7 +233,7 @@
   </div>
   <p>If something goes wrong now the error will be logged on the console. In addition the method will return a safe
     value, that will keep the application running. The next step is to import <code
-      style="font-family:'Consolas';">catchError</code> and add it to the
+     >catchError</code> and add it to the
     get method.</p>
 
   <div class="ui message black">
@@ -249,7 +249,7 @@
   </span><span style="color:#b16565;">);
 &#125;</span></pre>
   </div>
-  <p class="ui info message"><code style="font-family:'Consolas';">get</code>
+  <p class="ui info message"><code>get</code>
     <br />Retrieve information.
   </p>
 
@@ -265,10 +265,10 @@
   </span><span style="color:#b16565;">);
 &#125;</span></pre>
   </div>
-  <p>The <code style="font-family:'Consolas';">const url</code> is defined as :baseURL/:id so that the url is returned
+  <p>The <code>const url</code> is defined as :baseURL/:id so that the url is returned
     with id and is retrieved from
     the
-    server with <code style="font-family:'Consolas';">http.get()</code>.</p>
+    server with <code>http.get()</code>.</p>
   <p>With these steps the class mock-lectures.ts is useless now. You are safe to delete the class and also its import
     to lecture.service.ts.</p>
   <h4>Change Lecture Details</h4>
@@ -292,22 +292,22 @@
   </span><span style="color:#b16565;">);
 &#125;</span></pre>
   </div>
-  <p class="ui info message"><code style="font-family:'Consolas';">put</code>
+  <p class="ui info message"><code>put</code>
     <br />Store an entity at a URI. PUT can create a new entity or update an existing one.
   </p>
 </div>
 <div *ngIf="theorySmall" style="margin-top: 20px;" class="ui message">
-  <p>The method <code style="font-family:'Consolas';">HttpClient.put()</code> needs three parameters: </p>
+  <p>The method <code>HttpClient.put()</code> needs three parameters: </p>
   <ul>
     <li>URL: the url has not changed. The Web-API knows what lecture to update, because of the id</li>
     <li>the data that should be updated</li>
     <li>options: the Web-API expects a special header in the storage requirements of HTTP. This header is defined in the
-      LectureService as the constant <code style="font-family:'Consolas';">httpOptions</code>.</li>
+      LectureService as the constant <code>httpOptions</code>.</li>
   </ul>
 </div>
 
 <div *ngIf="praxis" style="margin-top: 20px;">
-  <p>Use the method from the service now to write a <code style="font-family:'Consolas';">save()</code> method in
+  <p>Use the method from the service now to write a <code>save()</code> method in
     <b>lecture-details.component.ts</b>.
   </p>
 
@@ -332,16 +332,16 @@
 <div *ngIf="praxis" style="margin-top: 20px;">
   <h4>Add a new Lecture</h4>
   <p>First we need a new component for the input form:</p>
-  <p class="ui message black"><code style="font-family:'Consolas';">ng g component lecture-add</code></p>
+  <p class="ui message black"><code>ng g component lecture-add</code></p>
   <p>Afterwards we copy the input form from lecture-details.component.html and make the neccessary changes.</p>
-  <p>Every time you see something like <code style="font-family:'Consolas';">[(ngModel)]="lecture.name"</code> replace
+  <p>Every time you see something like <code>[(ngModel)]="lecture.name"</code> replace
     it
     with something like
-    <code style="font-family:'Consolas';">#lectureName</code>.</p>
+    <code>#lectureName</code>.</p>
   <p class="ui info message">
     Element Reference: Direct access to a DOM-element. Creates a local variable something that provides access to the
     element instance in data-binding and event-binding expressions in the current template. Syntax:<br />
-    <code style="font-family:'Consolas';">#something</code>
+    <code>#something</code>
   </p>
   <p>All of them should look like this example: </p>
 
@@ -349,7 +349,7 @@
     <pre
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">&lt;input</span><span style="color:#ffffff;"> #lectureName </span><span style="color:#ff4848;">placeholder=</span><span style="color:#ffffff;">&quot;Name&quot; </span><span style="color:#359aff;">/&gt;</span></pre>
   </div>
-  <p><b>Important:</b> Delete the <code style="font-family:'Consolas';">*ngIf="lecture"</code> at the beginning!
+  <p><b>Important:</b> Delete the <code>*ngIf="lecture"</code> at the beginning!
     Otherwise this component won't
     display anything.</p>
   <p>Call the button below "Add" and delete the function, we need to write one first.
@@ -410,7 +410,7 @@
 
 &#125;</span></pre>
   </div>
-  <p>Write the <code style="font-family:'Consolas';">addLecture</code> method in the <b>lecture.service.ts</b> now:</p>
+  <p>Write the <code>addLecture</code> method in the <b>lecture.service.ts</b> now:</p>
 
   <div class="ui message black">
     <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">addLecture</span><span style="color:#b16565;">(</span><span style="color:#ffffff;">lecture</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Lecture</span><span style="color:#b16565;">)</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Observable&lt;Lecture&gt; </span><span style="color:#b16565;">&#123;
@@ -420,7 +420,7 @@
   </span><span style="color:#b16565;">);
 &#125;</span></pre>
   </div>
-  <p class="ui info message"><code style="font-family:'Consolas';">post</code>
+  <p class="ui info message"><code>post</code>
     <br/>Often POST is used to create a
     new entity, but it can also be used to update an entity.
   </p>
@@ -443,10 +443,10 @@ minutes</span><span style="color:#008000;">: </span><span style="color:#ffffff;"
 &#125;</span></pre>
   </div>
   <p>We will get name, room and the other values from the form we have in the HTML. We will combine minutes and hours
-    to a time object, because <code style="font-family:'Consolas';">Lecture</code> expects a <code
-      style="font-family:'Consolas';">Time</code> object. With the if statement we check
+    to a time object, because <code>Lecture</code> expects a <code
+     >Time</code> object. With the if statement we check
     if one of them has no value. This can happen if the user didn't type a name for example. therefore we need this
-    <code style="font-family:'Consolas';">Boolean</code>. We are going to ask in the HTML later if it's true or false
+    <code>Boolean</code>. We are going to ask in the HTML later if it's true or false
     and print a message to complete the
     form. But first we need to initialise it in <b>lecture-add.component.ts</b>.</p>
 
@@ -455,7 +455,7 @@ minutes</span><span style="color:#008000;">: </span><span style="color:#ffffff;"
       style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">fieldsEmpty</span><span style="color:#008000;">: </span><span style="color:#ff4848;">Boolean </span><span style="color:#008000;">= </span><span style="color:#359aff;">false</span><span style="color:#b16565;">;</span></pre>
   </div>
   <p>The rest of the function you should already recognize. We use the function from the service and subscribe it. With
-    <code style="font-family:'Consolas';">push</code> we add it to the array.</p>
+    <code>push</code> we add it to the array.</p>
   <p>Last step is to complete the <b>lecture-add.component.html</b>.</p>
 
   <div class="ui message black">
@@ -508,8 +508,8 @@ minutes</span><span style="color:#008000;">: </span><span style="color:#ffffff;"
 &#125;</span></pre>
   </div>
   <p>Since we provided the functions, we can add them to new buttons now. We just need to keep them in a
-    <code style="font-family:'Consolas';">div</code>
-    to check if the <code style="font-family:'Consolas';">lectures</code> already have data, otherwise we will have a
+    <code>div</code>
+    to check if the <code>lectures</code> already have data, otherwise we will have a
     timing problem at this point.</p>
 
   <div class="ui message black">
@@ -553,6 +553,24 @@ minutes</span><span style="color:#008000;">: </span><span style="color:#ffffff;"
   </div>
   <iframe style="margin-top:20px; margin-bottom:20px; width:100%; height: 500px"
     src="https://stackblitz.com/edit/where-to-go-step-7?embed=1&file=src/app/timetable/timetable.component.ts&hideNavigation=1"></iframe>
+
+<h3 id="toc_further_references">Further references</h3>
+<div class="ui warning message">
+    <p>Official documentation:</p>
+    <ul>
+    <li>Angular: <a href="https://angular.io/guide/http" target="_blank">HttpClient</a></li>
+    </ul>
+    <p>Advanced concepts:</p>
+    <ul>
+        <li>Wikipedia: <a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete" target="_blank">CRUD</a></li>
+        <li>Wikipedia: <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">REST</a></li>
+    </ul>
+    <p>REST-Tools:</p>
+    <ul>
+        <li><a href="https://swagger.io/" target="_blank">Swagger</a></li>
+        <li><a href="https://www.getpostman.com/" target="_blank">Postman</a></li>
+    </ul>
+</div>
 
   <div class="ui center aligned segment" style="width: 50%; margin: 0 auto">
     <h4>Your Progress:</h4>

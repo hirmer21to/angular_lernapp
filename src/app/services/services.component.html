@@ -20,16 +20,16 @@
     and has high maintenance. For example if you change just little things in the constructor of the class, you might
     have to make changes everywhere in your code. This can be avoided by giving the responsibility of generating
     dependencies to a higher authority. You are not allowed to use the key word <code
-      style="font-family:'Consolas';">new</code> to create a dependency.
+     >new</code> to create a dependency.
     You will get the dependencies from a higher authority instead. The responsibility of generating an object is
     reversed. IoC can be realised with different patterns, Angular uses dependency injection.
   </p>
   <p>Angular uses constructor injection: <br />
-    <code style="font-family:'Consolas';">constructor(myDependency: MyDependencyType) &#123; &#125;</code> <br />
+    <code>constructor(myDependency: MyDependencyType) &#123; &#125;</code> <br />
     To use a service like this we need to give it the decorator <code
-      style="font-family:'Consolas';">@Injectable()</code>. Another possibility is to
-    register the service in the <code style="font-family:'Consolas';">providers</code> array of the <code
-      style="font-family:'Consolas';">AppModule</code>, but here we will use the
+     >@Injectable()</code>. Another possibility is to
+    register the service in the <code>providers</code> array of the <code
+     >AppModule</code>, but here we will use the
     other way.
   </p>
 </div>
@@ -38,21 +38,19 @@
 
   <p>At the moment all the data is saved in the components. That is not the way it should be. The job of a component is
     to present data, however the direct data access is the job of a service.</p>
-  <p>In the next step we want to create a <code style="font-family:'Consolas';">LectureService</code> that all other
+  <p>In the next step we want to create a <code>LectureService</code> that all other
     classes in the application can
     use to get
     the data of the lectures. We use Angular's dependency injection to inject the service into the
-    <code style="font-family:'Consolas';">LectureItemComponent</code>.
+    <code>LectureItemComponent</code>.
   </p>
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
-  <p class="ui message black"><code style="font-family:'Consolas';">
-  ng g service shared/lecture
-</code></p>
+  <pre class="language-bash command-line"><code>ng g service shared/lecture</code></pre>
 </div>
 <div *ngIf="theorySmall" style="margin-top: 20px;" class="ui message">
-  <p>The service class uses the <code style="font-family:'Consolas';">@Injectable()</code>-decorator and therefore
-    imports <code style="font-family:'Consolas';">Injectable</code>. This
+  <p>The service class uses the <code>@Injectable()</code>-decorator and therefore
+    imports <code>Injectable</code>. This
     service class now provides an injectable service. The decorator accepts a metadata object for the service.</p>
   <p>If you use a service for accessing the data, from now on you can change your implementation without touching the
     components.</p>
@@ -63,122 +61,98 @@
     the
     mock-data.</p>
 
-  <div class="ui message black">
-    <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">getLectures</span><span style="color:#b16565;">()</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Lecture</span><span style="color:#008000;">[] </span><span style="color:#b16565;">&#123;
-  </span><span style="color:#359aff;">return</span><span style="color:#ffffff;"> LECTURES</span><span style="color:#b16565;">;
-&#125;</span></pre>
+    <pre class="language-ts"><code>getLectures(): Lecture[] &#123;
+  return LECTURES;
+&#125;</code></pre>
 
-  </div>
-  <p>Your Visual Studio Code or you should import <code style="font-family:'Consolas';">Lecture</code> and <code
-      style="font-family:'Consolas';">LECTURES</code> now.</p>
+  <p>Your Visual Studio Code or you should import <code>Lecture</code> and <code
+     >LECTURES</code> now.</p>
 
-  <div class="ui message black">
-    <pre
-      style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> Lecture </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;../shared/lecture&#39;</span><span style="color:#b16565;">;
-</span><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> LECTURES </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;./mock-lectures&#39;</span><span style="color:#b16565;">;</span></pre>
-  </div>
+     <pre class="language-ts"><code>import &#123; Lecture &#125; from "../shared/lecture";
+import &#123; LECTURES &#125; from "../shared/mock-lectures";</code></pre>
+
 </div>
 <h4>Inject the Service</h4>
 <div *ngIf="praxis" style="margin-top: 20px;">
-  <p>We are going to add a parameter of type <code style="font-family:'Consolas';">LectureService</code> to the
+  <p>We are going to add a parameter of type <code>LectureService</code> to the
     constructor of the
     <b>timetable.component.ts</b>:</p>
 
-  <div class="ui message black">
-    <pre
-      style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ff8000;">constructor</span><span style="color:#b16565;">(</span><span style="color:#359aff;">private</span><span style="color:#ffffff;"> lectureService</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> LectureService</span><span style="color:#b16565;">) </span><span style="color:#b16565;">&#123; </span><span style="color:#b16565;">&#125; </span></pre>
-  </div>
+    <pre class="language-ts"><code>constructor(private lectureService: LectureService) &#123; &#125;</code></pre>
 </div>
 <div *ngIf="theorySmall" style="margin-top: 20px;" class="ui message">
-  <p>This added parameter <code style="font-family:'Consolas';">lectureService</code> also defines a property of the
+  <p>This added parameter <code>lectureService</code> also defines a property of the
     service class as well as it
     identifies it as an injection. With the dependency injection we set the parameter <code
-      style="font-family:'Consolas';">lectureService</code> to the
-    singleton instance of the <code style="font-family:'Consolas';">LectureService</code>. The singleton pattern is a
+     >lectureService</code> to the
+    singleton instance of the <code>LectureService</code>. The singleton pattern is a
     software design pattern which
     ensures that exactly one object exists in a class.</p>
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
-  <p>Now replace the <code style="font-family:'Consolas';">lecture</code> propterty in <b>timetable.component.ts</b> and
+  <p>Now replace the <code>lecture</code> propterty in <b>timetable.component.ts</b> and
     import the
-    <code style="font-family:'Consolas';">LectureService</code>
+    <code>LectureService</code>
     if it wasn't imported automatically by adding the parameter in the constructor before.</p>
 
-  <div class="ui message black">
-    <pre
-      style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> LectureService </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;../shared/lecture.service&#39;</span><span style="color:#b16565;">;
-</span><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> Lecture </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;../shared/lecture&#39;</span><span style="color:#b16565;">;</span></pre>
+    <pre class="language-ts"><code>import &#123; LectureService &#125; from "../shared/lecture.service";
+import &#123; Lecture &#125; from "../shared/lecture";</code></pre>
 
-  </div>
+<pre class="language-ts"><code>lectures: Lecture[];</code></pre>
 
-  <div class="ui message black">
-    <pre
-      style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">lectures</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Lecture</span><span style="color:#008000;">[]</span><span style="color:#b16565;">; </span></pre>
-
-  </div>
   <p>Next we are going to use the method of the service class to get the lectures into our <code
-      style="font-family:'Consolas';">lecture</code> array.
+     >lecture</code> array.
   </p>
 
-  <div class="ui message black">
-    <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">getLectures</span><span style="color:#b16565;">()</span><span style="color:#008000;">: </span><span style="color:#359aff;">void </span><span style="color:#b16565;">&#123;
-  </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.lectures </span><span style="color:#008000;">= </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.lectureService.getLectures</span><span style="color:#b16565;">();
-&#125;</span></pre>
+  <pre class="language-ts"><code>getLectures(): void &#123;
+    this.lectures = this.lectureSerivce.getLectures();
+&#125;</code></pre>
 
-  </div>
-  <p>In the lifecycle hook <code style="font-family:'Consolas';">ngOnInit()</code> the method is called and executed
+  <p>In the lifecycle hook <code>ngOnInit()</code> the method is called and executed
     when loading the browser.</p>
 
-  <div class="ui message black">
-    <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">ngOnInit</span><span style="color:#b16565;">() </span><span style="color:#b16565;">&#123;
-  </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.getLectures</span><span style="color:#b16565;">();
-&#125; </span></pre>
+    <pre class="language-ts"><code>ngOnInit() &#123;
+    this.getLectures();
+&#125;</code></pre>
 
-  </div>
 </div>
 <h4>Observable Data</h4>
 <div *ngIf="theorySmall" style="margin-top: 20px;" class="ui message">
-  <p>The service method <code style="font-family:'Consolas';">getLectures()</code> now has a synchronous signature which
+  <p>The service method <code>getLectures()</code> now has a synchronous signature which
     means that the service can
     fetch data synchronously. This is just working because we fetch mock-data right now. If we have a real app with
     real data this won't work at all. Fetching data from a remote server is an asynchronous operation. In the "real"
     world the service has to wait for the respond of the server and the method cannot return immediately.</p>
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
-  <p><code style="font-family:'Consolas';">LectureService.getLectures()</code> needs to have an asynchronous signature,
+  <p><code>LectureService.getLectures()</code> needs to have an asynchronous signature,
     therefore we will return an
-    <code style="font-family:'Consolas';">Observable</code>.
+    <code>Observable</code>.
     We need to import in <b>lecture.service.ts</b>:</p>
 
-  <div class="ui message black">
-    <pre
-      style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> Observable</span><span style="color:#b16565;">,</span><span style="color:#ffffff;"> of </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;rxjs&#39;</span><span style="color:#b16565;">; </span></pre>
-  </div>
+  <pre class="language-ts"><code>import &#123; Observable, of &#125; from "rxjs";</code></pre>
+
   <p>And replace the method with this code:</p>
 
-  <div class="ui message black">
-    <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">getLectures</span><span style="color:#b16565;">()</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Observable&lt;Lecture</span><span style="color:#008000;">[]&gt; </span><span style="color:#b16565;">&#123;
-  </span><span style="color:#359aff;">return</span><span style="color:#ffffff;"> of </span><span style="color:#b16565;">(</span><span style="color:#ffffff;">LECTURES</span><span style="color:#b16565;">);
-&#125;</span></pre>
+  <pre class="language-ts"><code>getLectures(): Observable&lt;Lecture[]&gt; &#123;
+  return of(LECTURES);
+&#125;</code></pre>
 
-  </div>
   <p>We also need to replace the method in <b>timetable.component.ts</b> now.</p>
 
-  <div class="ui message black">
-    <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">getLectures</span><span style="color:#b16565;">()</span><span style="color:#008000;">: </span><span style="color:#359aff;">void </span><span style="color:#b16565;">&#123;
-  </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.lectureService.getLectures</span><span style="color:#b16565;">()
-</span><span style="color:#ffffff;">  .subscribe</span><span style="color:#b16565;">(</span><span style="color:#ffffff;">lectures </span><span style="color:#008000;">=&gt; </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.lectures </span><span style="color:#008000;">=</span><span style="color:#ffffff;"> lectures</span><span style="color:#b16565;">);
-&#125; </span></pre>
-  </div>
+  <pre class="language-ts"><code>getLectures(): void &#123;
+  this.lectureService.getLectures()
+  .subscribe(lectures => this.lectures = lectures);
+&#125;</code></pre>
 </div>
 <div *ngIf="theorySmall" style="margin-top: 20px;" class="ui message">
-  <p><code style="font-family:'Consolas';" style="font-family:'Consolas';">Observable.subscribe()</code> makes a huge
+  <p><code>Observable.subscribe()</code> makes a huge
     difference. Before we had a synchronous assignment of the array
-    of lectures to the <code style="font-family:'Consolas';" style="font-family:'Consolas';">lectures</code> property
+    of lectures to the <code>lectures</code> property
     and this assignment wanted back the data immediately. Now we wait
-    for the <code style="font-family:'Consolas';" style="font-family:'Consolas';">Observable</code> to return the array
+    for the <code>Observable</code> to return the array
     of lectures, even if this happens after only a view minutes. Then
-    <code style="font-family:'Consolas';" style="font-family:'Consolas';">subscribe()</code> passes the emitted array to
+    <code>subscribe()</code> passes the emitted array to
     the callback, which sets the component's lecture property.
     You will learn more about observable data in the chapter <a routerLink="/http">HTTP</a>.
   </p>
@@ -198,6 +172,21 @@
   </div>
   <iframe style="margin-top:20px; margin-bottom:20px; width:100%; height: 500px"
     src="https://stackblitz.com/edit/where-to-go-step-5?embed=1&file=src/app/timetable/timetable.component.ts&hideNavigation=1"></iframe>
+
+<h3 id="toc_further_references">Further references</h3>
+<div class="ui warning message">
+    <p>Official documentation:</p>
+    <ul>
+    <li>Angular: <a href="https://angular.io/guide/architecture-services" target="_blank">Introduction to services and dependency injection</a></li>
+    <li>Angular: <a href="https://angular.io/guide/observables" target="_blank">Observables</a></li>
+    <li>Angular: <a href="https://angular.io/guide/observables-in-angular" target="_blank">Observables in Angular</a></li>
+    </ul>
+    <p>Advanced concepts:</p>
+    <ul>
+        <li>Wikipedia: <a href="https://en.wikipedia.org/wiki/Dependency_injection" target="_blank">Dependency injection</a></li>
+        <li>Wikipedia: <a href="https://en.wikipedia.org/wiki/Reactive_programming" target="_blank">Reactive programming</a></li>
+    </ul>
+</div>
 
   <div class="ui center aligned segment" style="width: 50%; margin: 0 auto">
     <h4>Your Progress:</h4>
