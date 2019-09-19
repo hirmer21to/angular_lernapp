@@ -28,9 +28,9 @@
             ],
             "styles": [
               "./node_modules/semantic-ui-css/semantic.min.css",
-              "src/styles.css",
+              "src/bootstrap.min.css",
               "src/prism.css",
-              "src/bootstrap.min.css"
+              "src/styles.css"
             ],
             "scripts": [
               {"input": "src/prism.js", "inject": false}

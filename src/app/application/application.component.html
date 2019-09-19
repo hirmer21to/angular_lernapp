@@ -1,110 +1,92 @@
 <h2>App</h2>
 <div class="language-bash">
-<div *ngIf="praxis" style="margin-top: 20px;" class="ui info message">
+<div *ngIf="praxis" class="ui info message">
   <h5>User Story</h5>
   <p>As a <b>user</b><br />
     I want to <b>have an app shell</b>, <br />
     to <b> display the app's content</b>.</p>
 </div>
 
-<div *ngIf="praxis" style="margin-top: 20px;">
+<div *ngIf="praxis">
   <h4>Initial Application</h4>
   <p>Open your cmd and type:</p>
-  <pre class="command-line language-bash" data-user="user" data-host="localhost"><code>ng new where-to-go -is</code></pre>
-  <p>The <code class="language-bash">-is</code> defines that the project has an inline-style. If you don't do
+  <div class="code_listing">
+  <pre class="command-line language-bash"><code>ng new where-to-go -is</code></pre><a href="https://angular.io/cli/new" target="_blank"><i class="large info circle link icon"></i></a></div>
+  <p>The <code>-is</code> defines that the project has an inline-style. If you don't do
     this, we would get an extra
     CSS-file for every single component. We don't want that for this project.</p>
-  <p>Next open your Visual Studio Code (restart it if it was open during the other installations) and open the project folder (STRG+O). After that run the
-    initial application. You can open a terminal directly in Visual Studio Code with STRG+Ö.</p>
-  <pre class="command-line language-bash" data-user="user" data-host="localhost"><code>ng serve --open</code></pre>
-  <p>When the brower is open you will see the initial app of Angular:</p>
+  <p>Next, open your editor and open the project folder. After that run the
+    initial application. In most editors you even can open a terminal directly within the editor. If the terminal returns an error message like <code>Command not found</code> you have to restart it in order for the process to  recognise the newly installed commands.</p>
+  <div class="code_listing">
+  <pre class="command-line language-bash"><code>ng serve --open</code></pre><a href="https://angular.io/cli/serve" target="_blank"><i class="large info circle link icon"></i></a></div>
+  <p>The browser automatically opens the start page of the initial Angular app:</p>
   <img class="ui image big centered border" src="assets/img/Angular-Initial-App.png">
 </div>
 
 <div *ngIf="theoryLarge" class="ui message" style="margin-top: 20px;">
   <h4>Structure of the project</h4>
   <p>The CLI created a project for us. These are the workspace files:</p>
-  <p><code>
-    where-to-go <br/>
-    |- e2e:</code> file for end-to-end tests<br /> <code>
-    |&nbsp;&nbsp; |-- ... <br/>
-    |- node_modules:</code> installed npm-packages<br /><code>
-    |&nbsp;&nbsp; |-- ... <br/>
-    |- <b>src:</b></code> <b>code of our application</b><br /><code>
-    |&nbsp;&nbsp; |-- ... <br/>
-    |- .editorconfig:</code> configuration for the code editor<br /> <code>
-    |- .gitignore:</code> files and folders ignored by Git<br /><code>
-    |- angular.json:</code> configuration file of the angular CLI<br /><code>
-    |- package-lock.json:</code> contains information about installed packages<br /><code>
-    |- package.json:</code> npm-packages configuration and information<br /><code>
-    |- README.md:</code> documents help<br /><code>
-    |- tsconfig.json:</code> configuration file for TypeScript<br /><code>
-    |- tslint.json:</code> TSLint configuration file<br /><code>
-  </code></p>
-  <p>In the src folder is our project code. These are the src files:</p>
-  <p><code>
-      src <br/>
-      |- <b>app:</b></code> <b>contains modules and components of our app</b><br /> <code
-     >
-      |&nbsp;&nbsp; |-- ... <br/>
-      |- assets:</code> folder for images and files<br /><code>
-      |&nbsp;&nbsp; |-- ... <br/>
-      |- environments:</code> configuration for environment<br /><code>
-      |&nbsp;&nbsp; |-- ... <br/>
-      |- browserlist:</code> configuration for the code editor<br /> <code>
-      |- favicon.ico:</code> icon used in the browser bookmark bar<br /><code>
-      |- index.html:</code> main HTML page<br /><code>
-      |- main.ts:</code> compiles the application<br /><code>
-      |- polyfills.ts:</code> polyfill scripts<br /><code>
-      |- styles.css:</code> stylesheet for the project<br /><code>
-      |- test.ts:</code> entry point for unit tests<br /><code>
-      |- tsconfig.app.json:</code> inherits from the workspace-wide tsconfig.json file<br /><code
-     >
-      |- tsconfig.spec.json:</code> inherits from the workspace-wide tsconfig.json file<br /><code
-     >
-      |- tslint.json:</code> inherits from the workspace-wide tslint.json file<br /><code>
-    </code></p>
-  <p>In the app folder is the logic and data of our application. It always contains the following files:</p>
-  <p><code>
-        app <br/>
-        |- app-routing.module:</code> provided for the router (navigation)<br /> <code>
-        |- app.component.html:</code> HTML template, shell of the application and called in the index.html with
-    <code>app-root</code><br /><code>
-        |- app.component.spec.ts:</code> defines unit test for the root <code
-     >AppComponent</code><br /><code>
-        |- app.component.ts:</code> defines logic for the <code>AppComponent</code><br />
-    <code>
-        |- app.module.ts:</code> all used modules are declared here <br /><code>
-      </code></p>
+  <p><i class="folder open icon"></i><code>where-to-go</code>: working directory<br>
+    <strong>&#8990; </strong><i class="folder outline icon"></i> <code>.git</code>: git metadata and file database<br />
+    <strong>&#8990; </strong><i class="folder icon"></i> <code>e2e</code>: for set of end-to-end tests<br />
+    <strong>&#8990; </strong> <i class="folder icon"></i> <code>node_modules</code>: Installed npm packages<br/>
+    <strong>&#8990; </strong> <i class="folder open icon"></i> <code>src</code>: <strong>source files of the application</strong><br/>
+      <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8990; </strong> <i class="folder open icon"></i> <code>app</code>: <strong>Modules and components files</strong><br/>
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8990; </strong> <i class="file alternate icon"></i> <code>app-routing.module.ts</code>: Router module (navigation)<br/>
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8990; </strong> <i class="file alternate icon"></i> <code>app.component.css</code>: Base CSS for root <code>AppComponent</code><br/>
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8990; </strong> <i class="file alternate icon"></i> <code>app.component.html</code>: Template for <code>AppComponent</code>, shell of the app<br/>
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8990; </strong> <i class="file alternate icon"></i> <code>app.component.spec.ts</code>: Unit tests for the <code>AppComponent</code><br/>
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8990; </strong> <i class="file alternate icon"></i> <code>app.component.ts</code>: Logic of <code>AppComponent</code><br/>
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8990; </strong> <i class="file alternate icon"></i> <code>app.module.ts</code>: Root module, all used modules are declared here<br/>
+      <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8990; </strong> <i class="folder icon"></i> <code>assets</code>: For images and files copied as-is<br/>
+      <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8990; </strong> <i class="folder icon"></i> <code>environments</code>: Build configuration for target environments<br/>
+      <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8990; </strong> <i class="file alternate icon"></i> <code>browserslist</code>: Configuration of target browser<br/>
+      <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8990; </strong> <i class="file alternate icon"></i> <code>favicon.ico</code>: Icon used in the browser bookmark bar<br/>
+      <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8990; </strong> <i class="file alternate icon"></i> <code>index.html</code>: Main served HTML page<br/>
+      <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8990; </strong> <i class="file alternate icon"></i> <code>karma.conf.js</code>: Test runner configuration<br/>
+      <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8990; </strong> <i class="file alternate icon"></i> <code>main.ts</code>: Entry point of application, compiles the application<br/>
+      <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8990; </strong> <i class="file alternate icon"></i> <code>polyfills.ts</code>: Polyfill scripts for old browser support<br/>
+      <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8990; </strong> <i class="file alternate icon"></i> <code>styles.css</code>: Global stylesheet<br/>
+      <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8990; </strong> <i class="file alternate icon"></i> <code>test.ts</code>: Entry point for unit tests<br/>
+      <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8990; </strong> <i class="file alternate icon"></i> <code>tsconfig.app.json</code>: Application-specific TypeScript configuration<br/>
+      <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8990; </strong> <i class="file alternate icon"></i> <code>tsconfig.spec.json</code>: Test-specific TypeScript configuration<br/>
+      <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8990; </strong> <i class="file alternate icon"></i> <code>tslint.json</code>: Application-specific TSLint configuration<br/>
+    <strong>&#8990; </strong> <i class="file alternate outline icon"></i> <code>.editorconfig</code>: Code editor configuration (consisten coding styles)<br/>
+    <strong>&#8990; </strong> <i class="file alternate outline icon"></i> <code>.gitignore</code>: Files and folders which are not tracked by Git<br/>
+    <strong>&#8990; </strong> <i class="file alternate icon"></i> <code>angular.json</code>: Angular CLI configuration<br/>
+    <strong>&#8990; </strong> <i class="file alternate icon"></i> <code>package-lock.json</code>: Version information about installed packages<br/>
+    <strong>&#8990; </strong> <i class="file alternate icon"></i> <code>package.json</code>: npm package dependency configuration<br/>
+    <strong>&#8990; </strong> <i class="file alternate icon"></i> <code>README.md</code>: Help documentation<br/>
+    <strong>&#8990; </strong> <i class="file alternate icon"></i> <code>tsconfig.json</code>: TypeScript compiler configuration<br/>
+    <strong>&#8990; </strong> <i class="file alternate icon"></i> <code>tslint.json</code>: TSLint configuration (static code analysis)<br/>
+</p>
 </div>
 <div *ngIf="theoryLarge" class="ui message" style="margin-top: 20px;">
   <h4>Angular Modules</h4>
-  <p>Angular modules help structuring the application by function. Technically modules are classes like all other
-    Angular blocks. The <code class="language-ts">NgModule</code>-decorator makes the class a module.
-    Decorators define metadata which Angular will need
-    at runtime to initialise the application.
-  </p>
-  <p>Decorators are specific functions that can be used for classes and their
-    properties, methods and parameters. They are called at runtime and expand the functionality of a class. Decorators
-    always start with an <code class="language-ts">@</code>-symbol.
-  </p>
-  <p>The class <code>main.ts</code> is the main Angular module for every
-    project. With <code>declarations</code> all components, directives and pipes that
-    belong to this module are
-    declared. With <code>providers</code> all providers are registered. In <code>exports</code> you specify all
-    components, directives and pipes which should be available for other Angular modules. <code>imports</code> contains
-    all Angular modules on which this module depends. And <code>bootstrap</code> defines
-    the main component of the
-    application. The main component is the root of the application. As you will learn in the chapter <a
-      routerLink="/components">Components</a> the root is the <code>AppComponent</code>.
-  </p>
-  <p>You can use different module
-    types such as the main module (<code>module.ts</code>), routing-module and
-    service-module. A routing-module
-    contains configuration for the router. You will learn about the <code >router</code>
-    in the chapter <a routerLink="/router">Router</a>. A service-module provides logic / functions for the entire
-    application as you
-    will learn in the chapter <a routerLink="/service">Service</a>.
+  <p>Angular modules help structuring the application in functional blocks.
+  Each application has at least one root module, called <code>AppModule</code>.
+  Technically modules are classes like all other
+  Angular blocks.
+  The <code>@NgModule()</code> decorator marks the class as module.</p>
+  
+  <p>
+  Decorators define metadata which Angular uses
+  at runtime to initialise the application and to expand the functionality of the class. The most important properties from NgModule are as follows:</p>
+
+  <ul>
+    <li><strong>declarations</strong>: All components, directives and pipes that belong to this module</li>
+    <li><strong>exports</strong>: Specifies all components, directives and pipes which should be available for other Angular modules</li>
+    <li><strong>imports</strong>: Contains all modules on which this module depends</li>
+    <li><strong>providers</strong>: Creators of services, which should be globally accessible in all parts of the app</li>
+    <li><strong>bootstrap</strong>: The main appliction view, called <code>root component</code>, which houses all other views</li>
+  </ul>
+
+  <p>The main component is the starting point of the application. As you will learn in the chapter <a routerLink="/components">Components</a> this is the <code>AppComponent</code>.</p>
+ 
+  <p>You can use different module types such as the main module, routing-module and service-module.
+  A routing-module contains configuration for the router.
+  You will learn about the <code>router</code> in the chapter <a routerLink="/router">Router</a>.
+  A service-module provides utilities like data access and messaging for the entire application as you will learn in the chapter <a routerLink="/service">Service</a>.
   </p>
 </div>
 
@@ -116,7 +98,7 @@
   title = 'Where To Go';
 &#125;</code></pre>
 
-  <p>In the <b>app.component.html</b> is a binding to "title". This binding brings the new title into the application.
+  <p>In the <b>app.component.html</b> is a binding to <code>title</code>. This binding brings the new title into the application.
   </p>
 <pre class="language-html"><code>&lt;h1&gt;Welcome to <span>{{</span> title <span>}}</span>!&lt;&#47;h1&gt;</code></pre>
 
@@ -125,22 +107,24 @@
 
 <div *ngIf="praxis" style="margin-top: 20px;">
   <h4>Import UI-Framework</h4>
-  <p>As this is a web application showing you how to build an Angular app, there is no need to do CSS styling. Probably
-    you already know how to style with CSS and the focus here should be Angular. That's why we are going to use the
-    <a href="https://semantic-ui.com/" target="_blank">Semantic UI</a> CSS-Framework for a nice look and feel.</p>
-  <p>
-    With the <strong><em>+</em></strong> button you can add another terminal to type in new commands while running the application.
-  </p>
-  <p><img class="ui image large centered" src="assets/img/Second-Terminal.png"></p>
-  <p>You can install the UI-Framework with the command:</p>
-  <pre class="command-line language-bash" data-user="user" data-host="localhost"><code>npm i semantic-ui-css</code></pre>
+  <p>As this is a web application showing you, how to build an Angular app, there is no need to do manual CSS styling.
+  Probably you already know how to style with CSS and the sole focus here should be Angular. That's why we are going to use the
+    <a href="https://semantic-ui.com/" target="_blank">Semantic UI</a> CSS-Framework for a nice look and feel out-of-the-box.</p>
 
-  <p>Add to the file <b>angular.json</b>:</p>
+  <p>You can install the UI-Framework with the command:</p>
+  <div class="code_listing">
+      <pre class="command-line language-bash" data-user="user" data-host="localhost"><code>npm i semantic-ui-css</code></pre><a href="https://docs.npmjs.com/cli/install" target="_blank"><i class="large info circle link icon"></i></a></div>
+  <p class="ui info message">Tip: Its possible to open up another terminal and to have multiple running command shells to avoid powering off and on again the Angular web application.</p>
+
+  <p>Add it to the <b>angular.json</b> file:</p>
 
   <pre class="language-json"><code>"styles": [
     "node_modules/semantic-ui-css/semantic.css",
     "src/styles.css"
 ]</code></pre>
+
+  <p>CSS and JS framework files with <strong>min</strong> in the file name are, as usual, minified and compressed versions for production use, in contrary to the normal files for development and debugging purposes.</p>
+  <p>Configuration changes in the <strong>angular.json</strong> file are not hot reloaded! Therefore in order for the CSS to take effect, you have to hold (<code>Ctrl + C</code>) and restart your app with <code>ng serve</code>.</p>
 
   <p>Now you can test the new style. Adjust the <b>app.component.html</b> like this and see if it looks different:</p>
 
@@ -150,15 +134,16 @@
   &lt;&#47;h1&gt;
 &lt;&#47;div&gt;</code></pre>
 
-  <p class="ui info message">If you have any problems with installing the semantic ui css, here are some tips that may
-    help. If you get the
-    message "<code>found 1 high severity vulnerability</code>" on the console, just run
-    "<code>npm audit fix</code>". Next you can try a
-    restart of Visual Studio Code. If this is also not working, you can download it by yourself <a
-      href="https://github.com/Semantic-Org/Semantic-UI-CSS" target="_blank">(Semantic
-      UI CSS Download)</a> and paste it in your project folder.</p>
+  <p class="ui info message">If you have any problems with installing the Semantic UI CSS, you can download the plain files from their website (under <a href="https://semantic-ui.com/introduction/getting-started.html" target="_blank">Getting Started</a><em> &gt;Simpler Setup</em>) and paste the CSS it into your project folder.</p>
 
-  <p class="ui info message">If the Semantic UI CSS-Framework is not automatically loaded into your web page, try to restart the app with <code>ng serve --open</code></p>
+  <p class="ui red message">Be aware that most UI frameworks additionally include a JavaScript file for complex widgets.
+  These can be included too in <strong>angular.json</strong> under <code>"scripts": []</code>.
+  Against this approach speaks however, that it goes against the nature of Angular as Angular should be solely responsible for rendering and manipulation of the DOM.
+  Interferences triggered by the included framework are possible and may end up in some unwanted results. <br>
+  Furthermore it may be the case that classical JavaScript frameworks tag the DOM once, to enable their functions.
+  This normally happens after the content loaded event was fired. 
+  But this event is only emitted once in the life time of a Single-Page-Application (after index.html was downloaded and parsed) as reloads do normally not occur.
+  Instead the DOM is dynamically build and changed by Angular.</p>
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
 
@@ -183,9 +168,11 @@
       <li>Angular: <a href="https://angular.io/guide/file-structure" target="_blank">Workspace and project file structure</a></li>
       <li>Angular: <a href="https://angular.io/guide/architecture" target="_blank">Architecture overview</a></li>
       <li>Angular: <a href="https://angular.io/guide/architecture-modules" target="_blank">Introduction to modules</a></li>
+      <li>Angular: <a href="https://angular.io/guide/ngmodules" target="_blank">NgModules</a></li>
       <li>Angular: <a href="https://angular.io/guide/workspace-config" target="_blank">Workspace Configuration</a>(angular.json)</li>
       <li>npm: <a href="https://docs.npmjs.com/files/package-lock.json" target="_blank">package-lock.json</a> and <a href="https://docs.npmjs.com/files/package.json" target="_blank">package.json</a></li>
       <li>Angular: <a href="https://docs.npmjs.com/files/package-lock.json" target="_blank">Workspace npm dependencies</a></li>
+      <li>Wikipedia: <a href="https://en.wikipedia.org/wiki/Polyfill_(programming)" target="_blank">Polyfill</a></li>
     </ul>
     <p>Design frameworks tailored for Angular:</p>
       <ul>
@@ -194,10 +181,10 @@
       </ul>
   </div>
 
-  <div class="ui center aligned segment" style="width: 50%; margin: 0 auto">
+</div>
+</div>
+
+<div class="ui center aligned segment" style="width: 50%; margin: 0 auto">
     <h4>Your Progress:</h4>
     <mat-progress-bar style="margin-bottom:20px;" mode="determinate" value="10"></mat-progress-bar>
-  </div>
-
-</div>
 </div>
