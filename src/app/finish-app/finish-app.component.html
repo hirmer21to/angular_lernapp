@@ -15,15 +15,11 @@
     <code>LectureService</code>
     injected in the <code>constructor</code> again.</p>
 
-  <div class="ui message black">
-    <pre
-      style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ff8000;">constructor</span><span style="color:#b16565;">(</span><span style="color:#359aff;">private</span><span style="color:#ffffff;"> lectureService</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> LectureService</span><span style="color:#b16565;">) </span><span style="color:#b16565;">&#123; </span><span style="color:#b16565;">&#125;</span></pre>
-  </div>
+    <pre class="language-ts"><code>constructor(private lectureService: LectureService) &#123; &#125;</code></pre>
+
   <p>Of course we also need to import the class <code>Lecture</code>.</p>
-  <div class="ui message black">
-    <pre
-      style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> LectureService </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;../shared/lecture.service&#39;</span><span style="color:#b16565;">;</span></pre>
-  </div>
+
+  <pre class="language-ts"><code>import &#123; LectureService &#125; from "../shared/lecture.service";</code></pre>
 
   <p>Then we need the <code>Date</code> of today. This <code
      >Date</code> will tell us all we need to know: the day of
@@ -36,75 +32,71 @@
     We will need this to compare all objects in the timetable with this <code>Lecture</code> object and we
     overwrite it every time, a lecture is closer to the time right now than the saved lecture before.</p>
 
-  <div class="ui message black">
-    <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">lectures</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Lecture</span><span style="color:#008000;">[]</span><span style="color:#b16565;">;
-</span><span style="color:#ffffff;">nextLecture</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Lecture</span><span style="color:#b16565;">;
-</span><span style="color:#ffffff;">localTime</span><span style="color:#008000;">: </span><span style="color:#ff4848;">Date </span><span style="color:#008000;">= </span><span style="color:#008000;">new </span><span style="color:#ff4848;">Date</span><span style="color:#b16565;">();
-</span><span style="color:#ffffff;">isThereANextLecture</span><span style="color:#008000;">: </span><span style="color:#ff4848;">Boolean </span><span style="color:#008000;">= </span><span style="color:#359aff;">false</span><span style="color:#b16565;">;
-</span><span style="color:#ffffff;">tempLecture</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> Lecture </span><span style="color:#008000;">= </span><span style="color:#b16565;">&#123;
-  </span><span style="color:#ffffff;">id</span><span style="color:#008000;">: </span><span style="color:#00ff40;">99</span><span style="color:#b16565;">,
-  </span><span style="color:#ffffff;">name</span><span style="color:#008000;">: </span><span style="color:#ffff80;">&#39;Dummy&#39;</span><span style="color:#b16565;">,
-</span><span style="color:#ffffff;">  room</span><span style="color:#008000;">: </span><span style="color:#ffff80;">&#39;0&#39;</span><span style="color:#b16565;">,
-</span><span style="color:#ffffff;">  day</span><span style="color:#008000;">: </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.getWeekday</span><span style="color:#b16565;">(),
-</span><span style="color:#ffffff;">  time</span><span style="color:#008000;">: </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> hours</span><span style="color:#008000;">: </span><span style="color:#00ff40;">20</span><span style="color:#b16565;">,</span><span style="color:#ffffff;"> minutes</span><span style="color:#008000;">: </span><span style="color:#00ff40;">15 </span><span style="color:#b16565;">&#125;,
-</span><span style="color:#ffffff;">  building</span><span style="color:#008000;">:</span><span style="color:#ffff80;">&#39;WE5&#39;</span><span style="color:#b16565;">,
-  </span><span style="color:#ffffff;">floor</span><span style="color:#008000;">: </span><span style="color:#ffff80;">&#39;0&#39;
-</span><span style="color:#b16565;">&#125;;</span></pre>
-  </div>
+    <pre class="language-ts"><code>lectures: Lecture[];
+nextLecture: Lecture;
+localTime: Date = new Date();
+isThereANextLecture: boolean = false;
+tempLecture: Lecture = &#123;
+    id: 99,
+    name: "Dummy",
+    room: "0",
+    day: this.getWeekday(),
+    time: &#123;hours: 20, minutes: 15&#125;,
+    building: "WE5",
+    floor: "0"
+&#125;;</code></pre>
+
   <p>Of course we also need to import the class <code>Lecture</code>.</p>
-  <div class="ui message black">
-    <pre
-      style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">import </span><span style="color:#b16565;">&#123;</span><span style="color:#ffffff;"> Lecture </span><span style="color:#b16565;">&#125;</span><span style="color:#ffffff;"> from </span><span style="color:#ffff80;">&#39;../shared/lecture&#39;</span><span style="color:#b16565;">;</span></pre>
-  </div>
+  <pre class="language-ts"><code>import &#123; Lecture &#125; from "../shared/lecture";</code></pre>
 
   <p>We will also have the <code>getLectures()</code> method that we call in <code
      >ngOnInit()</code>.</p>
 
-  <div class="ui message black">
-    <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">ngOnInit</span><span style="color:#b16565;">() </span><span style="color:#b16565;">&#123;
-  </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.getLectures</span><span style="color:#b16565;">();
+     <pre class="language-ts"><code>ngOnInit() &#123;
+    this.getLectures();
 &#125;
 
-</span><span style="color:#ffffff;">getLectures</span><span style="color:#b16565;">()</span><span style="color:#008000;">: </span><span style="color:#359aff;">void </span><span style="color:#b16565;">&#123;
-  </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.lectureService.getLectures</span><span style="color:#b16565;">()
-</span><span style="color:#ffffff;">  .subscribe</span><span style="color:#b16565;">(</span><span style="color:#ffffff;">lectures </span><span style="color:#008000;">=&gt; </span><span style="color:#b16565;">&#123; </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.lectures </span><span style="color:#008000;">=</span><span style="color:#ffffff;"> lectures</span><span style="color:#b16565;">; </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.getNextLecture</span><span style="color:#b16565;">() </span><span style="color:#b16565;">&#125;);
-&#125;</span></pre>
-  </div>
+getLectures(): void &#123;
+    this.lectureService.getLectures()
+      .subscribe(lectures => &#123;this.lectures = lectures;
+        this.getNextLecture()&#125;
+      );
+&#125;</code></pre>
+
   <p>With the method <code>getDay()</code> we will get the weekday of today as a number.
     0 is sunday, 1 is monday and
     so on. But we need them as strings. We pick the one string from an array of strings whose index is the same
     number as todays number.</p>
 
-  <div class="ui message black">
-    <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">getWeekday</span><span style="color:#b16565;">()</span><span style="color:#008000;">:</span><span style="color:#ffffff;"> string </span><span style="color:#b16565;">&#123;
-  </span><span style="color:#359aff;">var</span><span style="color:#ffffff;"> days </span><span style="color:#008000;">= </span><span style="color:#008000;">[</span><span style="color:#ffff80;">&#39;Sunday&#39;</span><span style="color:#b16565;">, </span><span style="color:#ffff80;">&#39;Monday&#39;</span><span style="color:#b16565;">, </span><span style="color:#ffff80;">&#39;Tuesday&#39;</span><span style="color:#b16565;">, 
-  </span><span style="color:#ffff80;">&#39;Wednesday&#39;</span><span style="color:#b16565;">, </span><span style="color:#ffff80;">&#39;Thursday&#39;</span><span style="color:#b16565;">, </span><span style="color:#ffff80;">&#39;Friday&#39;</span><span style="color:#b16565;">, </span><span style="color:#ffff80;">&#39;Saturday&#39;</span><span style="color:#008000;">]</span><span style="color:#b16565;">;
-  </span><span style="color:#359aff;">return</span><span style="color:#ffffff;"> days</span><span style="color:#008000;">[</span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.localTime.</span><span style="color:#ff8000;">getDay</span><span style="color:#b16565;">()</span><span style="color:#008000;">]</span><span style="color:#b16565;">;
-&#125;</span></pre>
-  </div>
+    <pre class="language-ts"><code>getWeekday(): string &#123;
+    var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    return days[this.localTime.getDay()];
+&#125;</code></pre>
+
   <p>Now it's time for the function, that will return the correct next lecture for us.</p>
 
-  <div class="ui message black">
-    <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#ffffff;">getNextLecture</span><span style="color:#b16565;">()</span><span style="color:#008000;">: </span><span style="color:#359aff;">void </span><span style="color:#b16565;">&#123;
-</span><span style="color:#ffffff;">  let tempArray</span><span style="color:#008000;">: </span><span style="color:#ff4848;">Array</span><span style="color:#ffffff;">&lt;Lecture&gt; </span><span style="color:#008000;">= </span><span style="color:#008000;">[]</span><span style="color:#b16565;">;
-  </span><span style="color:#359aff;">for </span><span style="color:#b16565;">(</span><span style="color:#ffffff;">let lecture of </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.lectures</span><span style="color:#b16565;">) </span><span style="color:#b16565;">&#123;
-    </span><span style="color:#359aff;">if </span><span style="color:#b16565;">(</span><span style="color:#ffffff;">lecture.day </span><span style="color:#008000;">=== </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.getWeekday</span><span style="color:#b16565;">()) </span><span style="color:#b16565;">&#123;
-      </span><span style="color:#359aff;">if </span><span style="color:#b16565;">(</span><span style="color:#ffffff;">lecture.time.hours </span><span style="color:#008000;">&gt;= </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.localTime.</span><span style="color:#ff8000;">getHours</span><span style="color:#b16565;">()) </span><span style="color:#b16565;">&#123;
-</span><span style="color:#ffffff;">        tempArray.</span><span style="color:#ff8000;">push</span><span style="color:#b16565;">(</span><span style="color:#ffffff;">lecture</span><span style="color:#b16565;">);
-      </span><span style="color:#b16565;">&#125;
-    </span><span style="color:#b16565;">&#125;
-    </span><span style="color:#359aff;">for </span><span style="color:#b16565;">(</span><span style="color:#ffffff;">let t of tempArray</span><span style="color:#b16565;">) </span><span style="color:#b16565;">&#123;
-      </span><span style="color:#359aff;">if </span><span style="color:#b16565;">(</span><span style="color:#ffffff;">t.time.hours </span><span style="color:#008000;">&lt; </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.tempLecture.time.hours</span><span style="color:#b16565;">) </span><span style="color:#b16565;">&#123;
-        </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.tempLecture </span><span style="color:#008000;">=</span><span style="color:#ffffff;"> t</span><span style="color:#b16565;">;
-        </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.isThereANextLecture </span><span style="color:#008000;">= </span><span style="color:#359aff;">true</span><span style="color:#b16565;">;
-      </span><span style="color:#b16565;">&#125;
-    </span><span style="color:#b16565;">&#125;
-    </span><span style="color:#359aff;">if </span><span style="color:#b16565;">(</span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.isThereANextLecture</span><span style="color:#b16565;">) </span><span style="color:#b16565;">&#123;
-      </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.nextLecture </span><span style="color:#008000;">= </span><span style="color:#359aff;">this</span><span style="color:#ffffff;">.tempLecture</span><span style="color:#b16565;">;
-    </span><span style="color:#b16565;">&#125;
-  </span><span style="color:#b16565;">&#125;
-&#125;</span></pre>
-  </div>
+  <pre class="language-ts"><code>getNextLecture(): void &#123;
+    let tempArray: Array&lt;Lecture&gt; = [];
+    for (let lecture of this.lectures) &#123;
+      if(lecture.day === this.getWeekday()) &#123;
+        if(lecture.time.hours &gt;= this.localTime.getHours()) &#123;
+          tempArray.push(lecture);
+        &#125;
+      &#125;
+    &#125;
+
+    for(let t of tempArray) &#123;
+      if(t.time.hours &lt; this.tempLecture.time.hours) &#123;
+        this.tempLecture = t;
+        this.isThereANextLecture = true;
+      &#125;
+    &#125;
+
+    if(this.isThereANextLecture) &#123;
+      this.nextLecture = this.tempLecture;
+    &#125;
+&#125;</code></pre>
+
   <p>There is an empty array, we go through all lectures in the lecture array and if the day is today, we check if the
     hour is greater than or equal with the hour right now. If so we put this lecture in the prepared array. In the
     second step the function compares all lectures in the <code>tempArray</code> with
@@ -118,30 +110,29 @@
     <code>nextLecture</code>, we
     want to display the text "No events today!"</p>
 
-  <div class="ui message black">
-    <pre style="font-family:'Consolas'; font-size:10pt; color:#ffffff;  "><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;margin: </span><span style="color:#00ff40;">30px</span><span style="color:#ff8000;">;</span><span style="color:#ffffff;">&quot;</span><span style="color:#359aff;">&gt;
-  </span><span style="color:#359aff;">&lt;div</span><span style="color:#ffffff;"> *ngIf</span><span style="color:#ff4848;">=</span><span style="color:#ffffff;">&quot;nextLecture&quot; </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;ui info message&quot;
-    </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;width: </span><span style="color:#00ff40;">50</span><span style="color:#ffffff;">%</span><span style="color:#ff8000;">;</span><span style="color:#ffffff;"> margin-left: </span><span style="color:#00ff40;">25</span><span style="color:#ffffff;">%&quot;</span><span style="color:#359aff;">&gt;
-    </span><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;header&quot;</span><span style="color:#359aff;">&gt;
-  </span><span style="color:#ffffff;">      You need to be in
-    </span><span style="color:#359aff;">&lt;/div&gt;
-    </span><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;header&quot;</span><span style="color:#359aff;">&gt;
-  </span><span style="color:#ffffff;">      <span>{{</span>nextLecture.building<span>}}</span>/<span>{{</span>nextLecture.floor<span>}}</span>
-      .<span>{{</span>nextLecture.room<span>}}</span>
-    </span><span style="color:#359aff;">&lt;/div&gt;
-    </span><span style="color:#359aff;">&lt;div </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;text-align: center</span><span style="color:#ff8000;">;
-  </span><span style="color:#ffffff;">      list-style-type: none</span><span style="color:#ff8000;">;</span><span style="color:#ffffff;">&quot; </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;list&quot;</span><span style="color:#359aff;">&gt;
-      </span><span style="color:#359aff;">&lt;p&gt;</span><span style="color:#ffffff;">At <span>{{</span>nextLecture.day<span>}}</span>, <span>{{</span>nextLecture.time.hours<span>}}</span>
-      :<span>{{</span>nextLecture.time.minutes<span>}}</span></span><span style="color:#359aff;">&lt;/p&gt;
-      </span><span style="color:#359aff;">&lt;p&gt;</span><span style="color:#ffffff;">For <span>{{</span>nextLecture.name<span>}}</span></span><span style="color:#359aff;">&lt;/p&gt;
-    </span><span style="color:#359aff;">&lt;/div&gt;
-  </span><span style="color:#359aff;">&lt;/div&gt;
-  </span><span style="color:#359aff;">&lt;div</span><span style="color:#ffffff;"> *ngIf</span><span style="color:#ff4848;">=</span><span style="color:#ffffff;">&quot;!nextLecture&quot; </span><span style="color:#ff4848;">class=</span><span style="color:#ffffff;">&quot;ui info message&quot;
-    </span><span style="color:#ff4848;">style=</span><span style="color:#ffffff;">&quot;width: </span><span style="color:#00ff40;">50</span><span style="color:#ffffff;">%</span><span style="color:#ff8000;">;</span><span style="color:#ffffff;"> margin-left: </span><span style="color:#00ff40;">25</span><span style="color:#ffffff;">%&quot;</span><span style="color:#359aff;">&gt;
-  </span><span style="color:#ffffff;">    No events today!
-  </span><span style="color:#359aff;">&lt;/div&gt;
-&lt;/div&gt;</span></pre>
-  </div>
+    <pre class="language-html"><code>&lt;div style="margin: 30px;"&gt;
+    &lt;div *ngIf="nextLecture" class="ui info message"
+      style="width: 50%; margin-left: 25%"&gt;
+      &lt;div class="header"&gt;
+          You need to be in
+      &lt;&#47;div&gt;
+      &lt;div class="header"&gt;
+          <span>{{</span>nextLecture.building<span>}}</span>&#47;<span>{{</span>nextLecture.floor<span>}}</span>
+        .<span>{{</span>nextLecture.room<span>}}</span>
+      &lt;&#47;div&gt;
+      &lt;div style="text-align: center;
+          list-style-type: none;" class="list"&gt;
+        &lt;p&gt;At <span>{{</span>nextLecture.day<span>}}</span>, <span>{{</span>nextLecture.time.hours<span>}}</span>
+        :<span>{{</span>nextLecture.time.minutes<span>}}</span>&lt;&#47;p&gt;
+        &lt;p&gt;For <span>{{</span>nextLecture.name<span>}}</span>&lt;&#47;p&gt;
+      &lt;&#47;div&gt;
+    &lt;&#47;div&gt;
+    &lt;div *ngIf="!nextLecture" class="ui info message"
+      style="width: 50%; margin-left: 25%"&gt;
+        No events today!
+    &lt;&#47;div&gt;
+&lt;&#47;div&gt;</code></pre>
+
   <h4>Visualization of the Construction:</h4>
   (No changes here)
   <p><img class="ui image big centered" src="assets/img/App-Building-9.png"></p>
