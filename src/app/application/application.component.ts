@@ -32,4 +32,8 @@ export class ApplicationComponent implements OnInit {
     this.service.getModus()
     .subscribe(modus => this.modus = modus);
   }
+
+  copy(text: string): void {
+    navigator.clipboard.writeText(text);
+  }
 }

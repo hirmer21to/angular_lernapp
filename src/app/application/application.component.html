@@ -11,14 +11,20 @@
   <h4>Initial Application</h4>
   <p>Open your cmd and type:</p>
   <div class="code_listing">
-  <pre class="command-line language-bash"><code>ng new where-to-go -is</code></pre><a href="https://angular.io/cli/new" target="_blank"><i class="large info circle link icon"></i></a></div>
+    <pre class="command-line language-bash"><code #code1>ng new where-to-go -is</code></pre>
+    <div><i class="copy outline link icon" (click)="copy(code1.textContent)"></i></div>
+    <a href="https://angular.io/cli/new" target="_blank"><i class="large info circle link icon"></i></a>
+  </div>
   <p>The <code>-is</code> defines that the project has an inline-style. If you don't do
     this, we would get an extra
     CSS-file for every single component. We don't want that for this project.</p>
   <p>Next, open your editor and open the project folder. After that run the
     initial application. In most editors you even can open a terminal directly within the editor. If the terminal returns an error message like <code>Command not found</code> you have to restart it in order for the process to  recognise the newly installed commands.</p>
   <div class="code_listing">
-  <pre class="command-line language-bash"><code>ng serve --open</code></pre><a href="https://angular.io/cli/serve" target="_blank"><i class="large info circle link icon"></i></a></div>
+    <pre class="command-line language-bash"><code #code2>ng serve --open</code></pre>
+    <div><i class="copy outline link icon" (click)="copy(code2.textContent)"></i></div>
+    <a href="https://angular.io/cli/serve" target="_blank"><i class="large info circle link icon"></i></a>
+  </div>
   <p>The browser automatically opens the start page of the initial Angular app:</p>
   <img class="ui image big centered border" src="assets/img/Angular-Initial-App.png">
 </div>
@@ -94,13 +100,23 @@
 
   <h4>Make some changes</h4>
   <p>Open <b>app.component.ts</b> and change the title of the app.</p>
-  <pre><code>export class AppComponent &#123;
-  title = 'Where To Go';
+
+  <div class="code_listing">
+    <pre><code #code3>export class AppComponent &#123;
+    title = 'Where To Go';
 &#125;</code></pre>
+    <div><i class="copy outline link icon" (click)="copy(code3.textContent)"></i></div>
+  </div>
+
 
   <p>In the <b>app.component.html</b> is a binding to <code>title</code>. This binding brings the new title into the application.
   </p>
-<pre class="language-html"><code>&lt;h1&gt;Welcome to <span>{{</span> title <span>}}</span>!&lt;&#47;h1&gt;</code></pre>
+  
+  <div class="code_listing">
+    <pre class="language-html"><code #code4>&lt;h1&gt;Welcome to <span>{{</span> title <span>}}</span>!&lt;&#47;h1&gt;</code></pre>
+    <div><i class="copy outline link icon" (click)="copy(code4.textContent)"></i></div>
+  </div>
+
 
   <img class="ui image medium centered border" src="assets/img/Angular-Changed-Title.png">
 </div>
@@ -112,27 +128,38 @@
     <a href="https://semantic-ui.com/" target="_blank">Semantic UI</a> CSS-Framework for a nice look and feel out-of-the-box.</p>
 
   <p>You can install the UI-Framework with the command:</p>
+
   <div class="code_listing">
-      <pre class="command-line language-bash" data-user="user" data-host="localhost"><code>npm i semantic-ui-css</code></pre><a href="https://docs.npmjs.com/cli/install" target="_blank"><i class="large info circle link icon"></i></a></div>
+      <pre class="command-line language-bash" data-user="user" data-host="localhost"><code #code5>npm i semantic-ui-css</code></pre>
+      <div><i class="copy outline link icon" (click)="copy(code5.textContent)"></i></div>
+      <a href="https://docs.npmjs.com/cli/install" target="_blank"><i class="large info circle link icon"></i></a>
+  </div>
+
   <p class="ui info message">Tip: Its possible to open up another terminal and to have multiple running command shells to avoid powering off and on again the Angular web application.</p>
 
   <p>Add it to the <b>angular.json</b> file:</p>
 
-  <pre class="language-json"><code>"styles": [
+  <div class="code_listing">
+    <pre class="language-json"><code #code6>"styles": [
     "node_modules/semantic-ui-css/semantic.css",
     "src/styles.css"
 ]</code></pre>
+    <div><i class="copy outline link icon" (click)="copy(code6.textContent)"></i></div>
+  </div>
 
   <p>CSS and JS framework files with <strong>min</strong> in the file name are, as usual, minified and compressed versions for production use, in contrary to the normal files for development and debugging purposes.</p>
   <p>Configuration changes in the <strong>angular.json</strong> file are not hot reloaded! Therefore in order for the CSS to take effect, you have to hold (<code>Ctrl + C</code>) and restart your app with <code>ng serve</code>.</p>
 
   <p>Now you can test the new style. Adjust the <b>app.component.html</b> like this and see if it looks different:</p>
 
-  <pre class="language-html"><code>&lt;div style="text-align:center"&gt;
+  <div class="code_listing">
+    <pre class="language-html"><code #code7>&lt;div style="text-align:center"&gt;
   &lt;h1 class="ui header"&gt;
     Welcome to <span>{{</span> title <span>}}</span>!
   &lt;&#47;h1&gt;
 &lt;&#47;div&gt;</code></pre>
+    <div><i class="copy outline link icon" (click)="copy(code7.textContent)"></i></div>
+  </div>
 
   <p class="ui info message">If you have any problems with installing the Semantic UI CSS, you can download the plain files from their website (under <a href="https://semantic-ui.com/introduction/getting-started.html" target="_blank">Getting Started</a><em> &gt;Simpler Setup</em>) and paste the CSS it into your project folder.</p>
 
@@ -142,7 +169,7 @@
   Interferences triggered by the included framework are possible and may end up in some unwanted results. <br>
   Furthermore it may be the case that classical JavaScript frameworks tag the DOM once, to enable their functions.
   This normally happens after the content loaded event was fired. 
-  But this event is only emitted once in the life time of a Single-Page-Application (after index.html was downloaded and parsed) as reloads do normally not occur.
+  But this event is only emitted once in the life time of a Single-Page-Application (after the almost empty index.html was downloaded and parsed) as reloads do normally not occur.
   Instead the DOM is dynamically build and changed by Angular.</p>
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
