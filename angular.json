@@ -33,7 +33,9 @@
               "src/styles.css"
             ],
             "scripts": [
-              {"input": "src/prism.js", "inject": false}
+              {"input": "src/prism.js", "inject": false},
+              "./node_modules/jquery/dist/jquery.min.js",
+              "src/semantic.js"
             ]
           },
           "configurations": {
