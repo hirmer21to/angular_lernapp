@@ -222,7 +222,7 @@ add( name: string, building: string,
 &check; all chapters feature a "Further references" box, but from chapter "Components, FormModules and Directives" on this list is maybe not complete!
 
 &cross; there are still inline styles -> remove remaining ones \
-&cross; there is no access to the Stackblitz projects -> Fork into own GitHub-Repository is possible; to host and develop in university-internal GitLab instance it would be possible to define GitHub-Repo as Push Mirror (see GitLab Documenation > [Pushing to a remote repository](https://docs.gitlab.com/ee/workflow/repository_mirroring.html#pushing-to-a-remote-repository-core))
+&check; there is no access to the Stackblitz projects -> Fork into own GitHub-Repository is possible; to host and develop in university-internal GitLab instance it would be possible to define GitHub-Repo as Push Mirror (see GitLab Documenation > [Pushing to a remote repository](https://docs.gitlab.com/ee/workflow/repository_mirroring.html#pushing-to-a-remote-repository-core))
 
 **Errors** \
 \-
