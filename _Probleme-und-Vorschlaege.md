@@ -77,7 +77,7 @@
 ## Chapter Components<hr>
 **Proposals**
 
-&minus; Unter dem Punkt Compontent  > „Communication between Logic and View“ ist bei den Übungsaufgaben zunächst nicht ganz klar was gemacht werden soll bzw. was genau sie im Code anpassen sollen \
+&check; Unter dem Punkt Compontent  > „Communication between Logic and View“ ist bei den Übungsaufgaben zunächst nicht ganz klar was gemacht werden soll bzw. was genau sie im Code anpassen sollen \
 -> Stackblitz-Code can not be changed at the moment (see remarks under General)
 
 &check; ~~Bei Punkt 5 ist nicht beschrieben, dass man auf #info mit info.value zugreifen kann~~\
