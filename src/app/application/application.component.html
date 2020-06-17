@@ -111,9 +111,9 @@
 
   <p>In the <b>app.component.html</b> is a binding to <code>title</code>. This binding brings the new title into the application.
   </p>
-  
+  <span>{{ title }} app is running!</span>
   <div class="code_listing">
-    <pre class="language-html"><code #code4>&lt;h1&gt;Welcome to <span>{{</span> title <span>}}</span>!&lt;&#47;h1&gt;</code></pre>
+    <pre class="language-html"><code #code4>&lt;span&gt;<span>{{</span> title <span>}}</span> app is running!&lt;&#47;span&gt;</code></pre>
     <div><i class="copy outline link icon" (click)="copy(code4.textContent)"></i></div>
   </div>
 

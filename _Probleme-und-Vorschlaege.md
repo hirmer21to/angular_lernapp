@@ -12,7 +12,7 @@
 **Status**
 
 &check; Revised \
-&cross; Proofreading
+&check; Proofreading
 
 ## Chapter First Angular-App<hr>
 **Proposals**
@@ -26,7 +26,7 @@
 **Status**
 
 &check; Revised \
-&cross; Proofreading
+&check; Proofreading
 
 ## Chapter TypeScript<hr>
 **Proposals**
@@ -42,7 +42,7 @@
 **Status**
 
 &check; Revised \
-&cross; Proofreading
+&check; Proofreading
 
 ## Chapter Introduction<hr>
 **Proposals**
@@ -56,7 +56,7 @@
 **Status** 
 
 &check; Revised \
-&cross; Proofreading
+&check; Proofreading
 
 ## Chapter App<hr>
 **Proposals**
@@ -72,7 +72,7 @@
 **Status**
 
 &check; Revised \
-&cross; Proofreading
+&check; Proofreading
 
 ## Chapter Components<hr>
 **Proposals**

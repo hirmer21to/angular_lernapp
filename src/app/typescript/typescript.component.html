@@ -60,7 +60,7 @@ let fibonacci2: number[] = [0, 1, 1, 2, 3, 5, 8, ,13];</code></pre>
     Object represents the non-primitive type (anything apart from number, string, boolean, symbol, null or undefined).
 
     <h5>Enum</h5>
-    <p>An enumy always you to give proper names to a set of numeric values. By default enums begin at 0 and and count on, but you can set values manually for each member.</p>
+    <p>An enum gives proper names to a set of numeric values. By default enums begin at 0 and and count on, but you can set values manually for each member.</p>
     <pre><code>enum Day &#123;Mon, Tue, Wed, Thu, Fri, Sat, Sun&#125;
 let d: Day = Day.Mon;</code></pre>
 
@@ -197,7 +197,7 @@ let myAnimal = new Animal("dog", "2", "max mustermann");
 &#125;</code></pre>
 
     <h5>Static properties</h5>
-    <p>Apart from instance members of a class, its also possible to add <code>static</code>s members, which are visibile on the class itself and not on a particular instance:</p>
+    <p>Apart from instance members of a class, its also possible to add <code>static</code> members, which are visibile on the class itself and not on a particular instance:</p>
 
     <pre><code>class Animal &#123;
     static counter: number = 0;
@@ -212,7 +212,7 @@ let myAnimal = new Animal("dog", "2", "max mustermann");
 &#125;</code></pre>
 
     <h5>Abstract classes</h5>
-    <p>Its even possible to define base classes, which can not be instantiated directly, but do already contain some implementation logic. Instead only from these base classes derived classes, which have to implement all abstract methods, can be instantiated.</p>
+    <p>It's even possible to define base classes, which can not be instantiated directly, but do already contain some implementation logic. Instead only from these base classes derived classes, which have to implement all abstract methods, can be instantiated.</p>
 
 <pre><code>abstract class Animal &#123;
     abstract move(): void;
