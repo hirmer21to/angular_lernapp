@@ -50,7 +50,7 @@
     <li><code>stylesUrl</code> or <code>styles</code>: Location of the private CSS stylesheet or inline styles
     </li>
   </ul>
-  <p>The <code>selector</code>, here "app-where-to-go", defines the name of a custom HTML element, which tells Angular to insert an instance of this component between the opening and closing tag. 
+  <p>The <code>selector</code>, here "app-where-to-go", also defines the name of a custom HTML element, which tells Angular to insert an instance of this component between the opening and closing tag. 
   Most of the time this element is inserted into the template of the parent component.</p>
   <p><code>ngOnInit</code> is one of the provided component lifecycle hook methods. 
   Angular calls this function once after creating the component with the <code>constructor</code>. Therefore it is the right function to place additional initialisation logic.</p>
@@ -92,7 +92,7 @@
     The view of the child-components is accessable</li>
 
     <li><code>ngAfterViewChecked()</code>:<br>
-    Called once after <code>ngAfterViewInit</code> and afterwards every <code>ngAfterConctentChekcd</code>.
+    Called once after <code>ngAfterViewInit</code> and afterwards every <code>ngAfterConctentChecked</code>.
     Invoked after the change detector checked the component's view if the view needs to be redrawn.
 
     <li><code>ngOnDestroy()</code>:<br>
@@ -121,7 +121,7 @@
     <code class="language-html">&lt;element [property]="expression"&gt;...&lt;/element&gt;</code>
     </li>
     <li><strong>Interpolation</strong>:<br />
-    One-way data flow from soure to view<br>
+    One-way data flow from source to view<br>
     Embeds an expression (to display component properties or calculated values) as string into the text between HTML tags.<br />
     <code class="language-html">&lt;div&gt;<span>{{</span> expression <span>}}</span>&lt;/div&gt;</code>
     </li>

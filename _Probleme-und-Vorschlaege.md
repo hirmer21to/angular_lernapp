@@ -90,7 +90,7 @@
 **Status**
 
 &check; Revised \
-&cross; Proofreading
+&check; Proofreading
 
 ## Chapter Components, FormModules and Directives<hr>
 
@@ -103,7 +103,7 @@
 
 **Errors**
 
-&minus; At the moment for each lecture item there is an `a` element nested in another `a` element -> this makes no sense and the inner a is not used at the moment (event handler for `click` is only registered on the outer one)
+&check; At the moment for each lecture item there is an `a` element nested in another `a` element -> this makes no sense and the inner a is not used at the moment (event handler for `click` is only registered on the outer one)
 
 &check; ~~After finishing the sub-chapter 'Display a List' the application did not compile for me. 
 In the file 'shared/lecture.ts' I had to replace:~~
@@ -121,6 +121,8 @@ export declare type Time = {
 };
 ```
 -> I had the same compiler error, but after restarting the application everything worked fine; maybe a bug? Because [Time](https://angular.io/api/common/Time) is definitely part of the Angular API.
+
+-> I had no problems so the bug seems to be fixed
 
 **Status**
 

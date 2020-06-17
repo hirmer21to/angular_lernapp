@@ -57,7 +57,7 @@
     <p>First we have to write the code for a single lecture item and replace the code in
         <b>lecture-item.component.html</b>: </p>
 
-    <pre class="language-html"><code>&lt;a class="content"&gt;
+    <pre class="language-html"><code>&lt;div class="content"&gt;
     &lt;div class="header"&gt;What? <span>{{</span>lecture.name | uppercase<span>}}</span>&lt;&#47;div&gt;
     &lt;div class="description"&gt;Where? <span>{{</span>lecture.building<span>}}</span>&#47;
         <span>{{</span>lecture.floor<span>}}</span>.<span>{{</span>lecture.room<span>}}</span>&lt;&#47;div&gt;
@@ -65,7 +65,7 @@
         <span>{{</span>lecture.time.hours<span>}}</span>:<span>{{</span>lecture.time.minutes<span>}}</span>&lt;&#47;div&gt;
     &lt;div *ngIf="lecture.department" class="description"&gt;Department: 
         <span>{{</span>lecture.department<span>}}</span>&lt;&#47;div&gt;
-&lt;&#47;a&gt;</code></pre>
+&lt;&#47;div&gt;</code></pre>
 
     <p>Next change the selector in the <b>lecture-item.component.ts</b>:</p>
     <pre class="language-ts"><code>selector: 'a.app-lecture-item',</code></pre>
