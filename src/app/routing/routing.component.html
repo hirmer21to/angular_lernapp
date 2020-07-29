@@ -109,7 +109,7 @@ import &#123; WhereToGoComponent &#125; from "./where-to-go/where-to-go.componen
      >&lt;app-lecture-details [lecture]="selectedLecture"&gt;&lt;/app-lecture-details&gt;</code>
     from the <b>timetable.component.html</b>. We need an own route for them in the <b>app-routing.module.ts</b>:</p>
 
-    <pre class="language-ts"><code>&#123; path: "lectures-details/:id", component: LectureDetailsComponent &#125;</code></pre>
+    <pre class="language-ts"><code>&#123; path: "lecture-details/:id", component: LectureDetailsComponent &#125;</code></pre>
 
   <p>For that, we need to import <code>LectureDetailsComponent</code> now.</p>
 
@@ -143,7 +143,7 @@ import &#123; WhereToGoComponent &#125; from "./where-to-go/where-to-go.componen
     constructor:</p>
 
     <pre class="language-ts"><code>import &#123; ActivatedRoute &#125; from "@angular/router";
-import &#123; LectureService &#125; from "./shared/lecture.service";
+import &#123; LectureService &#125; from "../shared/lecture.service";
 import &#123; Location &#125; from "@angular/common";</code></pre>
 
 <pre class="language-ts"><code>constructor(
@@ -167,17 +167,17 @@ import &#123; Location &#125; from "@angular/common";</code></pre>
     location.</p>
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
-  <p>In the <b>lecture-datails.component.ts</b> we want to have a method that gets us one lecture by its ID and since
+  <p>In the <b>lecture-details.component.ts</b> we want to have a method that gets us one lecture by its ID and since
     we use a service class we need to define the method in <b>lecture.service.ts</b>:</p>
 
     <pre class="language-ts"><code>getLecture(id: number): Observable&lt;Lecture&gt; &#123;
     return of(LECTURES.find(lecture => lecture.id === id));
 &#125;</code></pre>
 
-  <p>Now we can use it in <b>lecture-datails.component.ts</b> like this:</p>
+  <p>Now we can use it in <b>lecture-details.component.ts</b> like this:</p>
 
   <pre class ="language-ts"><code>getLecture(): void &#123;
-    const id = this.route.paramMap.get("id");
+    const id = +this.route.snapshot.paramMap.get("id");
     this.lectureService.getLecture(id)
     .subscribe(lecture => this.lecture = lecture);
 &#125;</code></pre>
