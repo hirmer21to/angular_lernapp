@@ -1,4 +1,9 @@
-# MasterProject
+# Angular Learning Application
+Download and dezip or clone this project and open terminal inside the folder (or open terminal in VS Code). 
+Don't forget to run `npm install` to install dependencies ;)
+
+## Requirements
+Nodejs and the Angular CLI needs to be installed. 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.4.
 
