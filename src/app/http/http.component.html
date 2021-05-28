@@ -160,8 +160,7 @@ import &#123; InMemoryDataService &#125; from "./shared/in-memory-data.service";
     empty the initial id 11 will be used, otherwise the highest id + 1 will be used.</p>
 
     <pre class="language-ts"><code>genId(lectures: Lecture[]): number &#123;
-    return lectures.length &gt; 0 ? Math.max(...lectures)
-    .map(lecture => lecture.id)) + 1 : 11;
+    return lectures.length &gt; 0 ? Math.max(...lectures.map(lecture => lecture.id)) + 1 : 11;
 &#125;</code></pre>
 
   <p>Of course we also need to import the class <code>Lecture</code>.</p>
@@ -343,8 +342,8 @@ import &#123; Location &#125; from "@angular/common";</code></pre>
     lectures: Lecture[];
 
     constructor(
-      private lectureService: LectureService;
-      private location: Location;
+      private lectureService: LectureService,
+      private location: Location
     ) &#123; &#125;
 
     ngOnInit() &#123;
@@ -374,7 +373,7 @@ import &#123; Location &#125; from "@angular/common";</code></pre>
   </p>
   <p>We can use it again in the <b>lecture-add.component.ts</b>:</p>
 
-  <pre class="language-ts"><code>add(name: string, building: string, floor: string, room: string, day: string, hours: string, minutes: string, department?: string): void &#123;
+  <pre class="language-ts"><code>add(name: string, building: string, floor: string, room: string, day: string, hours: number, minutes: number, department?: string): void &#123;
     let time = &#123;hours, minutes&#125;;
     if(!name || !room || !day || !time || !building || !floor) &#123;
       this.fieldsEmpty = true;
@@ -403,13 +402,13 @@ import &#123; Location &#125; from "@angular/common";</code></pre>
   <p>Last step is to complete the <b>lecture-add.component.html</b>.</p>
 
   <pre class="language-html"><code>&lt;button class="ui primary button" (click)="add(
-    lectureName.value;
-    lectureBuilding.value;
-    lectureFloor.value;
-    lectureRoom.value;
-    lectureDay.value;
-    lectureHours.value;
-    lectureMinutes.value;
+    lectureName.value,
+    lectureBuilding.value,
+    lectureFloor.value,
+    lectureRoom.value,
+    lectureDay.value,
+    lectureHours.value,
+    lectureMinutes.value,
     lectureDepartment.value)"&gt;Add&lt;&#47;button&gt;
   
 &lt;p style="color:red" *ngIf="fieldsEmpty===true"&gt;

@@ -2,6 +2,9 @@
 Download and dezip or clone this project and open terminal inside the folder (or open terminal in VS Code). 
 Don't forget to run `npm install` to install dependencies ;)
 
+## Current changes
+See changelog.md in this directory.
+
 ## Requirements
 Nodejs and the Angular CLI needs to be installed. 
 
