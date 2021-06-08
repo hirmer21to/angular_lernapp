@@ -22,9 +22,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         
     - name: Install packages and build dist    
-      run: |
-        npm run clean
-        npm run build:ci
+      run: npm run build:ci
 
     - name: Release
       uses: marvinpinto/action-automatic-releases@latest
