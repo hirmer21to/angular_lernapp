@@ -27,5 +27,6 @@ jobs:
         
     - name: install packages and build dist    
       run: |
-        rm -rf ./dist
+        npm install rimraf
+        npm run clean
         npm run build:ci
