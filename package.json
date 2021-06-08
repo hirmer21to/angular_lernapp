@@ -1,9 +1,9 @@
 {
-  "name": "master-project",
+  "name": "angular_lernapp",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "clean": "rm -rf ./dist",
+    "clean": "rimraf ./dist",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
