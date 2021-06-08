@@ -26,8 +26,9 @@ jobs:
         npm ci
         npm run build:ci
 
-    # - name: Create release zip
-    #   run: |
+    - name: Create release zip
+      run: |
+        zip -r release.zip dist/
 
 
     - name: Release
@@ -38,5 +39,5 @@ jobs:
         prerelease: false
         title: "Development Build"
         files: |
-          ./dist/
+          release.zip
           LICENSE
