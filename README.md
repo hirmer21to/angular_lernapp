@@ -1,3 +1,6 @@
+[![build status](https://github.com/coryrylan/angular-github-actions/workflows/Build/badge.svg)](https://github.com/coryrylan/angular-github-actions/actions)
+
+
 # Angular Learning Application
 Download and dezip or clone this project and open terminal inside the folder (or open terminal in VS Code). 
 Don't forget to run `npm install` to install dependencies ;)

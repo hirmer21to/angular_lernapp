@@ -26,6 +26,8 @@ jobs:
         npm ci
         npm run build:ci
 
+    - name: Create release zip
+
     - name: Release
       uses: marvinpinto/action-automatic-releases@latest
       with:
@@ -34,5 +36,5 @@ jobs:
         prerelease: false
         title: "Development Build"
         files: |
-          ./dist
+          ./dist/
           LICENSE
