@@ -1,9 +1,12 @@
 [![build status](https://github.com/coryrylan/angular-github-actions/workflows/Build/badge.svg)](https://github.com/coryrylan/angular-github-actions/actions)
-
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+![angular](https://img.shields.io/badge/angular-7-red)
 
 # Angular Learning Application
-Download and dezip or clone this project and open terminal inside the folder (or open terminal in VS Code). 
-Don't forget to run `npm install` to install dependencies ;)
+
+If you just want to use the latest pre-built version of the Angular Lernapp, download the latest release and open the index.html in a browser.
+
+If you want to compile the Angular Lernapp yourself, download/dezip or clone this project and open terminal inside the folder (or open terminal in VS Code). Then you can use the commands listed below to build the application. Don't forget to run `npm install` to install dependencies. ;)
 
 ## Current changes
 See changelog.md in this directory.
