@@ -21,26 +21,18 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         
-    - name: install packages and build dist    
+    - name: Install packages and build dist    
       run: |
         npm run clean
         npm run build:ci
-        
-  release:
-    name: "Pre Release"
-    runs-on: "ubuntu-latest"
 
-    steps:
-      - name: "Build & test"
-        run: |
-          echo "done!"
-
-      - uses: "marvinpinto/action-automatic-releases@latest"
-        with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
-          prerelease: false
-          title: "Development Build"
-          files: |
-            ./dist
-            LICENSE
+    - name: Release
+      uses: marvinpinto/action-automatic-releases@latest
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "latest"
+        prerelease: false
+        title: "Development Build"
+        files: |
+          ./dist
+          LICENSE
