@@ -27,5 +27,5 @@ jobs:
         
     - name: install packages and build dist    
       run: |
-        npm ci
+        rm -rf ./dist
         npm run build:ci
