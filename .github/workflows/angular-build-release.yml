@@ -42,5 +42,5 @@ jobs:
           prerelease: false
           title: "Development Build"
           files: |
-            ./dist/*
+            ./dist
             LICENSE
