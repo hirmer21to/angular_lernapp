@@ -1,4 +1,4 @@
-name: Build and Release Angular Lernapp
+name: Build and Release Angular-Lernapp
 
 on:
   push:
@@ -28,10 +28,9 @@ jobs:
 
     - name: Create release zip
       run: |
-        zip -r release.zip dist/
+        zip -r release.zip dist/Angular-Lernapp/
 
-
-    - name: Release
+    - name: Release zip
       uses: marvinpinto/action-automatic-releases@latest
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
