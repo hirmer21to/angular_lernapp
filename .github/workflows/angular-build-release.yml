@@ -26,6 +26,17 @@ jobs:
         npm ci
         npm run build:ci
 
+    - name: Install packages and build dist  
+      run: |
+        mkdir docs/
+        cp -r dist/Angular-Lernapp/ docs/
+
+    - name: Archive production artifacts to docs for GitHub Pages
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: docs
+
     - name: Create release zip
       run: |
         zip -r release.zip dist/Angular-Lernapp/
