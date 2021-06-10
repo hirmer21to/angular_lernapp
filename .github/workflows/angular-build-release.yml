@@ -27,19 +27,10 @@ jobs:
         npm ci
         npm run build:ci
 
-    # - name: Copy built app to docs directory
-    #   run: cp -rv dist/Angular-Lernapp/ docs/
-
-    # - name: Archive docs directory for GitHub Pages
-    #   uses: actions/upload-artifact@v2
-    #   with:
-    #     name: built-app
-    #     path: docs/
-
     - name: Deploy with gh-pages
       run: |
         git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-        npx gh-pages -d dist -u "github-actions-bot <support+actions@github.com>"
+        npx gh-pages -d dist/Angular-Lernapp/ -u "github-actions-bot <support+actions@github.com>"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
