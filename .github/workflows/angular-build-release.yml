@@ -27,14 +27,17 @@ jobs:
         npm ci
         npm run build:ci
 
-    - name: Copy built app to docs directory
-      run: cp -rv dist/Angular-Lernapp/ docs/
+    # - name: Copy built app to docs directory
+    #   run: cp -rv dist/Angular-Lernapp/ docs/
 
-    - name: Archive docs directory for GitHub Pages
-      uses: actions/upload-artifact@v2
-      with:
-        name: built-app
-        path: docs/
+    # - name: Archive docs directory for GitHub Pages
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     name: built-app
+    #     path: docs/
+
+    - name: Push dist to gh-pages branch
+      run: npm run pages:ci
 
     - name: Create release zip
       run: |
