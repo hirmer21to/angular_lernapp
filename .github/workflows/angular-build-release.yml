@@ -36,11 +36,12 @@ jobs:
     #     name: built-app
     #     path: docs/
 
-    - name: Push dist to gh-pages branch
+    - name: Deploy with gh-pages
       run: |
-        git config --global user.email "actions@github.com"
-        git config --global user.name "GitHub Actions"
-        npm run pages:ci
+        git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+        npx gh-pages -d dist -u "github-actions-bot <support+actions@github.com>"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Create release zip
       run: |
