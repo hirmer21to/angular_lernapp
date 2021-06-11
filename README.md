@@ -10,6 +10,8 @@ If you want to use the latest pre-built version of the Angular-Lernapp and run t
 
 If you want to compile the Angular-Lernapp yourself, download/dezip or clone this project and open terminal inside the folder (or open terminal in VS Code). Then you can use the commands listed below to build the application. Don't forget to run `npm install` to install dependencies. ;)
 
+Feel free to create issues reporting bugs, improvements and so on!
+
 ## Current changes
 See changelog.md in this directory.
 
