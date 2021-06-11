@@ -4,7 +4,9 @@
 
 # Angular-Lernapp
 
-If you just want to use the latest pre-built version of the Angular-Lernapp, download the `release.zip` of the latest release [here](https://github.com/hirmer21to/angular_lernapp/releases/tag/latest) and open the index.html of the unzipped folder in a browser.
+The most simple way to use the Angular-Lernapp is to follow [this link](https://hirmer21to.github.io/angular_lernapp/) to the GitHub Pages deployment.
+
+If you want to use the latest pre-built version of the Angular-Lernapp and run the app locally, download the `release.zip` of the latest release [here](https://github.com/hirmer21to/angular_lernapp/releases/tag/latest) and open the index.html of the unzipped folder in a browser.
 
 If you want to compile the Angular-Lernapp yourself, download/dezip or clone this project and open terminal inside the folder (or open terminal in VS Code). Then you can use the commands listed below to build the application. Don't forget to run `npm install` to install dependencies. ;)
 
