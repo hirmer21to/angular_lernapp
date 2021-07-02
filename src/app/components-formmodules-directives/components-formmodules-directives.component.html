@@ -58,7 +58,7 @@ export const LECTURES: Lecture[] = [
     <p>First we have to write the code for a single lecture item and replace the code in
         <b>lecture-item.component.html</b>: </p>
 
-    <pre class="language-html"><code>&lt;div class="content"&gt;
+    <pre class="language-html"><code>&lt;div *ngIf="lecture" class="content"&gt;
     &lt;div class="header"&gt;What? <span>{{</span>lecture.name | uppercase<span>}}</span>&lt;&#47;div&gt;
     &lt;div class="description"&gt;Where? <span>{{</span>lecture.building<span>}}</span>&#47;
         <span>{{</span>lecture.floor<span>}}</span>.<span>{{</span>lecture.room<span>}}</span>&lt;&#47;div&gt;
@@ -67,13 +67,14 @@ export const LECTURES: Lecture[] = [
     &lt;div *ngIf="lecture.department" class="description"&gt;Department: 
         <span>{{</span>lecture.department<span>}}</span>&lt;&#47;div&gt;
 &lt;&#47;div&gt;</code></pre>
-
     <p>Next change the selector in the <b>lecture-item.component.ts</b>:</p>
     <pre class="language-ts"><code>selector: 'a.app-lecture-item',</code></pre>
     <p>And insert this right above the empty constructor:</p>
 
-    <pre class="language-ts"><code>@Input() lecture: Lecture;</code></pre>
+    <pre class="language-ts"><code>@Input() lecture: Lecture | undefined;</code></pre>
 
+    <p>We need to add the optional type 'undefined' to prevent an error message since we need to initialise this variable. 
+        We could also initialise it with dummy data but then we have to adapt our *ngIf directive otherwise this dummy data would be displayed as detail-view.</p>
     <p>For that, we need to import the class <code>Input</code>.</p>
     <pre class="language-ts"><code>import &#123; Input &#125; from "@angular/core";</code></pre>
 </div>
@@ -151,7 +152,7 @@ export const LECTURES: Lecture[] = [
         the clicked lecture from the
         template to the <code>selectedLecture</code> of the component.</p>
 
-    <pre class="language-ts"><code>selectedLecture: Lecture;
+    <pre class="language-ts"><code>selectedLecture: Lecture | undefined;
 
 onSelect(lecture: Lecture): void &#123;
     this.selectedLecture = lecture;
