@@ -1,6 +1,6 @@
 [![build status](https://img.shields.io/badge/build-passing-green)](https://img.shields.io/badge/build-passing-green)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-![angular](https://img.shields.io/badge/angular-7-red)
+![angular](https://img.shields.io/badge/angular-12-red)
 
 # Angular-Lernapp
 
