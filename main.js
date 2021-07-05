@@ -7711,14 +7711,18 @@ function RoutingComponent_div_9_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](33, "pre", 11);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](34, "code");
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](35);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](35, "<div style=\"text-align:center\">\n  <h1 class=\"ui header\" style=\"margin: 30px\">\n    Welcome to ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](36, "span");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](37, "{{");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](38, " title ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](39, "span");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](40, "}}");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](41, "!</h1>\n  <div class=\"ui two item menu\">\n    <a class=\"item\" routerLink=\"/where-to-go\" routerLinkActive=\"active\">\n      Home</a>\n    <a class=\"item\" routerLink=\"/timetable\" routerLinkActive=\"active\">\n      Timetable</a>\n  </div>\n  <router-outlet></router-outlet>\n</div>");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-} if (rf & 2) {
-    var ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](35);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"]("<div style=\"text-align:center\">\n  <h1 class=\"ui header\" style=\"margin: 30px\">\n    Welcome to ", ctx_r5.title, "!</h1>\n  <div class=\"ui two item menu\">\n    <a class=\"item\" routerLink=\"/where-to-go\" routerLinkActive=\"active\">\n      Home</a>\n    <a class=\"item\" routerLink=\"/timetable\" routerLinkActive=\"active\">\n      Timetable</a>\n  </div>\n  <router-outlet></router-outlet>\n</div>");
 } }
 function RoutingComponent_div_10_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 10);
@@ -7773,31 +7777,35 @@ function RoutingComponent_div_13_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](28, "pre", 11);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](29, "code");
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](30);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](30, "<a class=\"app-lecture-item item\" [lecture]=\"l\" routerLink=\"/lecture-details/");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](31, "span");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](32, "{{");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](33, " l.id ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](34, "span");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](35, "}}");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](36, "\" style=\"margin: 10px; padding: 10px\"></a>");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](31, "p");
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](32, "When you click on the first lecture you will see this in the address bar of your browser: ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](33, "img", 13);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](34, " But you won't see the details view. First we need to change some things. Delete ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](35, "code");
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](36, "selectedLecture");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](37, "p");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](38, "When you click on the first lecture you will see this in the address bar of your browser: ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](39, "img", 13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](40, " But you won't see the details view. First we need to change some things. Delete ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](41, "code");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](42, "selectedLecture");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](37, " and the ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](38, "code");
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](39, "onSelect()");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](43, " and the ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](44, "code");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](45, "onSelect()");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](40, " method from the ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](41, "b");
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](42, "timetable.component.ts");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](46, " method from the ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](47, "b");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](48, "timetable.component.ts");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](43, ". Because of the routing you won't need it anymore. ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](49, ". Because of the routing you won't need it anymore. ");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-} if (rf & 2) {
-    var ctx_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](30);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"]("<a class=\"app-lecture-item item\" [lecture]=\"l\" routerLink=\"/lecture-details/", ctx_r7.l.id, "\" style=\"margin: 10px; padding: 10px\"></a>");
 } }
 function RoutingComponent_div_14_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 10);
@@ -8079,12 +8087,12 @@ var RoutingComponent = /** @class */ (function () {
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](6, RoutingComponent_div_6_Template, 14, 0, "div", 2);
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](7, RoutingComponent_div_7_Template, 12, 0, "div", 3);
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](8, RoutingComponent_div_8_Template, 28, 0, "div", 4);
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](9, RoutingComponent_div_9_Template, 36, 1, "div", 4);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](9, RoutingComponent_div_9_Template, 42, 0, "div", 4);
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](10, RoutingComponent_div_10_Template, 5, 0, "div", 4);
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](11, "h4");
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](12, "Details in own View");
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](13, RoutingComponent_div_13_Template, 44, 1, "div", 4);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](13, RoutingComponent_div_13_Template, 50, 0, "div", 4);
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](14, RoutingComponent_div_14_Template, 21, 0, "div", 4);
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](15, RoutingComponent_div_15_Template, 12, 0, "div", 4);
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](16, RoutingComponent_div_16_Template, 17, 0, "div", 3);
