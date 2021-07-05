@@ -144,7 +144,7 @@ import &#123; InMemoryDataService &#125; from "./shared/in-memory-data.service";
 
     <pre class="language-ts"><code>export class InMemoryDataService implements InMemoryDbService &#123;
     createDb() &#123;
-      const lectures = [];
+      const lectures: Lecture[] = [];
       return &#123; lectures &#125;
     &#125;
 &#125;</code></pre>
@@ -253,7 +253,7 @@ const httpOptions = &#123;
 
 <pre class="language-ts"><code>updateLecture(lecture: Lecture): Observable&lt;any&gt; &#123;
   return this.http.put(this.lectureUrl, lecture, httpOptions)
-    .pipe(catchError(this.handleError&#123;any&#125;("updateLecture"));)
+    .pipe(catchError(this.handleError&lt;any&gt;("updateLecture")));
 &#125;</code></pre>
 
   <p class="ui info message"><code>put</code>
@@ -276,8 +276,10 @@ const httpOptions = &#123;
   </p>
 
   <pre class="language-ts"><code>save(): void &#123;
-    this.lectureService.updateLecture(this.lecture)
-      .subscribe(() => this.goBack());
+    if(this.lecture) &#123;
+      this.lectureService.updateLecture(this.lecture)
+          .subscribe(() => this.goBack());
+    &#125;
 &#125;</code></pre>
 
   <p>Afterwards you can add the button in <b>lecture-details.component.html</b> with the click-event-binding and check
@@ -339,7 +341,7 @@ import &#123; Lecture &#125; from "../shared/lecture";
 import &#123; Location &#125; from "@angular/common";</code></pre>
 
   <pre class="language-ts"><code>export class LectureAddComponent implements OnInit &#123;
-    lectures: Lecture[];
+    lectures: Lecture[] = [];
 
     constructor(
       private lectureService: LectureService,
@@ -373,8 +375,10 @@ import &#123; Location &#125; from "@angular/common";</code></pre>
   </p>
   <p>We can use it again in the <b>lecture-add.component.ts</b>:</p>
 
-  <pre class="language-ts"><code>add(name: string, building: string, floor: string, room: string, day: string, hours: number, minutes: number, department?: string): void &#123;
-    let time = &#123;hours, minutes&#125;;
+  <pre class="language-ts"><code>add(name: string, building: string, floor: string, room: string, day: string, hours: string, minutes: string, department?: string): void &#123;
+    let hoursInt = parseInt(hours);
+    let minutesInt = parseInt(minutes);
+    let time = &#123;hours: hoursInt, minutes: minutesInt&#125;;
     if(!name || !room || !day || !time || !building || !floor) &#123;
       this.fieldsEmpty = true;
       return;
@@ -450,15 +454,14 @@ import &#123; Location &#125; from "@angular/common";</code></pre>
     timing problem at this point.</p>
 
     <pre class="language-html"><code>&lt;div *ngIf="lectures"&gt;
-    &lt;button class="ui primary button" routerLink="&#47;
-      lecture-add"&gt;Add Lecture&lt;&#47;button&gt;
+    &lt;button class="ui primary button" routerLink="&#47;lecture-add"&gt;Add Lecture&lt;&#47;button&gt;
     &lt;button class="ui button" (click)="deleteAll()" *ngIf="lectures.length&gt;0"&gt;
       Delete All&lt;&#47;button&gt;
     &lt;div *ngIf="lectures.length&gt;0" style="padding: 15px;"&gt;
       &lt;div class="ui middle aligned divided list"&gt;
         &lt;div *ngFor="let l of lectures" class="item"&gt;
           &lt;a class="app-lecture-item item" [lecture]="l"
-            routerLink="&#47;lecture-details&#47;<span>{{</span>l.id<span>}}</span> style="margin: 10px; padding:10px"&gt;&lt;&#47;a&gt;
+            routerLink="&#47;lecture-details&#47;<span>{{</span>l.id<span>}}</span>" style="margin: 10px; padding:10px"&gt;&lt;&#47;a&gt;
           &lt;button (click)="delete(l)" class="ui button"&gt;Delete&lt;&#47;button&gt;
         &lt;&#47;div&gt;
       &lt;&#47;div&gt;

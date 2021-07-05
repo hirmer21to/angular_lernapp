@@ -197,7 +197,7 @@ import &#123; Location &#125; from "@angular/common";</code></pre>
     after the component was created.
     <code>paramMap</code> is a dictionary of route parameter values extracted from the
     URL. The <code>id</code> key
-    returns the id of the lecture to fetch. As route parameters are strings the + JavaScript-operator converts them to
+    returns the id of the lecture to fetch. As route parameters are strings we use <code>parseInt(...)</code> to convert them to
     a number, because the lecture id is one.</p>
 </div>
 <div *ngIf="praxis" style="margin-top: 20px;">
