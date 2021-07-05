@@ -21,7 +21,7 @@
      >LectureItemComponent</code> to it.</p>
       <p>Insert this right above the empty constructor:</p>
 
-    <pre class="language-ts"><code>@Input() lecture: Lecture;</code></pre>
+    <pre class="language-ts"><code>@Input() lecture: Lecture | undefined;</code></pre>
 
   <p>This results in making these imports:</p>
     <pre class="language-ts"><code>import &#123; Component, OnInit, Input &#125; from "@angular/core";

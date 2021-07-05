@@ -98,14 +98,14 @@ import &#123; LECTURES &#125; from "../shared/mock-lectures";</code></pre>
     <pre class="language-ts"><code>import &#123; LectureService &#125; from "../shared/lecture.service";
 import &#123; Lecture &#125; from "../shared/lecture";</code></pre>
 
-<pre class="language-ts"><code>lectures: Lecture[];</code></pre>
+<pre class="language-ts"><code>lectures: Lecture[] = [];</code></pre>
 
   <p>Next we are going to use the method of the service class to get the lectures into our <code
      >lecture</code> array.
   </p>
 
   <pre class="language-ts"><code>getLectures(): void &#123;
-    this.lectures = this.lectureSerivce.getLectures();
+    this.lectures = this.lectureService.getLectures();
 &#125;</code></pre>
 
   <p>In the lifecycle hook <code>ngOnInit()</code> the method is called and executed

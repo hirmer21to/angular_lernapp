@@ -34,6 +34,12 @@
     you will already have the file <b>app-routing.module.ts</b> in your project folder. If not, generate it now:</p>
   <pre class="language-bash command-line"><code
      >ng generate module app-routing --flat --module=app</code></pre>
+  <p>You also need to change the @NgModule-Decorator. Replace the generated Code with the following:</p>
+  <pre class="language-ts"><code
+  >@NgModule(&#123;
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+  &#125;)</code></pre>
 </div>
 
 <div *ngIf="theorySmall" style="margin-top: 20px;" class="ui message">
@@ -86,7 +92,7 @@ import &#123; WhereToGoComponent &#125; from "./where-to-go/where-to-go.componen
 
     <pre class="language-html"><code>&lt;div style="text-align:center"&gt;
   &lt;h1 class="ui header" style="margin: 30px"&gt;
-    Welcome to <span>{{</span> title <span>}}</span>!&lt;&#47;h1&gt;
+    Welcome to &#123;&#123; title &#125;&#125;!&lt;&#47;h1&gt;
   &lt;div class="ui two item menu"&gt;
     &lt;a class="item" routerLink="&#47;where-to-go" routerLinkActive="active"&gt;
       Home&lt;&#47;a&gt;
@@ -118,7 +124,7 @@ import &#123; WhereToGoComponent &#125; from "./where-to-go/where-to-go.componen
   <p>And in the <b>timetable.component.html</b> where we iterate with a for-loop through the lectures we insert the
     routerlink for the lecture details with the id of the clicked one:</p>
 
-    <pre class="language-html"><code>&lt;a class="app-lecture-item item" [lecture]="l" routerLink="/lecture-details/<span>{{</span>l.id<span>}}</span> style="margin: 10px; padding: 10px"&gt;&lt;&#47;a&gt;</code></pre>
+    <pre class="language-html"><code>&lt;a class="app-lecture-item item" [lecture]="l" routerLink="/lecture-details/&#123;&#123;l.id&#125;&#125;" style="margin: 10px; padding: 10px"&gt;&lt;&#47;a&gt;</code></pre>
 
   <p>When you click on the first lecture you will see this in the address bar of your browser:
     <img style="margin-bottom:15px;" class="ui centered medium image" src="assets/img/Browser-Navigates-To-Id.png">
@@ -170,16 +176,19 @@ import &#123; Location &#125; from "@angular/common";</code></pre>
   <p>In the <b>lecture-details.component.ts</b> we want to have a method that gets us one lecture by its ID and since
     we use a service class we need to define the method in <b>lecture.service.ts</b>:</p>
 
-    <pre class="language-ts"><code>getLecture(id: number): Observable&lt;Lecture&gt; &#123;
+    <pre class="language-ts"><code>getLecture(id: number): Observable&lt;Lecture | undefined &gt; &#123;
     return of(LECTURES.find(lecture => lecture.id === id));
 &#125;</code></pre>
 
   <p>Now we can use it in <b>lecture-details.component.ts</b> like this:</p>
 
   <pre class ="language-ts"><code>getLecture(): void &#123;
-    const id = +this.route.snapshot.paramMap.get("id");
-    this.lectureService.getLecture(id)
-    .subscribe(lecture => this.lecture = lecture);
+    const id = this.route.snapshot.paramMap.get("id");
+    // check if id is null
+    if(id !== null) &#123;
+      this.lectureService.getLecture(id)
+      .subscribe(lecture => this.lecture = lecture);
+    &#125;
 &#125;</code></pre>
 
 </div>
