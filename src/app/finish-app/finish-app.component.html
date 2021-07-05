@@ -32,8 +32,8 @@
     We will need this to compare all objects in the timetable with this <code>Lecture</code> object and we
     overwrite it every time, a lecture is closer to the time right now than the saved lecture before.</p>
 
-    <pre class="language-ts"><code>lectures: Lecture[];
-nextLecture: Lecture;
+    <pre class="language-ts"><code>lectures: Lecture[] = [];
+nextLecture: Lecture | undefined;
 localTime: Date = new Date();
 isThereANextLecture: boolean = false;
 tempLecture: Lecture = &#123;
