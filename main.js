@@ -5226,7 +5226,7 @@ function FinishAppComponent_div_4_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](48, "pre", 4);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](49, "code");
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](50, "lectures: Lecture[];\nnextLecture: Lecture;\nlocalTime: Date = new Date();\nisThereANextLecture: boolean = false;\ntempLecture: Lecture = {\n    id: 99,\n    name: \"Dummy\",\n    room: \"0\",\n    day: this.getWeekday(),\n    time: {hours: 20, minutes: 15},\n    building: \"WE5\",\n    floor: \"0\"\n};");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](50, "lectures: Lecture[] = [];\nnextLecture: Lecture | undefined;\nlocalTime: Date = new Date();\nisThereANextLecture: boolean = false;\ntempLecture: Lecture = {\n    id: 99,\n    name: \"Dummy\",\n    room: \"0\",\n    day: this.getWeekday(),\n    time: {hours: 20, minutes: 15},\n    building: \"WE5\",\n    floor: \"0\"\n};");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](51, "p");
@@ -6198,7 +6198,7 @@ function HttpComponent_div_7_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](56, "pre", 7);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](57, "code");
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](58, "export class InMemoryDataService implements InMemoryDbService {\n    createDb() {\n      const lectures = [];\n      return { lectures }\n    }\n}");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](58, "export class InMemoryDataService implements InMemoryDbService {\n    createDb() {\n      const lectures: Lecture[] = [];\n      return { lectures }\n    }\n}");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](59, "p");
@@ -6378,7 +6378,7 @@ function HttpComponent_div_9_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](50, "pre", 7);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](51, "code");
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](52, "updateLecture(lecture: Lecture): Observable<any> {\n  return this.http.put(this.lectureUrl, lecture, httpOptions)\n    .pipe(catchError(this.handleError{any}(\"updateLecture\"));)\n}");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](52, "updateLecture(lecture: Lecture): Observable<any> {\n  return this.http.put(this.lectureUrl, lecture, httpOptions)\n    .pipe(catchError(this.handleError<any>(\"updateLecture\")));\n}");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](53, "p", 11);
@@ -6431,7 +6431,7 @@ function HttpComponent_div_11_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](9, "pre", 7);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](10, "code");
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](11, "save(): void {\n    this.lectureService.updateLecture(this.lecture)\n      .subscribe(() => this.goBack());\n}");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](11, "save(): void {\n    if(this.lecture) {\n      this.lectureService.updateLecture(this.lecture)\n          .subscribe(() => this.goBack());\n    }\n}");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](12, "p");
@@ -6540,7 +6540,7 @@ function HttpComponent_div_12_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](59, "pre", 7);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](60, "code");
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](61, "export class LectureAddComponent implements OnInit {\n    lectures: Lecture[];\n\n    constructor(\n      private lectureService: LectureService,\n      private location: Location\n    ) { }\n\n    ngOnInit() {\n      this.getLectures();\n    }\n\n    getLectures(): void {\n      this.lectureService.getLectures()\n        .subscribe(lectures => this.lectures = lectures);\n    }\n\n    goBack(): void {\n      this.location.back();\n    }\n}");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](61, "export class LectureAddComponent implements OnInit {\n    lectures: Lecture[] = [];\n\n    constructor(\n      private lectureService: LectureService,\n      private location: Location\n    ) { }\n\n    ngOnInit() {\n      this.getLectures();\n    }\n\n    getLectures(): void {\n      this.lectureService.getLectures()\n        .subscribe(lectures => this.lectures = lectures);\n    }\n\n    goBack(): void {\n      this.location.back();\n    }\n}");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](62, "p");
@@ -6575,7 +6575,7 @@ function HttpComponent_div_12_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](83, "pre", 7);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](84, "code");
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](85, "add(name: string, building: string, floor: string, room: string, day: string, hours: number, minutes: number, department?: string): void {\n    let time = {hours, minutes};\n    if(!name || !room || !day || !time || !building || !floor) {\n      this.fieldsEmpty = true;\n      return;\n    }\n\n    this.lectureService.addLecture({name, building, floor, room, day, time, department} as Lecture)\n      .subscribe(lecture => {\n        this.lectures.push(lecture);\n        this.goBack();\n      });\n}");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](85, "add(name: string, building: string, floor: string, room: string, day: string, hours: string, minutes: string, department?: string): void {\n    let hoursInt = parseInt(hours);\n    let minutesInt = parseInt(minutes);\n    let time = {hours: hoursInt, minutes: minutesInt};\n    if(!name || !room || !day || !time || !building || !floor) {\n      this.fieldsEmpty = true;\n      return;\n    }\n\n    this.lectureService.addLecture({name, building, floor, room, day, time, department} as Lecture)\n      .subscribe(lecture => {\n        this.lectures.push(lecture);\n        this.goBack();\n      });\n}");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](86, "p");
@@ -6673,7 +6673,7 @@ function HttpComponent_div_13_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](32, "pre", 12);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](33, "code");
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](34, "<div *ngIf=\"lectures\">\n    <button class=\"ui primary button\" routerLink=\"/\n      lecture-add\">Add Lecture</button>\n    <button class=\"ui button\" (click)=\"deleteAll()\" *ngIf=\"lectures.length>0\">\n      Delete All</button>\n    <div *ngIf=\"lectures.length>0\" style=\"padding: 15px;\">\n      <div class=\"ui middle aligned divided list\">\n        <div *ngFor=\"let l of lectures\" class=\"item\">\n          <a class=\"app-lecture-item item\" [lecture]=\"l\"\n            routerLink=\"/lecture-details/");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](34, "<div *ngIf=\"lectures\">\n    <button class=\"ui primary button\" routerLink=\"/lecture-add\">Add Lecture</button>\n    <button class=\"ui button\" (click)=\"deleteAll()\" *ngIf=\"lectures.length>0\">\n      Delete All</button>\n    <div *ngIf=\"lectures.length>0\" style=\"padding: 15px;\">\n      <div class=\"ui middle aligned divided list\">\n        <div *ngFor=\"let l of lectures\" class=\"item\">\n          <a class=\"app-lecture-item item\" [lecture]=\"l\"\n            routerLink=\"/lecture-details/");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](35, "span");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](36, "{{");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
@@ -6681,7 +6681,7 @@ function HttpComponent_div_13_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](38, "span");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](39, "}}");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](40, " style=\"margin: 10px; padding:10px\"></a>\n          <button (click)=\"delete(l)\" class=\"ui button\">Delete</button>\n        </div>\n      </div>\n    </div>\n  \n    <div *ngIf=\"lectures.length==0\" style=\"padding: 15px;\">\n      <p>No Items in the Timetable!</p>\n    </div>\n</div>");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](40, "\" style=\"margin: 10px; padding:10px\"></a>\n          <button (click)=\"delete(l)\" class=\"ui button\">Delete</button>\n        </div>\n      </div>\n    </div>\n  \n    <div *ngIf=\"lectures.length==0\" style=\"padding: 15px;\">\n      <p>No Items in the Timetable!</p>\n    </div>\n</div>");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](41, "p");
@@ -7931,7 +7931,11 @@ function RoutingComponent_div_18_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](8, "code");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](9, "id");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](10, " key returns the id of the lecture to fetch. As route parameters are strings the + JavaScript-operator converts them to a number, because the lecture id is one.");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](10, " key returns the id of the lecture to fetch. As route parameters are strings we use ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](11, "code");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](12, "parseInt(...)");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](13, " to convert them to a number, because the lecture id is one.");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 } }
@@ -8097,7 +8101,7 @@ var RoutingComponent = /** @class */ (function () {
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](15, RoutingComponent_div_15_Template, 12, 0, "div", 4);
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](16, RoutingComponent_div_16_Template, 17, 0, "div", 3);
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](17, RoutingComponent_div_17_Template, 20, 0, "div", 4);
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](18, RoutingComponent_div_18_Template, 11, 0, "div", 3);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](18, RoutingComponent_div_18_Template, 14, 0, "div", 3);
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](19, RoutingComponent_div_19_Template, 39, 0, "div", 4);
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](20, RoutingComponent_div_20_Template, 39, 0, "div", 4);
         } if (rf & 2) {
