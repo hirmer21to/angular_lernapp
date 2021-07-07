@@ -186,7 +186,7 @@ import &#123; Location &#125; from "@angular/common";</code></pre>
     const id = this.route.snapshot.paramMap.get("id");
     // check if id is null
     if(id !== null) &#123;
-      this.lectureService.getLecture(id)
+      this.lectureService.getLecture(parseInt(id))
       .subscribe(lecture => this.lecture = lecture);
     &#125;
 &#125;</code></pre>
