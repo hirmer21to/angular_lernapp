@@ -7912,7 +7912,7 @@ function RoutingComponent_div_17_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](17, "pre", 8);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](18, "code");
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](19, "getLecture(): void {\n    const id = this.route.snapshot.paramMap.get(\"id\");\n    // check if id is null\n    if(id !== null) {\n      this.lectureService.getLecture(id)\n      .subscribe(lecture => this.lecture = lecture);\n    }\n}");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](19, "getLecture(): void {\n    const id = this.route.snapshot.paramMap.get(\"id\");\n    // check if id is null\n    if(id !== null) {\n      this.lectureService.getLecture(parseInt(id))\n      .subscribe(lecture => this.lecture = lecture);\n    }\n}");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
