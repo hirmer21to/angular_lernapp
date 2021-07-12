@@ -3049,7 +3049,7 @@ function ComponentsFormmodulesDirectivesComponent_div_3_Template(rf, ctx) { if (
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](18, "br");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](19, " Your day looks like that: Monday, Tuesday, Wednesday, Thursday, Friday.");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](20, "br");
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](21, " Your hours are between 08 and 19 and always consists of two numbers.");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](21, " Your hours are between 8 and 19.");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](22, "br");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](23, " Your minutes are 00, 15, 30 or 45.");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](24, "br");
